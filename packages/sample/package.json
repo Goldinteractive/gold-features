@@ -1,9 +1,0 @@
-{
-  "name": "@goldinteractive/gi-feature-sample2",
-  "version": "0.0.8",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "gi-js-base": "^0.0.61"
-  }
-}
