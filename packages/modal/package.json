@@ -2,7 +2,8 @@
   "name": "@goldinteractive/feature-modal",
   "version": "0.0.1",
   "description": "modal feature",
-  "main": "lib/index.js",
+  "main": "lib/main.min.js",
+  "module": "src/index.js",
   "author": "Gold Interactive",
   "license": "MIT",
   "scripts": {
