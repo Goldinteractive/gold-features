@@ -24,7 +24,7 @@ module.exports = {
     (context, request, callback) => {
       if (/^gi-.+$/.test(request)){
         // TODO generate define name based on required package...
-        callback(null, request)
+        return callback(null, request)
       }
       callback();
     }
