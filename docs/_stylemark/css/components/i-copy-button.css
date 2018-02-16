@@ -1,0 +1,9 @@
+.i-copy-button {
+	position: absolute;
+	top: 0;
+	right: 5px;
+	font-size: 13px;
+	font-weight: 500;
+	color: #888;
+	border-color: transparent;
+}
