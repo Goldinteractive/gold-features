@@ -3,6 +3,13 @@
   "packages": [
     "packages/*"
   ],
+  "commands": {
+    "publish": {
+      "ignore": [
+        "docs-helper"
+      ]
+    }
+  },
   "npmClient": "yarn",
   "version": "independent"
 }
