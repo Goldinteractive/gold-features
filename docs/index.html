@@ -22,7 +22,6 @@
 						<option disabled selected>Go to…</option>
 							<optgroup label="Modal">
 									<option value="modal">Modal</option>
-									<option value="modal-extended">Modal Extended</option>
 							</optgroup>
 					</select>
 				</form>
@@ -31,7 +30,7 @@
 				<div id="category-modal">
 						<div id="modal" class="i-library">
 	<h1 class="display-4">Modal</h1>
-	<div><p>Just Modals</p>
+	<div><p>Modals must define a data-modal-identifier attribute, which will be the way to communicate. Trigger <code>identifier:open</code> on the event hub to open the modal.</p>
 
 <div class="i-code-block">
 	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
@@ -161,138 +160,6 @@
 </div></div>
 </div>
 
-						<div id="modal-extended" class="i-library">
-	<h1 class="display-4">Modal Extended</h1>
-	<div><p>Just Modals</p>
-
-<div class="i-code-block">
-	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
-	<div class="i-code-block__content hidden">
-		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
-  featurify([{ name: &#39;feature-modal&#39;, path: &#39;modal/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Modal, base, features) {
-    features.add(&#39;modal&#39;, Modal.default);
-    features.init(document.body);
-    base.eventHub.trigger(&#39;sample-id:open&#39;);
-  });
-});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
-		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
-  featurify([{ name: &#39;feature-modal&#39;, path: &#39;modal/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Modal, base, features) {
-    features.add(&#39;modal&#39;, Modal.default);
-    features.init(document.body);
-    base.eventHub.trigger(&#39;sample-id:open&#39;);
-  });
-});</code></pre>
-	</div>
-</div><div class="i-example">
-                    <h5 class="i-example__heading">
-                        <a
-                            href="modal-extended-types.html"
-                            target="_blank"
-                            class="fa fa-external-link-square fa-fw plain-link"
-                            title="Open in a new window"
-                        ></a>
-                        Example
-                    </h5>
-                    <div class="i-example__body">
-                        <div
-                            class="i-example__iframe"
-                            lazyframe
-                            data-src="modal-extended-types.html"
-                            data-initinview="true"
-                            data-title="Loading…"
-
-                        ></div>
-                    </div>
-                </div>
-
-
-<div class="i-code-block">
-	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
-	<div class="i-code-block__content hidden">
-		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;div class=&quot;ft-modal -default -animated&quot; aria-hidden=&quot;true&quot; data-feature=&quot;modal&quot; data-modal-identifier=&quot;sample-id&quot;&gt;
-
-  &lt;!--
-    Overlay related notes:
-    - It has to have the `tabindex=&quot;-1&quot;` attribute.
-    - It doesn’t have to have the `data-a11y-dialog-hide` attribute, however this is recommended. It hides the dialog when clicking outside of it.
-  --&gt;
-  &lt;div class=&quot;dialog-overlay&quot; tabindex=&quot;-1&quot; data-a11y-dialog-hide&gt;&lt;/div&gt;
-
-  &lt;!--
-    Dialog window content related notes:
-    - It is the actual visual dialog element.
-    - It has to have the `role=&quot;dialog&quot;` attribute.
-    - It doesn’t have to have the `aria-labelledby` attribute however this is recommended. It should match the `id` of the dialog title.
-    - It doesn’t have to have a direct child with the `role=&quot;document&quot;`, however this is recommended.
-  --&gt;
-  &lt;div role=&quot;dialog&quot; class=&quot;dialog-content&quot;&gt;
-    &lt;div role=&quot;document&quot;&gt;
-      &lt;!--
-        Closing button related notes:
-        - It does have to have the `type=&quot;button&quot;` attribute.
-        - It does have to have the `data-a11y-dialog-hide` attribute.
-        - It does have to have an aria-label attribute if you use an icon as content.
-      --&gt;
-      &lt;button class=&quot;dialog-close&quot; type=&quot;button&quot; data-a11y-dialog-hide aria-label=&quot;Schliessen&quot;&gt;
-        &amp;times;
-      &lt;/button&gt;
-
-      &lt;!--
-        Dialog title related notes:
-        - It should have a different content than `Dialog Title`.
-        - It can have a different id than `dialog-title`.
-      --&gt;
-      Content which can use multiple divs
-      &lt;!--
-        Here lives the main content of the dialog.
-      --&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
-		<pre class="mb-0"><code class="lang-">&lt;div class=&quot;ft-modal -default -animated&quot; aria-hidden=&quot;true&quot; data-feature=&quot;modal&quot; data-modal-identifier=&quot;sample-id&quot;&gt;
-
-  &lt;!--
-    Overlay related notes:
-    - It has to have the `tabindex=&quot;-1&quot;` attribute.
-    - It doesn’t have to have the `data-a11y-dialog-hide` attribute, however this is recommended. It hides the dialog when clicking outside of it.
-  --&gt;
-  &lt;div class=&quot;dialog-overlay&quot; tabindex=&quot;-1&quot; data-a11y-dialog-hide&gt;&lt;/div&gt;
-
-  &lt;!--
-    Dialog window content related notes:
-    - It is the actual visual dialog element.
-    - It has to have the `role=&quot;dialog&quot;` attribute.
-    - It doesn’t have to have the `aria-labelledby` attribute however this is recommended. It should match the `id` of the dialog title.
-    - It doesn’t have to have a direct child with the `role=&quot;document&quot;`, however this is recommended.
-  --&gt;
-  &lt;div role=&quot;dialog&quot; class=&quot;dialog-content&quot;&gt;
-    &lt;div role=&quot;document&quot;&gt;
-      &lt;!--
-        Closing button related notes:
-        - It does have to have the `type=&quot;button&quot;` attribute.
-        - It does have to have the `data-a11y-dialog-hide` attribute.
-        - It does have to have an aria-label attribute if you use an icon as content.
-      --&gt;
-      &lt;button class=&quot;dialog-close&quot; type=&quot;button&quot; data-a11y-dialog-hide aria-label=&quot;Schliessen&quot;&gt;
-        &amp;times;
-      &lt;/button&gt;
-
-      &lt;!--
-        Dialog title related notes:
-        - It should have a different content than `Dialog Title`.
-        - It can have a different id than `dialog-title`.
-      --&gt;
-      Content which can use multiple divs
-      &lt;!--
-        Here lives the main content of the dialog.
-      --&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-	</div>
-</div></div>
-</div>
-
 				</div>
 		</div>
 		<div
@@ -321,7 +188,7 @@
 			
 					<h5
 						class="pt-4 mb-1"
-						data-filter-value=" Modal  Modal Extended "
+						data-filter-value=" Modal "
 					>
 						<a href="#category-modal" class="i-sidebar-list-item">
 							<b>Modal</b>
@@ -335,13 +202,6 @@
 								data-filter-value="Modal"
 							>
 								<span>Modal</span>
-							</a>
-							<a
-								href="#modal-extended"
-								class="i-sidebar-list-item"
-								data-filter-value="Modal Extended"
-							>
-								<span>Modal Extended</span>
 							</a>
 					</div>
 			
