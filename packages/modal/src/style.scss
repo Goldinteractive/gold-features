@@ -1,0 +1,58 @@
+$ft-modal-overlay-z-index: 2 !default;
+$ft-modal-content-z-index: 3 !default;
+
+$ft-modal-theme-background-color: #fff !default;
+$ft-modal-theme-overlay-color: rgba(0, 0, 0, 0.4) !default;
+$ft-modal-animated-duration: 0.2s !default;
+
+.ft-modal {
+    &[aria-hidden='true'] {
+        visibility: hidden;
+    }
+    .dialog-overlay {
+        z-index: $ft-modal-overlay-z-index;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+    .dialog-content {
+        z-index: $ft-modal-content-z-index;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &.-animated {
+        &[aria-hidden='true'] {
+            .dialog-content, .dialog-overlay {
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+        .dialog-content, .dialog-overlay {
+            transition: opacity $ft-modal-animated-duration ease-in, visibility $ft-modal-animated-duration ease-in;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    &.-default {
+        .dialog-overlay {
+            background-color: $ft-modal-theme-overlay-color;
+        }
+        .dialog-content {
+            background-color: $ft-modal-theme-background-color;
+            padding: 20px;
+            border-radius: 2px;
+            .dialog-close {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                border: 0px;
+            }
+        }
+    }
+}

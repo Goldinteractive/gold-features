@@ -1,0 +1,17 @@
+{
+  "name": "docs-helper",
+  "version": "1.0.0",
+  "description": "dependencies for docs folder",
+  "main": "index.js",
+  "author": "Gold Interactive",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/copy.js"
+  },
+  "devDependencies": {
+    "gi-js-base": "^0.0.61",
+    "mkdirp": "^0.5.1",
+    "requirejs": "^2.3.5"
+  }
+}

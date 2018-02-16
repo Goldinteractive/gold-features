@@ -1,0 +1,45 @@
+{
+  "name": "gold-features",
+  "version": "0.0.1.alpha",
+  "description": "contains all gold features",
+  "author": "Gold Interactive",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Goldinteractive/gold-features.git"
+  },
+  "scripts": {
+    "lerna": "lerna",
+    "lerna:build": "lerna run build",
+    "stylemark": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml",
+    "stylemark:watch": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml -w"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.5",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "chalk": "^2.3.0",
+    "css-mqpacker": "^6.0.2",
+    "cssnano": "^3.10.0",
+    "lerna": "^2.8.0",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^4.7.2",
+    "postcss": "^6.0.17",
+    "postcss-assets": "^5.0.0",
+    "postcss-cli": "^5.0.0",
+    "postcss-import": "^11.0.0",
+    "postcss-pxtorem": "^4.0.1",
+    "run-parallel": "^1.1.6",
+    "shelljs": "^0.8.1",
+    "stylemark": "^0.6.3",
+    "uglifyjs-webpack-plugin": "^1.1.8",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1",
+    "webpack-format-messages": "^1.0.1"
+  },
+  "browserslist": [
+    "> 5%",
+    "last 2 version"
+  ]
+}

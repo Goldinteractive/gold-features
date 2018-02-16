@@ -1,0 +1,21 @@
+name: Gold Features
+
+sidebar:
+  background: linear-gradient(0deg, rgb(201,38,83) 0%, rgb(252,48,104) 80%)
+
+# match: ['modal.md'],,
+
+excludeDir:
+  - node_modules
+  - ./docs
+
+assets:
+  - docsHelper/lib/require.js
+  - docsHelper/lib/base.js
+  - docsHelper/featurify.js
+  - modal/lib
+headHtml: >
+  <link rel="stylesheet" type="text/css" href="modal/lib/style.css">
+  <script src="docsHelper/lib/require.js"></script>
+  <script src="docsHelper/lib/base.js"></script>
+  <script src="docsHelper/featurify.js"></script>
