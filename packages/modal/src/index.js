@@ -1,7 +1,7 @@
 import A11yDialog from 'a11y-dialog'
-import { Feature } from 'gi-js-base/src/features'
+import { features } from '@goldinteractive/js-base'
 
-class Modal extends Feature {
+class Modal extends features.Feature {
 
   init() {
     this.dialog = new A11yDialog(this.node)

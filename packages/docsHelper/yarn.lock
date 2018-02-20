@@ -2,6 +2,20 @@
 # yarn lockfile v1
 
 
+"@goldinteractive/js-base@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@goldinteractive/js-base/-/js-base-0.0.1.tgz#91daec794b0903bfec0289f61304ddeaa5903bf5"
+  dependencies:
+    camel-case "^3.0.0"
+    core-js "^2.5.1"
+    detect-it "^3.0.3"
+    easing-js danro/easing-js
+    fetch-jsonp "^1.1.3"
+    promise-polyfill "^6.0.2"
+    qs "^6.5.1"
+    riot-observable "^3.0.0"
+    whatwg-fetch "^2.0.3"
+
 camel-case@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/camel-case/-/camel-case-3.0.0.tgz#ca3c3688a4e9cf3a4cda777dc4dcbc713249cf73"
@@ -45,20 +59,6 @@ easing-js@danro/easing-js:
 fetch-jsonp@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/fetch-jsonp/-/fetch-jsonp-1.1.3.tgz#9eb9e585ba08aaf700563538d17bbebbcd5a3db2"
-
-gi-js-base@^0.0.61:
-  version "0.0.61"
-  resolved "https://registry.yarnpkg.com/gi-js-base/-/gi-js-base-0.0.61.tgz#861cffc51bfb7a1587db6f35fb64f91b602f58e3"
-  dependencies:
-    camel-case "^3.0.0"
-    core-js "^2.5.1"
-    detect-it "^3.0.3"
-    easing-js danro/easing-js
-    fetch-jsonp "^1.1.3"
-    promise-polyfill "^6.0.2"
-    qs "^6.5.1"
-    riot-observable "^3.0.0"
-    whatwg-fetch "^2.0.3"
 
 lower-case@^1.1.1:
   version "1.1.4"
