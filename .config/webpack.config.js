@@ -22,9 +22,10 @@ module.exports = {
   entry: paths.app.indexJs,
   externals: [ 
     (context, request, callback) => {
-      if (/^gi-.+$/.test(request)){
-        // TODO generate define name based on required package...
-        return callback(null, request)
+      // match any gi-* or @goldinteractive/* repo
+      if (/^(gi-|@goldinteractive\/).+$/.test(request)){
+        const libName = /^(gi-|@goldinteractive\/)(.+)$/.exec(request)[2];
+        return callback(null, libName)
       }
       callback();
     }
