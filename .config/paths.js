@@ -13,7 +13,8 @@ const resolveBin = relativePath => path.resolve(resolveOwn('node_modules/.bin'),
 module.exports = {
   names: {
     lib: 'lib',
-    libName
+    libName,
+    outputName: '/main.min.js'
   },
   global: {
     docs: resolveOwn('docs')

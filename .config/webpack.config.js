@@ -23,7 +23,7 @@ module.exports = {
   externals: [ 
     (context, request, callback) => {
       // match any gi-* or @goldinteractive/* repo
-      if (/^(gi-|@goldinteractive\/).+$/.test(request)){
+      if (/^(gi-|@goldinteractive\/).+$/.test(request)) {
         const libName = /^(gi-|@goldinteractive\/)(.+)$/.exec(request)[2];
         return callback(null, libName)
       }
@@ -32,7 +32,7 @@ module.exports = {
   ],
   output: {
     path: paths.app.entry,
-    filename: paths.names.lib + '/main.min.js',
+    filename: paths.names.lib + paths.names.outputName,
     library: paths.names.libName,
     libraryTarget: 'umd',
     umdNamedDefine: true
