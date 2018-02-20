@@ -7,6 +7,12 @@ define('featurify', [], function() {
               return base.features;
           }
       );
+      define('js-base',
+          ['base'],
+          function(base) {
+              return base;
+          }
+      );
       var alteredDepList = [];
       var preloadDepList = [];
       dependencyList.forEach(function (dependency) {

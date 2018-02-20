@@ -10,8 +10,10 @@
     "build": "node scripts/copy.js"
   },
   "devDependencies": {
-    "gi-js-base": "^0.0.61",
     "mkdirp": "^0.5.1",
     "requirejs": "^2.3.5"
+  },
+  "dependencies": {
+    "@goldinteractive/js-base": "^0.0.1"
   }
 }
