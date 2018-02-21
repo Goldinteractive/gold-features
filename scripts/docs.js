@@ -1,4 +1,3 @@
-
 var fs = require('fs');
 const mkdirp = require('mkdirp');
 const shell = require('shelljs');
