@@ -23,4 +23,4 @@ We use lerna to orchestrate the build and publish process.
 
 There is a bootstrap script in place to ease the creation of new features.
 
-`yarn create:feature --name icons` will create a new feature and set up the base file structure
+`yarn create:feature --name sample` will create a new feature and set up the base file structure (replace `sample` with the feature name, e.g. for `feature-modal` use `modal`)
