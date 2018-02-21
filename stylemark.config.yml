@@ -17,9 +17,12 @@ assets:
   - icons/lib
   - icons/docs/icons.svg
   - icons/docs/icons.json
+  - object-fit/lib
+  - object-fit/docs/files
 headHtml: >
   <link rel="stylesheet" type="text/css" href="modal/lib/style.css">
   <link rel="stylesheet" type="text/css" href="icons/lib/style.css">
+  <link rel="stylesheet" type="text/css" href="object-fit/lib/style.css">
   <script src="docsHelper/lib/require.js"></script>
   <script src="docsHelper/lib/base.js"></script>
   <script src="docsHelper/featurify.js"></script>
