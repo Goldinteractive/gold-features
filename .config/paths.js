@@ -14,7 +14,8 @@ module.exports = {
   names: {
     lib: 'lib',
     libName,
-    outputName: '/main.min.js'
+    outputName: '/main.min.js',
+    assets: 'assets/features'
   },
   global: {
     docs: resolveOwn('docs')

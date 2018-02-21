@@ -33,7 +33,17 @@ if (fs.existsSync(libPath)) {
             to: upperCamelCase(libName)
           });
         }).then(() => {
-          logger.success('created lib');
+          const assetFolder = libPath + '/' + paths.names.assets + '/' + libName;
+          mkdirp(assetFolder, () => {
+            fs.writeFile(assetFolder + '/.gitkeep', '', function(err) {
+              if (err) {
+                logger.error('failed to create .gitkeep for asset folder');
+                console.log(err);
+              } else {
+                logger.success('created lib');
+              }
+            });
+          });
         }).catch((error) => {
           logger.error('failed to replace in package.json');
           console.log(error);
