@@ -1,0 +1,20 @@
+{
+  "name": "@goldinteractive/feature-slider",
+  "version": "0.0.1-alpha",
+  "description": "slider feature",
+  "main": "lib/main.min.js",
+  "module": "src/index.js",
+  "author": "Gold Interactive",
+  "license": "MIT",
+  "scripts": {
+    "build": "node ../../scripts/build.js",
+    "watch": "node ../../scripts/watch.js"
+  },
+  "dependencies": {
+    "flickity": "^2.0.10",
+    "flickity-imagesloaded": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@goldinteractive/js-base": "^0.0.1"
+  }
+}
