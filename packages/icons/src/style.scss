@@ -1,0 +1,48 @@
+$icons-width: 1em !default;
+$icons-height: 1em !default;
+$icons-baseline-fix: -0.125em !default;
+
+// Icons
+// =========================
+
+.icon-box {
+  height: $icons-height;
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  display: inline-flex;
+  align-self: center;
+  user-select: none;
+  bottom: $icons-baseline-fix;
+
+  > .icon-canvas {
+    display: block;
+    height: 100%;
+    visibility: hidden;
+  }
+
+  > .icon-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  &.-equal {
+    width: $icons-width;
+    height: $icons-height;
+  }
+
+  &.-original,
+  &.-resonsive {
+    > .icon-svg {
+      bottom: auto;
+    }
+  }
+
+  &.-responsive {
+    display: block;
+    width: 100%;
+  }
+}
