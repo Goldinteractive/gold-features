@@ -26,6 +26,12 @@ module.exports = {
     assets: resolveApp('assets'),
     outputPath: resolveApp('lib'),
   },
+  packages: {
+    entry: resolveOwn('packages')
+  },
+  helpers: {
+    skeleton: resolveOwn('helpers/skeleton')
+  },
   config: {
     postcss: resolveOwn('.config/postcss.config.js')
   },

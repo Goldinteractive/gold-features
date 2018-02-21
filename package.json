@@ -12,7 +12,8 @@
     "lerna": "lerna",
     "lerna:build": "lerna run build",
     "stylemark": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml",
-    "stylemark:watch": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml -w"
+    "stylemark:watch": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml -w",
+    "create:feature": "node scripts/create.js"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.5",
@@ -23,17 +24,21 @@
     "css-mqpacker": "^6.0.2",
     "cssnano": "^3.10.0",
     "lerna": "^2.8.0",
+    "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
     "node-sass": "^4.7.2",
     "postcss": "^6.0.17",
     "postcss-assets": "^5.0.0",
     "postcss-cli": "^5.0.0",
     "postcss-import": "^11.0.0",
     "postcss-pxtorem": "^4.0.1",
+    "replace-in-file": "^3.1.1",
     "run-parallel": "^1.1.6",
     "shelljs": "^0.8.1",
     "stylemark": "^0.6.3",
     "uglifyjs-webpack-plugin": "^1.1.8",
+    "uppercamelcase": "^3.0.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1",
     "webpack-format-messages": "^1.0.1"
