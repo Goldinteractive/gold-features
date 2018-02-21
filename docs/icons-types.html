@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="modal/lib/style.css"> <link rel="stylesheet" type="text/css" href="icons/lib/style.css"> <script src="docsHelper/lib/require.js"></script> <script src="docsHelper/lib/base.js"></script> <script src="docsHelper/featurify.js"></script>
+
+
+		<style>
+		</style>
+
+		<style>
+			html, body {
+				min-height: 0 !important;
+				height: auto !important;
+			}
+		</style>
+
+		<script>
+			function getStylemarkBlock(language, defaultIfEmpty) {
+				defaultIfEmpty = defaultIfEmpty || '';
+				var script = document.querySelector('script[data-language="' + language + '"]');
+				return script ? script.innerText : defaultIfEmpty;
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<main
+			role="main"
+			id="stylemark-root"
+			ng-controller="stylemark-icons-types"
+			style="
+				display: block;
+				padding: ;
+				width: ;
+			"
+		><h2>Proportionally sized icon with height taken from <pre>$icons-height</pre> variable</h2>
+<p>
+  Lorem ipsum dolor <span data-feature="icon" data-icon="sackmesser"></span> sit amet, consetetur sadipscing elitr,
+  sed diam nonumy eirmod tempor <span data-feature="icon" data-icon="company"></span> invidunt ut labore et dolore magna aliquyam erat,
+  sed diam voluptua. <span data-feature="icon" data-icon="user"></span> At vero eos et accusam et justo duo dolores et ea rebum.
+</p>
+
+<h2>Equal sized icon with sizes taken from <pre>$icons-width</pre> and <pre>$icons-height</pre> variables</h2>
+<ul>
+  <li><span data-feature="icon" data-icon="sackmesser" data-equal></span> Lorem ipsum dolor</li>
+  <li><span data-feature="icon" data-icon="company" data-equal></span> Lorem ipsum dolor</li>
+  <li><span data-feature="icon" data-icon="user" data-equal></span> Lorem ipsum dolor</li>
+</ul>
+
+<h2>Original icon with sizes taken from the original svg</h2>
+<p><span data-feature="icon" data-icon="sackmesser" data-original></span></p>
+
+<h2>Responsive icon</h2>
+<span data-feature="icon" data-icon="sackmesser" data-responsive></span></main>
+
+		
+
+			<script type="text/x-stylemark" data-language="js">require(['featurify'], function(featurify) {
+  featurify([{ name: 'feature-icons', path: 'icons/lib/main.min.js' }, 'base', 'base.features'], function(Icons, base, features) {
+
+    var icons = new Icons.IconManager({
+      svgJsonFile: 'icons/docs/icons.json',
+      svgSpriteFile: 'icons/docs/icons.svg'
+    })
+
+    icons.injectSprite(() => {
+      icons.loadData(() => {
+        features.add('icon', Icons.default, { manager: icons })
+        features.init(document.body, 'icon');
+      })
+    })
+  });
+});</script>
+			<script type="text/x-stylemark" data-language="html"><h2>Proportionally sized icon with height taken from <pre>$icons-height</pre> variable</h2>
+<p>
+  Lorem ipsum dolor <span data-feature="icon" data-icon="sackmesser"></span> sit amet, consetetur sadipscing elitr,
+  sed diam nonumy eirmod tempor <span data-feature="icon" data-icon="company"></span> invidunt ut labore et dolore magna aliquyam erat,
+  sed diam voluptua. <span data-feature="icon" data-icon="user"></span> At vero eos et accusam et justo duo dolores et ea rebum.
+</p>
+
+<h2>Equal sized icon with sizes taken from <pre>$icons-width</pre> and <pre>$icons-height</pre> variables</h2>
+<ul>
+  <li><span data-feature="icon" data-icon="sackmesser" data-equal></span> Lorem ipsum dolor</li>
+  <li><span data-feature="icon" data-icon="company" data-equal></span> Lorem ipsum dolor</li>
+  <li><span data-feature="icon" data-icon="user" data-equal></span> Lorem ipsum dolor</li>
+</ul>
+
+<h2>Original icon with sizes taken from the original svg</h2>
+<p><span data-feature="icon" data-icon="sackmesser" data-original></span></p>
+
+<h2>Responsive icon</h2>
+<span data-feature="icon" data-icon="sackmesser" data-responsive></span></script>
+
+		<script>
+			eval(getStylemarkBlock('js'));
+		</script>
+
+		<script>
+			(function(angular) {
+				if (!angular) {
+					return;
+				}
+
+				var moduleElem = document.querySelector('[ng-app]');
+				var module;
+
+				if (moduleElem) {
+					// Uses an existing module
+					module = angular.module(moduleElem.getAttribute('ng-app'));
+				}
+				else {
+					// Creates a new module
+					module = angular.module('stylemark-icons-types', []);
+				}
+
+				module.controller('stylemark-icons-types', function($scope) {
+					$scope.$eval(getStylemarkBlock('angularjs'));
+				});
+			})(window.angular);
+		</script>
+
+		<script>
+			(function(ReactDOM) {
+				if (!ReactDOM) {
+					return;
+				}
+
+				var Component = eval(getStylemarkBlock('jsx'));
+				var rootNode = document.getElementById('stylemark-root');
+				ReactDOM.render(Component, rootNode);
+			})(window.ReactDOM);
+		</script>
+
+		<script>
+			(function(Ember) {
+				if (!Ember) {
+					return;
+				}
+
+				var render = function() {
+					var app = window.noop
+					var container = app.__container__;
+					var renderer = container.lookup('renderer:-dom');
+					var hbs = getStylemarkBlock('handlebars') || getStylemarkBlock('hbs');
+					var template = Ember.HTMLBars.compile(hbs);
+
+					var context;
+					eval('context = ' + getStylemarkBlock('js', '{}'));
+
+					// Credit:
+					// http://stackoverflow.com/questions/27950413/render-ember-js-hbs-template-to-a-string#answer-35625858
+					var compile = function(container, template, context) {
+						return new Ember.RSVP.Promise(function(resolve) {
+							Ember.Component.extend(Ember.merge({
+								style: 'display:none;',
+								layout: template,
+								container: container,
+								renderer: renderer,
+
+								init: function() {
+									this._super.apply(this, arguments);
+									Ember.setOwner(this, container);
+								},
+
+								didRender: function() {
+									var elem = this.$();
+									resolve(elem);
+									this.destroy();
+								}
+							}, context))
+								.create()
+								.append();
+
+						});
+					};
+
+					compile(container, template, context).then(function(elem) {
+						jQuery('#stylemark-root').append(elem);
+					});
+				};
+
+				var isReady = function() {
+					return window.noop
+						&& window.noop.__container__;
+				};
+
+				var checkReady = function() {
+					if (isReady()) {
+						render();
+					}
+					else {
+						setTimeout(checkReady, 20);
+					}
+				};
+
+				checkReady();
+
+			})(window.Ember);
+		</script>
+
+		<script src="_stylemark/js/vendor/iframeResizer.contentWindow.min.js"></script>
+	</body>
+
+</html>

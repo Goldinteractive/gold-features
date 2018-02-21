@@ -20,6 +20,9 @@
 				<form class="form">
 					<select class="form-control form-control-lg">
 						<option disabled selected>Go to…</option>
+							<optgroup label="Icons">
+									<option value="icons">Icons</option>
+							</optgroup>
 							<optgroup label="Modal">
 									<option value="modal">Modal</option>
 							</optgroup>
@@ -27,6 +30,116 @@
 				</form>
 			</div>
 
+				<div id="category-icons">
+						<div id="icons" class="i-library">
+	<h1 class="display-4">Icons</h1>
+	<div><p>Icons</p>
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-icons&#39;, path: &#39;icons/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Icons, base, features) {
+
+    var icons = new Icons.IconManager({
+      svgJsonFile: &#39;icons/docs/icons.json&#39;,
+      svgSpriteFile: &#39;icons/docs/icons.svg&#39;
+    })
+
+    icons.injectSprite(() =&gt; {
+      icons.loadData(() =&gt; {
+        features.add(&#39;icon&#39;, Icons.default, { manager: icons })
+        features.init(document.body, &#39;icon&#39;);
+      })
+    })
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-icons&#39;, path: &#39;icons/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Icons, base, features) {
+
+    var icons = new Icons.IconManager({
+      svgJsonFile: &#39;icons/docs/icons.json&#39;,
+      svgSpriteFile: &#39;icons/docs/icons.svg&#39;
+    })
+
+    icons.injectSprite(() =&gt; {
+      icons.loadData(() =&gt; {
+        features.add(&#39;icon&#39;, Icons.default, { manager: icons })
+        features.init(document.body, &#39;icon&#39;);
+      })
+    })
+  });
+});</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="icons-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="icons-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;h2&gt;Proportionally sized icon with height taken from &lt;pre&gt;$icons-height&lt;/pre&gt; variable&lt;/h2&gt;
+&lt;p&gt;
+  Lorem ipsum dolor &lt;span data-feature=&quot;icon&quot; data-icon=&quot;sackmesser&quot;&gt;&lt;/span&gt; sit amet, consetetur sadipscing elitr,
+  sed diam nonumy eirmod tempor &lt;span data-feature=&quot;icon&quot; data-icon=&quot;company&quot;&gt;&lt;/span&gt; invidunt ut labore et dolore magna aliquyam erat,
+  sed diam voluptua. &lt;span data-feature=&quot;icon&quot; data-icon=&quot;user&quot;&gt;&lt;/span&gt; At vero eos et accusam et justo duo dolores et ea rebum.
+&lt;/p&gt;
+
+&lt;h2&gt;Equal sized icon with sizes taken from &lt;pre&gt;$icons-width&lt;/pre&gt; and &lt;pre&gt;$icons-height&lt;/pre&gt; variables&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span data-feature=&quot;icon&quot; data-icon=&quot;sackmesser&quot; data-equal&gt;&lt;/span&gt; Lorem ipsum dolor&lt;/li&gt;
+  &lt;li&gt;&lt;span data-feature=&quot;icon&quot; data-icon=&quot;company&quot; data-equal&gt;&lt;/span&gt; Lorem ipsum dolor&lt;/li&gt;
+  &lt;li&gt;&lt;span data-feature=&quot;icon&quot; data-icon=&quot;user&quot; data-equal&gt;&lt;/span&gt; Lorem ipsum dolor&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Original icon with sizes taken from the original svg&lt;/h2&gt;
+&lt;p&gt;&lt;span data-feature=&quot;icon&quot; data-icon=&quot;sackmesser&quot; data-original&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h2&gt;Responsive icon&lt;/h2&gt;
+&lt;span data-feature=&quot;icon&quot; data-icon=&quot;sackmesser&quot; data-responsive&gt;&lt;/span&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">&lt;h2&gt;Proportionally sized icon with height taken from &lt;pre&gt;$icons-height&lt;/pre&gt; variable&lt;/h2&gt;
+&lt;p&gt;
+  Lorem ipsum dolor &lt;span data-feature=&quot;icon&quot; data-icon=&quot;sackmesser&quot;&gt;&lt;/span&gt; sit amet, consetetur sadipscing elitr,
+  sed diam nonumy eirmod tempor &lt;span data-feature=&quot;icon&quot; data-icon=&quot;company&quot;&gt;&lt;/span&gt; invidunt ut labore et dolore magna aliquyam erat,
+  sed diam voluptua. &lt;span data-feature=&quot;icon&quot; data-icon=&quot;user&quot;&gt;&lt;/span&gt; At vero eos et accusam et justo duo dolores et ea rebum.
+&lt;/p&gt;
+
+&lt;h2&gt;Equal sized icon with sizes taken from &lt;pre&gt;$icons-width&lt;/pre&gt; and &lt;pre&gt;$icons-height&lt;/pre&gt; variables&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span data-feature=&quot;icon&quot; data-icon=&quot;sackmesser&quot; data-equal&gt;&lt;/span&gt; Lorem ipsum dolor&lt;/li&gt;
+  &lt;li&gt;&lt;span data-feature=&quot;icon&quot; data-icon=&quot;company&quot; data-equal&gt;&lt;/span&gt; Lorem ipsum dolor&lt;/li&gt;
+  &lt;li&gt;&lt;span data-feature=&quot;icon&quot; data-icon=&quot;user&quot; data-equal&gt;&lt;/span&gt; Lorem ipsum dolor&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Original icon with sizes taken from the original svg&lt;/h2&gt;
+&lt;p&gt;&lt;span data-feature=&quot;icon&quot; data-icon=&quot;sackmesser&quot; data-original&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h2&gt;Responsive icon&lt;/h2&gt;
+&lt;span data-feature=&quot;icon&quot; data-icon=&quot;sackmesser&quot; data-responsive&gt;&lt;/span&gt;</code></pre>
+	</div>
+</div></div>
+</div>
+
+				</div>
 				<div id="category-modal">
 						<div id="modal" class="i-library">
 	<h1 class="display-4">Modal</h1>
@@ -184,6 +297,28 @@
 				</div>
 			</form>
 			
+				<div class="i-sidebar-list-group">
+			
+					<h5
+						class="pt-4 mb-1"
+						data-filter-value=" Icons "
+					>
+						<a href="#category-icons" class="i-sidebar-list-item">
+							<b>Icons</b>
+						</a>
+					</h5>
+			
+					<div>
+							<a
+								href="#icons"
+								class="i-sidebar-list-item"
+								data-filter-value="Icons"
+							>
+								<span>Icons</span>
+							</a>
+					</div>
+			
+				</div>
 				<div class="i-sidebar-list-group">
 			
 					<h5

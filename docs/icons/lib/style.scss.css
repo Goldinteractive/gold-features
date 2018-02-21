@@ -1,0 +1,27 @@
+.icon-box {
+  height: 1em;
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  display: inline-flex;
+  align-self: center;
+  user-select: none;
+  bottom: -0.125em; }
+  .icon-box > .icon-canvas {
+    display: block;
+    height: 100%;
+    visibility: hidden; }
+  .icon-box > .icon-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0; }
+  .icon-box.-equal {
+    width: 1em;
+    height: 1em; }
+  .icon-box.-original > .icon-svg, .icon-box.-resonsive > .icon-svg {
+    bottom: auto; }
+  .icon-box.-responsive {
+    display: block;
+    width: 100%; }
