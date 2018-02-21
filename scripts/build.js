@@ -1,3 +1,7 @@
+/*
+ * Script for production build
+ */
+
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
 process.env.FORCE_COLOR = 1;
