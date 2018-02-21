@@ -11,6 +11,9 @@
   "scripts": {
     "lerna": "lerna",
     "lerna:build": "lerna run build",
+    "lerna:updated": "lerna updated",
+    "lerna:publish": "yarn lerna:build && yarn lerna publish",
+    "lerna:exec": "lerna exec",
     "stylemark": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml",
     "stylemark:watch": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml -w",
     "create:feature": "node scripts/create.js"
