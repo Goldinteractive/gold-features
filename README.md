@@ -11,7 +11,7 @@ Make sure to copy the assets folder into your project.
 
 We use lerna to orchestrate the build and publish process.
 
-`yarn build` build all projects
+`yarn lerna:build` build all projects
 
 `yarn lerna updated` lists all packages which must be published
 
