@@ -18,3 +18,9 @@ We use lerna to orchestrate the build and publish process.
 `yarn lerna publish` publish changed projects (only commits package.json!)
 
 `yarn lerna publish --force-publish` publish all projects (required if core change has been performed)
+
+### How to create a gold feature
+
+There is a bootstrap script in place to ease the creation of new features.
+
+`yarn create:feature --name icons` will create a new feature and set up the base file structure
