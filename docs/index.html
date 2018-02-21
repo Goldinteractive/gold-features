@@ -29,6 +29,9 @@
 							<optgroup label="ObjectFit">
 									<option value="object-fit">ObjectFit</option>
 							</optgroup>
+							<optgroup label="Slider">
+									<option value="slider">Slider</option>
+							</optgroup>
 					</select>
 				</form>
 			</div>
@@ -512,6 +515,384 @@
 </div>
 
 				</div>
+				<div id="category-slider">
+						<div id="slider" class="i-library">
+	<h1 class="display-4">Slider</h1>
+	<div><p>Slider</p>
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-slider&#39;, path: &#39;slider/lib/main.min.js&#39; }, { name: &#39;feature-object-fit&#39;, path: &#39;object-fit/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Slider, ObjectFit, base, features) {
+    features.add(&#39;fit&#39;, ObjectFit.default);
+
+    base.features.add(&#39;slider&#39;, Slider.default, {
+      contain: true,
+      prevNextButtons: false
+    })
+
+    base.features.add(&#39;gallery-slider&#39;, Slider.default, {
+      imagesLoaded: true,
+      percentPosition: false,
+      contain: true,
+      cellAlign: &#39;left&#39;,
+      pageDots: false,
+      freeScroll: true
+    })
+
+    base.features.add(&#39;fw-gallery-slider&#39;, Slider.default, {
+      imagesLoaded: true,
+      contain: true
+    })
+
+    base.features.add(&#39;cover-slider&#39;, Slider.default, {
+      contain: true,
+      cellAlign: &#39;left&#39;,
+      pageDots: false,
+      freeScroll: true
+    })
+
+    base.features.add(&#39;fw-cover-slider&#39;, Slider.default, {
+      contain: true
+    })
+
+    base.features.add(&#39;event-slider&#39;, Slider.default, {
+      contain: true,
+      listeners: [
+        {
+          event: &#39;select&#39;,
+          handler: (flickity) =&gt; {
+            console.log(&#39;selected&#39;, flickity)
+          }
+        },
+        {
+          event: &#39;settle&#39;,
+          handler: (flickity) =&gt; {
+            console.log(&#39;settled&#39;, flickity)
+          }
+        }
+      ]
+    })
+
+    features.init(document.body);
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-slider&#39;, path: &#39;slider/lib/main.min.js&#39; }, { name: &#39;feature-object-fit&#39;, path: &#39;object-fit/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Slider, ObjectFit, base, features) {
+    features.add(&#39;fit&#39;, ObjectFit.default);
+
+    base.features.add(&#39;slider&#39;, Slider.default, {
+      contain: true,
+      prevNextButtons: false
+    })
+
+    base.features.add(&#39;gallery-slider&#39;, Slider.default, {
+      imagesLoaded: true,
+      percentPosition: false,
+      contain: true,
+      cellAlign: &#39;left&#39;,
+      pageDots: false,
+      freeScroll: true
+    })
+
+    base.features.add(&#39;fw-gallery-slider&#39;, Slider.default, {
+      imagesLoaded: true,
+      contain: true
+    })
+
+    base.features.add(&#39;cover-slider&#39;, Slider.default, {
+      contain: true,
+      cellAlign: &#39;left&#39;,
+      pageDots: false,
+      freeScroll: true
+    })
+
+    base.features.add(&#39;fw-cover-slider&#39;, Slider.default, {
+      contain: true
+    })
+
+    base.features.add(&#39;event-slider&#39;, Slider.default, {
+      contain: true,
+      listeners: [
+        {
+          event: &#39;select&#39;,
+          handler: (flickity) =&gt; {
+            console.log(&#39;selected&#39;, flickity)
+          }
+        },
+        {
+          event: &#39;settle&#39;,
+          handler: (flickity) =&gt; {
+            console.log(&#39;settled&#39;, flickity)
+          }
+        }
+      ]
+    })
+
+    features.init(document.body);
+  });
+});</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="slider-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="slider-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;h2&gt;Content Slider&lt;/h2&gt;
+
+&lt;div class=&quot;ft-slider -hidden&quot; data-feature=&quot;slider&quot;&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;p&gt;Think twice, code once ― Waseem Latif&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;p&gt;&#39;Truth can only be found in one place: the code. ― Robert C. Martin&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;p&gt;Programming isn&#39;t about what you know; it&#39;s about what you can figure out. ― Chris Pine&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Gallery Slider (Slide width from images and fixed height)&lt;/h2&gt;
+
+&lt;div class=&quot;ft-slider -hidden -gallery&quot; data-feature=&quot;gallery-slider&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test.jpeg&quot; alt=&quot;test&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test2.jpeg&quot; alt=&quot;test2&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test3.jpeg&quot; alt=&quot;test3&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test4.jpeg&quot; alt=&quot;test4&quot;&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Fullwidth Gallery Slider (Slider height from tallest image)&lt;/h2&gt;
+
+&lt;div class=&quot;ft-slider -hidden -gallery -fullwidth&quot; data-feature=&quot;fw-gallery-slider&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test.jpeg&quot; alt=&quot;test&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test2.jpeg&quot; alt=&quot;test2&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test3.jpeg&quot; alt=&quot;test3&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test4.jpeg&quot; alt=&quot;test4&quot;&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Cover Slider (Slide widths in percentage and fixed height) - &lt;a href=&quot;https://github.com/Goldinteractive/feature-object-fit&quot;&gt;object-fit&lt;/a&gt; feature used to cover area with image)&lt;/h2&gt;
+
+&lt;div class=&quot;ft-slider -hidden -gallery -cover&quot; data-feature=&quot;cover-slider&quot;&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test2.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test2&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test3.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test3&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test4.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test4&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Cover Fullwidth Slider (Slide widths in percentage and fixed height) - &lt;a href=&quot;https://github.com/Goldinteractive/feature-object-fit&quot;&gt;object-fit&lt;/a&gt; feature used to cover area with image)&lt;/h2&gt;
+
+&lt;div class=&quot;ft-slider -hidden -cover -fullwidth&quot; data-feature=&quot;fw-cover-slider&quot;&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test2.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test2&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test3.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test3&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test4.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test4&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Cover Fullwidth Slider (Slide widths in percentage and ratio height)- &lt;a href=&quot;https://github.com/Goldinteractive/feature-object-fit&quot;&gt;object-fit&lt;/a&gt; feature used to cover area with image)&lt;/h2&gt;
+
+&lt;div class=&quot;ft-slider -hidden -cover -ratio -fullwidth&quot; data-feature=&quot;fw-cover-slider&quot;&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test2.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test2&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test3.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test3&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test4.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test4&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Slider which handles events (see console)&lt;/h2&gt;
+&lt;div class=&quot;ft-slider -hidden -gallery&quot; data-feature=&quot;event-slider&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test.jpeg&quot; alt=&quot;test&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test2.jpeg&quot; alt=&quot;test2&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test3.jpeg&quot; alt=&quot;test3&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test4.jpeg&quot; alt=&quot;test4&quot;&gt;
+&lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">&lt;h2&gt;Content Slider&lt;/h2&gt;
+
+&lt;div class=&quot;ft-slider -hidden&quot; data-feature=&quot;slider&quot;&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;p&gt;Think twice, code once ― Waseem Latif&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;p&gt;&#39;Truth can only be found in one place: the code. ― Robert C. Martin&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;p&gt;Programming isn&#39;t about what you know; it&#39;s about what you can figure out. ― Chris Pine&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Gallery Slider (Slide width from images and fixed height)&lt;/h2&gt;
+
+&lt;div class=&quot;ft-slider -hidden -gallery&quot; data-feature=&quot;gallery-slider&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test.jpeg&quot; alt=&quot;test&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test2.jpeg&quot; alt=&quot;test2&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test3.jpeg&quot; alt=&quot;test3&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test4.jpeg&quot; alt=&quot;test4&quot;&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Fullwidth Gallery Slider (Slider height from tallest image)&lt;/h2&gt;
+
+&lt;div class=&quot;ft-slider -hidden -gallery -fullwidth&quot; data-feature=&quot;fw-gallery-slider&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test.jpeg&quot; alt=&quot;test&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test2.jpeg&quot; alt=&quot;test2&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test3.jpeg&quot; alt=&quot;test3&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test4.jpeg&quot; alt=&quot;test4&quot;&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Cover Slider (Slide widths in percentage and fixed height) - &lt;a href=&quot;https://github.com/Goldinteractive/feature-object-fit&quot;&gt;object-fit&lt;/a&gt; feature used to cover area with image)&lt;/h2&gt;
+
+&lt;div class=&quot;ft-slider -hidden -gallery -cover&quot; data-feature=&quot;cover-slider&quot;&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test2.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test2&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test3.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test3&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test4.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test4&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Cover Fullwidth Slider (Slide widths in percentage and fixed height) - &lt;a href=&quot;https://github.com/Goldinteractive/feature-object-fit&quot;&gt;object-fit&lt;/a&gt; feature used to cover area with image)&lt;/h2&gt;
+
+&lt;div class=&quot;ft-slider -hidden -cover -fullwidth&quot; data-feature=&quot;fw-cover-slider&quot;&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test2.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test2&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test3.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test3&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test4.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test4&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Cover Fullwidth Slider (Slide widths in percentage and ratio height)- &lt;a href=&quot;https://github.com/Goldinteractive/feature-object-fit&quot;&gt;object-fit&lt;/a&gt; feature used to cover area with image)&lt;/h2&gt;
+
+&lt;div class=&quot;ft-slider -hidden -cover -ratio -fullwidth&quot; data-feature=&quot;fw-cover-slider&quot;&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test2.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test2&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test3.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test3&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ft-fit-bg&quot;&gt;
+      &lt;img src=&quot;slider/docs/files/test4.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test4&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Slider which handles events (see console)&lt;/h2&gt;
+&lt;div class=&quot;ft-slider -hidden -gallery&quot; data-feature=&quot;event-slider&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test.jpeg&quot; alt=&quot;test&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test2.jpeg&quot; alt=&quot;test2&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test3.jpeg&quot; alt=&quot;test3&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test4.jpeg&quot; alt=&quot;test4&quot;&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+</div></div>
+</div>
+
+				</div>
 		</div>
 		<div
 			class="i-page__sidebar"
@@ -597,6 +978,28 @@
 								data-filter-value="ObjectFit"
 							>
 								<span>ObjectFit</span>
+							</a>
+					</div>
+			
+				</div>
+				<div class="i-sidebar-list-group">
+			
+					<h5
+						class="pt-4 mb-1"
+						data-filter-value=" Slider "
+					>
+						<a href="#category-slider" class="i-sidebar-list-item">
+							<b>Slider</b>
+						</a>
+					</h5>
+			
+					<div>
+							<a
+								href="#slider"
+								class="i-sidebar-list-item"
+								data-filter-value="Slider"
+							>
+								<span>Slider</span>
 							</a>
 					</div>
 			
