@@ -1,4 +1,7 @@
-var fs = require('fs');
+/*
+ * Script for bootstraping a new feature
+ */
+const fs = require('fs');
 const mkdirp = require('mkdirp');
 const shell = require('shelljs');
 const ncp = require('ncp');
@@ -6,13 +9,12 @@ const replace = require('replace-in-file');
 const upperCamelCase = require('uppercamelcase');
 const paths = require('../.config/paths');
 const logger = require('../helpers/logger');
-var argv = require('minimist')(process.argv.slice(2));
+const argv = require('minimist')(process.argv.slice(2));
 
 const libName = argv.name;
 
 const libPath = paths.packages.entry + '/' + libName;
 
-var fs = require('fs');
 if (fs.existsSync(libPath)) {
   logger.error(`Path for ${libName} already exsists`);
 } else {

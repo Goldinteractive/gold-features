@@ -38,6 +38,14 @@ There is a bootstrap script in place to ease the creation of new features.
 
 Create your feature and update the docs accordingly. Make sure to update `stylemark.config.yml` to ensure that all runtime dependencies are available on the docs pages.
 
+Run `yarn watch` in your feature folder to enable the dev mode and keep watching for changes. This is especially useful with `yarn stylemark:watch`. (Make sure to execute stylemark in the root directory - not your feature dir)
+
 ### What is this docs?
 
-The docs are generated using stylemark (https://github.com/nextbigsoundinc/stylemark). It automatically scans the entire `/packages` dir for `.md` or annotated code. Based on the findings it will generate a static documentation which is being served by Github Pages (Jekyll is disabled because it ignores certain folders, e.g. `node_modules`, `_stylemark`)
+The docs are generated using stylemark (https://github.com/nextbigsoundinc/stylemark).
+
+Generate it using `yarn stylemark` in the root directory.
+
+It automatically scans the entire `/packages` dir for `.md` or annotated code. Based on the findings it will generate a static documentation which is being served by Github Pages (Jekyll is disabled because it ignores certain folders, e.g. `node_modules`, `_stylemark`).
+
+`packages/docsHelper` contains scripts which must be embedded into the docs during runtime. (e.g. require.js)
