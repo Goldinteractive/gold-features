@@ -1,0 +1,21 @@
+{
+  "name": "@goldinteractive/feature-object-fit",
+  "version": "0.0.1",
+  "description": "object-fit feature",
+  "main": "lib/main.min.js",
+  "module": "src/index.js",
+  "author": "Gold Interactive",
+  "license": "MIT",
+  "scripts": {
+    "build": "node ../../scripts/build.js",
+    "watch": "node ../../scripts/watch.js"
+  },
+  "dependencies": {
+    "iphone-inline-video": "^2.2.2",
+    "object-fit-images": "^3.2.3",
+    "object-fit-videos": "^1.0.4"
+  },
+  "peerDependencies": {
+    "@goldinteractive/js-base": "^0.0.1"
+  }
+}
