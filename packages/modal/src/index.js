@@ -1,6 +1,9 @@
 import A11yDialog from 'a11y-dialog'
 import { features } from '@goldinteractive/js-base'
 
+/** 
+ * Modal expects data-modal-identifier to be present on the modal
+ */
 class Modal extends features.Feature {
 
   init() {
