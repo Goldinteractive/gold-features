@@ -1,0 +1,336 @@
+<!doctype html>
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="modal/lib/style.css"> <link rel="stylesheet" type="text/css" href="icons/lib/style.css"> <link rel="stylesheet" type="text/css" href="object-fit/lib/style.css"> <script src="docsHelper/lib/require.js"></script> <script src="docsHelper/lib/base.js"></script> <script src="docsHelper/featurify.js"></script>
+
+
+		<style>
+					.wrapper {
+  position: relative;
+  float: left;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  width: 460px;
+  height: 200px;
+  background-color: #eee;
+}
+.wrapper > .info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  padding: 15px 20px;
+  background-color: rgba(0,0,0,0.45);
+  color: #fff;
+  transform: translate(-50%,-50%);
+  will-change: opacity;
+  backface-visibility: hidden;
+}
+		</style>
+
+		<style>
+			html, body {
+				min-height: 0 !important;
+				height: auto !important;
+			}
+		</style>
+
+		<script>
+			function getStylemarkBlock(language, defaultIfEmpty) {
+				defaultIfEmpty = defaultIfEmpty || '';
+				var script = document.querySelector('script[data-language="' + language + '"]');
+				return script ? script.innerText : defaultIfEmpty;
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<main
+			role="main"
+			id="stylemark-root"
+			ng-controller="stylemark-object-fit-types"
+			style="
+				display: block;
+				padding: ;
+				width: ;
+			"
+		><div class="wrapper">
+
+  <div class="ft-fit-bg -initial-hide">
+    <img src="object-fit/docs/files/sample.jpeg" data-feature="fit">
+  </div>
+
+  <span class="info">Cover</span>
+</div>
+
+<div class="wrapper">
+
+  <div class="ft-fit-bg -initial-hide">
+    <img src="object-fit/docs/files/sample.jpeg" data-feature="fit" data-object-position="right bottom">
+  </div>
+
+  <span class="info">Cover (right/bottom)</span>
+</div>
+
+<div class="wrapper">
+
+  <div class="ft-fit-bg -initial-hide -contain">
+    <img src="object-fit/docs/files/sample.jpeg" data-feature="fit">
+  </div>
+
+  <span class="info">Contain</span>
+</div>
+
+<div class="wrapper">
+
+  <div class="ft-fit-bg -initial-hide -fill">
+    <img src="object-fit/docs/files/sample.jpeg" data-feature="fit">
+  </div>
+
+  <span class="info">Fill</span>
+</div>
+
+<div class="wrapper">
+
+  <div class="ft-fit-bg -initial-hide -video">
+    <video autoplay muted playsinline loop data-feature="fit">
+      <source src="object-fit/docs/files/big_buck_bunny.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <span class="info">Video Cover</span>
+</div>
+
+<div class="wrapper">
+
+  <div class="ft-fit-bg -initial-hide -video">
+    <video autoplay muted playsinline loop data-feature="fit" data-object-position="right bottom">
+      <source src="object-fit/docs/files/big_buck_bunny.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <span class="info">Video Cover (right/bottom)</span>
+</div>
+
+<div class="wrapper">
+
+  <div class="ft-fit-bg -initial-hide -video -contain">
+    <video autoplay muted playsinline loop data-feature="fit">
+      <source src="object-fit/docs/files/big_buck_bunny.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <span class="info">Video Contain</span>
+</div></main>
+
+		
+
+			<script type="text/x-stylemark" data-language="js">require(['featurify'], function(featurify) {
+  featurify([{ name: 'feature-object-fit', path: 'object-fit/lib/main.min.js' }, 'base', 'base.features'], function(ObjectFit, base, features) {
+    features.add('fit', ObjectFit.default);
+    features.init(document.body);
+  });
+});</script>
+			<script type="text/x-stylemark" data-language="html"><div class="wrapper">
+
+  <div class="ft-fit-bg -initial-hide">
+    <img src="object-fit/docs/files/sample.jpeg" data-feature="fit">
+  </div>
+
+  <span class="info">Cover</span>
+</div>
+
+<div class="wrapper">
+
+  <div class="ft-fit-bg -initial-hide">
+    <img src="object-fit/docs/files/sample.jpeg" data-feature="fit" data-object-position="right bottom">
+  </div>
+
+  <span class="info">Cover (right/bottom)</span>
+</div>
+
+<div class="wrapper">
+
+  <div class="ft-fit-bg -initial-hide -contain">
+    <img src="object-fit/docs/files/sample.jpeg" data-feature="fit">
+  </div>
+
+  <span class="info">Contain</span>
+</div>
+
+<div class="wrapper">
+
+  <div class="ft-fit-bg -initial-hide -fill">
+    <img src="object-fit/docs/files/sample.jpeg" data-feature="fit">
+  </div>
+
+  <span class="info">Fill</span>
+</div>
+
+<div class="wrapper">
+
+  <div class="ft-fit-bg -initial-hide -video">
+    <video autoplay muted playsinline loop data-feature="fit">
+      <source src="object-fit/docs/files/big_buck_bunny.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <span class="info">Video Cover</span>
+</div>
+
+<div class="wrapper">
+
+  <div class="ft-fit-bg -initial-hide -video">
+    <video autoplay muted playsinline loop data-feature="fit" data-object-position="right bottom">
+      <source src="object-fit/docs/files/big_buck_bunny.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <span class="info">Video Cover (right/bottom)</span>
+</div>
+
+<div class="wrapper">
+
+  <div class="ft-fit-bg -initial-hide -video -contain">
+    <video autoplay muted playsinline loop data-feature="fit">
+      <source src="object-fit/docs/files/big_buck_bunny.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <span class="info">Video Contain</span>
+</div></script>
+			<script type="text/x-stylemark" data-language="css">.wrapper {
+  position: relative;
+  float: left;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  width: 460px;
+  height: 200px;
+  background-color: #eee;
+}
+.wrapper > .info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  padding: 15px 20px;
+  background-color: rgba(0,0,0,0.45);
+  color: #fff;
+  transform: translate(-50%,-50%);
+  will-change: opacity;
+  backface-visibility: hidden;
+}</script>
+
+		<script>
+			eval(getStylemarkBlock('js'));
+		</script>
+
+		<script>
+			(function(angular) {
+				if (!angular) {
+					return;
+				}
+
+				var moduleElem = document.querySelector('[ng-app]');
+				var module;
+
+				if (moduleElem) {
+					// Uses an existing module
+					module = angular.module(moduleElem.getAttribute('ng-app'));
+				}
+				else {
+					// Creates a new module
+					module = angular.module('stylemark-object-fit-types', []);
+				}
+
+				module.controller('stylemark-object-fit-types', function($scope) {
+					$scope.$eval(getStylemarkBlock('angularjs'));
+				});
+			})(window.angular);
+		</script>
+
+		<script>
+			(function(ReactDOM) {
+				if (!ReactDOM) {
+					return;
+				}
+
+				var Component = eval(getStylemarkBlock('jsx'));
+				var rootNode = document.getElementById('stylemark-root');
+				ReactDOM.render(Component, rootNode);
+			})(window.ReactDOM);
+		</script>
+
+		<script>
+			(function(Ember) {
+				if (!Ember) {
+					return;
+				}
+
+				var render = function() {
+					var app = window.noop
+					var container = app.__container__;
+					var renderer = container.lookup('renderer:-dom');
+					var hbs = getStylemarkBlock('handlebars') || getStylemarkBlock('hbs');
+					var template = Ember.HTMLBars.compile(hbs);
+
+					var context;
+					eval('context = ' + getStylemarkBlock('js', '{}'));
+
+					// Credit:
+					// http://stackoverflow.com/questions/27950413/render-ember-js-hbs-template-to-a-string#answer-35625858
+					var compile = function(container, template, context) {
+						return new Ember.RSVP.Promise(function(resolve) {
+							Ember.Component.extend(Ember.merge({
+								style: 'display:none;',
+								layout: template,
+								container: container,
+								renderer: renderer,
+
+								init: function() {
+									this._super.apply(this, arguments);
+									Ember.setOwner(this, container);
+								},
+
+								didRender: function() {
+									var elem = this.$();
+									resolve(elem);
+									this.destroy();
+								}
+							}, context))
+								.create()
+								.append();
+
+						});
+					};
+
+					compile(container, template, context).then(function(elem) {
+						jQuery('#stylemark-root').append(elem);
+					});
+				};
+
+				var isReady = function() {
+					return window.noop
+						&& window.noop.__container__;
+				};
+
+				var checkReady = function() {
+					if (isReady()) {
+						render();
+					}
+					else {
+						setTimeout(checkReady, 20);
+					}
+				};
+
+				checkReady();
+
+			})(window.Ember);
+		</script>
+
+		<script src="_stylemark/js/vendor/iframeResizer.contentWindow.min.js"></script>
+	</body>
+
+</html>

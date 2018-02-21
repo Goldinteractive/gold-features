@@ -26,6 +26,9 @@
 							<optgroup label="Modal">
 									<option value="modal">Modal</option>
 							</optgroup>
+							<optgroup label="ObjectFit">
+									<option value="object-fit">ObjectFit</option>
+							</optgroup>
 					</select>
 				</form>
 			</div>
@@ -274,6 +277,241 @@
 </div>
 
 				</div>
+				<div id="category-objectfit">
+						<div id="object-fit" class="i-library">
+	<h1 class="display-4">ObjectFit</h1>
+	<div><p>ObjectFit</p>
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-object-fit&#39;, path: &#39;object-fit/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(ObjectFit, base, features) {
+    features.add(&#39;fit&#39;, ObjectFit.default);
+    features.init(document.body);
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-object-fit&#39;, path: &#39;object-fit/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(ObjectFit, base, features) {
+    features.add(&#39;fit&#39;, ObjectFit.default);
+    features.init(document.body);
+  });
+});</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="object-fit-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="object-fit-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;div class=&quot;wrapper&quot;&gt;
+
+  &lt;div class=&quot;ft-fit-bg -initial-hide&quot;&gt;
+    &lt;img src=&quot;object-fit/docs/files/sample.jpeg&quot; data-feature=&quot;fit&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;info&quot;&gt;Cover&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+
+  &lt;div class=&quot;ft-fit-bg -initial-hide&quot;&gt;
+    &lt;img src=&quot;object-fit/docs/files/sample.jpeg&quot; data-feature=&quot;fit&quot; data-object-position=&quot;right bottom&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;info&quot;&gt;Cover (right/bottom)&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+
+  &lt;div class=&quot;ft-fit-bg -initial-hide -contain&quot;&gt;
+    &lt;img src=&quot;object-fit/docs/files/sample.jpeg&quot; data-feature=&quot;fit&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;info&quot;&gt;Contain&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+
+  &lt;div class=&quot;ft-fit-bg -initial-hide -fill&quot;&gt;
+    &lt;img src=&quot;object-fit/docs/files/sample.jpeg&quot; data-feature=&quot;fit&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;info&quot;&gt;Fill&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+
+  &lt;div class=&quot;ft-fit-bg -initial-hide -video&quot;&gt;
+    &lt;video autoplay muted playsinline loop data-feature=&quot;fit&quot;&gt;
+      &lt;source src=&quot;object-fit/docs/files/big_buck_bunny.mp4&quot; type=&quot;video/mp4&quot;&gt;
+    &lt;/video&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;info&quot;&gt;Video Cover&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+
+  &lt;div class=&quot;ft-fit-bg -initial-hide -video&quot;&gt;
+    &lt;video autoplay muted playsinline loop data-feature=&quot;fit&quot; data-object-position=&quot;right bottom&quot;&gt;
+      &lt;source src=&quot;object-fit/docs/files/big_buck_bunny.mp4&quot; type=&quot;video/mp4&quot;&gt;
+    &lt;/video&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;info&quot;&gt;Video Cover (right/bottom)&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+
+  &lt;div class=&quot;ft-fit-bg -initial-hide -video -contain&quot;&gt;
+    &lt;video autoplay muted playsinline loop data-feature=&quot;fit&quot;&gt;
+      &lt;source src=&quot;object-fit/docs/files/big_buck_bunny.mp4&quot; type=&quot;video/mp4&quot;&gt;
+    &lt;/video&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;info&quot;&gt;Video Contain&lt;/span&gt;
+&lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">&lt;div class=&quot;wrapper&quot;&gt;
+
+  &lt;div class=&quot;ft-fit-bg -initial-hide&quot;&gt;
+    &lt;img src=&quot;object-fit/docs/files/sample.jpeg&quot; data-feature=&quot;fit&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;info&quot;&gt;Cover&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+
+  &lt;div class=&quot;ft-fit-bg -initial-hide&quot;&gt;
+    &lt;img src=&quot;object-fit/docs/files/sample.jpeg&quot; data-feature=&quot;fit&quot; data-object-position=&quot;right bottom&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;info&quot;&gt;Cover (right/bottom)&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+
+  &lt;div class=&quot;ft-fit-bg -initial-hide -contain&quot;&gt;
+    &lt;img src=&quot;object-fit/docs/files/sample.jpeg&quot; data-feature=&quot;fit&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;info&quot;&gt;Contain&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+
+  &lt;div class=&quot;ft-fit-bg -initial-hide -fill&quot;&gt;
+    &lt;img src=&quot;object-fit/docs/files/sample.jpeg&quot; data-feature=&quot;fit&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;info&quot;&gt;Fill&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+
+  &lt;div class=&quot;ft-fit-bg -initial-hide -video&quot;&gt;
+    &lt;video autoplay muted playsinline loop data-feature=&quot;fit&quot;&gt;
+      &lt;source src=&quot;object-fit/docs/files/big_buck_bunny.mp4&quot; type=&quot;video/mp4&quot;&gt;
+    &lt;/video&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;info&quot;&gt;Video Cover&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+
+  &lt;div class=&quot;ft-fit-bg -initial-hide -video&quot;&gt;
+    &lt;video autoplay muted playsinline loop data-feature=&quot;fit&quot; data-object-position=&quot;right bottom&quot;&gt;
+      &lt;source src=&quot;object-fit/docs/files/big_buck_bunny.mp4&quot; type=&quot;video/mp4&quot;&gt;
+    &lt;/video&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;info&quot;&gt;Video Cover (right/bottom)&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+
+  &lt;div class=&quot;ft-fit-bg -initial-hide -video -contain&quot;&gt;
+    &lt;video autoplay muted playsinline loop data-feature=&quot;fit&quot;&gt;
+      &lt;source src=&quot;object-fit/docs/files/big_buck_bunny.mp4&quot; type=&quot;video/mp4&quot;&gt;
+    &lt;/video&gt;
+  &lt;/div&gt;
+
+  &lt;span class=&quot;info&quot;&gt;Video Contain&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+</div>
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> css</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text=".wrapper {
+  position: relative;
+  float: left;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  width: 460px;
+  height: 200px;
+  background-color: #eee;
+}
+.wrapper &gt; .info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  padding: 15px 20px;
+  background-color: rgba(0,0,0,0.45);
+  color: #fff;
+  transform: translate(-50%,-50%);
+  will-change: opacity;
+  backface-visibility: hidden;
+}" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">.wrapper {
+  position: relative;
+  float: left;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  width: 460px;
+  height: 200px;
+  background-color: #eee;
+}
+.wrapper &gt; .info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  padding: 15px 20px;
+  background-color: rgba(0,0,0,0.45);
+  color: #fff;
+  transform: translate(-50%,-50%);
+  will-change: opacity;
+  backface-visibility: hidden;
+}</code></pre>
+	</div>
+</div></div>
+</div>
+
+				</div>
 		</div>
 		<div
 			class="i-page__sidebar"
@@ -337,6 +575,28 @@
 								data-filter-value="Modal"
 							>
 								<span>Modal</span>
+							</a>
+					</div>
+			
+				</div>
+				<div class="i-sidebar-list-group">
+			
+					<h5
+						class="pt-4 mb-1"
+						data-filter-value=" ObjectFit "
+					>
+						<a href="#category-objectfit" class="i-sidebar-list-item">
+							<b>ObjectFit</b>
+						</a>
+					</h5>
+			
+					<div>
+							<a
+								href="#object-fit"
+								class="i-sidebar-list-item"
+								data-filter-value="ObjectFit"
+							>
+								<span>ObjectFit</span>
 							</a>
 					</div>
 			

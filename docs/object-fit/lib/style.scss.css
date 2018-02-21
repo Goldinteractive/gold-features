@@ -1,0 +1,48 @@
+.ft-fit-bg {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0; }
+
+.ft-fit-bg > img,
+.ft-fit-bg > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  font-family: 'object-fit: cover; object-position: center center'; }
+
+.ft-fit-bg.-darkened::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3); }
+
+.ft-fit-bg.-contain > img,
+.ft-fit-bg.-contain > video {
+  object-fit: contain;
+  font-family: 'object-fit: contain; object-position: center center;'; }
+
+.ft-fit-bg.-fill > img,
+.ft-fit-bg.-fill > video {
+  object-fit: fill;
+  font-family: 'object-fit: fill; object-position: center center;'; }
+
+.ft-fit-bg.-initial-hide {
+  visibility: hidden;
+  opacity: 0; }
+
+.ft-fit-bg.-video {
+  overflow: hidden; }
+
+.IIV::-webkit-media-controls-play-button,
+.IIV::-webkit-media-controls-start-playback-button {
+  opacity: 0;
+  pointer-events: none;
+  width: 5px; }
