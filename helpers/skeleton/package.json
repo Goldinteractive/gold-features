@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-${FEATURE_NAME}",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "${FEATURE_NAME} feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
