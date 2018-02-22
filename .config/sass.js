@@ -16,7 +16,7 @@ module.exports = {
   run: () => {
     mkdirp(paths.app.outputPath, () => {
 
-      const sassCommand = `${paths.bin.sass} ${paths.app.indexCss} ${outputFileSass}`;
+      const sassCommand = `${paths.bin.sass} --include-path ${paths.app.nodeModules} ${paths.app.indexCss} ${outputFileSass}`;
       const postCssCommand = `${paths.bin.postcss} --config ${paths.config.postcss} ${outputFileSass} -o ${outputFile}`;
 
       if (shell.exec(sassCommand).code === 0) {

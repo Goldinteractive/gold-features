@@ -26,6 +26,7 @@ module.exports = {
     indexCss: resolveApp('src/style.scss'),
     assets: resolveApp('assets'),
     outputPath: resolveApp('lib'),
+    nodeModules: resolveApp('node_modules')
   },
   packages: {
     entry: resolveOwn('packages')
