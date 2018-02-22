@@ -49,5 +49,6 @@
   "browserslist": [
     "> 5%",
     "last 2 version"
-  ]
+  ],
+  "dependencies": {}
 }
