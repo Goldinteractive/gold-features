@@ -11,12 +11,11 @@
     "watch": "node ../../scripts/watch.js"
   },
   "dependencies": {
-    "@goldinteractive/js-base": "^0.0.2",
     "iphone-inline-video": "^2.2.2",
     "object-fit-images": "^3.2.3",
     "object-fit-videos": "^1.0.4"
   },
   "peerDependencies": {
-    "@goldinteractive/js-base": "^0.0.1"
+    "@goldinteractive/js-base": "^0.0.2"
   }
 }

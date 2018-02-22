@@ -11,11 +11,10 @@
     "watch": "node ../../scripts/watch.js"
   },
   "dependencies": {
-    "@goldinteractive/js-base": "^0.0.2",
     "flickity": "^2.0.10",
     "flickity-imagesloaded": "^2.0.0"
   },
   "peerDependencies": {
-    "@goldinteractive/js-base": "^0.0.1"
+    "@goldinteractive/js-base": "^0.0.2"
   }
 }
