@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-icons",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "icons feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
@@ -12,6 +12,5 @@
   },
   "peerDependencies": {
     "@goldinteractive/js-base": "^0.0.2"
-  },
-  "dependencies": {}
+  }
 }
