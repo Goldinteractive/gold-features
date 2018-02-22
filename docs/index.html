@@ -20,6 +20,9 @@
 				<form class="form">
 					<select class="form-control form-control-lg">
 						<option disabled selected>Go to…</option>
+							<optgroup label="Accordion">
+									<option value="accordion">Accordion</option>
+							</optgroup>
 							<optgroup label="Icons">
 									<option value="icons">Icons</option>
 							</optgroup>
@@ -36,6 +39,224 @@
 				</form>
 			</div>
 
+				<div id="category-accordion">
+						<div id="accordion" class="i-library">
+	<h1 class="display-4">Accordion</h1>
+	<div><p>There is an issue running Accordion in the Stylemark iframe. Open up the <code>external view</code> which works properly</p>
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-accordion&#39;, path: &#39;accordion/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Accordion, base, features) {
+    var Scroller = base.utils.dom.Scroller;
+
+    var scroller = new Scroller({
+      offsetY: 20
+    });
+
+    features.add(&#39;accordion&#39;, Accordion.default, {
+      scroller: scroller
+    });
+    features.init(document.body);
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-accordion&#39;, path: &#39;accordion/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Accordion, base, features) {
+    var Scroller = base.utils.dom.Scroller;
+
+    var scroller = new Scroller({
+      offsetY: 20
+    });
+
+    features.add(&#39;accordion&#39;, Accordion.default, {
+      scroller: scroller
+    });
+    features.init(document.body);
+  });
+});</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="accordion-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="accordion-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="    &lt;h2&gt;Accordion&lt;/h2&gt;
+
+    &lt;p&gt;
+      &lt;a href=&quot;#/title1&quot;&gt;Open &amp; Scroll to first fold&lt;/a&gt;&lt;br&gt;
+      &lt;a href=&quot;#/title2&quot;&gt;Open &amp; Scroll to second fold&lt;/a&gt;
+    &lt;/p&gt;
+
+    &lt;div class=&quot;ft-accordion handorgel&quot; data-feature=&quot;accordion&quot;&gt;
+      &lt;h3 class=&quot;handorgel__header&quot; data-accordion-scroll-id=&quot;title1&quot;&gt;
+        &lt;button class=&quot;handorgel__header__button&quot;&gt;
+          Title 1&lt;span class=&quot;toggle&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/h3&gt;
+      &lt;div class=&quot;handorgel__content&quot; data-open&gt;
+        &lt;div class=&quot;handorgel__content__inner&quot;&gt;
+          Content openened by default
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;h3 class=&quot;handorgel__header&quot; data-accordion-scroll-id=&quot;title2&quot;&gt;
+        &lt;button class=&quot;handorgel__header__button&quot;&gt;
+          Title 2 &lt;span class=&quot;toggle&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/h3&gt;
+      &lt;div class=&quot;handorgel__content&quot;&gt;
+        &lt;div class=&quot;handorgel__content__inner&quot;&gt;
+          Content closed by default
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;
+      &lt;a href=&quot;#/title3&quot;&gt;Open &amp; Scroll to first fold&lt;/a&gt;&lt;br&gt;
+      &lt;a href=&quot;#/title4&quot;&gt;Open &amp; Scroll to second fold&lt;/a&gt;
+    &lt;/p&gt;
+
+    &lt;div class=&quot;ft-accordion handorgel&quot; data-feature=&quot;accordion&quot;&gt;
+      &lt;h3 class=&quot;handorgel__header&quot; data-accordion-scroll-id=&quot;title3&quot;&gt;
+        &lt;button class=&quot;handorgel__header__button&quot;&gt;
+          Title 3&lt;span class=&quot;toggle&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/h3&gt;
+      &lt;div class=&quot;handorgel__content&quot; data-open&gt;
+        &lt;div class=&quot;handorgel__content__inner&quot;&gt;
+          Content openened by default
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;h3 class=&quot;handorgel__header&quot; data-accordion-scroll-id=&quot;title4&quot;&gt;
+        &lt;button class=&quot;handorgel__header__button&quot;&gt;
+          Title 4 &lt;span class=&quot;toggle&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/h3&gt;
+      &lt;div class=&quot;handorgel__content&quot;&gt;
+        &lt;div class=&quot;handorgel__content__inner&quot;&gt;
+          Content closed by default
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;h2&gt;Dummy content&lt;/h2&gt;
+
+    &lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&lt;/p&gt;
+
+    &lt;p&gt;Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.&lt;/p&gt;
+
+    &lt;p&gt;Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.&lt;/p&gt;
+
+    &lt;p&gt;Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.&lt;/p&gt;
+
+    &lt;p&gt;Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.&lt;/p&gt;
+
+    &lt;p&gt;At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.&lt;/p&gt;
+
+    &lt;p&gt;Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.&lt;/p&gt;
+
+    &lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&lt;/p&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">    &lt;h2&gt;Accordion&lt;/h2&gt;
+
+    &lt;p&gt;
+      &lt;a href=&quot;#/title1&quot;&gt;Open &amp; Scroll to first fold&lt;/a&gt;&lt;br&gt;
+      &lt;a href=&quot;#/title2&quot;&gt;Open &amp; Scroll to second fold&lt;/a&gt;
+    &lt;/p&gt;
+
+    &lt;div class=&quot;ft-accordion handorgel&quot; data-feature=&quot;accordion&quot;&gt;
+      &lt;h3 class=&quot;handorgel__header&quot; data-accordion-scroll-id=&quot;title1&quot;&gt;
+        &lt;button class=&quot;handorgel__header__button&quot;&gt;
+          Title 1&lt;span class=&quot;toggle&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/h3&gt;
+      &lt;div class=&quot;handorgel__content&quot; data-open&gt;
+        &lt;div class=&quot;handorgel__content__inner&quot;&gt;
+          Content openened by default
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;h3 class=&quot;handorgel__header&quot; data-accordion-scroll-id=&quot;title2&quot;&gt;
+        &lt;button class=&quot;handorgel__header__button&quot;&gt;
+          Title 2 &lt;span class=&quot;toggle&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/h3&gt;
+      &lt;div class=&quot;handorgel__content&quot;&gt;
+        &lt;div class=&quot;handorgel__content__inner&quot;&gt;
+          Content closed by default
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;
+      &lt;a href=&quot;#/title3&quot;&gt;Open &amp; Scroll to first fold&lt;/a&gt;&lt;br&gt;
+      &lt;a href=&quot;#/title4&quot;&gt;Open &amp; Scroll to second fold&lt;/a&gt;
+    &lt;/p&gt;
+
+    &lt;div class=&quot;ft-accordion handorgel&quot; data-feature=&quot;accordion&quot;&gt;
+      &lt;h3 class=&quot;handorgel__header&quot; data-accordion-scroll-id=&quot;title3&quot;&gt;
+        &lt;button class=&quot;handorgel__header__button&quot;&gt;
+          Title 3&lt;span class=&quot;toggle&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/h3&gt;
+      &lt;div class=&quot;handorgel__content&quot; data-open&gt;
+        &lt;div class=&quot;handorgel__content__inner&quot;&gt;
+          Content openened by default
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;h3 class=&quot;handorgel__header&quot; data-accordion-scroll-id=&quot;title4&quot;&gt;
+        &lt;button class=&quot;handorgel__header__button&quot;&gt;
+          Title 4 &lt;span class=&quot;toggle&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/h3&gt;
+      &lt;div class=&quot;handorgel__content&quot;&gt;
+        &lt;div class=&quot;handorgel__content__inner&quot;&gt;
+          Content closed by default
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;h2&gt;Dummy content&lt;/h2&gt;
+
+    &lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&lt;/p&gt;
+
+    &lt;p&gt;Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.&lt;/p&gt;
+
+    &lt;p&gt;Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.&lt;/p&gt;
+
+    &lt;p&gt;Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.&lt;/p&gt;
+
+    &lt;p&gt;Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.&lt;/p&gt;
+
+    &lt;p&gt;At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.&lt;/p&gt;
+
+    &lt;p&gt;Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.&lt;/p&gt;
+
+    &lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&lt;/p&gt;</code></pre>
+	</div>
+</div></div>
+</div>
+
+				</div>
 				<div id="category-icons">
 						<div id="icons" class="i-library">
 	<h1 class="display-4">Icons</h1>
@@ -916,6 +1137,28 @@
 				</div>
 			</form>
 			
+				<div class="i-sidebar-list-group">
+			
+					<h5
+						class="pt-4 mb-1"
+						data-filter-value=" Accordion "
+					>
+						<a href="#category-accordion" class="i-sidebar-list-item">
+							<b>Accordion</b>
+						</a>
+					</h5>
+			
+					<div>
+							<a
+								href="#accordion"
+								class="i-sidebar-list-item"
+								data-filter-value="Accordion"
+							>
+								<span>Accordion</span>
+							</a>
+					</div>
+			
+				</div>
 				<div class="i-sidebar-list-group">
 			
 					<h5
