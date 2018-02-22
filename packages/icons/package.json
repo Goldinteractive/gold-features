@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-icons",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "icons feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
