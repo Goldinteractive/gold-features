@@ -1,0 +1,33 @@
+@import 'handorgel/src/scss/style';
+
+$ft-accordion-toggle-size: 1em;
+
+.ft-accordion {
+  & {
+    width: 100%;
+  }
+
+  .toggle {
+    flex-shrink: 0;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    background-image: inline('features/accordion/arrow-right.svg');
+    width: $ft-accordion-toggle-size;
+    height: $ft-accordion-toggle-size;
+    transition: transform $handorgel__content-transition-height-time;
+  }
+
+  .handorgel__header__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .handorgel__header--open .toggle {
+      transform: rotate(90deg);
+      transition: transform $handorgel__content--open-transition-height-time
+                            + $handorgel__content--open-transition-opacity-time;
+    }
+}
