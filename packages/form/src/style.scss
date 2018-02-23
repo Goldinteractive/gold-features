@@ -1,0 +1,22 @@
+$ft-form-transition: opacity .2s ease-in !default;
+$ft-form-opacity-loading: 0.5 !default;
+
+.ft-form {
+  form {
+    transition: $ft-form-transition;
+  }
+
+  &.-loading {
+    form {
+      opacity: $ft-form-opacity-loading;
+    }
+  }
+
+  .form-progress-bar {
+    display: none;
+
+    &.-show {
+      display: block;
+    }
+  }
+}
