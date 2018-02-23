@@ -22,7 +22,7 @@ We use lerna to orchestrate the build and publish process.
 
 `yarn lerna:build` build all projects
 
-`yarn lerna:updated` lists all packages which must be published
+`yarn lerna:updated` lists all packages which must be published. Note that `updated` fails if there is no package which needs to be updated.
 
 `yarn lerna:publish` build all packages, then checks for changed packages (comparing to last tag). Prompts for each package before release (Note that it will only commit package.json. Therefore all other changes must be commited beforehand)
 
