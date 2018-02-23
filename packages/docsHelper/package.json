@@ -13,7 +13,9 @@
     "mkdirp": "^0.5.1",
     "requirejs": "^2.3.5"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@goldinteractive/js-base": "^0.0.2"
+  },
   "peerDependencies": {
     "@goldinteractive/js-base": "^0.0.2"
   }
