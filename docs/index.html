@@ -23,6 +23,9 @@
 							<optgroup label="Accordion">
 									<option value="accordion">Accordion</option>
 							</optgroup>
+							<optgroup label="Form">
+									<option value="form">Form</option>
+							</optgroup>
 							<optgroup label="Icons">
 									<option value="icons">Icons</option>
 							</optgroup>
@@ -252,6 +255,291 @@
     &lt;p&gt;Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.&lt;/p&gt;
 
     &lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&lt;/p&gt;</code></pre>
+	</div>
+</div></div>
+</div>
+
+				</div>
+				<div id="category-form">
+						<div id="form" class="i-library">
+	<h1 class="display-4">Form</h1>
+	<div><p>Currently this demo works only on a local environment. A simple web service would be needed to provide demo on Github as well as on local environment.</p>
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-form&#39;, path: &#39;form/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Form, base, features) {
+    features.add(&#39;form&#39;, Form.default);
+    features.init(document.body);
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-form&#39;, path: &#39;form/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Form, base, features) {
+    features.add(&#39;form&#39;, Form.default);
+    features.init(document.body);
+  });
+});</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="form-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="form-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;h2&gt;Form&lt;/h2&gt;
+
+&lt;div class=&quot;ft-form&quot; data-feature=&quot;form&quot;&gt;
+
+  &lt;!-- https://jsonplaceholder.typicode.com/posts  --&gt;
+  &lt;form action=&quot;form/docs/files/response.php&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    &lt;div class=&quot;form-field&quot;&gt;
+        &lt;label for=&quot;email&quot;&gt;E-Mail&lt;/label&gt;
+        &lt;input type=&quot;email&quot; name=&quot;fields[email]&quot; id=&quot;email&quot; placeholder=&quot;Test&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field&quot;&gt;
+        &lt;label for=&quot;message&quot;&gt;Message&lt;/label&gt;
+        &lt;textarea placeholder=&quot;Test&quot; name=&quot;fields[message]&quot; id=&quot;message&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field&quot;&gt;
+      &lt;label for=&quot;file&quot;&gt;File&lt;/label&gt;
+      &lt;input type=&quot;file&quot; name=&quot;fields[file]&quot; name=&quot;file&quot; id=&quot;file&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field&quot;&gt;
+      &lt;label class=&quot;control -radio -with-text&quot;&gt;
+        &lt;input id=&quot;radio1&quot; name=&quot;fields[radio]&quot; type=&quot;radio&quot;&gt;
+        &lt;span class=&quot;control-indicator&quot;&gt;&lt;/span&gt;
+        Radio 1
+      &lt;/label&gt;
+
+      &lt;label class=&quot;control -radio -with-text&quot;&gt;
+        &lt;input id=&quot;radio2&quot; name=&quot;fields[radio]&quot; type=&quot;radio&quot;&gt;
+        &lt;span class=&quot;control-indicator&quot;&gt;&lt;/span&gt;
+        Radio 2
+      &lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field&quot;&gt;
+      &lt;label class=&quot;control -checkbox -with-text&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;fields[checkbox]&quot;&gt;
+        &lt;span class=&quot;control-indicator&quot;&gt;&lt;/span&gt;
+        Checkbox
+      &lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;button role=&quot;submit&quot; class=&quot;button -primary -small -auto&quot;&gt;Send&lt;/button&gt;
+    &lt;button role=&quot;button&quot; class=&quot;button -auto&quot; type=&quot;reset&quot;&gt;Reset&lt;/button&gt;
+  &lt;/form&gt;
+
+  &lt;div data-progress class=&quot;form-progress-bar&quot;&gt;
+    &lt;div data-loaded class=&quot;loaded&quot;&gt;&lt;/div&gt;
+    &lt;div data-percentage class=&quot;percentage&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div data-feedback class=&quot;form-feedback&quot;&gt;&lt;/div&gt;
+
+&lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">&lt;h2&gt;Form&lt;/h2&gt;
+
+&lt;div class=&quot;ft-form&quot; data-feature=&quot;form&quot;&gt;
+
+  &lt;!-- https://jsonplaceholder.typicode.com/posts  --&gt;
+  &lt;form action=&quot;form/docs/files/response.php&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    &lt;div class=&quot;form-field&quot;&gt;
+        &lt;label for=&quot;email&quot;&gt;E-Mail&lt;/label&gt;
+        &lt;input type=&quot;email&quot; name=&quot;fields[email]&quot; id=&quot;email&quot; placeholder=&quot;Test&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field&quot;&gt;
+        &lt;label for=&quot;message&quot;&gt;Message&lt;/label&gt;
+        &lt;textarea placeholder=&quot;Test&quot; name=&quot;fields[message]&quot; id=&quot;message&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field&quot;&gt;
+      &lt;label for=&quot;file&quot;&gt;File&lt;/label&gt;
+      &lt;input type=&quot;file&quot; name=&quot;fields[file]&quot; name=&quot;file&quot; id=&quot;file&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field&quot;&gt;
+      &lt;label class=&quot;control -radio -with-text&quot;&gt;
+        &lt;input id=&quot;radio1&quot; name=&quot;fields[radio]&quot; type=&quot;radio&quot;&gt;
+        &lt;span class=&quot;control-indicator&quot;&gt;&lt;/span&gt;
+        Radio 1
+      &lt;/label&gt;
+
+      &lt;label class=&quot;control -radio -with-text&quot;&gt;
+        &lt;input id=&quot;radio2&quot; name=&quot;fields[radio]&quot; type=&quot;radio&quot;&gt;
+        &lt;span class=&quot;control-indicator&quot;&gt;&lt;/span&gt;
+        Radio 2
+      &lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-field&quot;&gt;
+      &lt;label class=&quot;control -checkbox -with-text&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;fields[checkbox]&quot;&gt;
+        &lt;span class=&quot;control-indicator&quot;&gt;&lt;/span&gt;
+        Checkbox
+      &lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;button role=&quot;submit&quot; class=&quot;button -primary -small -auto&quot;&gt;Send&lt;/button&gt;
+    &lt;button role=&quot;button&quot; class=&quot;button -auto&quot; type=&quot;reset&quot;&gt;Reset&lt;/button&gt;
+  &lt;/form&gt;
+
+  &lt;div data-progress class=&quot;form-progress-bar&quot;&gt;
+    &lt;div data-loaded class=&quot;loaded&quot;&gt;&lt;/div&gt;
+    &lt;div data-percentage class=&quot;percentage&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div data-feedback class=&quot;form-feedback&quot;&gt;&lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+	</div>
+</div>
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> css</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="input, textarea {
+  width: 100%;
+  font-size: 100%;
+  border: 1px solid #999;
+  padding: 4px;
+}
+
+input[type=&quot;radio&quot;],
+input[type=&quot;checkbox&quot;] {
+  width: auto;
+  padding: 0;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-feedback {
+  padding: 20px;
+}
+
+.form-feedback.-success {
+  background-color: rgb(124, 209, 124);
+  color: rgb(15, 110, 15);
+}
+
+.form-feedback.-error {
+  background-color: rgb(255, 187, 187);
+  color: rgb(133, 2, 2);
+}
+
+.form-feedback.-warn {
+  background-color: rgb(243, 196, 125);
+  color: rgb(206, 124, 1);
+}
+
+.form-progress-bar {
+  position: relative;
+  height: 30px;
+  width: 100%;
+  background-color: #eee;
+
+
+}
+
+.form-progress-bar &gt; .loaded {
+    width: 0%;
+    height: 100%;
+    background-color: #999;
+    transition: width .1s ease-in;
+}
+
+.form-progress-bar &gt; .percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #333;
+}" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">input, textarea {
+  width: 100%;
+  font-size: 100%;
+  border: 1px solid #999;
+  padding: 4px;
+}
+
+input[type=&quot;radio&quot;],
+input[type=&quot;checkbox&quot;] {
+  width: auto;
+  padding: 0;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-feedback {
+  padding: 20px;
+}
+
+.form-feedback.-success {
+  background-color: rgb(124, 209, 124);
+  color: rgb(15, 110, 15);
+}
+
+.form-feedback.-error {
+  background-color: rgb(255, 187, 187);
+  color: rgb(133, 2, 2);
+}
+
+.form-feedback.-warn {
+  background-color: rgb(243, 196, 125);
+  color: rgb(206, 124, 1);
+}
+
+.form-progress-bar {
+  position: relative;
+  height: 30px;
+  width: 100%;
+  background-color: #eee;
+
+
+}
+
+.form-progress-bar &gt; .loaded {
+    width: 0%;
+    height: 100%;
+    background-color: #999;
+    transition: width .1s ease-in;
+}
+
+.form-progress-bar &gt; .percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #333;
+}</code></pre>
 	</div>
 </div></div>
 </div>
@@ -1155,6 +1443,28 @@
 								data-filter-value="Accordion"
 							>
 								<span>Accordion</span>
+							</a>
+					</div>
+			
+				</div>
+				<div class="i-sidebar-list-group">
+			
+					<h5
+						class="pt-4 mb-1"
+						data-filter-value=" Form "
+					>
+						<a href="#category-form" class="i-sidebar-list-item">
+							<b>Form</b>
+						</a>
+					</h5>
+			
+					<div>
+							<a
+								href="#form"
+								class="i-sidebar-list-item"
+								data-filter-value="Form"
+							>
+								<span>Form</span>
 							</a>
 					</div>
 			

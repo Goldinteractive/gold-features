@@ -1,0 +1,386 @@
+<!doctype html>
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="modal/lib/style.css"> <link rel="stylesheet" type="text/css" href="icons/lib/style.css"> <link rel="stylesheet" type="text/css" href="object-fit/lib/style.css"> <link rel="stylesheet" type="text/css" href="slider/lib/style.css"> <link rel="stylesheet" type="text/css" href="accordion/lib/style.css"> <link rel="stylesheet" type="text/css" href="form/lib/style.css"> <script src="docsHelper/lib/require.js"></script> <script src="docsHelper/lib/base.js"></script> <script src="docsHelper/featurify.js"></script>
+
+
+		<style>
+					input, textarea {
+  width: 100%;
+  font-size: 100%;
+  border: 1px solid #999;
+  padding: 4px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  padding: 0;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-feedback {
+  padding: 20px;
+}
+
+.form-feedback.-success {
+  background-color: rgb(124, 209, 124);
+  color: rgb(15, 110, 15);
+}
+
+.form-feedback.-error {
+  background-color: rgb(255, 187, 187);
+  color: rgb(133, 2, 2);
+}
+
+.form-feedback.-warn {
+  background-color: rgb(243, 196, 125);
+  color: rgb(206, 124, 1);
+}
+
+.form-progress-bar {
+  position: relative;
+  height: 30px;
+  width: 100%;
+  background-color: #eee;
+
+  
+}
+
+.form-progress-bar > .loaded {
+    width: 0%;
+    height: 100%;
+    background-color: #999;
+    transition: width .1s ease-in;
+}
+
+.form-progress-bar > .percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #333;
+}
+		</style>
+
+		<style>
+			html, body {
+				min-height: 0 !important;
+				height: auto !important;
+			}
+		</style>
+
+		<script>
+			function getStylemarkBlock(language, defaultIfEmpty) {
+				defaultIfEmpty = defaultIfEmpty || '';
+				var script = document.querySelector('script[data-language="' + language + '"]');
+				return script ? script.innerText : defaultIfEmpty;
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<main
+			role="main"
+			id="stylemark-root"
+			ng-controller="stylemark-form-types"
+			style="
+				display: block;
+				padding: ;
+				width: ;
+			"
+		><h2>Form</h2>
+
+<div class="ft-form" data-feature="form">
+
+  <!-- https://jsonplaceholder.typicode.com/posts  -->
+  <form action="form/docs/files/response.php" enctype="multipart/form-data">
+    <div class="form-field">
+        <label for="email">E-Mail</label>
+        <input type="email" name="fields[email]" id="email" placeholder="Test">
+    </div>
+
+    <div class="form-field">
+        <label for="message">Message</label>
+        <textarea placeholder="Test" name="fields[message]" id="message"></textarea>
+    </div>
+
+    <div class="form-field">
+      <label for="file">File</label>
+      <input type="file" name="fields[file]" name="file" id="file">
+    </div>
+
+    <div class="form-field">
+      <label class="control -radio -with-text">
+        <input id="radio1" name="fields[radio]" type="radio">
+        <span class="control-indicator"></span>
+        Radio 1
+      </label>
+
+      <label class="control -radio -with-text">
+        <input id="radio2" name="fields[radio]" type="radio">
+        <span class="control-indicator"></span>
+        Radio 2
+      </label>
+    </div>
+
+    <div class="form-field">
+      <label class="control -checkbox -with-text">
+        <input type="checkbox" name="fields[checkbox]">
+        <span class="control-indicator"></span>
+        Checkbox
+      </label>
+    </div>
+
+    <button role="submit" class="button -primary -small -auto">Send</button>
+    <button role="button" class="button -auto" type="reset">Reset</button>
+  </form>
+
+  <div data-progress class="form-progress-bar">
+    <div data-loaded class="loaded"></div>
+    <div data-percentage class="percentage"></div>
+  </div>
+
+  <div data-feedback class="form-feedback"></div>
+
+</div></main>
+
+		
+
+			<script type="text/x-stylemark" data-language="js">require(['featurify'], function(featurify) {
+  featurify([{ name: 'feature-form', path: 'form/lib/main.min.js' }, 'base', 'base.features'], function(Form, base, features) {
+    features.add('form', Form.default);
+    features.init(document.body);
+  });
+});</script>
+			<script type="text/x-stylemark" data-language="html"><h2>Form</h2>
+
+<div class="ft-form" data-feature="form">
+
+  <!-- https://jsonplaceholder.typicode.com/posts  -->
+  <form action="form/docs/files/response.php" enctype="multipart/form-data">
+    <div class="form-field">
+        <label for="email">E-Mail</label>
+        <input type="email" name="fields[email]" id="email" placeholder="Test">
+    </div>
+
+    <div class="form-field">
+        <label for="message">Message</label>
+        <textarea placeholder="Test" name="fields[message]" id="message"></textarea>
+    </div>
+
+    <div class="form-field">
+      <label for="file">File</label>
+      <input type="file" name="fields[file]" name="file" id="file">
+    </div>
+
+    <div class="form-field">
+      <label class="control -radio -with-text">
+        <input id="radio1" name="fields[radio]" type="radio">
+        <span class="control-indicator"></span>
+        Radio 1
+      </label>
+
+      <label class="control -radio -with-text">
+        <input id="radio2" name="fields[radio]" type="radio">
+        <span class="control-indicator"></span>
+        Radio 2
+      </label>
+    </div>
+
+    <div class="form-field">
+      <label class="control -checkbox -with-text">
+        <input type="checkbox" name="fields[checkbox]">
+        <span class="control-indicator"></span>
+        Checkbox
+      </label>
+    </div>
+
+    <button role="submit" class="button -primary -small -auto">Send</button>
+    <button role="button" class="button -auto" type="reset">Reset</button>
+  </form>
+
+  <div data-progress class="form-progress-bar">
+    <div data-loaded class="loaded"></div>
+    <div data-percentage class="percentage"></div>
+  </div>
+
+  <div data-feedback class="form-feedback"></div>
+
+</div></script>
+			<script type="text/x-stylemark" data-language="css">input, textarea {
+  width: 100%;
+  font-size: 100%;
+  border: 1px solid #999;
+  padding: 4px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  padding: 0;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-feedback {
+  padding: 20px;
+}
+
+.form-feedback.-success {
+  background-color: rgb(124, 209, 124);
+  color: rgb(15, 110, 15);
+}
+
+.form-feedback.-error {
+  background-color: rgb(255, 187, 187);
+  color: rgb(133, 2, 2);
+}
+
+.form-feedback.-warn {
+  background-color: rgb(243, 196, 125);
+  color: rgb(206, 124, 1);
+}
+
+.form-progress-bar {
+  position: relative;
+  height: 30px;
+  width: 100%;
+  background-color: #eee;
+
+  
+}
+
+.form-progress-bar > .loaded {
+    width: 0%;
+    height: 100%;
+    background-color: #999;
+    transition: width .1s ease-in;
+}
+
+.form-progress-bar > .percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #333;
+}</script>
+
+		<script>
+			eval(getStylemarkBlock('js'));
+		</script>
+
+		<script>
+			(function(angular) {
+				if (!angular) {
+					return;
+				}
+
+				var moduleElem = document.querySelector('[ng-app]');
+				var module;
+
+				if (moduleElem) {
+					// Uses an existing module
+					module = angular.module(moduleElem.getAttribute('ng-app'));
+				}
+				else {
+					// Creates a new module
+					module = angular.module('stylemark-form-types', []);
+				}
+
+				module.controller('stylemark-form-types', function($scope) {
+					$scope.$eval(getStylemarkBlock('angularjs'));
+				});
+			})(window.angular);
+		</script>
+
+		<script>
+			(function(ReactDOM) {
+				if (!ReactDOM) {
+					return;
+				}
+
+				var Component = eval(getStylemarkBlock('jsx'));
+				var rootNode = document.getElementById('stylemark-root');
+				ReactDOM.render(Component, rootNode);
+			})(window.ReactDOM);
+		</script>
+
+		<script>
+			(function(Ember) {
+				if (!Ember) {
+					return;
+				}
+
+				var render = function() {
+					var app = window.noop
+					var container = app.__container__;
+					var renderer = container.lookup('renderer:-dom');
+					var hbs = getStylemarkBlock('handlebars') || getStylemarkBlock('hbs');
+					var template = Ember.HTMLBars.compile(hbs);
+
+					var context;
+					eval('context = ' + getStylemarkBlock('js', '{}'));
+
+					// Credit:
+					// http://stackoverflow.com/questions/27950413/render-ember-js-hbs-template-to-a-string#answer-35625858
+					var compile = function(container, template, context) {
+						return new Ember.RSVP.Promise(function(resolve) {
+							Ember.Component.extend(Ember.merge({
+								style: 'display:none;',
+								layout: template,
+								container: container,
+								renderer: renderer,
+
+								init: function() {
+									this._super.apply(this, arguments);
+									Ember.setOwner(this, container);
+								},
+
+								didRender: function() {
+									var elem = this.$();
+									resolve(elem);
+									this.destroy();
+								}
+							}, context))
+								.create()
+								.append();
+
+						});
+					};
+
+					compile(container, template, context).then(function(elem) {
+						jQuery('#stylemark-root').append(elem);
+					});
+				};
+
+				var isReady = function() {
+					return window.noop
+						&& window.noop.__container__;
+				};
+
+				var checkReady = function() {
+					if (isReady()) {
+						render();
+					}
+					else {
+						setTimeout(checkReady, 20);
+					}
+				};
+
+				checkReady();
+
+			})(window.Ember);
+		</script>
+
+		<script src="_stylemark/js/vendor/iframeResizer.contentWindow.min.js"></script>
+	</body>
+
+</html>

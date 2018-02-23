@@ -1,0 +1,10 @@
+.ft-form form {
+  transition: opacity 0.2s ease-in; }
+
+.ft-form.-loading form {
+  opacity: 0.5; }
+
+.ft-form .form-progress-bar {
+  display: none; }
+  .ft-form .form-progress-bar.-show {
+    display: block; }
