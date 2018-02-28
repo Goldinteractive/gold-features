@@ -3,8 +3,6 @@ import { utils } from '@goldinteractive/js-base'
 
 import Handorgel from 'handorgel'
 
-console.log(Handorgel);
-
 /**
  * Accordion feature class.
  */
