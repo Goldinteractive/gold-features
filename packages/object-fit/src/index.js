@@ -5,6 +5,7 @@ import objectFitVideo from 'object-fit-videos'
 import enableInlineVideo from 'iphone-inline-video'
 
 const CLASS_FEATURE = '.ft-fit-bg'
+const NETWORK_IDLE = 1
 
 /**
  * Object fit feature class.
@@ -33,19 +34,34 @@ class ObjectFit extends features.Feature {
           iPad: this.options.iPad
       })
 
+      const unregisterAndHide = () => {
+        this._removeInitialHide()
+        this.removeEventListener(this.node, 'loadeddata', onload)
+        this.removeEventListener(this.node, 'loadedmetadata', onload)
+      }
+
+      const autoplay = () => {
+        if (this.node.autoplay) {
+          this.node.play()
+        }
+      }
+
       let onload = () => {
         if (this.node.readyState >= this.node.HAVE_CURRENT_DATA) {
-          this.removeEventListener(this.node, 'loadeddata', onload)
-          this._removeInitialHide()
-          if (this.node.autoplay) this.node.play()
+          unregisterAndHide()
+          autoplay()
+        } else if (this.node.networkState === NETWORK_IDLE) {
+          // if network is idle, which means, that nothing is being requested, the content is "ready"
+          unregisterAndHide()
         }
       }
 
       if (this.node.readyState >= this.node.HAVE_CURRENT_DATA || !this.options.waitForMediaLoaded) {
         this._removeInitialHide()
-        if (this.node.autoplay) this.node.play()
+        autoplay()
       } else {
         this.addEventListener(this.node, 'loadeddata', onload)
+        this.addEventListener(this.node, 'loadedmetadata', onload)
       }
     } else {
       objectFitImage(this.node, {
