@@ -1,0 +1,39 @@
+.ft-map {
+  & {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .geolocation-control {
+    background-color: #fff;
+    border: 2px solid #fff;
+    padding: 3px;
+    margin-right: 10px;
+    cursor: pointer;
+    opacity: 1;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px -1px rgba(0,0,0,0.3);
+    transition: opacity .2s ease-in;
+
+    &.-pending {
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    &.-active > .geolocation-control-icon {
+      background-position: -18px;
+    }
+  }
+
+  .geolocation-control > .geolocation-control-icon {
+    width: 18px;
+    height: 18px;
+    opacity: 0.9;
+    background-image: inline('features/map/controls/geolocation.png');
+    background-size: 36px 18px;
+    background-position: 0;
+  }
+}
