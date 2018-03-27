@@ -26,6 +26,8 @@ assets:
   - form/docs/files
   - gallery/lib
   - gallery/docs/files
+  - map/lib
+  - map/assets/features/map
 headHtml: >
   <link rel="stylesheet" type="text/css" href="modal/lib/style.css">
   <link rel="stylesheet" type="text/css" href="icons/lib/style.css">
@@ -34,6 +36,7 @@ headHtml: >
   <link rel="stylesheet" type="text/css" href="accordion/lib/style.css">
   <link rel="stylesheet" type="text/css" href="form/lib/style.css">
   <link rel="stylesheet" type="text/css" href="gallery/lib/style.css">
+  <link rel="stylesheet" type="text/css" href="map/lib/style.css">
   <script src="docsHelper/lib/require.js"></script>
   <script src="docsHelper/lib/base.js"></script>
   <script src="docsHelper/featurify.js"></script>
