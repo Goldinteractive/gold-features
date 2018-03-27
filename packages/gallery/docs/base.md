@@ -3,7 +3,7 @@ name: Gallery
 category: Gallery
 ---
 
-Gallery
+There is an issue running Gallery in the Stylemark iframe. Open up the `external view` which works properly
 
 ```types.js
 require(['featurify'], function(featurify) {
