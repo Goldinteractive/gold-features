@@ -26,6 +26,9 @@
 							<optgroup label="Form">
 									<option value="form">Form</option>
 							</optgroup>
+							<optgroup label="Gallery">
+									<option value="gallery">Gallery</option>
+							</optgroup>
 							<optgroup label="Icons">
 									<option value="icons">Icons</option>
 							</optgroup>
@@ -540,6 +543,361 @@ input[type=&quot;checkbox&quot;] {
     transform: translate(-50%, -50%);
     color: #333;
 }</code></pre>
+	</div>
+</div></div>
+</div>
+
+				</div>
+				<div id="category-gallery">
+						<div id="gallery" class="i-library">
+	<h1 class="display-4">Gallery</h1>
+	<div><p>Gallery</p>
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-gallery&#39;, path: &#39;gallery/lib/main.min.js&#39; }, { name: &#39;feature-object-fit&#39;, path: &#39;object-fit/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Gallery, ObjectFit, base, features) {
+    features.add(&#39;fit&#39;, ObjectFit.default);
+
+    features.add(&#39;gallery&#39;, Gallery.default);
+    features.init(document.body);
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-gallery&#39;, path: &#39;gallery/lib/main.min.js&#39; }, { name: &#39;feature-object-fit&#39;, path: &#39;object-fit/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Gallery, ObjectFit, base, features) {
+    features.add(&#39;fit&#39;, ObjectFit.default);
+
+    features.add(&#39;gallery&#39;, Gallery.default);
+    features.init(document.body);
+  });
+});</code></pre>
+	</div>
+</div>
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> css</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text=".ft-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.image-container {
+  flex-grow: 1;
+}
+
+.source {
+  height: 200px;
+  min-width: 200px;
+}" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">.ft-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.image-container {
+  flex-grow: 1;
+}
+
+.source {
+  height: 200px;
+  min-width: 200px;
+}</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="gallery-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="gallery-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;h2&gt;Gallery&lt;/h2&gt;
+
+    &lt;div class=&quot;ft-gallery&quot; data-feature=&quot;gallery&quot; itemscope itemtype=&quot;//schema.org/ImageGallery&quot;&gt;
+
+      &lt;figure class=&quot;image-container&quot; data-figure itemprop=&quot;associatedMedia&quot; itemscope itemtype=&quot;//schema.org/ImageObject&quot;&gt;
+        &lt;a href=&quot;slider/docs/files/test.jpeg&quot; class=&quot;source&quot; data-source itemprop=&quot;contentUrl&quot;&gt;
+          &lt;div class=&quot;ft-fit-bg&quot;&gt;
+            &lt;img src=&quot;slider/docs/files/test.jpeg&quot; data-thumbnail data-feature=&quot;fit&quot; alt=&quot;test&quot; itemprop=&quot;thumbnail&quot;&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;
+
+        &lt;meta data-width itemprop=&quot;width&quot; content=&quot;3000&quot;&gt;
+        &lt;meta data-height itemprop=&quot;height&quot; content=&quot;2000&quot;&gt;
+
+        &lt;figcaption class=&quot;caption&quot; data-caption itemprop=&quot;caption description&quot;&gt;
+          Long description
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+
+      &lt;figure class=&quot;image-container&quot; data-figure itemprop=&quot;associatedMedia&quot; itemscope itemtype=&quot;//schema.org/ImageObject&quot;&gt;
+        &lt;a href=&quot;slider/docs/files/test2.jpeg&quot; class=&quot;source&quot; data-source itemprop=&quot;contentUrl&quot;&gt;
+          &lt;div class=&quot;ft-fit-bg&quot;&gt;
+            &lt;img src=&quot;slider/docs/files/test2.jpeg&quot; data-thumbnail alt=&quot;test2&quot; itemprop=&quot;thumbnail&quot;&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;
+
+        &lt;meta data-width itemprop=&quot;width&quot; content=&quot;682&quot;&gt;
+        &lt;meta data-height itemprop=&quot;height&quot; content=&quot;1050&quot;&gt;
+
+        &lt;figcaption class=&quot;caption&quot; data-caption itemprop=&quot;caption description&quot;&gt;
+          Long description
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+
+      &lt;figure class=&quot;image-container&quot; data-figure itemprop=&quot;associatedMedia&quot; itemscope itemtype=&quot;//schema.org/ImageObject&quot;&gt;
+        &lt;a href=&quot;slider/docs/files/test3.jpeg&quot; class=&quot;source&quot; data-source itemprop=&quot;contentUrl&quot;&gt;
+          &lt;div class=&quot;ft-fit-bg&quot;&gt;
+            &lt;img src=&quot;slider/docs/files/test3.jpeg&quot; data-thumbnail alt=&quot;test3&quot; itemprop=&quot;thumbnail&quot;&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;
+
+        &lt;meta data-width itemprop=&quot;width&quot; content=&quot;1400&quot;&gt;
+        &lt;meta data-height itemprop=&quot;height&quot; content=&quot;620&quot;&gt;
+
+        &lt;figcaption class=&quot;caption&quot; data-caption itemprop=&quot;caption description&quot;&gt;
+          Long description
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+
+      &lt;figure class=&quot;image-container&quot; data-figure itemprop=&quot;associatedMedia&quot; itemscope itemtype=&quot;//schema.org/ImageObject&quot;&gt;
+        &lt;a href=&quot;slider/docs/files/test4.jpeg&quot; class=&quot;source&quot; data-source itemprop=&quot;contentUrl&quot;&gt;
+          &lt;div class=&quot;ft-fit-bg&quot;&gt;
+            &lt;img src=&quot;slider/docs/files/test4.jpeg&quot; data-thumbnail alt=&quot;test4&quot; itemprop=&quot;thumbnail&quot;&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;
+
+        &lt;meta data-width itemprop=&quot;width&quot; content=&quot;2400&quot;&gt;
+        &lt;meta data-height itemprop=&quot;height&quot; content=&quot;1600&quot;&gt;
+
+        &lt;figcaption class=&quot;caption&quot; data-caption itemprop=&quot;caption description&quot;&gt;
+          Long description
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+
+    &lt;/div&gt;
+
+
+
+    &lt;!-- Root element of PhotoSwipe. Must have class pswp. --&gt;
+    &lt;div class=&quot;pswp&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-hidden=&quot;true&quot; data-pswp&gt;
+
+      &lt;!-- Background of PhotoSwipe.
+          It&#39;s a separate element as animating opacity is faster than rgba(). --&gt;
+      &lt;div class=&quot;pswp__bg&quot;&gt;&lt;/div&gt;
+
+      &lt;!-- Slides wrapper with overflow:hidden. --&gt;
+      &lt;div class=&quot;pswp__scroll-wrap&quot;&gt;
+
+        &lt;!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don&#39;t modify these 3 pswp__item elements, data is added later on. --&gt;
+        &lt;div class=&quot;pswp__container&quot;&gt;
+          &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. --&gt;
+        &lt;div class=&quot;pswp__ui pswp__ui--hidden&quot;&gt;
+
+          &lt;div class=&quot;pswp__top-bar&quot;&gt;
+
+            &lt;!--  Controls are self-explanatory. Order can be changed. --&gt;
+
+            &lt;div class=&quot;pswp__counter&quot;&gt;&lt;/div&gt;
+
+            &lt;button class=&quot;pswp__button pswp__button--close&quot; title=&quot;Close (Esc)&quot;&gt;&lt;/button&gt;
+
+            &lt;button class=&quot;pswp__button pswp__button--share&quot; title=&quot;Share&quot;&gt;&lt;/button&gt;
+
+            &lt;button class=&quot;pswp__button pswp__button--fs&quot; title=&quot;Toggle fullscreen&quot;&gt;&lt;/button&gt;
+
+            &lt;button class=&quot;pswp__button pswp__button--zoom&quot; title=&quot;Zoom in/out&quot;&gt;&lt;/button&gt;
+
+            &lt;!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR --&gt;
+            &lt;!-- element will get class pswp__preloader--active when preloader is running --&gt;
+            &lt;div class=&quot;pswp__preloader&quot;&gt;
+              &lt;div class=&quot;pswp__preloader__icn&quot;&gt;
+                &lt;div class=&quot;pswp__preloader__cut&quot;&gt;
+                  &lt;div class=&quot;pswp__preloader__donut&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&quot;pswp__share-modal pswp__share-modal--hidden pswp__single-tap&quot;&gt;
+              &lt;div class=&quot;pswp__share-tooltip&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;button class=&quot;pswp__button pswp__button--arrow--left&quot; title=&quot;Previous (arrow left)&quot;&gt;
+          &lt;/button&gt;
+
+          &lt;button class=&quot;pswp__button pswp__button--arrow--right&quot; title=&quot;Next (arrow right)&quot;&gt;
+          &lt;/button&gt;
+
+          &lt;div class=&quot;pswp__caption&quot;&gt;
+              &lt;div class=&quot;pswp__caption__center&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+
+    &lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">&lt;h2&gt;Gallery&lt;/h2&gt;
+
+    &lt;div class=&quot;ft-gallery&quot; data-feature=&quot;gallery&quot; itemscope itemtype=&quot;//schema.org/ImageGallery&quot;&gt;
+
+      &lt;figure class=&quot;image-container&quot; data-figure itemprop=&quot;associatedMedia&quot; itemscope itemtype=&quot;//schema.org/ImageObject&quot;&gt;
+        &lt;a href=&quot;slider/docs/files/test.jpeg&quot; class=&quot;source&quot; data-source itemprop=&quot;contentUrl&quot;&gt;
+          &lt;div class=&quot;ft-fit-bg&quot;&gt;
+            &lt;img src=&quot;slider/docs/files/test.jpeg&quot; data-thumbnail data-feature=&quot;fit&quot; alt=&quot;test&quot; itemprop=&quot;thumbnail&quot;&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;
+
+        &lt;meta data-width itemprop=&quot;width&quot; content=&quot;3000&quot;&gt;
+        &lt;meta data-height itemprop=&quot;height&quot; content=&quot;2000&quot;&gt;
+
+        &lt;figcaption class=&quot;caption&quot; data-caption itemprop=&quot;caption description&quot;&gt;
+          Long description
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+
+      &lt;figure class=&quot;image-container&quot; data-figure itemprop=&quot;associatedMedia&quot; itemscope itemtype=&quot;//schema.org/ImageObject&quot;&gt;
+        &lt;a href=&quot;slider/docs/files/test2.jpeg&quot; class=&quot;source&quot; data-source itemprop=&quot;contentUrl&quot;&gt;
+          &lt;div class=&quot;ft-fit-bg&quot;&gt;
+            &lt;img src=&quot;slider/docs/files/test2.jpeg&quot; data-thumbnail alt=&quot;test2&quot; itemprop=&quot;thumbnail&quot;&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;
+
+        &lt;meta data-width itemprop=&quot;width&quot; content=&quot;682&quot;&gt;
+        &lt;meta data-height itemprop=&quot;height&quot; content=&quot;1050&quot;&gt;
+
+        &lt;figcaption class=&quot;caption&quot; data-caption itemprop=&quot;caption description&quot;&gt;
+          Long description
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+
+      &lt;figure class=&quot;image-container&quot; data-figure itemprop=&quot;associatedMedia&quot; itemscope itemtype=&quot;//schema.org/ImageObject&quot;&gt;
+        &lt;a href=&quot;slider/docs/files/test3.jpeg&quot; class=&quot;source&quot; data-source itemprop=&quot;contentUrl&quot;&gt;
+          &lt;div class=&quot;ft-fit-bg&quot;&gt;
+            &lt;img src=&quot;slider/docs/files/test3.jpeg&quot; data-thumbnail alt=&quot;test3&quot; itemprop=&quot;thumbnail&quot;&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;
+
+        &lt;meta data-width itemprop=&quot;width&quot; content=&quot;1400&quot;&gt;
+        &lt;meta data-height itemprop=&quot;height&quot; content=&quot;620&quot;&gt;
+
+        &lt;figcaption class=&quot;caption&quot; data-caption itemprop=&quot;caption description&quot;&gt;
+          Long description
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+
+      &lt;figure class=&quot;image-container&quot; data-figure itemprop=&quot;associatedMedia&quot; itemscope itemtype=&quot;//schema.org/ImageObject&quot;&gt;
+        &lt;a href=&quot;slider/docs/files/test4.jpeg&quot; class=&quot;source&quot; data-source itemprop=&quot;contentUrl&quot;&gt;
+          &lt;div class=&quot;ft-fit-bg&quot;&gt;
+            &lt;img src=&quot;slider/docs/files/test4.jpeg&quot; data-thumbnail alt=&quot;test4&quot; itemprop=&quot;thumbnail&quot;&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;
+
+        &lt;meta data-width itemprop=&quot;width&quot; content=&quot;2400&quot;&gt;
+        &lt;meta data-height itemprop=&quot;height&quot; content=&quot;1600&quot;&gt;
+
+        &lt;figcaption class=&quot;caption&quot; data-caption itemprop=&quot;caption description&quot;&gt;
+          Long description
+        &lt;/figcaption&gt;
+      &lt;/figure&gt;
+
+    &lt;/div&gt;
+
+
+
+    &lt;!-- Root element of PhotoSwipe. Must have class pswp. --&gt;
+    &lt;div class=&quot;pswp&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-hidden=&quot;true&quot; data-pswp&gt;
+
+      &lt;!-- Background of PhotoSwipe.
+          It&#39;s a separate element as animating opacity is faster than rgba(). --&gt;
+      &lt;div class=&quot;pswp__bg&quot;&gt;&lt;/div&gt;
+
+      &lt;!-- Slides wrapper with overflow:hidden. --&gt;
+      &lt;div class=&quot;pswp__scroll-wrap&quot;&gt;
+
+        &lt;!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don&#39;t modify these 3 pswp__item elements, data is added later on. --&gt;
+        &lt;div class=&quot;pswp__container&quot;&gt;
+          &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;pswp__item&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. --&gt;
+        &lt;div class=&quot;pswp__ui pswp__ui--hidden&quot;&gt;
+
+          &lt;div class=&quot;pswp__top-bar&quot;&gt;
+
+            &lt;!--  Controls are self-explanatory. Order can be changed. --&gt;
+
+            &lt;div class=&quot;pswp__counter&quot;&gt;&lt;/div&gt;
+
+            &lt;button class=&quot;pswp__button pswp__button--close&quot; title=&quot;Close (Esc)&quot;&gt;&lt;/button&gt;
+
+            &lt;button class=&quot;pswp__button pswp__button--share&quot; title=&quot;Share&quot;&gt;&lt;/button&gt;
+
+            &lt;button class=&quot;pswp__button pswp__button--fs&quot; title=&quot;Toggle fullscreen&quot;&gt;&lt;/button&gt;
+
+            &lt;button class=&quot;pswp__button pswp__button--zoom&quot; title=&quot;Zoom in/out&quot;&gt;&lt;/button&gt;
+
+            &lt;!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR --&gt;
+            &lt;!-- element will get class pswp__preloader--active when preloader is running --&gt;
+            &lt;div class=&quot;pswp__preloader&quot;&gt;
+              &lt;div class=&quot;pswp__preloader__icn&quot;&gt;
+                &lt;div class=&quot;pswp__preloader__cut&quot;&gt;
+                  &lt;div class=&quot;pswp__preloader__donut&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&quot;pswp__share-modal pswp__share-modal--hidden pswp__single-tap&quot;&gt;
+              &lt;div class=&quot;pswp__share-tooltip&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;button class=&quot;pswp__button pswp__button--arrow--left&quot; title=&quot;Previous (arrow left)&quot;&gt;
+          &lt;/button&gt;
+
+          &lt;button class=&quot;pswp__button pswp__button--arrow--right&quot; title=&quot;Next (arrow right)&quot;&gt;
+          &lt;/button&gt;
+
+          &lt;div class=&quot;pswp__caption&quot;&gt;
+              &lt;div class=&quot;pswp__caption__center&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+
+    &lt;/div&gt;</code></pre>
 	</div>
 </div></div>
 </div>
@@ -1465,6 +1823,28 @@ input[type=&quot;checkbox&quot;] {
 								data-filter-value="Form"
 							>
 								<span>Form</span>
+							</a>
+					</div>
+			
+				</div>
+				<div class="i-sidebar-list-group">
+			
+					<h5
+						class="pt-4 mb-1"
+						data-filter-value=" Gallery "
+					>
+						<a href="#category-gallery" class="i-sidebar-list-item">
+							<b>Gallery</b>
+						</a>
+					</h5>
+			
+					<div>
+							<a
+								href="#gallery"
+								class="i-sidebar-list-item"
+								data-filter-value="Gallery"
+							>
+								<span>Gallery</span>
 							</a>
 					</div>
 			
