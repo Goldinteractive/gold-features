@@ -34,7 +34,9 @@ We use lerna to orchestrate the build and publish process.
 
 There is a bootstrap script in place to ease the creation of new features.
 
-`yarn create:feature --name sample` will create a new feature and set up the base file structure (replace `sample` with the feature name, e.g. for `feature-modal` use `modal`)
+`yarn create:feature --name sample` will create a new feature and set up the base file structure (replace `sample` with the feature name, e.g. for `feature-modal` use `modal`).
+
+Each feature manages its own local dependencies, make sure to install them in the proper scope (dev !== peer).
 
 Create your feature and update the docs accordingly. Make sure to update `stylemark.config.yml` to ensure that all runtime dependencies are available on the docs pages.
 
