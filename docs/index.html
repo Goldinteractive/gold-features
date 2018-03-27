@@ -32,6 +32,9 @@
 							<optgroup label="Icons">
 									<option value="icons">Icons</option>
 							</optgroup>
+							<optgroup label="Map">
+									<option value="map">Map</option>
+							</optgroup>
 							<optgroup label="Modal">
 									<option value="modal">Modal</option>
 							</optgroup>
@@ -551,7 +554,7 @@ input[type=&quot;checkbox&quot;] {
 				<div id="category-gallery">
 						<div id="gallery" class="i-library">
 	<h1 class="display-4">Gallery</h1>
-	<div><p>Gallery</p>
+	<div><p>There is an issue running Gallery in the Stylemark iframe. Open up the <code>external view</code> which works properly</p>
 
 <div class="i-code-block">
 	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
@@ -1008,6 +1011,115 @@ input[type=&quot;checkbox&quot;] {
 
 &lt;h2&gt;Responsive icon&lt;/h2&gt;
 &lt;span data-feature=&quot;icon&quot; data-icon=&quot;sackmesser&quot; data-responsive&gt;&lt;/span&gt;</code></pre>
+	</div>
+</div></div>
+</div>
+
+				</div>
+				<div id="category-map">
+						<div id="map" class="i-library">
+	<h1 class="display-4">Map</h1>
+	<div><blockquote>
+<p>Make sure to load Google Maps globally.</p>
+<p>Known issues:
+Dragging a map in an iframe is not working properly.</p>
+<p>TODO:
+check whether there is a way to load GMaps API as part of feature-map</p>
+</blockquote>
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-map&#39;, path: &#39;map/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Map, base, features) {
+    features.add(&#39;map&#39;, Map.default, {
+      assetLocation: &#39;map/assets/features/map&#39;,
+      markers: [
+        {}
+      ]
+    });
+    features.init(document.body);
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-map&#39;, path: &#39;map/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Map, base, features) {
+    features.add(&#39;map&#39;, Map.default, {
+      assetLocation: &#39;map/assets/features/map&#39;,
+      markers: [
+        {}
+      ]
+    });
+    features.init(document.body);
+  });
+});</code></pre>
+	</div>
+</div>
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> css</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text=".wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 55%;
+  background-color: #eee;
+}" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">.wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 55%;
+  background-color: #eee;
+}</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="map-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="map-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;div
+    class=&quot;ft-map&quot;
+    data-feature=&quot;map&quot;
+    data-lat=&quot;47.387784&quot;
+    data-lng=&quot;8.493927&quot;
+    data-zoom=&quot;12&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;//maps.googleapis.com/maps/api/js?libraries=geometry&amp;key=AIzaSyAtOJRO17DPX-JK2Vps9RYCY756RogmoAA&quot;&gt;&lt;/script&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;div
+    class=&quot;ft-map&quot;
+    data-feature=&quot;map&quot;
+    data-lat=&quot;47.387784&quot;
+    data-lng=&quot;8.493927&quot;
+    data-zoom=&quot;12&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;//maps.googleapis.com/maps/api/js?libraries=geometry&amp;key=AIzaSyAtOJRO17DPX-JK2Vps9RYCY756RogmoAA&quot;&gt;&lt;/script&gt;</code></pre>
 	</div>
 </div></div>
 </div>
@@ -1867,6 +1979,28 @@ input[type=&quot;checkbox&quot;] {
 								data-filter-value="Icons"
 							>
 								<span>Icons</span>
+							</a>
+					</div>
+			
+				</div>
+				<div class="i-sidebar-list-group">
+			
+					<h5
+						class="pt-4 mb-1"
+						data-filter-value=" Map "
+					>
+						<a href="#category-map" class="i-sidebar-list-item">
+							<b>Map</b>
+						</a>
+					</h5>
+			
+					<div>
+							<a
+								href="#map"
+								class="i-sidebar-list-item"
+								data-filter-value="Map"
+							>
+								<span>Map</span>
 							</a>
 					</div>
 			

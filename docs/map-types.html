@@ -6,6 +6,13 @@
 
 
 		<style>
+					.wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 55%;
+  background-color: #eee;
+}
 		</style>
 
 		<style>
@@ -29,69 +36,55 @@
 		<main
 			role="main"
 			id="stylemark-root"
-			ng-controller="stylemark-icons-types"
+			ng-controller="stylemark-map-types"
 			style="
 				display: block;
 				padding: ;
 				width: ;
 			"
-		><h2>Proportionally sized icon with height taken from <pre>$icons-height</pre> variable</h2>
-<p>
-  Lorem ipsum dolor <span data-feature="icon" data-icon="sackmesser"></span> sit amet, consetetur sadipscing elitr,
-  sed diam nonumy eirmod tempor <span data-feature="icon" data-icon="company"></span> invidunt ut labore et dolore magna aliquyam erat,
-  sed diam voluptua. <span data-feature="icon" data-icon="user"></span> At vero eos et accusam et justo duo dolores et ea rebum.
-</p>
+		><div class="wrapper">
+  <div
+    class="ft-map"
+    data-feature="map"
+    data-lat="47.387784"
+    data-lng="8.493927"
+    data-zoom="12">
+  </div>
+</div>
 
-<h2>Equal sized icon with sizes taken from <pre>$icons-width</pre> and <pre>$icons-height</pre> variables</h2>
-<ul>
-  <li><span data-feature="icon" data-icon="sackmesser" data-equal></span> Lorem ipsum dolor</li>
-  <li><span data-feature="icon" data-icon="company" data-equal></span> Lorem ipsum dolor</li>
-  <li><span data-feature="icon" data-icon="user" data-equal></span> Lorem ipsum dolor</li>
-</ul>
-
-<h2>Original icon with sizes taken from the original svg</h2>
-<p><span data-feature="icon" data-icon="sackmesser" data-original></span></p>
-
-<h2>Responsive icon</h2>
-<span data-feature="icon" data-icon="sackmesser" data-responsive></span></main>
+<script src="//maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyAtOJRO17DPX-JK2Vps9RYCY756RogmoAA"></script></main>
 
 		
 
 			<script type="text/x-stylemark" data-language="js">require(['featurify'], function(featurify) {
-  featurify([{ name: 'feature-icons', path: 'icons/lib/main.min.js' }, 'base', 'base.features'], function(Icons, base, features) {
-
-    var icons = new Icons.IconManager({
-      svgJsonFile: 'icons/docs/icons.json',
-      svgSpriteFile: 'icons/docs/icons.svg'
-    })
-
-    icons.injectSprite(() => {
-      icons.loadData(() => {
-        features.add('icon', Icons.default, { manager: icons })
-        features.init(document.body, 'icon');
-      })
-    })
+  featurify([{ name: 'feature-map', path: 'map/lib/main.min.js' }, 'base', 'base.features'], function(Map, base, features) {
+    features.add('map', Map.default, {
+      assetLocation: 'map/assets/features/map',
+      markers: [
+        {}
+      ]
+    });
+    features.init(document.body);
   });
 });</script>
-			<script type="text/x-stylemark" data-language="html"><h2>Proportionally sized icon with height taken from <pre>$icons-height</pre> variable</h2>
-<p>
-  Lorem ipsum dolor <span data-feature="icon" data-icon="sackmesser"></span> sit amet, consetetur sadipscing elitr,
-  sed diam nonumy eirmod tempor <span data-feature="icon" data-icon="company"></span> invidunt ut labore et dolore magna aliquyam erat,
-  sed diam voluptua. <span data-feature="icon" data-icon="user"></span> At vero eos et accusam et justo duo dolores et ea rebum.
-</p>
+			<script type="text/x-stylemark" data-language="css">.wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 55%;
+  background-color: #eee;
+}</script>
+			<script type="text/x-stylemark" data-language="html"><div class="wrapper">
+  <div
+    class="ft-map"
+    data-feature="map"
+    data-lat="47.387784"
+    data-lng="8.493927"
+    data-zoom="12">
+  </div>
+</div>
 
-<h2>Equal sized icon with sizes taken from <pre>$icons-width</pre> and <pre>$icons-height</pre> variables</h2>
-<ul>
-  <li><span data-feature="icon" data-icon="sackmesser" data-equal></span> Lorem ipsum dolor</li>
-  <li><span data-feature="icon" data-icon="company" data-equal></span> Lorem ipsum dolor</li>
-  <li><span data-feature="icon" data-icon="user" data-equal></span> Lorem ipsum dolor</li>
-</ul>
-
-<h2>Original icon with sizes taken from the original svg</h2>
-<p><span data-feature="icon" data-icon="sackmesser" data-original></span></p>
-
-<h2>Responsive icon</h2>
-<span data-feature="icon" data-icon="sackmesser" data-responsive></span></script>
+<script src="//maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyAtOJRO17DPX-JK2Vps9RYCY756RogmoAA"></script></script>
 
 		<script>
 			eval(getStylemarkBlock('js'));
@@ -112,10 +105,10 @@
 				}
 				else {
 					// Creates a new module
-					module = angular.module('stylemark-icons-types', []);
+					module = angular.module('stylemark-map-types', []);
 				}
 
-				module.controller('stylemark-icons-types', function($scope) {
+				module.controller('stylemark-map-types', function($scope) {
 					$scope.$eval(getStylemarkBlock('angularjs'));
 				});
 			})(window.angular);
