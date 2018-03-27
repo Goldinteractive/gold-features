@@ -1,0 +1,29 @@
+@import 'photoswipe/src/css/main';
+@import 'photoswipe/src/css/default-skin/default-skin';
+
+.pswp[data-pswp] {
+  .pswp__preloader--active {
+    .pswp__preloader__icn {
+      background: inline('features/gallery/preloader.gif') 0 0 no-repeat;
+    }
+  }
+
+  .pswp__button,
+  .pswp__button--arrow--left:before,
+  .pswp__button--arrow--right:before {
+    background-image: inline('features/gallery/default-skin.svg');
+  }
+
+  .pswp__button--arrow--left,
+  .pswp__button--arrow--right {
+    background: none;
+  }
+}
+
+
+.ft-gallery {
+  .source {
+    position: relative;
+    display: block;
+  }
+}

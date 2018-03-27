@@ -1,0 +1,19 @@
+{
+  "name": "@goldinteractive/feature-gallery",
+  "version": "0.0.1-alpha",
+  "description": "gallery feature",
+  "main": "lib/main.min.js",
+  "module": "src/index.js",
+  "author": "Gold Interactive",
+  "license": "MIT",
+  "scripts": {
+    "build": "node ../../scripts/build.js",
+    "watch": "node ../../scripts/watch.js"
+  },
+  "dependencies": {
+    "photoswipe": "^4.1.2"
+  },
+  "peerDependencies": {
+    "@goldinteractive/js-base": "^0.0.2"
+  }
+}
