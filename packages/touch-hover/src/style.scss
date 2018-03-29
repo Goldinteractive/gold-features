@@ -1,0 +1,10 @@
+.ft-touch-hover {
+  & {
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+  }
+
+  &, a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+}
