@@ -44,6 +44,9 @@
 							<optgroup label="Slider">
 									<option value="slider">Slider</option>
 							</optgroup>
+							<optgroup label="TouchHover">
+									<option value="touch-hover">TouchHover</option>
+							</optgroup>
 					</select>
 				</form>
 			</div>
@@ -1872,6 +1875,219 @@ check whether there is a way to load GMaps API as part of feature-map</p>
 </div>
 
 				</div>
+				<div id="category-touchhover">
+						<div id="touch-hover" class="i-library">
+	<h1 class="display-4">TouchHover</h1>
+	<div><p>TouchHover</p>
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-touch-hover&#39;, path: &#39;touch-hover/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(TouchHover, base, features) {
+    features.add(&#39;touch-hover&#39;, TouchHover.default);
+    features.init(document.body);
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-touch-hover&#39;, path: &#39;touch-hover/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(TouchHover, base, features) {
+    features.add(&#39;touch-hover&#39;, TouchHover.default);
+    features.init(document.body);
+  });
+});</code></pre>
+	</div>
+</div>
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> css</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="p {
+  text-align: center;
+  margin: 20px 70px;
+}
+
+h2 {
+  margin-top: 50px;
+}
+
+@import &#39;../src/style&#39;;
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  padding: 4px 0;
+}
+
+ul li ul {
+  display: none;
+  padding-left: 20px;
+}
+
+ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 2px 5px;
+  color: #fff;
+  background-color: brown;
+}
+
+ul li.-active ul {
+  display: block;
+  margin: 0;
+}
+
+ul li.-clicked a {
+  color: red;
+}
+
+@media (max-width: 400px) {
+  ul li.-current ul {
+    display: block;
+  }
+}" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">p {
+  text-align: center;
+  margin: 20px 70px;
+}
+
+h2 {
+  margin-top: 50px;
+}
+
+@import &#39;../src/style&#39;;
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  padding: 4px 0;
+}
+
+ul li ul {
+  display: none;
+  padding-left: 20px;
+}
+
+ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 2px 5px;
+  color: #fff;
+  background-color: brown;
+}
+
+ul li.-active ul {
+  display: block;
+  margin: 0;
+}
+
+ul li.-clicked a {
+  color: red;
+}
+
+@media (max-width: 400px) {
+  ul li.-current ul {
+    display: block;
+  }
+}</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="touch-hover-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="touch-hover-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;h2&gt;Touch Hover&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li class=&quot;ft-touch-hover&quot; data-feature=&quot;touch-hover&quot;&gt;
+      &lt;a href=&quot;http://example.com&quot; target=&quot;_blank&quot;&gt;Test (initially closed)&lt;/a&gt;
+      &lt;ul&gt;
+          &lt;li&gt;
+            &lt;a href=&quot;http://google.com&quot; target=&quot;_blank&quot;&gt;Test 1.1&lt;/a&gt;
+          &lt;/li&gt;
+      &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;ft-touch-hover -active&quot; data-feature=&quot;touch-hover&quot;&gt;
+    &lt;a href=&quot;http://example.com&quot; target=&quot;_blank&quot;&gt;Test 2 (initially opened with active class)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;http://google.com&quot; target=&quot;_blank&quot;&gt;Test 2.1&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;http://example.com&quot; target=&quot;_blank&quot;&gt;Test 3 (menu item without submenu)&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;ft-touch-hover -current&quot; data-feature=&quot;touch-hover&quot;&gt;
+    &lt;a href=&quot;http://example.com&quot; target=&quot;_blank&quot;&gt;Test 4 (initially opened without active class just on mobile)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;http://google.com&quot; target=&quot;_blank&quot;&gt;Test 4.1&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">&lt;h2&gt;Touch Hover&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li class=&quot;ft-touch-hover&quot; data-feature=&quot;touch-hover&quot;&gt;
+      &lt;a href=&quot;http://example.com&quot; target=&quot;_blank&quot;&gt;Test (initially closed)&lt;/a&gt;
+      &lt;ul&gt;
+          &lt;li&gt;
+            &lt;a href=&quot;http://google.com&quot; target=&quot;_blank&quot;&gt;Test 1.1&lt;/a&gt;
+          &lt;/li&gt;
+      &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;ft-touch-hover -active&quot; data-feature=&quot;touch-hover&quot;&gt;
+    &lt;a href=&quot;http://example.com&quot; target=&quot;_blank&quot;&gt;Test 2 (initially opened with active class)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;http://google.com&quot; target=&quot;_blank&quot;&gt;Test 2.1&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;http://example.com&quot; target=&quot;_blank&quot;&gt;Test 3 (menu item without submenu)&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;ft-touch-hover -current&quot; data-feature=&quot;touch-hover&quot;&gt;
+    &lt;a href=&quot;http://example.com&quot; target=&quot;_blank&quot;&gt;Test 4 (initially opened without active class just on mobile)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;http://google.com&quot; target=&quot;_blank&quot;&gt;Test 4.1&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+	</div>
+</div></div>
+</div>
+
+				</div>
 		</div>
 		<div
 			class="i-page__sidebar"
@@ -2067,6 +2283,28 @@ check whether there is a way to load GMaps API as part of feature-map</p>
 								data-filter-value="Slider"
 							>
 								<span>Slider</span>
+							</a>
+					</div>
+			
+				</div>
+				<div class="i-sidebar-list-group">
+			
+					<h5
+						class="pt-4 mb-1"
+						data-filter-value=" TouchHover "
+					>
+						<a href="#category-touchhover" class="i-sidebar-list-item">
+							<b>TouchHover</b>
+						</a>
+					</h5>
+			
+					<div>
+							<a
+								href="#touch-hover"
+								class="i-sidebar-list-item"
+								data-filter-value="TouchHover"
+							>
+								<span>TouchHover</span>
 							</a>
 					</div>
 			
