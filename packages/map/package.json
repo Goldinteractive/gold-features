@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-map",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "map feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
