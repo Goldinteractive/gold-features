@@ -1,0 +1,16 @@
+.ft-cookie-disclaimer.-visibility-default {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in, visibility 0.3s ease-in; }
+  .ft-cookie-disclaimer.-visibility-default.-show {
+    visibility: visible;
+    opacity: 1; }
+
+.ft-cookie-disclaimer.-banner-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background-color: black;
+  color: white;
+  padding: 20px; }

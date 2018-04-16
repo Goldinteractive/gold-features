@@ -23,6 +23,9 @@
 							<optgroup label="Accordion">
 									<option value="accordion">Accordion</option>
 							</optgroup>
+							<optgroup label="CookieDisclaimer">
+									<option value="cookie-disclaimer">CookieDisclaimer</option>
+							</optgroup>
 							<optgroup label="Form">
 									<option value="form">Form</option>
 							</optgroup>
@@ -264,6 +267,66 @@
     &lt;p&gt;Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.&lt;/p&gt;
 
     &lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&lt;/p&gt;</code></pre>
+	</div>
+</div></div>
+</div>
+
+				</div>
+				<div id="category-cookiedisclaimer">
+						<div id="cookie-disclaimer" class="i-library">
+	<h1 class="display-4">CookieDisclaimer</h1>
+	<div><p>CookieDisclaimer</p>
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-cookie-disclaimer&#39;, path: &#39;cookie-disclaimer/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(CookieDisclaimer, base, features) {
+    features.add(&#39;cookie-disclaimer&#39;, CookieDisclaimer.default);
+    features.init(document.body);
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-cookie-disclaimer&#39;, path: &#39;cookie-disclaimer/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(CookieDisclaimer, base, features) {
+    features.add(&#39;cookie-disclaimer&#39;, CookieDisclaimer.default);
+    features.init(document.body);
+  });
+});</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="cookie-disclaimer-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="cookie-disclaimer-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;div class=&quot;ft-cookie-disclaimer -banner-bottom -visibility-default&quot; data-feature=&quot;cookie-disclaimer&quot;&gt;
+Disclaimer example message
+&lt;a href=&quot;#&quot; data-disclaimer-confirm&gt;Got it&lt;/a&gt;
+&lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">&lt;div class=&quot;ft-cookie-disclaimer -banner-bottom -visibility-default&quot; data-feature=&quot;cookie-disclaimer&quot;&gt;
+Disclaimer example message
+&lt;a href=&quot;#&quot; data-disclaimer-confirm&gt;Got it&lt;/a&gt;
+&lt;/div&gt;</code></pre>
 	</div>
 </div></div>
 </div>
@@ -2129,6 +2192,28 @@ ul li.-clicked a {
 								data-filter-value="Accordion"
 							>
 								<span>Accordion</span>
+							</a>
+					</div>
+			
+				</div>
+				<div class="i-sidebar-list-group">
+			
+					<h5
+						class="pt-4 mb-1"
+						data-filter-value=" CookieDisclaimer "
+					>
+						<a href="#category-cookiedisclaimer" class="i-sidebar-list-item">
+							<b>CookieDisclaimer</b>
+						</a>
+					</h5>
+			
+					<div>
+							<a
+								href="#cookie-disclaimer"
+								class="i-sidebar-list-item"
+								data-filter-value="CookieDisclaimer"
+							>
+								<span>CookieDisclaimer</span>
 							</a>
 					</div>
 			
