@@ -1,0 +1,29 @@
+$ft-cookie-disclaimer-background-color: black !default;
+$ft-cookie-disclaimer-color: white !default;
+$ft-cookie-disclaimer-padding: 20px !default;
+$ft-cookie-disclaimer-transition: .3s ease-in !default;
+
+.ft-cookie-disclaimer {
+  &.-visibility-default {
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity $ft-cookie-disclaimer-transition, visibility $ft-cookie-disclaimer-transition;
+
+    &.-show {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &.-banner-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+
+    background-color: $ft-cookie-disclaimer-background-color;
+    color: $ft-cookie-disclaimer-color;
+    padding: $ft-cookie-disclaimer-padding;
+  }
+}
