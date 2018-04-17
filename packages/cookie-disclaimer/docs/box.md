@@ -3,7 +3,7 @@ name: CookieDisclaimer - Box
 category: CookieDisclaimer
 ---
 
-CookieDisclaimer - Boxs
+CookieDisclaimer - Box
 
 ```types.js
 require(['featurify'], function(featurify) {
