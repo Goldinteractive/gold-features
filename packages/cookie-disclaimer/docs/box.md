@@ -1,9 +1,9 @@
 ---
-name: CookieDisclaimer - Banner
+name: CookieDisclaimer - Box
 category: CookieDisclaimer
 ---
 
-CookieDisclaimer - Banner
+CookieDisclaimer - Boxs
 
 ```types.js
 require(['featurify'], function(featurify) {
@@ -14,7 +14,7 @@ require(['featurify'], function(featurify) {
 });
 ```
 ```types.html
-<div class="ft-cookie-disclaimer -banner-bottom -visibility-default" data-feature="cookie-disclaimer">
+<div class="ft-cookie-disclaimer -box-bottom-right -visibility-default" data-feature="cookie-disclaimer">
 <p class="disclaimer-text">Disclaimer example message <a href="#">Privacy policy</a></p>
 <a href="#" data-disclaimer-confirm>Got it</a>
 </div>
