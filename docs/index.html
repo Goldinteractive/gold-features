@@ -24,7 +24,8 @@
 									<option value="accordion">Accordion</option>
 							</optgroup>
 							<optgroup label="CookieDisclaimer">
-									<option value="cookie-disclaimer">CookieDisclaimer</option>
+									<option value="cookie-disclaimer-banner">CookieDisclaimer - Banner</option>
+									<option value="cookie-disclaimer-box">CookieDisclaimer - Box</option>
 							</optgroup>
 							<optgroup label="Form">
 									<option value="form">Form</option>
@@ -273,9 +274,9 @@
 
 				</div>
 				<div id="category-cookiedisclaimer">
-						<div id="cookie-disclaimer" class="i-library">
-	<h1 class="display-4">CookieDisclaimer</h1>
-	<div><p>CookieDisclaimer</p>
+						<div id="cookie-disclaimer-banner" class="i-library">
+	<h1 class="display-4">CookieDisclaimer - Banner</h1>
+	<div><p>CookieDisclaimer - Banner</p>
 
 <div class="i-code-block">
 	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
@@ -296,7 +297,7 @@
 </div><div class="i-example">
                     <h5 class="i-example__heading">
                         <a
-                            href="cookie-disclaimer-types.html"
+                            href="cookie-disclaimer-banner-types.html"
                             target="_blank"
                             class="fa fa-external-link-square fa-fw plain-link"
                             title="Open in a new window"
@@ -307,7 +308,7 @@
                         <div
                             class="i-example__iframe"
                             lazyframe
-                            data-src="cookie-disclaimer-types.html"
+                            data-src="cookie-disclaimer-banner-types.html"
                             data-initinview="true"
                             data-title="Loading…"
 
@@ -320,11 +321,69 @@
 	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
 	<div class="i-code-block__content hidden">
 		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;div class=&quot;ft-cookie-disclaimer -banner-bottom -visibility-default&quot; data-feature=&quot;cookie-disclaimer&quot;&gt;
-Disclaimer example message
+&lt;p class=&quot;disclaimer-text&quot;&gt;Disclaimer example message &lt;a href=&quot;#&quot;&gt;Privacy policy&lt;/a&gt;&lt;/p&gt;
 &lt;a href=&quot;#&quot; data-disclaimer-confirm&gt;Got it&lt;/a&gt;
 &lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
 		<pre class="mb-0"><code class="lang-">&lt;div class=&quot;ft-cookie-disclaimer -banner-bottom -visibility-default&quot; data-feature=&quot;cookie-disclaimer&quot;&gt;
-Disclaimer example message
+&lt;p class=&quot;disclaimer-text&quot;&gt;Disclaimer example message &lt;a href=&quot;#&quot;&gt;Privacy policy&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;#&quot; data-disclaimer-confirm&gt;Got it&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+</div></div>
+</div>
+
+						<div id="cookie-disclaimer-box" class="i-library">
+	<h1 class="display-4">CookieDisclaimer - Box</h1>
+	<div><p>CookieDisclaimer - Boxs</p>
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-cookie-disclaimer&#39;, path: &#39;cookie-disclaimer/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(CookieDisclaimer, base, features) {
+    features.add(&#39;cookie-disclaimer&#39;, CookieDisclaimer.default);
+    features.init(document.body);
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-cookie-disclaimer&#39;, path: &#39;cookie-disclaimer/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(CookieDisclaimer, base, features) {
+    features.add(&#39;cookie-disclaimer&#39;, CookieDisclaimer.default);
+    features.init(document.body);
+  });
+});</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="cookie-disclaimer-box-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="cookie-disclaimer-box-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;div class=&quot;ft-cookie-disclaimer -box-bottom-right -visibility-default&quot; data-feature=&quot;cookie-disclaimer&quot;&gt;
+&lt;p class=&quot;disclaimer-text&quot;&gt;Disclaimer example message &lt;a href=&quot;#&quot;&gt;Privacy policy&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;#&quot; data-disclaimer-confirm&gt;Got it&lt;/a&gt;
+&lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">&lt;div class=&quot;ft-cookie-disclaimer -box-bottom-right -visibility-default&quot; data-feature=&quot;cookie-disclaimer&quot;&gt;
+&lt;p class=&quot;disclaimer-text&quot;&gt;Disclaimer example message &lt;a href=&quot;#&quot;&gt;Privacy policy&lt;/a&gt;&lt;/p&gt;
 &lt;a href=&quot;#&quot; data-disclaimer-confirm&gt;Got it&lt;/a&gt;
 &lt;/div&gt;</code></pre>
 	</div>
@@ -2200,7 +2259,7 @@ ul li.-clicked a {
 			
 					<h5
 						class="pt-4 mb-1"
-						data-filter-value=" CookieDisclaimer "
+						data-filter-value=" CookieDisclaimer - Banner  CookieDisclaimer - Box "
 					>
 						<a href="#category-cookiedisclaimer" class="i-sidebar-list-item">
 							<b>CookieDisclaimer</b>
@@ -2209,11 +2268,18 @@ ul li.-clicked a {
 			
 					<div>
 							<a
-								href="#cookie-disclaimer"
+								href="#cookie-disclaimer-banner"
 								class="i-sidebar-list-item"
-								data-filter-value="CookieDisclaimer"
+								data-filter-value="CookieDisclaimer - Banner"
 							>
-								<span>CookieDisclaimer</span>
+								<span>CookieDisclaimer - Banner</span>
+							</a>
+							<a
+								href="#cookie-disclaimer-box"
+								class="i-sidebar-list-item"
+								data-filter-value="CookieDisclaimer - Box"
+							>
+								<span>CookieDisclaimer - Box</span>
 							</a>
 					</div>
 			

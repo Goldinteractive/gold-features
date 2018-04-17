@@ -1,3 +1,11 @@
+.ft-cookie-disclaimer {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between; }
+
+.ft-cookie-disclaimer .disclaimer-text {
+  margin: 0; }
+
 .ft-cookie-disclaimer.-visibility-default {
   opacity: 0;
   visibility: hidden;
@@ -11,6 +19,27 @@
   bottom: 0;
   left: 0;
   width: 100vw;
-  background-color: black;
-  color: white;
+  background-color: #cdcdcd;
+  color: #333333;
   padding: 20px; }
+  @media screen and (max-width: 500px) {
+    .ft-cookie-disclaimer.-banner-bottom {
+      flex-direction: column; } }
+
+.ft-cookie-disclaimer.-box-bottom-right {
+  width: calc(100% - 40px);
+  max-width: calc(500px - 40px);
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #cdcdcd;
+  color: #333333;
+  padding: 20px; }
+  @media screen and (max-width: 500px) {
+    .ft-cookie-disclaimer.-box-bottom-right {
+      max-width: none;
+      width: 100%;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      flex-direction: column; } }

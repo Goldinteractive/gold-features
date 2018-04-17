@@ -29,14 +29,14 @@
 		<main
 			role="main"
 			id="stylemark-root"
-			ng-controller="stylemark-cookie-disclaimer-types"
+			ng-controller="stylemark-cookie-disclaimer-box-types"
 			style="
 				display: block;
 				padding: ;
 				width: ;
 			"
-		><div class="ft-cookie-disclaimer -banner-bottom -visibility-default" data-feature="cookie-disclaimer">
-Disclaimer example message
+		><div class="ft-cookie-disclaimer -box-bottom-right -visibility-default" data-feature="cookie-disclaimer">
+<p class="disclaimer-text">Disclaimer example message <a href="#">Privacy policy</a></p>
 <a href="#" data-disclaimer-confirm>Got it</a>
 </div></main>
 
@@ -48,8 +48,8 @@ Disclaimer example message
     features.init(document.body);
   });
 });</script>
-			<script type="text/x-stylemark" data-language="html"><div class="ft-cookie-disclaimer -banner-bottom -visibility-default" data-feature="cookie-disclaimer">
-Disclaimer example message
+			<script type="text/x-stylemark" data-language="html"><div class="ft-cookie-disclaimer -box-bottom-right -visibility-default" data-feature="cookie-disclaimer">
+<p class="disclaimer-text">Disclaimer example message <a href="#">Privacy policy</a></p>
 <a href="#" data-disclaimer-confirm>Got it</a>
 </div></script>
 
@@ -72,10 +72,10 @@ Disclaimer example message
 				}
 				else {
 					// Creates a new module
-					module = angular.module('stylemark-cookie-disclaimer-types', []);
+					module = angular.module('stylemark-cookie-disclaimer-box-types', []);
 				}
 
-				module.controller('stylemark-cookie-disclaimer-types', function($scope) {
+				module.controller('stylemark-cookie-disclaimer-box-types', function($scope) {
 					$scope.$eval(getStylemarkBlock('angularjs'));
 				});
 			})(window.angular);
