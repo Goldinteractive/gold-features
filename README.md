@@ -16,6 +16,24 @@ include the `@goldinteractive/src/style` in your `.scss file`
 
 Make sure to copy the assets folder into your project.
 
+### Setup to work on Gold Features
+
+Login to npm using `npm adduser`. Run `yarn lerna:exec yarn install --frozen-lockfile` to install all dependencies of all projects. Run `yarn install --frozen-lockfile`.
+
+Now you are ready to start working on Gold Features.
+
+### How to do basic feature maintenance
+
+Let's assume you want to change something in `feature-xyz`.
+Run `yarn watch` in `./packages/xyz`. This will automatically compile your changes.
+To have them reflected in the docs run `yarn stylemark:watch` in the root directory.
+
+Do your changes and check them using the docs page.
+
+Once you've finished updating go to the root directory and run `yarn lerna:updated`.
+This will check whether a new package is required. Make sure that only your changed project pops up.
+Then using `yarn lerna:publish` you can publish the changed packages to the npm registry.
+
 ### How to work with gold features
 
 We use lerna to orchestrate the build and publish process.
@@ -24,7 +42,7 @@ We use lerna to orchestrate the build and publish process.
 
 `yarn lerna:updated` lists all packages which must be published. Note that `updated` fails if there is no package which needs to be updated.
 
-`yarn lerna:publish` build all packages, then checks for changed packages (comparing to last tag). Prompts for each package before release (Note that it will only commit package.json. Therefore all other changes must be commited beforehand)
+`yarn lerna:publish` build all packages, then checks for changed packages (comparing to last tag). Prompts for each package before release (*Note* that it will only commit package.json. Therefore all other changes must be commited beforehand)
 
 `yarn lerna:publish --force-publish` publish all projects (required if core change has been performed)
 
