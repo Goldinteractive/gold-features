@@ -1,0 +1,19 @@
+{
+  "name": "@goldinteractive/feature-headroom",
+  "version": "0.0.1-alpha",
+  "description": "headroom feature",
+  "main": "lib/main.min.js",
+  "module": "src/index.js",
+  "author": "Gold Interactive",
+  "license": "MIT",
+  "scripts": {
+    "build": "node ../../scripts/build.js",
+    "watch": "node ../../scripts/watch.js"
+  },
+  "dependencies": {
+    "headroom.js": "^0.9.4"
+  },
+  "peerDependencies": {
+    "@goldinteractive/js-base": "^0.0.2"
+  }
+}
