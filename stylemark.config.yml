@@ -30,6 +30,7 @@ assets:
   - map/assets/features/map
   - touch-hover/lib
   - cookie-disclaimer/lib
+  - headroom/lib
 headHtml: >
   <link rel="stylesheet" type="text/css" href="modal/lib/style.css">
   <link rel="stylesheet" type="text/css" href="icons/lib/style.css">
