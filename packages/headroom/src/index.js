@@ -10,7 +10,13 @@ class Headroom extends features.Feature {
    */
   init(options = this.options) {
     this.headroom = new Headroomjs(this.node, {
-      ...this.options
+      offset: options.offset,
+      tolerance: options.tolerance,
+      classes: options.classes,
+      onNotTop: options.onNotTop,
+      onTop: options.onTop,
+      onPin: options.onPin,
+      onUnpin: options.onUnpin
     })
 
     this.headroom.init()
