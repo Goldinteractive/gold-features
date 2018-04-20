@@ -55,9 +55,6 @@ module.exports = {
                   ]
                 }
               }]
-            ],
-            plugins: [
-              require('babel-plugin-transform-object-rest-spread')
             ]
           }
         }
