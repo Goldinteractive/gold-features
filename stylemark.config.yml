@@ -1,7 +1,8 @@
 name: Gold Features
 
 sidebar:
-  background: linear-gradient(0deg, rgb(201,38,83) 0%, rgb(252,48,104) 80%)
+  # background: linear-gradient(0deg, rgb(201,38,83) 0%, rgb(252,48,104) 80%)
+  background: black
 
 # match: ['modal.md'],,
 
