@@ -9,14 +9,32 @@ class Headroom extends features.Feature {
    * @param {*} custom options in case of extending 
    */
   init(options = this.options) {
+
+    let onPin = options.onPin;
+    let onUnpin = options.onUnpin;
+    if (options.customClasses.length > 0) {
+      onPin = () => {
+        options.customClasses.forEach(option => {
+          option.element.classList.add(option.pinClass);
+        });
+        options.onPin();
+      };
+      onUnpin = () => {
+        options.customClasses.forEach(option => {
+          option.element.classList.remove(option.pinClass);
+        });
+        options.onUnpin();
+      }
+    }
+
     this.headroom = new Headroomjs(this.node, {
       offset: options.offset,
       tolerance: options.tolerance,
       classes: options.classes,
       onNotTop: options.onNotTop,
       onTop: options.onTop,
-      onPin: options.onPin,
-      onUnpin: options.onUnpin
+      onPin: onPin,
+      onUnpin: onUnpin
     })
 
     this.headroom.init()
@@ -58,7 +76,16 @@ Headroom.defaultOptions = {
   onNotTop: () => {},
   onTop: () => {},
   onPin: () => {},
-  onUnpin: () => {}
+  onUnpin: () => {},
+  // array of {element: domElement, pinClass: class set on pin}
+  customClasses: [
+    /**
+     * {
+     *    element: $('body'),
+     *    pinClass: 'header-in'
+     * }
+     */
+  ]
 }
 
 export default Headroom
