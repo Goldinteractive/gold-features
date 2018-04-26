@@ -443,15 +443,18 @@
 	<div class="i-code-block__content hidden">
 		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;h2&gt;Form&lt;/h2&gt;
 
-&lt;div class=&quot;ft-form&quot; data-feature=&quot;form&quot;&gt;
+&lt;div class=&quot;ft-form&quot; data-feature=&quot;form&quot; data-token-endpoint=&quot;http://localhost:8888/goldform-server/backend/public/api/v1/token&quot;&gt;
 
   &lt;!-- https://jsonplaceholder.typicode.com/posts  --&gt;
-  &lt;form action=&quot;form/docs/files/response.php&quot; enctype=&quot;multipart/form-data&quot;&gt;
+  &lt;form action=&quot;http://localhost:8888/goldform-server/backend/public/api/v1/p/form/post/bad411d5-1da9-3ba6-ab41-aa561bcd8bc5&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;language&quot; value=&quot;en&quot;&gt;
     &lt;div class=&quot;form-field&quot;&gt;
         &lt;label for=&quot;email&quot;&gt;E-Mail&lt;/label&gt;
         &lt;input type=&quot;email&quot; name=&quot;fields[email]&quot; id=&quot;email&quot; placeholder=&quot;Test&quot;&gt;
     &lt;/div&gt;
 
+    &lt;!--
+    These are currently not in use:
     &lt;div class=&quot;form-field&quot;&gt;
         &lt;label for=&quot;message&quot;&gt;Message&lt;/label&gt;
         &lt;textarea placeholder=&quot;Test&quot; name=&quot;fields[message]&quot; id=&quot;message&quot;&gt;&lt;/textarea&gt;
@@ -483,6 +486,8 @@
         Checkbox
       &lt;/label&gt;
     &lt;/div&gt;
+
+    --&gt;
 
     &lt;button role=&quot;submit&quot; class=&quot;button -primary -small -auto&quot;&gt;Send&lt;/button&gt;
     &lt;button role=&quot;button&quot; class=&quot;button -auto&quot; type=&quot;reset&quot;&gt;Reset&lt;/button&gt;
@@ -498,15 +503,18 @@
 &lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
 		<pre class="mb-0"><code class="lang-">&lt;h2&gt;Form&lt;/h2&gt;
 
-&lt;div class=&quot;ft-form&quot; data-feature=&quot;form&quot;&gt;
+&lt;div class=&quot;ft-form&quot; data-feature=&quot;form&quot; data-token-endpoint=&quot;http://localhost:8888/goldform-server/backend/public/api/v1/token&quot;&gt;
 
   &lt;!-- https://jsonplaceholder.typicode.com/posts  --&gt;
-  &lt;form action=&quot;form/docs/files/response.php&quot; enctype=&quot;multipart/form-data&quot;&gt;
+  &lt;form action=&quot;http://localhost:8888/goldform-server/backend/public/api/v1/p/form/post/bad411d5-1da9-3ba6-ab41-aa561bcd8bc5&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;language&quot; value=&quot;en&quot;&gt;
     &lt;div class=&quot;form-field&quot;&gt;
         &lt;label for=&quot;email&quot;&gt;E-Mail&lt;/label&gt;
         &lt;input type=&quot;email&quot; name=&quot;fields[email]&quot; id=&quot;email&quot; placeholder=&quot;Test&quot;&gt;
     &lt;/div&gt;
 
+    &lt;!--
+    These are currently not in use:
     &lt;div class=&quot;form-field&quot;&gt;
         &lt;label for=&quot;message&quot;&gt;Message&lt;/label&gt;
         &lt;textarea placeholder=&quot;Test&quot; name=&quot;fields[message]&quot; id=&quot;message&quot;&gt;&lt;/textarea&gt;
@@ -538,6 +546,8 @@
         Checkbox
       &lt;/label&gt;
     &lt;/div&gt;
+
+    --&gt;
 
     &lt;button role=&quot;submit&quot; class=&quot;button -primary -small -auto&quot;&gt;Send&lt;/button&gt;
     &lt;button role=&quot;button&quot; class=&quot;button -auto&quot; type=&quot;reset&quot;&gt;Reset&lt;/button&gt;
