@@ -16,15 +16,18 @@ require(['featurify'], function(featurify) {
 ```types.html
 <h2>Form</h2>
 
-<div class="ft-form" data-feature="form">
+<div class="ft-form" data-feature="form" data-token-endpoint="http://localhost:8888/goldform-server/backend/public/api/v1/token">
 
   <!-- https://jsonplaceholder.typicode.com/posts  -->
-  <form action="form/docs/files/response.php" enctype="multipart/form-data">
+  <form action="http://localhost:8888/goldform-server/backend/public/api/v1/p/form/post/bad411d5-1da9-3ba6-ab41-aa561bcd8bc5" enctype="multipart/form-data">
+    <input type="hidden" name="language" value="en">
     <div class="form-field">
         <label for="email">E-Mail</label>
         <input type="email" name="fields[email]" id="email" placeholder="Test">
     </div>
 
+    <!--
+    These are currently not in use:
     <div class="form-field">
         <label for="message">Message</label>
         <textarea placeholder="Test" name="fields[message]" id="message"></textarea>
@@ -56,6 +59,8 @@ require(['featurify'], function(featurify) {
         Checkbox
       </label>
     </div>
+
+    -->
 
     <button role="submit" class="button -primary -small -auto">Send</button>
     <button role="button" class="button -auto" type="reset">Reset</button>
