@@ -3,7 +3,7 @@ name: Form
 category: Form
 ---
 
-Currently this demo works only on a local environment. A simple web service would be needed to provide demo on Github as well as on local environment.
+This demo uses the new gold form server. Please note that for the old implementation (without Goldform) you can use 0.0.x.
 
 ```types.js
 require(['featurify'], function(featurify) {
