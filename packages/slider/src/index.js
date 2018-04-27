@@ -19,6 +19,11 @@ class Slider extends features.Feature {
       this.options.draggable = false
     }
 
+    if (this.node.dataset.sliderIdentifier) {
+      this.selectListener = this._selectListener();
+      this.onHub(`${this.node.dataset.sliderIdentifier}:select`, this.selectListener)
+    }
+
     window.setTimeout(() => {
       // fade in for no FOUC
       this.node.classList.remove('-hidden')
@@ -33,10 +38,31 @@ class Slider extends features.Feature {
         })
       })
 
+      this.flickity.on('select', () => {
+        this.triggerHub(`${this.node.dataset.sliderIdentifier}:selected`, this.flickity)
+      })
+
       // execute initial resize/reposition to make slides fit
       this.flickity.resize()
       this.flickity.reposition()
     }, 0)
+  }
+
+  _selectListener() {
+    return ({ label }) => {
+      const $slideToSelect = this._getBySliderLabel(label);
+      const $slides = this.node.querySelectorAll('.slide');
+      const indexOfSelectedSlide = Array.from($slides).indexOf($slideToSelect)
+      this.flickity.select(indexOfSelectedSlide);
+    }
+  }
+
+  _getBySliderLabel(label) {
+    const $slide = this.$(`[data-slider-label=${label}]`)
+    if (!$slide) {
+      console.warn(`there is no slide with label: ${label} inside this slider: ${this._name}`)
+    }
+    return $slide;
   }
 
   destroy() {
