@@ -3,7 +3,15 @@ name: Slider
 category: Slider
 ---
 
-Slider
+# Slider
+Content and Image Slider using Flickity.
+Slider can be orchestrated by swiping, clicking the default dots or creating a custom slider navigation.
+
+
+The slider triggers a select event to the Eventhub providing the Flickity instance. The event is fired everytime the slide changed.
+This can be useful for creating a custom Navigation. (for this to be useful, the slider must have the data-slider-identifier attribute and its slides the data-slide-label attribute. See the first quote example.)
+
+
 
 ```types.js
 require(['featurify'], function(featurify) {
@@ -66,14 +74,14 @@ require(['featurify'], function(featurify) {
 ```types.html
 <h2>Content Slider</h2>
 
-<div class="ft-slider -hidden" data-feature="slider">
-  <div class="slide">
+<div class="ft-slider -hidden" data-feature="slider" data-slider-indentifier="quotes-slider">
+  <div class="slide" data-slide-label="waseemi">
     <p>Think twice, code once ― Waseem Latif</p>
   </div>
-  <div class="slide">
+  <div class="slide" data-slide-label="martini">
     <p>'Truth can only be found in one place: the code. ― Robert C. Martin</p>
   </div>
-  <div class="slide">
+  <div class="slide" data-slide-label="waseemi">
     <p>Programming isn't about what you know; it's about what you can figure out. ― Chris Pine</p>
   </div>
 </div>
