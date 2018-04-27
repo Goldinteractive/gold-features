@@ -18,7 +18,7 @@ Make sure to copy the assets folder into your project.
 
 ### Setup to work on Gold Features
 
-Login to npm using `npm adduser`. Run `yarn lerna:exec yarn install --frozen-lockfile` to install all dependencies of all projects. Run `yarn install --frozen-lockfile`.
+Login to npm using `npm adduser` (Make sure to have access rights to npm registry`@goldinteractive` organization). Run `yarn lerna:exec yarn install --frozen-lockfile` to install all dependencies of all projects. Run `yarn install --frozen-lockfile`.
 
 Now you are ready to start working on Gold Features.
 
