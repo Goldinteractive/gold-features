@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-form",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "form feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
