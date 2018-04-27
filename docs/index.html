@@ -48,6 +48,10 @@
 							<optgroup label="ObjectFit">
 									<option value="object-fit">ObjectFit</option>
 							</optgroup>
+							<optgroup label="PageTransition">
+									<option value="page-transition">PageTransition</option>
+									<option value="page-transition-endpoint">PageTransitionEndpoint</option>
+							</optgroup>
 							<optgroup label="Slider">
 									<option value="slider">Slider</option>
 							</optgroup>
@@ -1740,6 +1744,140 @@ check whether there is a way to load GMaps API as part of feature-map</p>
 </div>
 
 				</div>
+				<div id="category-pagetransition">
+						<div id="page-transition" class="i-library">
+	<h1 class="display-4">PageTransition</h1>
+	<div><p>This example uses page transition.</p>
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-page-transition&#39;, path: &#39;page-transition/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(PageTransition, base, features) {
+    features.add(&#39;page-transition&#39;, PageTransition.default);
+    features.init(document.body);
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-page-transition&#39;, path: &#39;page-transition/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(PageTransition, base, features) {
+    features.add(&#39;page-transition&#39;, PageTransition.default);
+    features.init(document.body);
+  });
+});</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="page-transition-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="page-transition-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;p&gt;Not replaced content&lt;/p&gt;
+&lt;div data-feature=&quot;page-transition&quot; id=&quot;page-transition-wrapper&quot;&gt;
+  &lt;div class=&quot;page-transition-container&quot;&gt;
+    Test
+    &lt;a href=&quot;page-transition-endpoint-types.html&quot; class=&quot;smooth-transition&quot;&gt;
+      Test
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">&lt;p&gt;Not replaced content&lt;/p&gt;
+&lt;div data-feature=&quot;page-transition&quot; id=&quot;page-transition-wrapper&quot;&gt;
+  &lt;div class=&quot;page-transition-container&quot;&gt;
+    Test
+    &lt;a href=&quot;page-transition-endpoint-types.html&quot; class=&quot;smooth-transition&quot;&gt;
+      Test
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+</div></div>
+</div>
+
+						<div id="page-transition-endpoint" class="i-library">
+	<h1 class="display-4">PageTransitionEndpoint</h1>
+	<div><p>This example <em>does</em> not use page transitions.</p>
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-page-transition&#39;, path: &#39;page-transition/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(PageTransition, base, features) {
+    features.add(&#39;page-transition&#39;, PageTransition.default);
+    features.init(document.body);
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-page-transition&#39;, path: &#39;page-transition/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(PageTransition, base, features) {
+    features.add(&#39;page-transition&#39;, PageTransition.default);
+    features.init(document.body);
+  });
+});</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="page-transition-endpoint-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="page-transition-endpoint-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;div data-feature=&quot;page-transition&quot; id=&quot;page-transition-wrapper&quot;&gt;
+  &lt;div class=&quot;page-transition-container&quot;&gt;
+    &lt;a href=&quot;page-transition-types.html&quot;&gt;
+      Full Page reload back to entry
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">&lt;div data-feature=&quot;page-transition&quot; id=&quot;page-transition-wrapper&quot;&gt;
+  &lt;div class=&quot;page-transition-container&quot;&gt;
+    &lt;a href=&quot;page-transition-types.html&quot;&gt;
+      Full Page reload back to entry
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+</div></div>
+</div>
+
+				</div>
 				<div id="category-slider">
 						<div id="slider" class="i-library">
 	<h1 class="display-4">Slider</h1>
@@ -2558,6 +2696,35 @@ ul li.-clicked a {
 								data-filter-value="ObjectFit"
 							>
 								<span>ObjectFit</span>
+							</a>
+					</div>
+			
+				</div>
+				<div class="i-sidebar-list-group">
+			
+					<h5
+						class="pt-4 mb-1"
+						data-filter-value=" PageTransition  PageTransitionEndpoint "
+					>
+						<a href="#category-pagetransition" class="i-sidebar-list-item">
+							<b>PageTransition</b>
+						</a>
+					</h5>
+			
+					<div>
+							<a
+								href="#page-transition"
+								class="i-sidebar-list-item"
+								data-filter-value="PageTransition"
+							>
+								<span>PageTransition</span>
+							</a>
+							<a
+								href="#page-transition-endpoint"
+								class="i-sidebar-list-item"
+								data-filter-value="PageTransitionEndpoint"
+							>
+								<span>PageTransitionEndpoint</span>
 							</a>
 					</div>
 			
