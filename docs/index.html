@@ -1743,7 +1743,10 @@ check whether there is a way to load GMaps API as part of feature-map</p>
 				<div id="category-slider">
 						<div id="slider" class="i-library">
 	<h1 class="display-4">Slider</h1>
-	<div><p>Slider</p>
+	<div><div id="slider" class="i-pad-top-5 i-section"><h1 class="i-pad-top-3 i-position-container"><a href="#slider" class="icon-link i-section__link -heading"></a>Slider</h1></div><p>Content and Image Slider using Flickity.
+Slider can be orchestrated by swiping, clicking the default dots or creating a custom slider navigation.</p>
+<p>The slider triggers a select event to the Eventhub providing the Flickity instance. The event is fired everytime the slide changed.
+This can be useful for creating a custom Navigation. (for this to be useful, the slider must have the data-slider-identifier attribute and its slides the data-slide-label attribute. See the first quote example.)</p>
 
 <div class="i-code-block">
 	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
@@ -1887,14 +1890,14 @@ check whether there is a way to load GMaps API as part of feature-map</p>
 	<div class="i-code-block__content hidden">
 		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;h2&gt;Content Slider&lt;/h2&gt;
 
-&lt;div class=&quot;ft-slider -hidden&quot; data-feature=&quot;slider&quot;&gt;
-  &lt;div class=&quot;slide&quot;&gt;
+&lt;div class=&quot;ft-slider -hidden&quot; data-feature=&quot;slider&quot; data-slider-indentifier=&quot;quotes-slider&quot;&gt;
+  &lt;div class=&quot;slide&quot; data-slide-label=&quot;waseemi&quot;&gt;
     &lt;p&gt;Think twice, code once ― Waseem Latif&lt;/p&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;slide&quot;&gt;
+  &lt;div class=&quot;slide&quot; data-slide-label=&quot;martini&quot;&gt;
     &lt;p&gt;&#39;Truth can only be found in one place: the code. ― Robert C. Martin&lt;/p&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;slide&quot;&gt;
+  &lt;div class=&quot;slide&quot; data-slide-label=&quot;waseemi&quot;&gt;
     &lt;p&gt;Programming isn&#39;t about what you know; it&#39;s about what you can figure out. ― Chris Pine&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -2001,14 +2004,14 @@ check whether there is a way to load GMaps API as part of feature-map</p>
 &lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
 		<pre class="mb-0"><code class="lang-">&lt;h2&gt;Content Slider&lt;/h2&gt;
 
-&lt;div class=&quot;ft-slider -hidden&quot; data-feature=&quot;slider&quot;&gt;
-  &lt;div class=&quot;slide&quot;&gt;
+&lt;div class=&quot;ft-slider -hidden&quot; data-feature=&quot;slider&quot; data-slider-indentifier=&quot;quotes-slider&quot;&gt;
+  &lt;div class=&quot;slide&quot; data-slide-label=&quot;waseemi&quot;&gt;
     &lt;p&gt;Think twice, code once ― Waseem Latif&lt;/p&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;slide&quot;&gt;
+  &lt;div class=&quot;slide&quot; data-slide-label=&quot;martini&quot;&gt;
     &lt;p&gt;&#39;Truth can only be found in one place: the code. ― Robert C. Martin&lt;/p&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;slide&quot;&gt;
+  &lt;div class=&quot;slide&quot; data-slide-label=&quot;waseemi&quot;&gt;
     &lt;p&gt;Programming isn&#39;t about what you know; it&#39;s about what you can figure out. ― Chris Pine&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
