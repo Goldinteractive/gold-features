@@ -1,0 +1,19 @@
+{
+  "name": "@goldinteractive/feature-page-transition",
+  "version": "0.0.1-alpha",
+  "description": "page-transition feature",
+  "main": "lib/main.min.js",
+  "module": "src/index.js",
+  "author": "Gold Interactive",
+  "license": "MIT",
+  "scripts": {
+    "build": "node ../../scripts/build.js",
+    "watch": "node ../../scripts/watch.js"
+  },
+  "dependencies": {
+    "barba.js": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@goldinteractive/js-base": "^0.0.2"
+  }
+}
