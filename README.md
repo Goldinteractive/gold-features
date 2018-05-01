@@ -1,20 +1,15 @@
 ## Gold Features
 
-This project contains all base features. Check out the catalog in our doc: <https://goldinteractive.github.io/gold-features/>.
+This project contains all base features. For a user-friendly view of all Gold Features check out the catalog in our documentation: <https://goldinteractive.github.io/gold-features/>.
 
 ### How To Use A Feature
 
-include the `@goldinteractive/src/style` in your `.scss file`
+The name of the feature is always using `kebab case`. So for PageTransition the corresponding name would be `feature-page-transition`.
 
-#### With Sackmesser
+include the `@goldinteractive/src/style` in your `.scss file`.
 
-`make feature-install-sample`
-
-#### Plain Old Javascript
-
-`yarn add @goldinteractive/feature-sample`
-
-Make sure to copy the assets folder into your project.
+- **Sackmesser** `make feature-install-sample`
+- **Plain Old Javascript** `yarn add @goldinteractive/feature-sample` (Make sure to copy the assets folder into your project)
 
 ### Setup to work on Gold Features
 
