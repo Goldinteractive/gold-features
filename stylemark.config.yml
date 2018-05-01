@@ -6,6 +6,9 @@ sidebar:
 
 # match: ['modal.md'],,
 
+order:
+  - +Intro
+
 excludeDir:
   - node_modules
   - ./docs
