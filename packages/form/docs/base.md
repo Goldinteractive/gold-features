@@ -3,7 +3,17 @@ name: Form
 category: Form
 ---
 
-This demo uses the new gold form server. Please note that for the old implementation (without Goldform) you can use 0.0.x.
+This demo uses the new **Gold Form Server**. Please note that for the old implementation (without Goldform) you can use 0.0.x versions.
+
+In order to use a **Gold Form** follow these steps:
+
+- Login to the [Admin UI](form.goldinteractive.ch)
+- Create a new project and configure the SMTP Settings
+- Make sure to use straightforward handles
+- Create the HTML Markup.
+- Set the proper names based on the configured handles. For the handle `salutation` the name attribute of the input element must be `fields[salutation].`
+- Set **Token Endpoint** (https://form.goldinteractive.ch/be/api/v1/token)
+- Set **Post Endpoint** (https://form.goldinteractive.ch/be/api/v1/p/form/post/FORMID)
 
 ```types.js
 require(['featurify'], function(featurify) {
@@ -18,7 +28,6 @@ require(['featurify'], function(featurify) {
 
 <div class="ft-form" data-feature="form" data-token-endpoint="http://localhost:8888/goldform-server/backend/public/api/v1/token">
 
-  <!-- https://jsonplaceholder.typicode.com/posts  -->
   <form action="http://localhost:8888/goldform-server/backend/public/api/v1/p/form/post/bad411d5-1da9-3ba6-ab41-aa561bcd8bc5" enctype="multipart/form-data">
     <input type="hidden" name="language" value="en">
     <div class="form-field">
@@ -66,11 +75,13 @@ require(['featurify'], function(featurify) {
     <button role="button" class="button -auto" type="reset">Reset</button>
   </form>
 
+  <!-- Progress Indicator - e.g. for file upload -->
   <div data-progress class="form-progress-bar">
     <div data-loaded class="loaded"></div>
     <div data-percentage class="percentage"></div>
   </div>
 
+  <!-- Form Feedback (error / success), make sure that this div is outside of the form tag -->
   <div data-feedback class="form-feedback"></div>
 
 </div>
@@ -118,7 +129,7 @@ input[type="checkbox"] {
   width: 100%;
   background-color: #eee;
 
-  
+
 }
 
 .form-progress-bar > .loaded {
