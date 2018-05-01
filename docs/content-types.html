@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="modal/lib/style.css"> <link rel="stylesheet" type="text/css" href="icons/lib/style.css"> <link rel="stylesheet" type="text/css" href="object-fit/lib/style.css"> <link rel="stylesheet" type="text/css" href="slider/lib/style.css"> <link rel="stylesheet" type="text/css" href="accordion/lib/style.css"> <link rel="stylesheet" type="text/css" href="form/lib/style.css"> <link rel="stylesheet" type="text/css" href="gallery/lib/style.css"> <link rel="stylesheet" type="text/css" href="map/lib/style.css"> <link rel="stylesheet" type="text/css" href="touch-hover/lib/style.css"> <link rel="stylesheet" type="text/css" href="cookie-disclaimer/lib/style.css"> <script src="docsHelper/lib/require.js"></script> <script src="docsHelper/lib/base.js"></script> <script src="docsHelper/featurify.js"></script>
+
+
+		<style>
+		</style>
+
+		<style>
+			html, body {
+				min-height: 0 !important;
+				height: auto !important;
+			}
+		</style>
+
+		<script>
+			function getStylemarkBlock(language, defaultIfEmpty) {
+				defaultIfEmpty = defaultIfEmpty || '';
+				var script = document.querySelector('script[data-language="' + language + '"]');
+				return script ? script.innerText : defaultIfEmpty;
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<main
+			role="main"
+			id="stylemark-root"
+			ng-controller="stylemark-content-types"
+			style="
+				display: block;
+				padding: ;
+				width: ;
+			"
+		><h2>Content Slider</h2>
+
+<div class="ft-slider -hidden" data-feature="slider" data-slider-indentifier="quotes-slider">
+  <div class="slide" data-slide-label="waseemi">
+    <p>Think twice, code once ― Waseem Latif</p>
+  </div>
+  <div class="slide" data-slide-label="martini">
+    <p>'Truth can only be found in one place: the code. ― Robert C. Martin</p>
+  </div>
+  <div class="slide" data-slide-label="waseemi">
+    <p>Programming isn't about what you know; it's about what you can figure out. ― Chris Pine</p>
+  </div>
+</div></main>
+
+		
+
+			<script type="text/x-stylemark" data-language="js">require(['featurify'], function(featurify) {
+  featurify([{ name: 'feature-slider', path: 'slider/lib/main.min.js' }, { name: 'feature-object-fit', path: 'object-fit/lib/main.min.js' }, 'base', 'base.features'], function(Slider, ObjectFit, base, features) {
+    base.features.add('slider', Slider.default, {
+      contain: true,
+      prevNextButtons: false
+    })
+
+    features.init(document.body);
+  });
+});</script>
+			<script type="text/x-stylemark" data-language="html"><h2>Content Slider</h2>
+
+<div class="ft-slider -hidden" data-feature="slider" data-slider-indentifier="quotes-slider">
+  <div class="slide" data-slide-label="waseemi">
+    <p>Think twice, code once ― Waseem Latif</p>
+  </div>
+  <div class="slide" data-slide-label="martini">
+    <p>'Truth can only be found in one place: the code. ― Robert C. Martin</p>
+  </div>
+  <div class="slide" data-slide-label="waseemi">
+    <p>Programming isn't about what you know; it's about what you can figure out. ― Chris Pine</p>
+  </div>
+</div></script>
+
+		<script>
+			eval(getStylemarkBlock('js'));
+		</script>
+
+		<script>
+			(function(angular) {
+				if (!angular) {
+					return;
+				}
+
+				var moduleElem = document.querySelector('[ng-app]');
+				var module;
+
+				if (moduleElem) {
+					// Uses an existing module
+					module = angular.module(moduleElem.getAttribute('ng-app'));
+				}
+				else {
+					// Creates a new module
+					module = angular.module('stylemark-content-types', []);
+				}
+
+				module.controller('stylemark-content-types', function($scope) {
+					$scope.$eval(getStylemarkBlock('angularjs'));
+				});
+			})(window.angular);
+		</script>
+
+		<script>
+			(function(ReactDOM) {
+				if (!ReactDOM) {
+					return;
+				}
+
+				var Component = eval(getStylemarkBlock('jsx'));
+				var rootNode = document.getElementById('stylemark-root');
+				ReactDOM.render(Component, rootNode);
+			})(window.ReactDOM);
+		</script>
+
+		<script>
+			(function(Ember) {
+				if (!Ember) {
+					return;
+				}
+
+				var render = function() {
+					var app = window.noop
+					var container = app.__container__;
+					var renderer = container.lookup('renderer:-dom');
+					var hbs = getStylemarkBlock('handlebars') || getStylemarkBlock('hbs');
+					var template = Ember.HTMLBars.compile(hbs);
+
+					var context;
+					eval('context = ' + getStylemarkBlock('js', '{}'));
+
+					// Credit:
+					// http://stackoverflow.com/questions/27950413/render-ember-js-hbs-template-to-a-string#answer-35625858
+					var compile = function(container, template, context) {
+						return new Ember.RSVP.Promise(function(resolve) {
+							Ember.Component.extend(Ember.merge({
+								style: 'display:none;',
+								layout: template,
+								container: container,
+								renderer: renderer,
+
+								init: function() {
+									this._super.apply(this, arguments);
+									Ember.setOwner(this, container);
+								},
+
+								didRender: function() {
+									var elem = this.$();
+									resolve(elem);
+									this.destroy();
+								}
+							}, context))
+								.create()
+								.append();
+
+						});
+					};
+
+					compile(container, template, context).then(function(elem) {
+						jQuery('#stylemark-root').append(elem);
+					});
+				};
+
+				var isReady = function() {
+					return window.noop
+						&& window.noop.__container__;
+				};
+
+				var checkReady = function() {
+					if (isReady()) {
+						render();
+					}
+					else {
+						setTimeout(checkReady, 20);
+					}
+				};
+
+				checkReady();
+
+			})(window.Ember);
+		</script>
+
+		<script src="_stylemark/js/vendor/iframeResizer.contentWindow.min.js"></script>
+	</body>
+
+</html>

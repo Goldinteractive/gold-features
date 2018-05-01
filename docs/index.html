@@ -20,6 +20,10 @@
 				<form class="form">
 					<select class="form-control form-control-lg">
 						<option disabled selected>Go to…</option>
+							<optgroup label="Intro">
+									<option value="base-whats-this">Base - What's this?</option>
+									<option value="usage-how-does-it-work">Usage - How does it work?</option>
+							</optgroup>
 							<optgroup label="Accordion">
 									<option value="accordion">Accordion</option>
 							</optgroup>
@@ -53,7 +57,9 @@
 									<option value="page-transition-endpoint">PageTransitionEndpoint</option>
 							</optgroup>
 							<optgroup label="Slider">
-									<option value="slider">Slider</option>
+									<option value="content">Content</option>
+									<option value="events">Events</option>
+									<option value="slider-gallery">Slider Gallery</option>
 							</optgroup>
 							<optgroup label="TouchHover">
 									<option value="touch-hover">TouchHover</option>
@@ -62,6 +68,34 @@
 				</form>
 			</div>
 
+				<div id="category-intro">
+						<div id="base-whats-this" class="i-library">
+	<h1 class="display-4">Base - What&#x27;s this?</h1>
+	<div><p>This is the demo page for all Gold Features. Each Gold Feature contains a frequently used visual component.</p>
+<p>This page is intended to be used by:</p>
+<ul>
+<li><strong>Frontend Developers</strong> (maintaining Gold Features)</li>
+<li><strong>Backend Developers</strong> (using Gold Features)</li>
+<li><strong>Designers</strong>, etc. (using Gold Features as inspiration)</li>
+</ul>
+</div>
+</div>
+
+						<div id="usage-how-does-it-work" class="i-library">
+	<h1 class="display-4">Usage - How does it work?</h1>
+	<div><p>There are three main use cases:</p>
+<ul>
+<li>maintain</li>
+<li>use</li>
+<li>see</li>
+</ul>
+<p>For <strong>maintenance</strong> the corresponding documenation can be found directly in the <a href="https://github.com/Goldinteractive/gold-features">Repo</a>.</p>
+<p>For <strong>usage</strong> simply pick a Feature here, then head to the documentation and see <a href="https://github.com/Goldinteractive/gold-features#how-to-use-a-feature">How To Use</a>. The configuration (both HTML &amp; JS) example can be found right here in the docs. Just expand the JS or HTML section and copy the code.</p>
+<p>In order to <strong>see</strong> a proper demo for the feature, click on the feature and then open up the <strong>external view</strong> using the arrow indicator in the top left corner. Iframe preview is only appropriate for basic visualization. Many features have minor issues in iframe mode.</p>
+</div>
+</div>
+
+				</div>
 				<div id="category-accordion">
 						<div id="accordion" class="i-library">
 	<h1 class="display-4">Accordion</h1>
@@ -401,7 +435,17 @@
 				<div id="category-form">
 						<div id="form" class="i-library">
 	<h1 class="display-4">Form</h1>
-	<div><p>This demo uses the new gold form server. Please note that for the old implementation (without Goldform) you can use 0.0.x.</p>
+	<div><p>This demo uses the new <strong>Gold Form Server</strong>. Please note that for the old implementation (without Goldform) you can use 0.0.x versions.</p>
+<p>In order to use a <strong>Gold Form</strong> follow these steps:</p>
+<ul>
+<li>Login to the <a href="form.goldinteractive.ch">Admin UI</a></li>
+<li>Create a new project and configure the SMTP Settings</li>
+<li>Make sure to use straightforward handles</li>
+<li>Create the HTML Markup.</li>
+<li>Set the proper names based on the configured handles. For the handle <code>salutation</code> the name attribute of the input element must be <code>fields[salutation].</code></li>
+<li>Set <strong>Token Endpoint</strong> (<a href="https://form.goldinteractive.ch/be/api/v1/token">https://form.goldinteractive.ch/be/api/v1/token</a>)</li>
+<li>Set <strong>Post Endpoint</strong> (<a href="https://form.goldinteractive.ch/be/api/v1/p/form/post/FORMID">https://form.goldinteractive.ch/be/api/v1/p/form/post/FORMID</a>)</li>
+</ul>
 
 <div class="i-code-block">
 	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
@@ -449,7 +493,6 @@
 
 &lt;div class=&quot;ft-form&quot; data-feature=&quot;form&quot; data-token-endpoint=&quot;http://localhost:8888/goldform-server/backend/public/api/v1/token&quot;&gt;
 
-  &lt;!-- https://jsonplaceholder.typicode.com/posts  --&gt;
   &lt;form action=&quot;http://localhost:8888/goldform-server/backend/public/api/v1/p/form/post/bad411d5-1da9-3ba6-ab41-aa561bcd8bc5&quot; enctype=&quot;multipart/form-data&quot;&gt;
     &lt;input type=&quot;hidden&quot; name=&quot;language&quot; value=&quot;en&quot;&gt;
     &lt;div class=&quot;form-field&quot;&gt;
@@ -497,11 +540,13 @@
     &lt;button role=&quot;button&quot; class=&quot;button -auto&quot; type=&quot;reset&quot;&gt;Reset&lt;/button&gt;
   &lt;/form&gt;
 
+  &lt;!-- Progress Indicator - e.g. for file upload --&gt;
   &lt;div data-progress class=&quot;form-progress-bar&quot;&gt;
     &lt;div data-loaded class=&quot;loaded&quot;&gt;&lt;/div&gt;
     &lt;div data-percentage class=&quot;percentage&quot;&gt;&lt;/div&gt;
   &lt;/div&gt;
 
+  &lt;!-- Form Feedback (error / success), make sure that this div is outside of the form tag --&gt;
   &lt;div data-feedback class=&quot;form-feedback&quot;&gt;&lt;/div&gt;
 
 &lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
@@ -509,7 +554,6 @@
 
 &lt;div class=&quot;ft-form&quot; data-feature=&quot;form&quot; data-token-endpoint=&quot;http://localhost:8888/goldform-server/backend/public/api/v1/token&quot;&gt;
 
-  &lt;!-- https://jsonplaceholder.typicode.com/posts  --&gt;
   &lt;form action=&quot;http://localhost:8888/goldform-server/backend/public/api/v1/p/form/post/bad411d5-1da9-3ba6-ab41-aa561bcd8bc5&quot; enctype=&quot;multipart/form-data&quot;&gt;
     &lt;input type=&quot;hidden&quot; name=&quot;language&quot; value=&quot;en&quot;&gt;
     &lt;div class=&quot;form-field&quot;&gt;
@@ -557,11 +601,13 @@
     &lt;button role=&quot;button&quot; class=&quot;button -auto&quot; type=&quot;reset&quot;&gt;Reset&lt;/button&gt;
   &lt;/form&gt;
 
+  &lt;!-- Progress Indicator - e.g. for file upload --&gt;
   &lt;div data-progress class=&quot;form-progress-bar&quot;&gt;
     &lt;div data-loaded class=&quot;loaded&quot;&gt;&lt;/div&gt;
     &lt;div data-percentage class=&quot;percentage&quot;&gt;&lt;/div&gt;
   &lt;/div&gt;
 
+  &lt;!-- Form Feedback (error / success), make sure that this div is outside of the form tag --&gt;
   &lt;div data-feedback class=&quot;form-feedback&quot;&gt;&lt;/div&gt;
 
 &lt;/div&gt;</code></pre>
@@ -1879,11 +1925,94 @@ check whether there is a way to load GMaps API as part of feature-map</p>
 
 				</div>
 				<div id="category-slider">
-						<div id="slider" class="i-library">
-	<h1 class="display-4">Slider</h1>
-	<div><div id="slider" class="i-pad-top-5 i-section"><h1 class="i-pad-top-3 i-position-container"><a href="#slider" class="icon-link i-section__link -heading"></a>Slider</h1></div><p>Content and Image Slider using Flickity.
+						<div id="content" class="i-library">
+	<h1 class="display-4">Content</h1>
+	<div><p>Content and Image Slider using Flickity.
 Slider can be orchestrated by swiping, clicking the default dots or creating a custom slider navigation.</p>
-<p>The slider triggers a select event to the Eventhub providing the Flickity instance. The event is fired everytime the slide changed.
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-slider&#39;, path: &#39;slider/lib/main.min.js&#39; }, { name: &#39;feature-object-fit&#39;, path: &#39;object-fit/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Slider, ObjectFit, base, features) {
+    base.features.add(&#39;slider&#39;, Slider.default, {
+      contain: true,
+      prevNextButtons: false
+    })
+
+    features.init(document.body);
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-slider&#39;, path: &#39;slider/lib/main.min.js&#39; }, { name: &#39;feature-object-fit&#39;, path: &#39;object-fit/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Slider, ObjectFit, base, features) {
+    base.features.add(&#39;slider&#39;, Slider.default, {
+      contain: true,
+      prevNextButtons: false
+    })
+
+    features.init(document.body);
+  });
+});</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="content-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="content-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;h2&gt;Content Slider&lt;/h2&gt;
+
+&lt;div class=&quot;ft-slider -hidden&quot; data-feature=&quot;slider&quot; data-slider-indentifier=&quot;quotes-slider&quot;&gt;
+  &lt;div class=&quot;slide&quot; data-slide-label=&quot;waseemi&quot;&gt;
+    &lt;p&gt;Think twice, code once ― Waseem Latif&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot; data-slide-label=&quot;martini&quot;&gt;
+    &lt;p&gt;&#39;Truth can only be found in one place: the code. ― Robert C. Martin&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot; data-slide-label=&quot;waseemi&quot;&gt;
+    &lt;p&gt;Programming isn&#39;t about what you know; it&#39;s about what you can figure out. ― Chris Pine&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">&lt;h2&gt;Content Slider&lt;/h2&gt;
+
+&lt;div class=&quot;ft-slider -hidden&quot; data-feature=&quot;slider&quot; data-slider-indentifier=&quot;quotes-slider&quot;&gt;
+  &lt;div class=&quot;slide&quot; data-slide-label=&quot;waseemi&quot;&gt;
+    &lt;p&gt;Think twice, code once ― Waseem Latif&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot; data-slide-label=&quot;martini&quot;&gt;
+    &lt;p&gt;&#39;Truth can only be found in one place: the code. ― Robert C. Martin&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;slide&quot; data-slide-label=&quot;waseemi&quot;&gt;
+    &lt;p&gt;Programming isn&#39;t about what you know; it&#39;s about what you can figure out. ― Chris Pine&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+</div></div>
+</div>
+
+						<div id="events" class="i-library">
+	<h1 class="display-4">Events</h1>
+	<div><p>The slider triggers a select event to the Eventhub providing the Flickity instance. The event is fired everytime the slide changed.
 This can be useful for creating a custom Navigation. (for this to be useful, the slider must have the data-slider-identifier attribute and its slides the data-slide-label attribute. See the first quote example.)</p>
 
 <div class="i-code-block">
@@ -1892,36 +2021,6 @@ This can be useful for creating a custom Navigation. (for this to be useful, the
 		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
   featurify([{ name: &#39;feature-slider&#39;, path: &#39;slider/lib/main.min.js&#39; }, { name: &#39;feature-object-fit&#39;, path: &#39;object-fit/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Slider, ObjectFit, base, features) {
     features.add(&#39;fit&#39;, ObjectFit.default);
-
-    base.features.add(&#39;slider&#39;, Slider.default, {
-      contain: true,
-      prevNextButtons: false
-    })
-
-    base.features.add(&#39;gallery-slider&#39;, Slider.default, {
-      imagesLoaded: true,
-      percentPosition: false,
-      contain: true,
-      cellAlign: &#39;left&#39;,
-      pageDots: false,
-      freeScroll: true
-    })
-
-    base.features.add(&#39;fw-gallery-slider&#39;, Slider.default, {
-      imagesLoaded: true,
-      contain: true
-    })
-
-    base.features.add(&#39;cover-slider&#39;, Slider.default, {
-      contain: true,
-      cellAlign: &#39;left&#39;,
-      pageDots: false,
-      freeScroll: true
-    })
-
-    base.features.add(&#39;fw-cover-slider&#39;, Slider.default, {
-      contain: true
-    })
 
     base.features.add(&#39;event-slider&#39;, Slider.default, {
       contain: true,
@@ -1948,10 +2047,82 @@ This can be useful for creating a custom Navigation. (for this to be useful, the
   featurify([{ name: &#39;feature-slider&#39;, path: &#39;slider/lib/main.min.js&#39; }, { name: &#39;feature-object-fit&#39;, path: &#39;object-fit/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Slider, ObjectFit, base, features) {
     features.add(&#39;fit&#39;, ObjectFit.default);
 
-    base.features.add(&#39;slider&#39;, Slider.default, {
+    base.features.add(&#39;event-slider&#39;, Slider.default, {
       contain: true,
-      prevNextButtons: false
+      listeners: [
+        {
+          event: &#39;select&#39;,
+          handler: (flickity) =&gt; {
+            console.log(&#39;selected&#39;, flickity)
+          }
+        },
+        {
+          event: &#39;settle&#39;,
+          handler: (flickity) =&gt; {
+            console.log(&#39;settled&#39;, flickity)
+          }
+        }
+      ]
     })
+
+    features.init(document.body);
+  });
+});</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="events-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="events-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;h2&gt;Slider which handles events (see console)&lt;/h2&gt;
+&lt;div class=&quot;ft-slider -hidden -gallery&quot; data-feature=&quot;event-slider&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test.jpeg&quot; alt=&quot;test&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test2.jpeg&quot; alt=&quot;test2&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test3.jpeg&quot; alt=&quot;test3&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test4.jpeg&quot; alt=&quot;test4&quot;&gt;
+&lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">&lt;h2&gt;Slider which handles events (see console)&lt;/h2&gt;
+&lt;div class=&quot;ft-slider -hidden -gallery&quot; data-feature=&quot;event-slider&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test.jpeg&quot; alt=&quot;test&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test2.jpeg&quot; alt=&quot;test2&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test3.jpeg&quot; alt=&quot;test3&quot;&gt;
+  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test4.jpeg&quot; alt=&quot;test4&quot;&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+</div></div>
+</div>
+
+						<div id="slider-gallery" class="i-library">
+	<h1 class="display-4">Slider Gallery</h1>
+	<div><p>Different variations of image sliders.</p>
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-slider&#39;, path: &#39;slider/lib/main.min.js&#39; }, { name: &#39;feature-object-fit&#39;, path: &#39;object-fit/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Slider, ObjectFit, base, features) {
+    features.add(&#39;fit&#39;, ObjectFit.default);
 
     base.features.add(&#39;gallery-slider&#39;, Slider.default, {
       imagesLoaded: true,
@@ -1978,22 +2149,36 @@ This can be useful for creating a custom Navigation. (for this to be useful, the
       contain: true
     })
 
-    base.features.add(&#39;event-slider&#39;, Slider.default, {
+    features.init(document.body);
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-slider&#39;, path: &#39;slider/lib/main.min.js&#39; }, { name: &#39;feature-object-fit&#39;, path: &#39;object-fit/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Slider, ObjectFit, base, features) {
+    features.add(&#39;fit&#39;, ObjectFit.default);
+
+    base.features.add(&#39;gallery-slider&#39;, Slider.default, {
+      imagesLoaded: true,
+      percentPosition: false,
       contain: true,
-      listeners: [
-        {
-          event: &#39;select&#39;,
-          handler: (flickity) =&gt; {
-            console.log(&#39;selected&#39;, flickity)
-          }
-        },
-        {
-          event: &#39;settle&#39;,
-          handler: (flickity) =&gt; {
-            console.log(&#39;settled&#39;, flickity)
-          }
-        }
-      ]
+      cellAlign: &#39;left&#39;,
+      pageDots: false,
+      freeScroll: true
+    })
+
+    base.features.add(&#39;fw-gallery-slider&#39;, Slider.default, {
+      imagesLoaded: true,
+      contain: true
+    })
+
+    base.features.add(&#39;cover-slider&#39;, Slider.default, {
+      contain: true,
+      cellAlign: &#39;left&#39;,
+      pageDots: false,
+      freeScroll: true
+    })
+
+    base.features.add(&#39;fw-cover-slider&#39;, Slider.default, {
+      contain: true
     })
 
     features.init(document.body);
@@ -2003,7 +2188,7 @@ This can be useful for creating a custom Navigation. (for this to be useful, the
 </div><div class="i-example">
                     <h5 class="i-example__heading">
                         <a
-                            href="slider-types.html"
+                            href="slider-gallery-types.html"
                             target="_blank"
                             class="fa fa-external-link-square fa-fw plain-link"
                             title="Open in a new window"
@@ -2014,7 +2199,7 @@ This can be useful for creating a custom Navigation. (for this to be useful, the
                         <div
                             class="i-example__iframe"
                             lazyframe
-                            data-src="slider-types.html"
+                            data-src="slider-gallery-types.html"
                             data-initinview="true"
                             data-title="Loading…"
 
@@ -2026,20 +2211,7 @@ This can be useful for creating a custom Navigation. (for this to be useful, the
 <div class="i-code-block">
 	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
 	<div class="i-code-block__content hidden">
-		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;h2&gt;Content Slider&lt;/h2&gt;
-
-&lt;div class=&quot;ft-slider -hidden&quot; data-feature=&quot;slider&quot; data-slider-indentifier=&quot;quotes-slider&quot;&gt;
-  &lt;div class=&quot;slide&quot; data-slide-label=&quot;waseemi&quot;&gt;
-    &lt;p&gt;Think twice, code once ― Waseem Latif&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;slide&quot; data-slide-label=&quot;martini&quot;&gt;
-    &lt;p&gt;&#39;Truth can only be found in one place: the code. ― Robert C. Martin&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;slide&quot; data-slide-label=&quot;waseemi&quot;&gt;
-    &lt;p&gt;Programming isn&#39;t about what you know; it&#39;s about what you can figure out. ― Chris Pine&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="
 &lt;h2&gt;Gallery Slider (Slide width from images and fixed height)&lt;/h2&gt;
 
 &lt;div class=&quot;ft-slider -hidden -gallery&quot; data-feature=&quot;gallery-slider&quot;&gt;
@@ -2131,29 +2303,8 @@ This can be useful for creating a custom Navigation. (for this to be useful, the
       &lt;img src=&quot;slider/docs/files/test4.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test4&quot;&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h2&gt;Slider which handles events (see console)&lt;/h2&gt;
-&lt;div class=&quot;ft-slider -hidden -gallery&quot; data-feature=&quot;event-slider&quot;&gt;
-  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test.jpeg&quot; alt=&quot;test&quot;&gt;
-  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test2.jpeg&quot; alt=&quot;test2&quot;&gt;
-  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test3.jpeg&quot; alt=&quot;test3&quot;&gt;
-  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test4.jpeg&quot; alt=&quot;test4&quot;&gt;
 &lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
-		<pre class="mb-0"><code class="lang-">&lt;h2&gt;Content Slider&lt;/h2&gt;
-
-&lt;div class=&quot;ft-slider -hidden&quot; data-feature=&quot;slider&quot; data-slider-indentifier=&quot;quotes-slider&quot;&gt;
-  &lt;div class=&quot;slide&quot; data-slide-label=&quot;waseemi&quot;&gt;
-    &lt;p&gt;Think twice, code once ― Waseem Latif&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;slide&quot; data-slide-label=&quot;martini&quot;&gt;
-    &lt;p&gt;&#39;Truth can only be found in one place: the code. ― Robert C. Martin&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;slide&quot; data-slide-label=&quot;waseemi&quot;&gt;
-    &lt;p&gt;Programming isn&#39;t about what you know; it&#39;s about what you can figure out. ― Chris Pine&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
+		<pre class="mb-0"><code class="lang-">
 &lt;h2&gt;Gallery Slider (Slide width from images and fixed height)&lt;/h2&gt;
 
 &lt;div class=&quot;ft-slider -hidden -gallery&quot; data-feature=&quot;gallery-slider&quot;&gt;
@@ -2245,14 +2396,6 @@ This can be useful for creating a custom Navigation. (for this to be useful, the
       &lt;img src=&quot;slider/docs/files/test4.jpeg&quot; data-feature=&quot;fit&quot; alt=&quot;test4&quot;&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h2&gt;Slider which handles events (see console)&lt;/h2&gt;
-&lt;div class=&quot;ft-slider -hidden -gallery&quot; data-feature=&quot;event-slider&quot;&gt;
-  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test.jpeg&quot; alt=&quot;test&quot;&gt;
-  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test2.jpeg&quot; alt=&quot;test2&quot;&gt;
-  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test3.jpeg&quot; alt=&quot;test3&quot;&gt;
-  &lt;img class=&quot;slide&quot; src=&quot;slider/docs/files/test4.jpeg&quot; alt=&quot;test4&quot;&gt;
 &lt;/div&gt;</code></pre>
 	</div>
 </div></div>
@@ -2499,6 +2642,35 @@ ul li.-clicked a {
 			
 					<h5
 						class="pt-4 mb-1"
+						data-filter-value=" Base - What&#x27;s this?  Usage - How does it work? "
+					>
+						<a href="#category-intro" class="i-sidebar-list-item">
+							<b>Intro</b>
+						</a>
+					</h5>
+			
+					<div>
+							<a
+								href="#base-whats-this"
+								class="i-sidebar-list-item"
+								data-filter-value="Base - What&#x27;s this?"
+							>
+								<span>Base - What&#x27;s this?</span>
+							</a>
+							<a
+								href="#usage-how-does-it-work"
+								class="i-sidebar-list-item"
+								data-filter-value="Usage - How does it work?"
+							>
+								<span>Usage - How does it work?</span>
+							</a>
+					</div>
+			
+				</div>
+				<div class="i-sidebar-list-group">
+			
+					<h5
+						class="pt-4 mb-1"
 						data-filter-value=" Accordion "
 					>
 						<a href="#category-accordion" class="i-sidebar-list-item">
@@ -2733,7 +2905,7 @@ ul li.-clicked a {
 			
 					<h5
 						class="pt-4 mb-1"
-						data-filter-value=" Slider "
+						data-filter-value=" Content  Events  Slider Gallery "
 					>
 						<a href="#category-slider" class="i-sidebar-list-item">
 							<b>Slider</b>
@@ -2742,11 +2914,25 @@ ul li.-clicked a {
 			
 					<div>
 							<a
-								href="#slider"
+								href="#content"
 								class="i-sidebar-list-item"
-								data-filter-value="Slider"
+								data-filter-value="Content"
 							>
-								<span>Slider</span>
+								<span>Content</span>
+							</a>
+							<a
+								href="#events"
+								class="i-sidebar-list-item"
+								data-filter-value="Events"
+							>
+								<span>Events</span>
+							</a>
+							<a
+								href="#slider-gallery"
+								class="i-sidebar-list-item"
+								data-filter-value="Slider Gallery"
+							>
+								<span>Slider Gallery</span>
 							</a>
 					</div>
 			

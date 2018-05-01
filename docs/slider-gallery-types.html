@@ -29,26 +29,13 @@
 		<main
 			role="main"
 			id="stylemark-root"
-			ng-controller="stylemark-slider-types"
+			ng-controller="stylemark-slider-gallery-types"
 			style="
 				display: block;
 				padding: ;
 				width: ;
 			"
-		><h2>Content Slider</h2>
-
-<div class="ft-slider -hidden" data-feature="slider" data-slider-indentifier="quotes-slider">
-  <div class="slide" data-slide-label="waseemi">
-    <p>Think twice, code once ― Waseem Latif</p>
-  </div>
-  <div class="slide" data-slide-label="martini">
-    <p>'Truth can only be found in one place: the code. ― Robert C. Martin</p>
-  </div>
-  <div class="slide" data-slide-label="waseemi">
-    <p>Programming isn't about what you know; it's about what you can figure out. ― Chris Pine</p>
-  </div>
-</div>
-
+		>
 <h2>Gallery Slider (Slide width from images and fixed height)</h2>
 
 <div class="ft-slider -hidden -gallery" data-feature="gallery-slider">
@@ -140,14 +127,6 @@
       <img src="slider/docs/files/test4.jpeg" data-feature="fit" alt="test4">
     </div>
   </div>
-</div>
-
-<h2>Slider which handles events (see console)</h2>
-<div class="ft-slider -hidden -gallery" data-feature="event-slider">
-  <img class="slide" src="slider/docs/files/test.jpeg" alt="test">
-  <img class="slide" src="slider/docs/files/test2.jpeg" alt="test2">
-  <img class="slide" src="slider/docs/files/test3.jpeg" alt="test3">
-  <img class="slide" src="slider/docs/files/test4.jpeg" alt="test4">
 </div></main>
 
 		
@@ -155,11 +134,6 @@
 			<script type="text/x-stylemark" data-language="js">require(['featurify'], function(featurify) {
   featurify([{ name: 'feature-slider', path: 'slider/lib/main.min.js' }, { name: 'feature-object-fit', path: 'object-fit/lib/main.min.js' }, 'base', 'base.features'], function(Slider, ObjectFit, base, features) {
     features.add('fit', ObjectFit.default);
-
-    base.features.add('slider', Slider.default, {
-      contain: true,
-      prevNextButtons: false
-    })
 
     base.features.add('gallery-slider', Slider.default, {
       imagesLoaded: true,
@@ -186,41 +160,10 @@
       contain: true
     })
 
-    base.features.add('event-slider', Slider.default, {
-      contain: true,
-      listeners: [
-        {
-          event: 'select',
-          handler: (flickity) => {
-            console.log('selected', flickity)
-          }
-        },
-        {
-          event: 'settle',
-          handler: (flickity) => {
-            console.log('settled', flickity)
-          }
-        }
-      ]
-    })
-
     features.init(document.body);
   });
 });</script>
-			<script type="text/x-stylemark" data-language="html"><h2>Content Slider</h2>
-
-<div class="ft-slider -hidden" data-feature="slider" data-slider-indentifier="quotes-slider">
-  <div class="slide" data-slide-label="waseemi">
-    <p>Think twice, code once ― Waseem Latif</p>
-  </div>
-  <div class="slide" data-slide-label="martini">
-    <p>'Truth can only be found in one place: the code. ― Robert C. Martin</p>
-  </div>
-  <div class="slide" data-slide-label="waseemi">
-    <p>Programming isn't about what you know; it's about what you can figure out. ― Chris Pine</p>
-  </div>
-</div>
-
+			<script type="text/x-stylemark" data-language="html">
 <h2>Gallery Slider (Slide width from images and fixed height)</h2>
 
 <div class="ft-slider -hidden -gallery" data-feature="gallery-slider">
@@ -312,14 +255,6 @@
       <img src="slider/docs/files/test4.jpeg" data-feature="fit" alt="test4">
     </div>
   </div>
-</div>
-
-<h2>Slider which handles events (see console)</h2>
-<div class="ft-slider -hidden -gallery" data-feature="event-slider">
-  <img class="slide" src="slider/docs/files/test.jpeg" alt="test">
-  <img class="slide" src="slider/docs/files/test2.jpeg" alt="test2">
-  <img class="slide" src="slider/docs/files/test3.jpeg" alt="test3">
-  <img class="slide" src="slider/docs/files/test4.jpeg" alt="test4">
 </div></script>
 
 		<script>
@@ -341,10 +276,10 @@
 				}
 				else {
 					// Creates a new module
-					module = angular.module('stylemark-slider-types', []);
+					module = angular.module('stylemark-slider-gallery-types', []);
 				}
 
-				module.controller('stylemark-slider-types', function($scope) {
+				module.controller('stylemark-slider-gallery-types', function($scope) {
 					$scope.$eval(getStylemarkBlock('angularjs'));
 				});
 			})(window.angular);
