@@ -252,7 +252,8 @@ class Form extends features.Feature {
           this.triggerHub('form:sendSuccess', response)
           this.trigger('sendSuccess', response)
 
-          this.showFeedback(response.json.message || this.options.defaultSuccessMessage)
+          // per contract the message should be inside of data - otherwise we use the default message
+          this.showFeedback(response.json.data.message || this.options.defaultSuccessMessage)
 
           if (this.options.removeFormOnSuccess) {
             this.$form.parentNode.removeChild(this.$form)
