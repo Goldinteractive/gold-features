@@ -24,6 +24,14 @@ class PageTransition extends features.Feature {
         hasClass(element, self.options.transitionClass)
       )
     }
+    // triggered for each new added container
+    Barba.Dispatcher.on('newPageReady', (currentStatus, prevStatus, htmlElementContainer, newPageRawHTML) => {
+      features.init(htmlElementContainer)
+   })
+   // triggered when url structure has been updated (but new content has not been loaded yet)
+   Barba.Dispatcher.on('initStateChange', (currentStatus) => {
+     features.destroy(this.node, undefined, { justChildNodes: true })
+   })
     Barba.Pjax.start()
   }
 }
