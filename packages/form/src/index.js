@@ -76,7 +76,7 @@ class Form extends features.Feature {
       this.triggerHub('form:beforeSend', opts, request)
       this.trigger('beforeSend', opts, request)
 
-      request.withCredentials = true
+      request.withCredentials = false
       request.open(opts.method || 'post', action)
 
       for (let h in opts.headers || {}) {
