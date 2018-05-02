@@ -41,15 +41,14 @@ class Form extends features.Feature {
 
   loadToken(tokenEndpoint) {
     return fetch(tokenEndpoint, {
-      mode: 'cors',
-      credentials: 'include'
+      mode: 'cors'
     }).then(response => response.json())
   }
 
   /**
    * Sets the token for the form and creates a hidden input
    * This method can only be called once - otherwise there might be multiple hidden inputs
-   * @param {string} token 
+   * @param {string} token
    */
   setToken(token) {
     this.token = token
