@@ -12,8 +12,9 @@ In order to use a **Gold Form** follow these steps:
 - Make sure to use straightforward handles
 - Create the HTML Markup.
 - Set the proper names based on the configured handles. For the handle `salutation` the name attribute of the input element must be `fields[salutation].`
-- Set **Token Endpoint** (https://form.goldinteractive.ch/be/api/v1/token)
 - Set **Post Endpoint** (https://form.goldinteractive.ch/be/api/v1/p/form/post/FORMID)
+
+Note that the feature enables you to set a csrf token endpoint. For the default Gold Form this endpoint **is not** required.
 
 ```types.js
 require(['featurify'], function(featurify) {
