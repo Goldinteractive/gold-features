@@ -15,7 +15,7 @@ require(['featurify'], function(featurify) {
 ```
 ```types.html
 <p>Not replaced content</p>
-<div data-feature="page-transition" id="page-transition-wrapper">
+<div data-feature="page-transition" id="page-transition-wrapper" class="ft-page-transition">
   <div class="page-transition-container">
     Test
     <a href="page-transition-endpoint-types.html" class="smooth-transition">

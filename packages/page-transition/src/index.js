@@ -2,6 +2,8 @@ import { features } from '@goldinteractive/js-base'
 
 import Barba from 'barba.js'
 
+import { FadeTransition } from './transitions'
+
 /**
  * Enables smooth page transitions using barba.js
  */
@@ -25,13 +27,17 @@ class PageTransition extends features.Feature {
       )
     }
     // triggered for each new added container
-    Barba.Dispatcher.on('newPageReady', (currentStatus, prevStatus, htmlElementContainer, newPageRawHTML) => {
-      features.init(htmlElementContainer)
-   })
-   // triggered when url structure has been updated (but new content has not been loaded yet)
-   Barba.Dispatcher.on('initStateChange', (currentStatus) => {
-     features.destroy(this.node, undefined, { justChildNodes: true })
-   })
+    Barba.Dispatcher.on(
+      'newPageReady',
+      (currentStatus, prevStatus, htmlElementContainer, newPageRawHTML) => {
+        features.init(htmlElementContainer)
+      }
+    )
+    Barba.Pjax.getTransition = this.options.getTransition
+    // triggered when url structure has been updated (but new content has not been loaded yet)
+    Barba.Dispatcher.on('initStateChange', currentStatus => {
+      features.destroy(this.node, undefined, { justChildNodes: true })
+    })
     Barba.Pjax.start()
   }
 }
@@ -41,7 +47,8 @@ PageTransition.defaultOptions = {
   containerClass: 'page-transition-container',
   // set this class on anchor tags in order to enable Smooth Page Transition for this link
   transitionClass: 'smooth-transition',
-  usePrefetch: true
+  usePrefetch: true,
+  getTransition: () => FadeTransition
 }
 
 export default PageTransition

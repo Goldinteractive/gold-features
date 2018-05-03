@@ -14,7 +14,7 @@ require(['featurify'], function(featurify) {
 });
 ```
 ```types.html
-<div data-feature="page-transition" id="page-transition-wrapper">
+<div data-feature="page-transition" id="page-transition-wrapper" class="ft-page-transition">
   <div class="page-transition-container">
     <a href="page-transition-types.html">
       Full Page reload back to entry
