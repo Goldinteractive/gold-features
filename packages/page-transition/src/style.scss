@@ -1,3 +1,31 @@
+$ft-page-transition-duration: 0.3s;
+
 .ft-page-transition {
 
+  .page-transition-container {
+    &.fade-in {
+      animation: fade-in $ft-page-transition-duration;
+    }
+    &.fade-out {
+        animation: fade-out $ft-page-transition-duration forwards;
+    }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
 }
