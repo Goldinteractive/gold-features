@@ -46,6 +46,9 @@
 							<optgroup label="Map">
 									<option value="map">Map</option>
 							</optgroup>
+							<optgroup label="Masonry">
+									<option value="masonry">Masonry</option>
+							</optgroup>
 							<optgroup label="Modal">
 									<option value="modal">Modal</option>
 							</optgroup>
@@ -1416,6 +1419,107 @@ check whether there is a way to load GMaps API as part of feature-map</p>
 &lt;/div&gt;
 
 &lt;script src=&quot;//maps.googleapis.com/maps/api/js?libraries=geometry&amp;key=AIzaSyAtOJRO17DPX-JK2Vps9RYCY756RogmoAA&quot;&gt;&lt;/script&gt;</code></pre>
+	</div>
+</div></div>
+</div>
+
+				</div>
+				<div id="category-masonry">
+						<div id="masonry" class="i-library">
+	<h1 class="display-4">Masonry</h1>
+	<div><p>Enables the creation of auto sizing grid layouts.</p>
+<p>There is a <code>.grid-sizer</code> element which has no content. It&#39;s purpose is to set the normal column width. In a grid system this would correspond to <code>gr-1</code>.</p>
+<p>Make sure that all elements have the final sizes upon rendering. Image sizes should be set on the image tag to ensure proper dimensions.</p>
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> js</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-masonry&#39;, path: &#39;masonry/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Masonry, base, features) {
+    features.add(&#39;masonry&#39;, Masonry.default);
+    features.init(document.body);
+  });
+});" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">require([&#39;featurify&#39;], function(featurify) {
+  featurify([{ name: &#39;feature-masonry&#39;, path: &#39;masonry/lib/main.min.js&#39; }, &#39;base&#39;, &#39;base.features&#39;], function(Masonry, base, features) {
+    features.add(&#39;masonry&#39;, Masonry.default);
+    features.init(document.body);
+  });
+});</code></pre>
+	</div>
+</div><div class="i-example">
+                    <h5 class="i-example__heading">
+                        <a
+                            href="masonry-types.html"
+                            target="_blank"
+                            class="fa fa-external-link-square fa-fw plain-link"
+                            title="Open in a new window"
+                        ></a>
+                        Example
+                    </h5>
+                    <div class="i-example__body">
+                        <div
+                            class="i-example__iframe"
+                            lazyframe
+                            data-src="masonry-types.html"
+                            data-initinview="true"
+                            data-title="Loading…"
+
+                        ></div>
+                    </div>
+                </div>
+
+
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> html</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text="&lt;div class=&quot;grid&quot; data-feature=&quot;masonry&quot;&gt;
+  &lt;div class=&quot;grid-sizer&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;grid-item&quot;&gt;1 - ...&lt;/div&gt;
+  &lt;div class=&quot;grid-item grid-item--width2&quot;&gt;2 - Wide&lt;/div&gt;
+  &lt;div class=&quot;grid-item grid-item--height2&quot;&gt;3 - Tall&lt;/div&gt;
+  &lt;div class=&quot;grid-item&quot;&gt;4 - ...&lt;/div&gt;
+  &lt;div class=&quot;grid-item grid-item--height3&quot;&gt;5 - Taller&lt;/div&gt;
+  &lt;div class=&quot;grid-item&quot;&gt;5 - ...&lt;/div&gt;
+  &lt;div class=&quot;grid-item grid-item--height2&quot;&gt;6 - Tall&lt;/div&gt;
+  &lt;div class=&quot;grid-item grid-item--height3&quot;&gt;5 - Taller&lt;/div&gt;
+  &lt;div class=&quot;grid-item grid-item--height2&quot;&gt;7 - Tall&lt;/div&gt;
+  &lt;div class=&quot;grid-item&quot;&gt;8 - ...&lt;/div&gt;
+  &lt;div class=&quot;grid-item grid-item--width2&quot;&gt;9 - Wide&lt;/div&gt;
+&lt;/div&gt;" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">&lt;div class=&quot;grid&quot; data-feature=&quot;masonry&quot;&gt;
+  &lt;div class=&quot;grid-sizer&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;grid-item&quot;&gt;1 - ...&lt;/div&gt;
+  &lt;div class=&quot;grid-item grid-item--width2&quot;&gt;2 - Wide&lt;/div&gt;
+  &lt;div class=&quot;grid-item grid-item--height2&quot;&gt;3 - Tall&lt;/div&gt;
+  &lt;div class=&quot;grid-item&quot;&gt;4 - ...&lt;/div&gt;
+  &lt;div class=&quot;grid-item grid-item--height3&quot;&gt;5 - Taller&lt;/div&gt;
+  &lt;div class=&quot;grid-item&quot;&gt;5 - ...&lt;/div&gt;
+  &lt;div class=&quot;grid-item grid-item--height2&quot;&gt;6 - Tall&lt;/div&gt;
+  &lt;div class=&quot;grid-item grid-item--height3&quot;&gt;5 - Taller&lt;/div&gt;
+  &lt;div class=&quot;grid-item grid-item--height2&quot;&gt;7 - Tall&lt;/div&gt;
+  &lt;div class=&quot;grid-item&quot;&gt;8 - ...&lt;/div&gt;
+  &lt;div class=&quot;grid-item grid-item--width2&quot;&gt;9 - Wide&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+	</div>
+</div>
+<div class="i-code-block">
+	<button type="button" class="i-code-block__lang -collapsible"><i class="fa fa-caret-right fa-fw"></i> css</button>
+	<div class="i-code-block__content hidden">
+		<button type="button" class="btn btn-outline-primary btn-sm i-copy-button" data-clipboard-text=".grid {position: relative; }
+.grid-sizer { width: 33%; }
+.grid-item { width: 33%; background-color: orange; height: 40px; box-shadow: inset 0 0 5px #000000; text-align: center;}
+.grid-item:nth-child(even) { background-color: green; }
+.grid-item--width2 { width: 66%; }
+.grid-item--height2 { height: 80px; }
+.grid-item--height3 { height: 160px; }" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Copy</button>
+		<pre class="mb-0"><code class="lang-">.grid {position: relative; }
+.grid-sizer { width: 33%; }
+.grid-item { width: 33%; background-color: orange; height: 40px; box-shadow: inset 0 0 5px #000000; text-align: center;}
+.grid-item:nth-child(even) { background-color: green; }
+.grid-item--width2 { width: 66%; }
+.grid-item--height2 { height: 80px; }
+.grid-item--height3 { height: 160px; }</code></pre>
 	</div>
 </div></div>
 </div>
@@ -2824,6 +2928,28 @@ ul li.-clicked a {
 								data-filter-value="Map"
 							>
 								<span>Map</span>
+							</a>
+					</div>
+			
+				</div>
+				<div class="i-sidebar-list-group">
+			
+					<h5
+						class="pt-4 mb-1"
+						data-filter-value=" Masonry "
+					>
+						<a href="#category-masonry" class="i-sidebar-list-item">
+							<b>Masonry</b>
+						</a>
+					</h5>
+			
+					<div>
+							<a
+								href="#masonry"
+								class="i-sidebar-list-item"
+								data-filter-value="Masonry"
+							>
+								<span>Masonry</span>
 							</a>
 					</div>
 			
