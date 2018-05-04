@@ -27,6 +27,7 @@ export default Barba.BaseTransition.extend({
   fadeIn: function() {
     const self = this
     // barba renders the new container with visibility: hidden
+    window.scrollTo(0, 0)
     self.newContainer.style.visibility = 'visible'
     const eventListener = e => {
       // there might be multiple animations running
