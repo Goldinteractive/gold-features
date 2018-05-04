@@ -1,0 +1,19 @@
+{
+  "name": "@goldinteractive/feature-masonry",
+  "version": "0.0.1-alpha",
+  "description": "masonry feature",
+  "main": "lib/main.min.js",
+  "module": "src/index.js",
+  "author": "Gold Interactive",
+  "license": "MIT",
+  "scripts": {
+    "build": "node ../../scripts/build.js",
+    "watch": "node ../../scripts/watch.js"
+  },
+  "dependencies": {
+    "masonry-layout": "^4.2.1"
+  },
+  "peerDependencies": {
+    "@goldinteractive/js-base": "^0.0.2"
+  }
+}
