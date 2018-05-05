@@ -1,33 +1,25 @@
-const paths = require('./paths');
-const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const paths = require('./paths')
+const webpack = require('webpack')
 
-const isDev = process.env.NODE_ENV === 'development';
+const mode = process.env.NODE_ENV
+const isDev = mode === 'development'
 
 let plugins = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': isDev ? '"development"' : '"production"'
   })
-];
-
-if (!isDev) {
-  plugins = plugins.concat(
-    new UglifyJsPlugin({
-      sourceMap: true
-    })
-  );
-}
+]
 
 module.exports = {
   entry: paths.app.indexJs,
-  externals: [ 
+  externals: [
     (context, request, callback) => {
       // match any gi-* or @goldinteractive/* repo
       if (/^(gi-|@goldinteractive\/).+$/.test(request)) {
-        const libName = /^(gi-|@goldinteractive\/)(.+)$/.exec(request)[2];
+        const libName = /^(gi-|@goldinteractive\/)(.+)$/.exec(request)[2]
         return callback(null, libName)
       }
-      callback();
+      callback()
     }
   ],
   output: {
@@ -37,6 +29,7 @@ module.exports = {
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
+  mode,
   watch: isDev ? true : false,
   devtool: 'source-map',
   module: {
@@ -48,13 +41,14 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['env', {
-                targets: {
-                  browsers: [
-                    'Explorer 11'
-                  ]
+              [
+                'env',
+                {
+                  targets: {
+                    browsers: ['Explorer 11']
+                  }
                 }
-              }]
+              ]
             ]
           }
         }

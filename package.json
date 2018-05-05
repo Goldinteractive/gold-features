@@ -21,7 +21,7 @@
   "devDependencies": {
     "autoprefixer": "^7.2.5",
     "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "chalk": "^2.3.0",
     "css-mqpacker": "^6.0.2",
@@ -40,10 +40,8 @@
     "run-parallel": "^1.1.6",
     "shelljs": "^0.8.1",
     "stylemark": "^0.6.3",
-    "uglifyjs-webpack-plugin": "^1.1.8",
     "uppercamelcase": "^3.0.0",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1",
+    "webpack": "^4.7.0",
     "webpack-format-messages": "^1.0.1"
   },
   "browserslist": [
