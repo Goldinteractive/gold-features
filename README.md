@@ -1,10 +1,11 @@
 ## Gold Features
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
 This project contains all base features. For a user-friendly view of all Gold Features check out the catalog in our documentation: <https://goldinteractive.github.io/gold-features/>.
 
 ### How To Use A Feature
 
-The name of the feature is always using `kebab case`. So for PageTransition the corresponding name would be `feature-page-transition`.
+The name of the feature is always using [`kebab case`](http://wiki.c2.com/?KebabCase). So for PageTransition the corresponding name would be `feature-page-transition`.
 
 include the `@goldinteractive/src/style` in your `.scss file`.
 
@@ -29,9 +30,13 @@ Once you've finished updating go to the root directory and run `yarn lerna:updat
 This will check whether a new package is required. Make sure that only your changed project pops up.
 Then using `yarn lerna:publish` you can publish the changed packages to the npm registry.
 
-### How to work with gold features
+### Basic Commit Instructions
 
-We use lerna to orchestrate the build and publish process.
+Since the docs are also checked into the git repo it is important to be able to distinguish actual code changes from docs changes. Therefore we always make separate commits for source changes and the following `generate docs` action.
+
+### How to work with Gold Features
+
+We use `lerna` to orchestrate the build and publish process.
 
 `yarn lerna:build` build all projects
 
@@ -43,13 +48,13 @@ We use lerna to orchestrate the build and publish process.
 
 `yarn lerna:exec command` execute a command in all packages. To remove a package, run: `yarn lerna:exec yarn remove some-dependency`. This is useful in order to update the `js-base` peer-dependency across all packages. (`yarn lerna:exec yarn add @goldinteractive/js-base@latest --peer`)
 
-### How to create a gold feature
+### How to create a new Gold Feature
 
 There is a bootstrap script in place to ease the creation of new features.
 
 `yarn create:feature --name sample` will create a new feature and set up the base file structure (replace `sample` with the feature name, e.g. for `feature-modal` use `modal`).
 
-Each feature manages its own local dependencies, make sure to install them in the proper scope (dev !== peer).
+Each feature manages its own local dependencies, make sure to install them in the proper scope ([dev !== peer](https://docs.npmjs.com/files/package.json#peerdependencies)).
 
 Create your feature and update the docs accordingly. Make sure to update `stylemark.config.yml` to ensure that all runtime dependencies are available on the docs pages.
 
