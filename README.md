@@ -46,7 +46,7 @@ We use `lerna` to orchestrate the build and publish process.
 
 `yarn lerna:publish --force-publish` publish all projects (required if core change has been performed)
 
-`yarn lerna:exec command` execute a command in all packages. To remove a package, run: `yarn lerna:exec yarn remove some-dependency`. This is useful in order to update the `js-base` peer-dependency across all packages. (`yarn lerna:exec yarn add @goldinteractive/js-base@latest --peer`)
+`yarn lerna:exec command` execute a command in all packages. To remove a package, run: `yarn lerna:exec yarn remove some-dependency`. This is useful in order to update the `js-base` peer-dependency across all packages. (`yarn lerna:exec yarn add @goldinteractive/js-base@latest --tilde --peer`)
 
 ### How to create a new Gold Feature
 
