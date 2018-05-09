@@ -14,7 +14,7 @@
     "requirejs": "^2.3.5"
   },
   "dependencies": {
-    "@goldinteractive/js-base": "^0.0.2"
+    "@goldinteractive/js-base": "~0.0.3"
   },
   "peerDependencies": {
     "@goldinteractive/js-base": "^0.0.2"
