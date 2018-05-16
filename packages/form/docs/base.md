@@ -7,7 +7,7 @@ This demo uses the new **Gold Form Server**. Please note that for the old implem
 
 In order to use a **Gold Form** follow these steps:
 
-- Login to the [Admin UI](form.goldinteractive.ch)
+- Login to the [Admin UI](https://form.goldinteractive.ch)
 - Create a new project and configure the SMTP Settings
 - Make sure to use straightforward handles
 - Create the HTML Markup.
