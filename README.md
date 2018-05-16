@@ -32,7 +32,7 @@ Then using `yarn lerna:publish` you can publish the changed packages to the npm 
 
 ### Basic Commit Instructions
 
-Since the docs are also checked into the git repo it is important to be able to distinguish actual code changes from docs changes. Therefore we always make separate commits for source changes and the following `generate docs` action.
+After updating the docs simply commit them using the `yarn stylemark:publish` command.
 
 ### How to work with Gold Features
 

@@ -16,6 +16,7 @@
     "lerna:exec": "lerna exec --",
     "stylemark": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml",
     "stylemark:watch": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml -w",
+    "stylemark:publish": "./publish-docs.sh",
     "create:feature": "node scripts/create.js"
   },
   "devDependencies": {
