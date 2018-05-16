@@ -16,7 +16,7 @@ class CookieDisclaimer extends features.Feature {
 
   handleDisclaimerConfirm() {
     return (e) => {
-      Cookies.set(this.options.cookieName, true)
+      Cookies.set(this.options.cookieName, true, this.options.daysUntilExpiration)
       this.node.classList.remove(this.options.classShow)
     }
   }
@@ -25,7 +25,8 @@ class CookieDisclaimer extends features.Feature {
 
 CookieDisclaimer.defaultOptions = {
   cookieName: 'disclaimeragreed',
-  classShow: '-show'
+  classShow: '-show',
+  daysUntilExpiration: 365
 }
 
 export default CookieDisclaimer
