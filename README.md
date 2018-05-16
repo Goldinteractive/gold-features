@@ -5,7 +5,7 @@ This project contains all base features. For a user-friendly view of all Gold Fe
 
 ### How To Use A Feature
 
-The name of the feature is always using [`kebab case`](http://wiki.c2.com/?KebabCase). So for PageTransition the corresponding name would be `feature-page-transition`.
+The name of the feature is always using [`kebab-case`](http://wiki.c2.com/?KebabCase). So for PageTransition the corresponding name would be `feature-page-transition`.
 
 include the `@goldinteractive/src/style` in your `.scss file`.
 
