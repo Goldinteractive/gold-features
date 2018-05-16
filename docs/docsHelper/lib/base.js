@@ -1042,7 +1042,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
    * @returns {Element[]}
    */
   function siblings(element) {
-    return children(element.parentElement, element);
+    return children(element.parentNode, element);
   }
 
   /**
@@ -1056,7 +1056,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   function parent(element, match) {
     var parent = null;
 
-    for (; parent === null && element && element !== document; element = element.parentElement) {
+    for (; parent === null && element && element !== document; element = element.parentNode) {
       if (match(element)) {
         parent = element;
       }
@@ -1078,7 +1078,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
     var parents = [];
 
-    for (; element && element !== document; element = element.parentElement) {
+    for (; element && element !== document; element = element.parentNode) {
       if (match) {
         if (match(element)) {
           parents.push(element);
@@ -4842,20 +4842,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   if (!Element.prototype.closest) {
     Element.prototype.closest = function (s) {
       var el = this;
-      var ancestor = this;
-
-      if (!document.documentElement.contains(el)) {
-        return null;
-      }
-
+      if (!document.documentElement.contains(el)) return null;
       do {
-        if (ancestor.matches(s)) {
-          return ancestor;
-        }
-
-        ancestor = ancestor.parentElement;
-      } while (ancestor !== null);
-
+        if (el.matches(s)) return el;
+        el = el.parentElement || el.parentNode;
+      } while (el !== null && el.nodeType === 1);
       return null;
     };
   }
