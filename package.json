@@ -27,7 +27,7 @@
     "chalk": "^2.3.0",
     "css-mqpacker": "^6.0.2",
     "cssnano": "^3.10.0",
-    "lerna": "^2.8.0",
+    "lerna": "3.0.0-beta.21",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",

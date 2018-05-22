@@ -1,12 +1,12 @@
 {
-  "lerna": "2.8.0",
   "packages": [
-    "packages/*"
+    "packages/!(docsHelper)"
   ],
-  "commands": {
+  "command": {
     "publish": {
-      "ignore": [
-        "docs-helper"
+      "ignoreChanges": [
+        "docs-helper",
+        "**/*.md"
       ]
     }
   },
