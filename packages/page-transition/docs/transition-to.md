@@ -3,7 +3,7 @@ name: PageTransitionEndpoint
 category: PageTransition
 ---
 
-This example *does* not use page transitions.
+This example *does not* use page transitions.
 
 ```types.js
 require(['featurify'], function(featurify) {
