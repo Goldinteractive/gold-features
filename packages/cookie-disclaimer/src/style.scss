@@ -28,13 +28,16 @@ $ft-cookie-disclaimer-box-margin: 20px !default;
     }
   }
 
+  &.-base-theme {
+    background-color: $ft-cookie-disclaimer-background-color;
+    color: $ft-cookie-disclaimer-color;
+  }
+
   &.-banner-bottom {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100vw;
-    background-color: $ft-cookie-disclaimer-background-color;
-    color: $ft-cookie-disclaimer-color;
     padding: $ft-cookie-disclaimer-padding;
 
     @media screen and (max-width : $ft-cookie-disclaimer-small-breakpoint)  {
@@ -48,8 +51,6 @@ $ft-cookie-disclaimer-box-margin: 20px !default;
     position: fixed;
     right: $ft-cookie-disclaimer-box-margin;
     bottom: $ft-cookie-disclaimer-box-margin;
-    background-color: $ft-cookie-disclaimer-background-color;
-    color: $ft-cookie-disclaimer-color;
     padding: $ft-cookie-disclaimer-padding;
 
     @media screen and (max-width : $ft-cookie-disclaimer-box-max-width)  {
