@@ -26,7 +26,7 @@ To have them reflected in the docs run `yarn stylemark:watch` in the root direct
 
 Do your changes and check them using the docs page.
 
-Once you've finished updating go to the root directory and run `yarn lerna:updated`.
+Once you've finished updating commit your changes and go to the root directory and run `yarn lerna:updated`.
 This will check whether a new package is required. Make sure that only your changed project pops up.
 Then using `yarn lerna:publish` you can publish the changed packages to the npm registry.
 
@@ -60,7 +60,7 @@ Create your feature and update the docs accordingly. Make sure to update `stylem
 
 Run `yarn watch` in your feature folder to enable the dev mode and keep watching for changes. This is especially useful with `yarn stylemark:watch`. (Make sure to execute stylemark in the root directory - not your feature dir)
 
-### What is this docs?
+### What is this `docs` folder doing?
 
 The docs are generated using stylemark (https://github.com/nextbigsoundinc/stylemark).
 
