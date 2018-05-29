@@ -18,7 +18,7 @@ require(['featurify'], function(featurify) {
 });
 ```
 ```types.html
-<div class="grid" data-feature="masonry">
+<div class="ft-masonry -hidden grid" data-feature="masonry">
   <div class="grid-sizer"></div>
   <div class="grid-item">1 - ...</div>
   <div class="grid-item grid-item--width2">2 - Wide</div>
