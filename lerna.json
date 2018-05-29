@@ -1,6 +1,6 @@
 {
   "packages": [
-    "packages/!(docsHelper)"
+    "packages"
   ],
   "command": {
     "publish": {
