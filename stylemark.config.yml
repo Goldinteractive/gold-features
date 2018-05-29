@@ -49,6 +49,7 @@ headHtml: >
   <link rel="stylesheet" type="text/css" href="touch-hover/lib/style.css">
   <link rel="stylesheet" type="text/css" href="cookie-disclaimer/lib/style.css">
   <link rel="stylesheet" type="text/css" href="page-transition/lib/style.css">
+  <link rel="stylesheet" type="text/css" href="masonry/lib/style.css">
   <script src="docsHelper/lib/require.js"></script>
   <script src="docsHelper/lib/base.js"></script>
   <script src="docsHelper/featurify.js"></script>
