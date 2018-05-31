@@ -1,11 +1,11 @@
 {
   "packages": [
-    "packages"
+    "packages/*"
   ],
   "command": {
     "publish": {
       "ignoreChanges": [
-        "docs-helper",
+        "featurify.js",
         "**/*.md"
       ]
     }
