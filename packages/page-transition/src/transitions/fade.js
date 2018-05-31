@@ -26,8 +26,10 @@ export default Barba.BaseTransition.extend({
 
   fadeIn: function() {
     const self = this
+    // restore scroll position
+    const { scrollX = 0, scrollY = 0 } = history.state || {}
+    window.scrollTo(scrollX, scrollY)
     // barba renders the new container with visibility: hidden
-    window.scrollTo(0, 0)
     self.newContainer.style.visibility = 'visible'
     const eventListener = e => {
       // there might be multiple animations running

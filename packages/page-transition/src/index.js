@@ -1,4 +1,4 @@
-import { features } from '@goldinteractive/js-base'
+import { features, utils } from '@goldinteractive/js-base'
 
 import Barba from 'barba.js'
 
@@ -13,6 +13,7 @@ class PageTransition extends features.Feature {
     if (this.options.usePrefetch) {
       Barba.Prefetch.init()
     }
+    this.scrollRestoration = history.scrollRestoration
     Barba.Pjax.Dom.wrapperId = this.options.wrapperId
     Barba.Pjax.Dom.containerClass = this.options.containerClass
     const preventCheck = Barba.Pjax.preventCheck
@@ -30,9 +31,25 @@ class PageTransition extends features.Feature {
     Barba.Dispatcher.on(
       'newPageReady',
       (currentStatus, prevStatus, htmlElementContainer, newPageRawHTML) => {
+        // restore scroll restoration setting
+        if (self.options.enbaleScrollRestoration) {
+          history.scrollRestoration = self.scrollRestoration
+        }
         features.init(htmlElementContainer)
       }
     )
+    Barba.Dispatcher.on('linkClicked', () => {
+      if (self.options.enbaleScrollRestoration) {
+        // if possible take control over scroll restoration behavior
+        self.scrollRestoration = history.scrollRestoration
+        history.scrollRestoration = 'manual'
+      }
+      // the last argument is required in Safari
+      window.history.replaceState({
+        scrollY: utils.dom.scrollY(),
+        scrollX: utils.dom.scrollX()
+      }, document.title, document.location)
+    })
     Barba.Pjax.getTransition = this.options.getTransition
     // triggered when url structure has been updated (but new content has not been loaded yet)
     Barba.Dispatcher.on('initStateChange', currentStatus => {
@@ -48,7 +65,8 @@ PageTransition.defaultOptions = {
   // set this class on anchor tags in order to enable Smooth Page Transition for this link
   transitionClass: 'smooth-transition',
   usePrefetch: true,
-  getTransition: () => FadeTransition
+  getTransition: () => FadeTransition,
+  enbaleScrollRestoration: true
 }
 
 export default PageTransition
