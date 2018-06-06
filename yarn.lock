@@ -2899,6 +2899,10 @@ find-cache-dir@^1.0.0:
     make-dir "^1.0.0"
     pkg-dir "^2.0.0"
 
+find-root@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/find-root/-/find-root-1.1.0.tgz#abcfc8ba76f708c42a97b3d685b7e9450bfb9ce4"
+
 find-up@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-1.1.2.tgz#6b2e9822b1a2ce0a60ab64d610eccad53cb24d0f"
@@ -6483,9 +6487,9 @@ strong-log-transformer@^1.0.6:
     moment "^2.6.0"
     through "^2.3.4"
 
-stylemark@^0.6.3:
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/stylemark/-/stylemark-0.6.3.tgz#401b2881a05325261d422f3f9fa19bda4636e06a"
+stylemark@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/stylemark/-/stylemark-3.0.0.tgz#6d40697225cd161956f3b8daade3ae31c95a3069"
   dependencies:
     babel-core "^6.25.0"
     babel-preset-react "^6.24.1"
@@ -6493,6 +6497,7 @@ stylemark@^0.6.3:
     browser-sync "^2.23.2"
     chokidar "^1.7.0"
     common-js-file-extensions "^1.0.2"
+    find-root "^1.1.0"
     fs-extra "^4.0.3"
     gray-matter "^2.1.1"
     handlebars "^4.0.11"
