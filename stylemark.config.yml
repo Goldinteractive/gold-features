@@ -1,8 +1,8 @@
 name: Gold Features
 
-sidebar:
-  # background: linear-gradient(0deg, rgb(201,38,83) 0%, rgb(252,48,104) 80%)
-  background: black
+theme:
+  sidebar:
+    background: black
 
 # match: ['modal.md'],,
 
@@ -13,43 +13,44 @@ excludeDir:
   - node_modules
   - ./docs
 
+examples:
+  js:
+    - packages/docsHelper/lib/require.js
+    - packages/docsHelper/lib/base.js
+    - packages/docsHelper/featurify.js
+  css:
+    - packages/modal/lib/style.css
+    - packages/icons/lib/style.css
+    - packages/object-fit/lib/style.css
+    - packages/slider/lib/style.css
+    - packages/accordion/lib/style.css
+    - packages/form/lib/style.css
+    - packages/gallery/lib/style.css
+    - packages/map/lib/style.css
+    - packages/touch-hover/lib/style.css
+    - packages/cookie-disclaimer/lib/style.css
+    - packages/page-transition/lib/style.css
+    - packages/masonry/lib/style.css
+
 assets:
-  - docsHelper/lib/require.js
-  - docsHelper/lib/base.js
-  - docsHelper/featurify.js
-  - modal/lib
-  - icons/lib
-  - icons/docs/icons.svg
-  - icons/docs/icons.json
-  - object-fit/lib
-  - object-fit/docs/files
-  - slider/lib
-  - slider/docs/files
-  - accordion/lib
-  - form/lib
-  - form/docs/files
-  - gallery/lib
-  - gallery/docs/files
-  - map/lib
-  - map/assets/features/map
-  - touch-hover/lib
-  - cookie-disclaimer/lib
-  - headroom/lib
-  - page-transition/lib
-  - masonry/lib
-headHtml: >
-  <link rel="stylesheet" type="text/css" href="modal/lib/style.css">
-  <link rel="stylesheet" type="text/css" href="icons/lib/style.css">
-  <link rel="stylesheet" type="text/css" href="object-fit/lib/style.css">
-  <link rel="stylesheet" type="text/css" href="slider/lib/style.css">
-  <link rel="stylesheet" type="text/css" href="accordion/lib/style.css">
-  <link rel="stylesheet" type="text/css" href="form/lib/style.css">
-  <link rel="stylesheet" type="text/css" href="gallery/lib/style.css">
-  <link rel="stylesheet" type="text/css" href="map/lib/style.css">
-  <link rel="stylesheet" type="text/css" href="touch-hover/lib/style.css">
-  <link rel="stylesheet" type="text/css" href="cookie-disclaimer/lib/style.css">
-  <link rel="stylesheet" type="text/css" href="page-transition/lib/style.css">
-  <link rel="stylesheet" type="text/css" href="masonry/lib/style.css">
-  <script src="docsHelper/lib/require.js"></script>
-  <script src="docsHelper/lib/base.js"></script>
-  <script src="docsHelper/featurify.js"></script>
+  - packages/modal/lib
+  - packages/icons/lib
+  - packages/icons/docs/icons.svg
+  - packages/icons/docs/icons.json
+  - packages/object-fit/lib
+  - packages/object-fit/docs/files
+  - packages/slider/lib
+  - packages/slider/docs/files
+  - packages/accordion/lib
+  - packages/form/lib
+  - packages/form/docs/files
+  - packages/gallery/lib
+  - packages/gallery/docs/files
+  - packages/map/lib
+  - packages/map/assets/features/map
+  - packages/touch-hover/lib
+  - packages/cookie-disclaimer/lib
+  - packages/headroom/lib
+  - packages/page-transition/lib
+  - packages/masonry/lib
+
