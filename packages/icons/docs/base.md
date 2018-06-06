@@ -7,11 +7,11 @@ Icons
 
 ```types.js
 require(['featurify'], function(featurify) {
-  featurify([{ name: 'feature-icons', path: 'icons/lib/main.min.js' }, 'base', 'base.features'], function(Icons, base, features) {
+  featurify([{ name: 'feature-icons', path: 'packages/icons/lib/main.min.js' }, 'base', 'base.features'], function(Icons, base, features) {
 
     var icons = new Icons.IconManager({
-      svgJsonFile: 'icons/docs/icons.json',
-      svgSpriteFile: 'icons/docs/icons.svg'
+      svgJsonFile: 'packages/icons/docs/icons.json',
+      svgSpriteFile: 'packages/icons/docs/icons.svg'
     })
 
     icons.injectSprite(() => {
@@ -43,4 +43,12 @@ require(['featurify'], function(featurify) {
 
 <h2>Responsive icon</h2>
 <span data-feature="icon" data-icon="sackmesser" data-responsive></span>
+```
+
+Inspect Sources:
+```src:../src/index.js
+```
+```src:../src/style.scss
+```
+```types:../lib/style.css
 ```

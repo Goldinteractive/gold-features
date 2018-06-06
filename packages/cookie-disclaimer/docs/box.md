@@ -7,7 +7,7 @@ CookieDisclaimer - Box
 
 ```types.js
 require(['featurify'], function(featurify) {
-  featurify([{ name: 'feature-cookie-disclaimer', path: 'cookie-disclaimer/lib/main.min.js' }, 'base', 'base.features'], function(CookieDisclaimer, base, features) {
+  featurify([{ name: 'feature-cookie-disclaimer', path: 'packages/cookie-disclaimer/lib/main.min.js' }, 'base', 'base.features'], function(CookieDisclaimer, base, features) {
     features.add('cookie-disclaimer', CookieDisclaimer.default);
     features.init(document.body);
   });
@@ -18,4 +18,11 @@ require(['featurify'], function(featurify) {
 <p class="disclaimer-text">Disclaimer example message <a href="#">Privacy policy</a></p>
 <button data-disclaimer-confirm>Got it</button>
 </div>
+```
+Inspect Sources:
+```src:../src/index.js
+```
+```src:../src/style.scss
+```
+```types:../lib/style.css
 ```

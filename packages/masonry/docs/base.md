@@ -11,7 +11,7 @@ Make sure that all elements have the final sizes upon rendering. Image sizes sho
 
 ```types.js
 require(['featurify'], function(featurify) {
-  featurify([{ name: 'feature-masonry', path: 'masonry/lib/main.min.js' }, 'base', 'base.features'], function(Masonry, base, features) {
+  featurify([{ name: 'feature-masonry', path: 'packages/masonry/lib/main.min.js' }, 'base', 'base.features'], function(Masonry, base, features) {
     features.add('masonry', Masonry.default);
     features.init(document.body);
   });
@@ -41,4 +41,11 @@ require(['featurify'], function(featurify) {
 .grid-item--width2 { width: 66%; }
 .grid-item--height2 { height: 80px; }
 .grid-item--height3 { height: 160px; }
+```
+Inspect Sources:
+```src:../src/index.js
+```
+```src:../src/style.scss
+```
+```types:../lib/style.css
 ```

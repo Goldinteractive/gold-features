@@ -9,7 +9,7 @@ In order to set classes on other dom elements use the `customClasses` property. 
 
 ```types.js
 require(['featurify'], function(featurify) {
-  featurify([{ name: 'feature-headroom', path: 'headroom/lib/main.min.js' }, 'base', 'base.features'], function(Headroom, base, features) {
+  featurify([{ name: 'feature-headroom', path: 'packages/headroom/lib/main.min.js' }, 'base', 'base.features'], function(Headroom, base, features) {
     features.add('headroom', Headroom.default, {
       customClasses: [
         {
@@ -43,4 +43,12 @@ require(['featurify'], function(featurify) {
 <div style="height: 2000px;">
 
 </div>
+```
+
+Inspect Sources:
+```src:../src/index.js
+```
+```src:../src/style.scss
+```
+```types:../lib/style.css
 ```

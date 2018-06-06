@@ -7,7 +7,7 @@ TouchHover
 
 ```types.js
 require(['featurify'], function(featurify) {
-  featurify([{ name: 'feature-touch-hover', path: 'touch-hover/lib/main.min.js' }, 'base', 'base.features'], function(TouchHover, base, features) {
+  featurify([{ name: 'feature-touch-hover', path: 'packages/touch-hover/lib/main.min.js' }, 'base', 'base.features'], function(TouchHover, base, features) {
     features.add('touch-hover', TouchHover.default);
     features.init(document.body);
   });
@@ -94,4 +94,12 @@ ul li.-clicked a {
     </ul>
   </li>
 </ul>
+```
+
+Inspect Sources:
+```src:../src/index.js
+```
+```src:../src/style.scss
+```
+```types:../lib/style.css
 ```

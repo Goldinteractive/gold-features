@@ -7,7 +7,7 @@ There is an issue running Gallery in the Stylemark iframe. Open up the `external
 
 ```types.js
 require(['featurify'], function(featurify) {
-  featurify([{ name: 'feature-gallery', path: 'gallery/lib/main.min.js' }, { name: 'feature-object-fit', path: 'object-fit/lib/main.min.js' }, 'base', 'base.features'], function(Gallery, ObjectFit, base, features) {
+  featurify([{ name: 'feature-gallery', path: 'packages/gallery/lib/main.min.js' }, { name: 'feature-object-fit', path: 'packages/object-fit/lib/main.min.js' }, 'base', 'base.features'], function(Gallery, ObjectFit, base, features) {
     features.add('fit', ObjectFit.default);
 
     features.add('gallery', Gallery.default);
@@ -36,9 +36,9 @@ require(['featurify'], function(featurify) {
     <div class="ft-gallery" data-feature="gallery" itemscope itemtype="//schema.org/ImageGallery">
 
       <figure class="image-container" data-figure itemprop="associatedMedia" itemscope itemtype="//schema.org/ImageObject">
-        <a href="slider/docs/files/test.jpeg" class="source" data-source itemprop="contentUrl">
+        <a href="packages/slider/docs/files/test.jpeg" class="source" data-source itemprop="contentUrl">
           <div class="ft-fit-bg">
-            <img src="slider/docs/files/test.jpeg" data-thumbnail data-feature="fit" alt="test" itemprop="thumbnail">
+            <img src="packages/slider/docs/files/test.jpeg" data-thumbnail data-feature="fit" alt="test" itemprop="thumbnail">
           </div>
         </a>
 
@@ -51,9 +51,9 @@ require(['featurify'], function(featurify) {
       </figure>
 
       <figure class="image-container" data-figure itemprop="associatedMedia" itemscope itemtype="//schema.org/ImageObject">
-        <a href="slider/docs/files/test2.jpeg" class="source" data-source itemprop="contentUrl">
+        <a href="packages/slider/docs/files/test2.jpeg" class="source" data-source itemprop="contentUrl">
           <div class="ft-fit-bg">
-            <img src="slider/docs/files/test2.jpeg" data-thumbnail alt="test2" itemprop="thumbnail">
+            <img src="packages/slider/docs/files/test2.jpeg" data-thumbnail alt="test2" itemprop="thumbnail">
           </div>
         </a>
 
@@ -66,9 +66,9 @@ require(['featurify'], function(featurify) {
       </figure>
 
       <figure class="image-container" data-figure itemprop="associatedMedia" itemscope itemtype="//schema.org/ImageObject">
-        <a href="slider/docs/files/test3.jpeg" class="source" data-source itemprop="contentUrl">
+        <a href="packages/slider/docs/files/test3.jpeg" class="source" data-source itemprop="contentUrl">
           <div class="ft-fit-bg">
-            <img src="slider/docs/files/test3.jpeg" data-thumbnail alt="test3" itemprop="thumbnail">
+            <img src="packages/slider/docs/files/test3.jpeg" data-thumbnail alt="test3" itemprop="thumbnail">
           </div>
         </a>
 
@@ -81,9 +81,9 @@ require(['featurify'], function(featurify) {
       </figure>
 
       <figure class="image-container" data-figure itemprop="associatedMedia" itemscope itemtype="//schema.org/ImageObject">
-        <a href="slider/docs/files/test4.jpeg" class="source" data-source itemprop="contentUrl">
+        <a href="packages/slider/docs/files/test4.jpeg" class="source" data-source itemprop="contentUrl">
           <div class="ft-fit-bg">
-            <img src="slider/docs/files/test4.jpeg" data-thumbnail alt="test4" itemprop="thumbnail">
+            <img src="packages/slider/docs/files/test4.jpeg" data-thumbnail alt="test4" itemprop="thumbnail">
           </div>
         </a>
 
@@ -165,4 +165,12 @@ require(['featurify'], function(featurify) {
       </div>
 
     </div>
+```
+
+Inspect Sources:
+```src:../src/index.js
+```
+```src:../src/style.scss
+```
+```types:../lib/style.css
 ```

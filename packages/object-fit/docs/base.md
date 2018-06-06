@@ -7,7 +7,7 @@ ObjectFit
 
 ```types.js
 require(['featurify'], function(featurify) {
-  featurify([{ name: 'feature-object-fit', path: 'object-fit/lib/main.min.js' }, 'base', 'base.features'], function(ObjectFit, base, features) {
+  featurify([{ name: 'feature-object-fit', path: 'packages/object-fit/lib/main.min.js' }, 'base', 'base.features'], function(ObjectFit, base, features) {
     features.add('fit', ObjectFit.default);
     features.init(document.body);
   });
@@ -17,7 +17,7 @@ require(['featurify'], function(featurify) {
 <div class="wrapper">
 
   <div class="ft-fit-bg -initial-hide">
-    <img src="object-fit/docs/files/sample.jpeg" data-feature="fit">
+    <img src="packages/object-fit/docs/files/sample.jpeg" data-feature="fit">
   </div>
 
   <span class="info">Cover</span>
@@ -26,7 +26,7 @@ require(['featurify'], function(featurify) {
 <div class="wrapper">
 
   <div class="ft-fit-bg -initial-hide">
-    <img src="object-fit/docs/files/sample.jpeg" data-feature="fit" data-object-position="right bottom">
+    <img src="packages/object-fit/docs/files/sample.jpeg" data-feature="fit" data-object-position="right bottom">
   </div>
 
   <span class="info">Cover (right/bottom)</span>
@@ -35,7 +35,7 @@ require(['featurify'], function(featurify) {
 <div class="wrapper">
 
   <div class="ft-fit-bg -initial-hide -contain">
-    <img src="object-fit/docs/files/sample.jpeg" data-feature="fit">
+    <img src="packages/object-fit/docs/files/sample.jpeg" data-feature="fit">
   </div>
 
   <span class="info">Contain</span>
@@ -44,7 +44,7 @@ require(['featurify'], function(featurify) {
 <div class="wrapper">
 
   <div class="ft-fit-bg -initial-hide -fill">
-    <img src="object-fit/docs/files/sample.jpeg" data-feature="fit">
+    <img src="packages/object-fit/docs/files/sample.jpeg" data-feature="fit">
   </div>
 
   <span class="info">Fill</span>
@@ -54,7 +54,7 @@ require(['featurify'], function(featurify) {
 
   <div class="ft-fit-bg -initial-hide -video">
     <video autoplay muted playsinline loop data-feature="fit">
-      <source src="object-fit/docs/files/big_buck_bunny.mp4" type="video/mp4">
+      <source src="packages/object-fit/docs/files/big_buck_bunny.mp4" type="video/mp4">
     </video>
   </div>
 
@@ -65,7 +65,7 @@ require(['featurify'], function(featurify) {
 
   <div class="ft-fit-bg -initial-hide -video">
     <video autoplay muted playsinline loop data-feature="fit" data-object-position="right bottom">
-      <source src="object-fit/docs/files/big_buck_bunny.mp4" type="video/mp4">
+      <source src="packages/object-fit/docs/files/big_buck_bunny.mp4" type="video/mp4">
     </video>
   </div>
 
@@ -76,7 +76,7 @@ require(['featurify'], function(featurify) {
 
   <div class="ft-fit-bg -initial-hide -video -contain">
     <video autoplay muted playsinline loop data-feature="fit">
-      <source src="object-fit/docs/files/big_buck_bunny.mp4" type="video/mp4">
+      <source src="packages/object-fit/docs/files/big_buck_bunny.mp4" type="video/mp4">
     </video>
   </div>
 
@@ -105,4 +105,12 @@ require(['featurify'], function(featurify) {
   will-change: opacity;
   backface-visibility: hidden;
 }
+```
+
+Inspect Sources:
+```src:../src/index.js
+```
+```src:../src/style.scss
+```
+```types:../lib/style.css
 ```

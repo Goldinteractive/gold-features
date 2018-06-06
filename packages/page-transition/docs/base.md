@@ -7,7 +7,7 @@ This example uses page transition.
 
 ```types.js
 require(['featurify'], function(featurify) {
-  featurify([{ name: 'feature-page-transition', path: 'page-transition/lib/main.min.js' }, 'base', 'base.features'], function(PageTransition, base, features) {
+  featurify([{ name: 'feature-page-transition', path: 'packages/page-transition/lib/main.min.js' }, 'base', 'base.features'], function(PageTransition, base, features) {
     features.add('page-transition', PageTransition.default);
     features.init(document.body);
   });
@@ -23,4 +23,11 @@ require(['featurify'], function(featurify) {
     </a>
   </div>
 </div>
+```
+Inspect Sources:
+```src:../src/index.js
+```
+```src:../src/style.scss
+```
+```types:../lib/style.css
 ```

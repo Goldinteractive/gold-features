@@ -13,9 +13,9 @@ check whether there is a way to load GMaps API as part of feature-map
 
 ```types.js
 require(['featurify'], function(featurify) {
-  featurify([{ name: 'feature-map', path: 'map/lib/main.min.js' }, 'base', 'base.features'], function(Map, base, features) {
+  featurify([{ name: 'feature-map', path: 'packages/map/lib/main.min.js' }, 'base', 'base.features'], function(Map, base, features) {
     features.add('map', Map.default, {
-      assetLocation: 'map/assets/features/map',
+      assetLocation: 'packages/map/assets/features/map',
       markers: [
         {}
       ]
@@ -45,4 +45,12 @@ require(['featurify'], function(featurify) {
 </div>
 
 <script src="//maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyAtOJRO17DPX-JK2Vps9RYCY756RogmoAA"></script>
+```
+
+Inspect Sources:
+```src:../src/index.js
+```
+```src:../src/style.scss
+```
+```types:../lib/style.css
 ```

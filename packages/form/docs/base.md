@@ -18,7 +18,7 @@ Note that the feature enables you to set a csrf token endpoint. For the default 
 
 ```types.js
 require(['featurify'], function(featurify) {
-  featurify([{ name: 'feature-form', path: 'form/lib/main.min.js' }, 'base', 'base.features'], function(Form, base, features) {
+  featurify([{ name: 'feature-form', path: 'packages/form/lib/main.min.js' }, 'base', 'base.features'], function(Form, base, features) {
     features.add('form', Form.default);
     features.init(document.body);
   });
@@ -147,4 +147,11 @@ input[type="checkbox"] {
     transform: translate(-50%, -50%);
     color: #333;
 }
+```
+Inspect Sources:
+```src:../src/index.js
+```
+```src:../src/style.scss
+```
+```types:../lib/style.css
 ```

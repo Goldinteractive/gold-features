@@ -8,7 +8,7 @@ Slider can be orchestrated by swiping, clicking the default dots or creating a c
 
 ```types.js
 require(['featurify'], function(featurify) {
-  featurify([{ name: 'feature-slider', path: 'slider/lib/main.min.js' }, { name: 'feature-object-fit', path: 'object-fit/lib/main.min.js' }, 'base', 'base.features'], function(Slider, ObjectFit, base, features) {
+  featurify([{ name: 'feature-slider', path: 'packages/slider/lib/main.min.js' }, { name: 'feature-object-fit', path: 'packages/object-fit/lib/main.min.js' }, 'base', 'base.features'], function(Slider, ObjectFit, base, features) {
     base.features.add('slider', Slider.default, {
       contain: true,
       prevNextButtons: false
@@ -33,4 +33,11 @@ require(['featurify'], function(featurify) {
     <p>Programming isn't about what you know; it's about what you can figure out. ― Chris Pine</p>
   </div>
 </div>
+```
+Inspect Sources:
+```src:../src/index.js
+```
+```src:../src/style.scss
+```
+```types:../lib/style.css
 ```

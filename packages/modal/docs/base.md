@@ -7,7 +7,7 @@ Modals must define a data-modal-identifier attribute, which will be the way to c
 
 ```types.js
 require(['featurify'], function(featurify) {
-  featurify([{ name: 'feature-modal', path: 'modal/lib/main.min.js' }, 'base', 'base.features'], function(Modal, base, features) {
+  featurify([{ name: 'feature-modal', path: 'packages/modal/lib/main.min.js' }, 'base', 'base.features'], function(Modal, base, features) {
     features.add('modal', Modal.default);
     features.init(document.body);
     base.eventHub.trigger('sample-id:open');
@@ -55,4 +55,12 @@ require(['featurify'], function(featurify) {
     </div>
   </div>
 </div>
+```
+
+Inspect Sources:
+```src:../src/index.js
+```
+```src:../src/style.scss
+```
+```types:../lib/style.css
 ```
