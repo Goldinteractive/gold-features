@@ -172,5 +172,5 @@ Inspect Sources:
 ```
 ```src:../src/style.scss
 ```
-```types:../lib/style.css
+```types:../lib/style.css hidden
 ```
