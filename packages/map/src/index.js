@@ -8,6 +8,8 @@ var cachedIcons = {}
 class Map extends features.Feature {
 
   init() {
+    const mapOptions = Object.assign({}, Map.defaultMapOptions, this.options.mapOptions)
+    this.mapOptions = mapOptions;
 
     this.isResizing = false
     this.isDraging = false
@@ -15,7 +17,7 @@ class Map extends features.Feature {
     this.markers = []
     this.currentMarker = null
 
-    this.initialZoom = parseInt(this.node.getAttribute('data-zoom'), 10) || this.options.mapOptions.zoom
+    this.initialZoom = parseInt(this.node.getAttribute('data-zoom'), 10) || mapOptions.zoom
     this.initialCenter = {
       lat: parseFloat(this.node.getAttribute('data-lat')),
       lng: parseFloat(this.node.getAttribute('data-lng'))
@@ -25,12 +27,12 @@ class Map extends features.Feature {
     this.bounds = new google.maps.LatLngBounds()
     this.infoWindow = new google.maps.InfoWindow()
 
-    this.options.mapOptions.zoom = this.initialZoom
-    this.options.mapOptions.center = this.initialCenter
+    mapOptions.zoom = this.initialZoom
+    mapOptions.center = this.initialCenter
 
     var style = cachedStyles[this.options.theme] || null
 
-    if (!this.options.mapOptions.styles) {
+    if (!mapOptions.styles) {
       if (!style) {
         utils.fetch
         .json(`${this.options.assetLocation}/styles/${this.options.theme}.json`)
@@ -38,13 +40,13 @@ class Map extends features.Feature {
           // cache style
           cachedStyles[this.options.theme] = json
           // take styles for map and load it
-          this.options.mapOptions.styles = json
+          mapOptions.styles = json
           this._loadMap()
         }).catch((ex) => {
           console.error(`Loading map with theme "${this.options.theme}" failed`, ex)
         })
       } else {
-        this.options.mapOptions.styles = style
+        mapOptions.styles = style
       }
     } else {
       this._loadMap()
@@ -61,7 +63,7 @@ class Map extends features.Feature {
 
   _loadMap() {
     // create a map object and specify the DOM element for display.
-    this.map = new google.maps.Map(this.node, this.options.mapOptions)
+    this.map = new google.maps.Map(this.node, this.mapOptions)
 
     if (this.options.geolocationControl) {
       this.geolocationControl = new GeolocationControl(this.map, null, (success, position, error) => {
@@ -333,7 +335,17 @@ class Map extends features.Feature {
       }
     }
   }
+}
 
+/**
+ * Google Map API options for map instance.
+ */
+Map.defaultMapOptions = {
+  zoom: 12,
+  disableDefaultUI: true,
+  scrollwheel: false,
+  zoomControl: true,
+  mapTypeControl: false
 }
 
 /**
@@ -351,7 +363,7 @@ class Map extends features.Feature {
  * @property {Number|null} geolocationControlZoom=null
  *   Zoom applied after geolocation click.
  * @property {Object} mapOptions
- *   Google Map API options for map instance.
+ *   Map.MapOptions
  */
 Map.defaultOptions = {
   theme: 'default',
@@ -362,13 +374,7 @@ Map.defaultOptions = {
   resetOnResize: false,
   geolocationControl: false,
   geolocationControlZoom: null,
-  mapOptions: {
-    zoom: 12,
-    disableDefaultUI: true,
-    scrollwheel: false,
-    zoomControl: true,
-    mapTypeControl: false
-  }
+  mapOptions: Object.assign({}, Map.defaultMapOptions)
 }
 
 Map.defaultMarkerOptions = {
