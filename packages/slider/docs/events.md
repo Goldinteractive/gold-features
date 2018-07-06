@@ -3,8 +3,20 @@ name: Events
 category: Slider
 ---
 
-The slider triggers a select event to the Eventhub providing the Flickity instance. The event is fired everytime the slide changed.
-This can be useful for creating a custom Navigation. (for this to be useful, the slider must have the data-slider-identifier attribute and its slides the data-slide-label attribute. See the first quote example.)
+The slider triggers and listens to various events. This can be useful for creating a custom Navigation. (for this to be useful, the slider must have the data-slider-identifier attribute and its slides the data-slide-label attribute. See the first quote example.)
+
+#### Events firing
+| Event    | Eventname                       | Provided values   |
+|----------|---------------------------------|-------------------|
+| selected | `${slider-identifier}:selected` | flickity instance |
+
+
+#### Events listening
+| Event    | Eventname                       | Options             |
+|----------|---------------------------------|---------------------|
+| select   | `${slider-identifier}:select`   | `{ label: string }` |
+| next     | `${slider-identifier}:next`     | `{ isWrapped: boolean, isInstant: boolean` |
+| previous | `${slider-identifier}:previous` | `{ isWrapped: boolean, isInstant: boolean` |
 
 ```types.js
 require(['featurify'], function(featurify) {
