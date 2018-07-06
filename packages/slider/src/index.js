@@ -21,7 +21,12 @@ class Slider extends features.Feature {
 
     if (this.node.dataset.sliderIdentifier) {
       this.selectListener = this._selectListener();
+      this.previous = this._previous();
+      this.next = this._next();
+
       this.onHub(`${this.node.dataset.sliderIdentifier}:select`, this.selectListener)
+      this.onHub(`${this.node.dataset.sliderIdentifier}:previous`, this.selectListener)
+      this.onHub(`${this.node.dataset.sliderIdentifier}:next`, this.selectListener)
     }
 
     window.setTimeout(() => {
@@ -46,6 +51,18 @@ class Slider extends features.Feature {
       this.flickity.resize()
       this.flickity.reposition()
     }, 0)
+  }
+
+  _next() {
+    return (isWrapped, isInstant) => {
+      this.flickity.next(isWrapped, isInstant)
+    }
+  }
+
+  _previous() {
+    return (isWrapped, isInstant) => {
+      this.flickity.previous(isWrapped, isInstant)
+    }
   }
 
   _selectListener() {
