@@ -24,9 +24,9 @@ class Slider extends features.Feature {
       this.previous = this._previous();
       this.next = this._next();
 
-      this.onHub(`${this.node.dataset.sliderIdentifier}:select`, this.selectListener)
-      this.onHub(`${this.node.dataset.sliderIdentifier}:previous`, this.selectListener)
-      this.onHub(`${this.node.dataset.sliderIdentifier}:next`, this.selectListener)
+      this.onHub(`${this.node.dataset.sliderIdentifier}:select`, this.select)
+      this.onHub(`${this.node.dataset.sliderIdentifier}:previous`, this.flickity.previous)
+      this.onHub(`${this.node.dataset.sliderIdentifier}:next`, this.flickity.next)
     }
 
     window.setTimeout(() => {
@@ -51,18 +51,6 @@ class Slider extends features.Feature {
       this.flickity.resize()
       this.flickity.reposition()
     }, 0)
-  }
-
-  _next() {
-    return (isWrapped, isInstant) => {
-      this.flickity.next(isWrapped, isInstant)
-    }
-  }
-
-  _previous() {
-    return (isWrapped, isInstant) => {
-      this.flickity.previous(isWrapped, isInstant)
-    }
   }
 
   _selectListener() {
