@@ -45,7 +45,7 @@
     "stylemark": "^3.0.1",
     "uppercamelcase": "^3.0.0",
     "webpack": "^4.7.0",
-    "webpack-format-messages": "^1.0.1"
+    "webpack-format-messages": "^2.0.1"
   },
   "browserslist": [
     "> 5%",

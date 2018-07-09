@@ -558,6 +558,10 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+ansi-colors@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-2.0.2.tgz#1a95e0163c461846d44cbdea97bb2ac1aa35f1b2"
+
 ansi-escapes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-3.0.0.tgz#ec3e8b4e9f8064fc02c3ac9b65f1c275bda8ef92"
@@ -6950,11 +6954,11 @@ wcwidth@^1.0.0:
   dependencies:
     defaults "^1.0.3"
 
-webpack-format-messages@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/webpack-format-messages/-/webpack-format-messages-1.0.1.tgz#e13e32d69d8991d4246e1f3c9f1fa7b4782d6d11"
+webpack-format-messages@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/webpack-format-messages/-/webpack-format-messages-2.0.1.tgz#81650be9836241f485e2a59a3c13b60e59bc3493"
   dependencies:
-    chalk "^2.0.1"
+    ansi-colors "^2.0.1"
 
 webpack-sources@^1.0.1, webpack-sources@^1.1.0:
   version "1.1.0"
