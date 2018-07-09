@@ -17,7 +17,8 @@
     "stylemark": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml",
     "stylemark:watch": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml -w",
     "stylemark:publish": "./publish-docs.sh",
-    "create:feature": "node scripts/create.js"
+    "create:feature": "node scripts/create.js",
+    "format": "prettier --write \"**/*.{js,jsx,json}\" \"!**/helpers/skeleton/**/*\" \"!docs/**/*\" \"!**/lib/**/*\""
   },
   "devDependencies": {
     "autoprefixer": "^7.2.5",
@@ -37,6 +38,7 @@
     "postcss-cli": "^5.0.0",
     "postcss-import": "^11.0.0",
     "postcss-pxtorem": "^4.0.1",
+    "prettier": "^1.13.6",
     "replace-in-file": "^3.1.1",
     "run-parallel": "^1.1.6",
     "shelljs": "^0.8.1",
