@@ -1,6 +1,6 @@
-import Barba from 'barba.js'
+import BaseTransition from './base'
 
-export default Barba.BaseTransition.extend({
+export default BaseTransition.extend({
   start: function() {
     Promise.all([this.newContainerLoading, this.fadeOut()]).then(
       this.fadeIn.bind(this)

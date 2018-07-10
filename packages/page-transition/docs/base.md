@@ -5,6 +5,10 @@ category: PageTransition
 
 Note that one feature instance can use multiple different transitions. Implement `getTransition` to define your custom transition selection behavior.
 
+In order to implement your own Transition have a look at the example Fade Transition. You must **extend the Base Transition** because it handles the destroy event for the old container.
+```src:../src/transitions/fade.js
+```
+
 In comparison to other features Barba is not restricted to the registered node. It will automatically handle all links on the page - even those outside of its root node. Therefore you should only have one instance of this feature at any given point in time.
 
 The dom structure is rather simple:

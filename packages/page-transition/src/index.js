@@ -51,10 +51,6 @@ class PageTransition extends features.Feature {
       }, document.title, document.location)
     })
     Barba.Pjax.getTransition = this.options.getTransition
-    // triggered when url structure has been updated (but new content has not been loaded yet)
-    Barba.Dispatcher.on('initStateChange', currentStatus => {
-      features.destroy(this.node, undefined, { justChildNodes: true })
-    })
     Barba.Pjax.start()
   }
 }
