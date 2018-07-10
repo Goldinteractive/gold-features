@@ -42,7 +42,7 @@
     "replace-in-file": "^3.1.1",
     "run-parallel": "^1.1.6",
     "shelljs": "^0.8.1",
-    "stylemark": "^3.0.1",
+    "stylemark": "^3.0.2",
     "uppercamelcase": "^3.0.0",
     "webpack": "^4.7.0",
     "webpack-format-messages": "^2.0.1"

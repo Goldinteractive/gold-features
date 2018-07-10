@@ -6495,9 +6495,9 @@ strong-log-transformer@^1.0.6:
     moment "^2.6.0"
     through "^2.3.4"
 
-stylemark@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/stylemark/-/stylemark-3.0.1.tgz#21f5c328c6890838c7d6f659910ba34dd6ef0bcc"
+stylemark@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/stylemark/-/stylemark-3.0.2.tgz#808dea7d0607f8a76b37314fb767f722c6ad109d"
   dependencies:
     babel-core "^6.25.0"
     babel-preset-react "^6.24.1"
