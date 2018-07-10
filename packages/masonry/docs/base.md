@@ -9,6 +9,8 @@ There is a `.grid-sizer` element which has no content. It's purpose is to set th
 
 Make sure that all elements have the final sizes upon rendering. Image sizes should be set on the image tag to ensure proper dimensions.
 
+This feature **does not** include a grid system - so you must use your own.
+
 ```types.js
 require(['featurify'], function(featurify) {
   featurify([{ name: 'feature-masonry', path: 'packages/masonry/lib/main.min.js' }, 'base', 'base.features'], function(Masonry, base, features) {
