@@ -68,4 +68,4 @@ Generate it using `yarn stylemark` in the root directory.
 
 It automatically scans the entire `/packages` dir for `.md` or annotated code. Based on the findings it will generate a static documentation which is being served by Github Pages (Jekyll is disabled because it ignores certain folders, e.g. `node_modules`, `_stylemark`).
 
-`packages/docsHelper` contains scripts which must be embedded into the docs during runtime. (e.g. require.js)
+`docsHelper` contains scripts which must be embedded into the docs during runtime. (e.g. require.js)
