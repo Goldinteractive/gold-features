@@ -14,7 +14,8 @@
     "requirejs": "^2.3.5"
   },
   "dependencies": {
-    "@goldinteractive/js-base": "~0.0.3"
+    "@goldinteractive/js-base": "~0.0.3",
+    "intersection-observer": "^0.5.0"
   },
   "peerDependencies": {
     "@goldinteractive/js-base": "^0.0.2"
