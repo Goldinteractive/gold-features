@@ -18,7 +18,8 @@ module.exports = {
     assets: 'assets/features'
   },
   global: {
-    docs: resolveOwn('docs')
+    docs: resolveOwn('docs'),
+    docsHelper: resolveOwn('docsHelper')
   },
   app: {
     entry: appDirectory,

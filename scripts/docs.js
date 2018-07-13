@@ -10,3 +10,5 @@ shell.exec(`rm -r ${paths.global.docs}`)
 mkdirp(paths.global.docs, () => {
   fs.createReadStream('.nojekyll').pipe(fs.createWriteStream('docs/.nojekyll'));
 });
+
+shell.exec(`cd ${paths.global.docsHelper} && yarn install && yarn build`)

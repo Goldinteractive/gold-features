@@ -15,10 +15,10 @@ excludeDir:
 
 examples:
   js:
-    - packages/docsHelper/lib/intersection-observer.js
-    - packages/docsHelper/lib/require.js
-    - packages/docsHelper/lib/base.js
-    - packages/docsHelper/featurify.js
+    - docsHelper/lib/intersection-observer.js
+    - docsHelper/lib/require.js
+    - docsHelper/lib/base.js
+    - docsHelper/featurify.js
   css:
     - packages/modal/lib/style.css
     - packages/icons/lib/style.css
