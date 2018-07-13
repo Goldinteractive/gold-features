@@ -1,0 +1,12 @@
+$ft-reveal-trigger-image-fade-duration: 0.3s !default;
+$ft-reveal-trigger-image-fade-easing: ease-out !default;
+$ft-reveal-trigger-image-fade-blur: 5px !default;
+
+.ft-reveal-trigger-image {
+  &.-blur {
+    transition: filter $ft-reveal-trigger-image-fade-duration $ft-reveal-trigger-image-fade-easing;
+  }
+  &.-preview.-blur {
+    filter: blur($ft-reveal-trigger-image-fade-blur);
+  }
+}
