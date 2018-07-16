@@ -17,6 +17,7 @@
     "stylemark": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml",
     "stylemark:watch": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml -w",
     "stylemark:publish": "./publish-docs.sh",
+    "watch": "node scripts/watch-project.js",
     "create:feature": "node scripts/create.js",
     "format": "prettier --write \"**/*.{js,jsx,json}\" \"!**/helpers/skeleton/**/*\" \"!docs/**/*\" \"!**/lib/**/*\""
   },

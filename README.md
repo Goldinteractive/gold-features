@@ -21,18 +21,19 @@ Now you are ready to start working on Gold Features.
 ### How to do basic feature maintenance
 
 Let's assume you want to change something in `feature-xyz`.
-Run `yarn watch` in `./packages/xyz`. This will automatically compile your changes.
-To have them reflected in the docs run `yarn stylemark:watch` in the root directory.
+
+#### Start Watch Mode
+Run `yarn watch name`, e.g.: `yarn watch modal`.
 
 Do your changes and check them using the docs page.
 
-Once you've finished updating commit your changes and go to the root directory and run `yarn lerna:updated`.
-This will check whether a new package is required. Make sure that only your changed project pops up.
+Once you've finished updating, commit your changes and run `yarn lerna:updated`.
+This will check whether a new package is required.
+> Make sure that only your changed project pops up.
+
 Then using `yarn lerna:publish` you can publish the changed packages to the npm registry.
 
-### Basic Commit Instructions
-
-After updating the docs simply commit them using the `yarn stylemark:publish` command.
+After updating the docs simply publish them using the `yarn stylemark:publish` command.
 
 ### How to work with Gold Features
 
@@ -58,7 +59,7 @@ Each feature manages its own local dependencies, make sure to install them in th
 
 Create your feature and update the docs accordingly. Make sure to update `stylemark.config.yml` to ensure that all runtime dependencies are available on the docs pages.
 
-Run `yarn watch` in your feature folder to enable the dev mode and keep watching for changes. This is especially useful with `yarn stylemark:watch`. (Make sure to execute stylemark in the root directory - not your feature dir)
+Refer to the maintenance guide to start working on the feature.
 
 ### What is this `docs` folder doing?
 
