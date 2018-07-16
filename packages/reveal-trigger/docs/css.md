@@ -3,7 +3,15 @@ name: CSS Animation
 category: RevealTrigger
 ---
 
-This Strategy adds a class when an element enters the viewport for the first time.
+This Strategy adds a class when an element enters the viewport for the first time. The default classname is `-in`.
+
+You can use `data-delay` in order to set a custom timeout. Just set it on the same node as you register the feature instance.
+
+```html
+<div data-feature="reveal-trigger" data-delay="500">500ms delayed</div>
+```
+
+If you want to hide a container when it's not in the viewport you may implement your own strategy.
 
 ```types.js
 require(['featurify'], function(featurify) {
@@ -20,7 +28,10 @@ require(['featurify'], function(featurify) {
 ```
 ```types.html
 <div class="section -red" data-feature="reveal-trigger">
-  Rojo
+  <div class="item" data-feature="reveal-trigger" data-delay="500">500ms delayed</div>
+  <div class="item" data-feature="reveal-trigger" data-delay="1000">1000ms delayed</div>
+  <div class="item" data-feature="reveal-trigger" data-delay="1500">1500ms delayed</div>
+  <div class="item" data-feature="reveal-trigger" data-delay="5000">5000ms delayed</div>
 </div>
 <div class="section" data-feature="reveal-trigger">
   Blanco
@@ -40,6 +51,20 @@ require(['featurify'], function(featurify) {
   position: relative;
 
   transition: opacity .5s ease-in;
+}
+
+.item {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-color: white;
+
+  transition: opacity .5s ease-in;
+  opacity: 0;
+}
+
+.item.-in {
+  opacity: 1;
 }
 
 [data-trigger] {
