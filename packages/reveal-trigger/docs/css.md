@@ -32,6 +32,7 @@ require(['featurify'], function(featurify) {
   <div class="item" data-feature="reveal-trigger" data-delay="1000">1000ms delayed</div>
   <div class="item" data-feature="reveal-trigger" data-delay="1500">1500ms delayed</div>
   <div class="item" data-feature="reveal-trigger" data-delay="5000">5000ms delayed</div>
+  <div class="item" data-feature="reveal-trigger" data-delay="cinco">NaN delayed (should log an error)</div>
 </div>
 <div class="section" data-feature="reveal-trigger">
   Blanco
