@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e # exit with nonzero exit code if anything fails
 
+# install local dependencies in case one has forgotten to do so
+yarn --frozen-lockfile
+
 # run our compile script
 yarn stylemark
 
