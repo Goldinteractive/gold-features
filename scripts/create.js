@@ -3,7 +3,6 @@
  */
 const fs = require('fs');
 const mkdirp = require('mkdirp');
-const shell = require('shelljs');
 const ncp = require('ncp');
 const replace = require('replace-in-file');
 const upperCamelCase = require('uppercamelcase');
