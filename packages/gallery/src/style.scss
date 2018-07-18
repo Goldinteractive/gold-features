@@ -1,6 +1,8 @@
 @import 'photoswipe/src/css/main';
 @import 'photoswipe/src/css/default-skin/default-skin';
 
+$pswp__assets-path: '~/assets/features/gallery/' !default;
+
 .pswp[data-pswp] {
   .pswp__preloader--active {
     .pswp__preloader__icn {
