@@ -8,6 +8,7 @@ const paths = require('../.config/paths');
 
 shell.exec(`rm -r ${paths.global.docs}`)
 mkdirp(paths.global.docs, () => {
+  // copy the .nojekyll file - this is required for Github Pages
   fs.createReadStream('.nojekyll').pipe(fs.createWriteStream('docs/.nojekyll'));
 });
 

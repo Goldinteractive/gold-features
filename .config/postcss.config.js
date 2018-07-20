@@ -1,5 +1,3 @@
-const paths = require('./paths');
-
 module.exports = {
   plugins: [
     require('autoprefixer'),
@@ -12,14 +10,9 @@ module.exports = {
       mediaQuery: false,
       minPixelValue: 2
     }),
-    require('postcss-assets')({
-      basePath: paths.app.assets,
-      relative: true,
-      cachebuster: true
-    }),
-    require('css-mqpacker'),
     require('cssnano')({
-      zindex: false
+      zindex: false,
+      reduceIdents: false
     })
   ]
 }
