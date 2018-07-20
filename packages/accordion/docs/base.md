@@ -32,7 +32,7 @@ require(['featurify'], function(featurify) {
     <div class="ft-accordion handorgel" data-feature="accordion">
       <h3 class="handorgel__header" data-accordion-scroll-id="title1">
         <button class="handorgel__header__button">
-          Title 1<span class="toggle"></span>
+          Title 1<span class="toggle">&#9658;</span>
         </button>
       </h3>
       <div class="handorgel__content" data-open>
@@ -42,7 +42,7 @@ require(['featurify'], function(featurify) {
       </div>
       <h3 class="handorgel__header" data-accordion-scroll-id="title2">
         <button class="handorgel__header__button">
-          Title 2 <span class="toggle"></span>
+          Title 2 <span class="toggle">&#9658;</span>
         </button>
       </h3>
       <div class="handorgel__content">
@@ -60,7 +60,7 @@ require(['featurify'], function(featurify) {
     <div class="ft-accordion handorgel" data-feature="accordion">
       <h3 class="handorgel__header" data-accordion-scroll-id="title3">
         <button class="handorgel__header__button">
-          Title 3<span class="toggle"></span>
+          Title 3<span class="toggle">&#9658;</span>
         </button>
       </h3>
       <div class="handorgel__content" data-open>
@@ -70,7 +70,7 @@ require(['featurify'], function(featurify) {
       </div>
       <h3 class="handorgel__header" data-accordion-scroll-id="title4">
         <button class="handorgel__header__button">
-          Title 4 <span class="toggle"></span>
+          Title 4 <span class="toggle">&#9658;</span>
         </button>
       </h3>
       <div class="handorgel__content">

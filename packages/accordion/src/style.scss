@@ -1,5 +1,4 @@
 @import 'handorgel/src/scss/style';
-
 $ft-accordion-toggle-size: 1em;
 
 .ft-accordion {
@@ -10,10 +9,6 @@ $ft-accordion-toggle-size: 1em;
   .toggle {
     flex-shrink: 0;
     display: block;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: contain;
-    background-image: inline('features/accordion/arrow-right.svg');
     width: $ft-accordion-toggle-size;
     height: $ft-accordion-toggle-size;
     transition: transform $handorgel__content-transition-height-time;
