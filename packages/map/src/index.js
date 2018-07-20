@@ -1,5 +1,5 @@
 import { features } from '@goldinteractive/js-base'
-import { utils, paths } from '@goldinteractive/js-base'
+import { utils } from '@goldinteractive/js-base'
 import GeolocationControl from './controls/geolocation'
 
 var cachedStyles = {}
@@ -367,7 +367,7 @@ Map.defaultMapOptions = {
  */
 Map.defaultOptions = {
   theme: 'default',
-  assetLocation: `${paths.assets}/features/map`,
+  assetLocation: `assets/features/map`,
   markers: [],
   boundMarkers: [],
   responsive: true,
