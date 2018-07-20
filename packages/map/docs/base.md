@@ -16,6 +16,7 @@ require(['featurify'], function(featurify) {
   featurify([{ name: 'feature-map', path: 'packages/map/lib/main.min.js' }, 'base', 'base.features'], function(Map, base, features) {
     features.add('map', Map.default, {
       assetLocation: 'packages/map/assets/features/map',
+      geolocationControl: true,
       markers: [
         {}
       ]

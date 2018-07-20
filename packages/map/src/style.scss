@@ -1,3 +1,7 @@
+$ft-assets: '~/packages/map/assets/' !default;
+$ft-map-assets-path: '#{$ft-assets}features/map/' !default;
+$ft-map-geolocation-image: '#{$ft-map-assets-path}controls/geolocation.png' !default;
+
 .ft-map {
   & {
     position: absolute;
@@ -32,7 +36,7 @@
     width: 18px;
     height: 18px;
     opacity: 0.9;
-    background-image: inline('features/map/controls/geolocation.png');
+    background-image: url($ft-map-geolocation-image);
     background-size: 36px 18px;
     background-position: 0;
   }
