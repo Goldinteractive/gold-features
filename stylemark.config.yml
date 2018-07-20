@@ -44,10 +44,12 @@ assets:
   - packages/slider/lib
   - packages/slider/docs/files
   - packages/accordion/lib
+  - packages/accordion/assets/features/accordion
   - packages/form/lib
   - packages/form/docs/files
   - packages/gallery/lib
   - packages/gallery/docs/files
+  - packages/gallery/assets/features/gallery
   - packages/map/lib
   - packages/map/assets/features/map
   - packages/touch-hover/lib
