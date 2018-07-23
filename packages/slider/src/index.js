@@ -54,19 +54,19 @@ class Slider extends features.Feature {
   }
 
   _nextSlide() {
-    return (...args) => {
-      this.flickity.next(...args)
+    return ({ isWrapped, isInstant}) => {
+      this.flickity.next(isWrapped, isInstant)
     }
   }
   _previousSlide() {
-    return (...args) => {
-      this.flickity.previous(...args)
+    return ({ isWrapped, isInstant}) => {
+      this.flickity.previous(isWrapped, isInstant)
     }
   }
 
   _selectListener() {
-    return ({ slideLabel, isWrapped, isInstant, label }) => {
-      const $slideToSelect = this._getBySliderLabel(slideLabel || label); // support legacy label property
+    return ({ slideLabel, isWrapped, isInstant }) => {
+      const $slideToSelect = this._getBySliderLabel(slideLabel);
       const $slides = this.node.querySelectorAll('.slide');
       const indexOfSelectedSlide = Array.from($slides).indexOf($slideToSelect)
       this.flickity.select(indexOfSelectedSlide, isWrapped, isInstant );
