@@ -1,5 +1,5 @@
 ---
-name: CSS Animation
+name: RevealTrigger - CSS Animation
 category: RevealTrigger
 ---
 
