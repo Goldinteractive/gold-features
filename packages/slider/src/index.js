@@ -36,13 +36,15 @@ class Slider extends features.Feature {
 
       if (this.node.dataset.sliderIdentifier) {
         this.selectListener = this._selectListener();
+        this.nextSlide = this._nextSlide();
+        this.previousSlide = this._previousSlide();
 
         this.flickity.on('select', () => {
           this.triggerHub(`${this.node.dataset.sliderIdentifier}:selected`, this.flickity)
         })
         this.onHub(`${this.node.dataset.sliderIdentifier}:select`, this.selectListener)
-        this.onHub(`${this.node.dataset.sliderIdentifier}:previous`, this.flickity.previous)
-        this.onHub(`${this.node.dataset.sliderIdentifier}:next`, this.flickity.next)
+        this.onHub(`${this.node.dataset.sliderIdentifier}:previous`, this.previousSlide)
+        this.onHub(`${this.node.dataset.sliderIdentifier}:next`, this.nextSlide)
       }
 
       // execute initial resize/reposition to make slides fit
@@ -51,12 +53,23 @@ class Slider extends features.Feature {
     }, 0)
   }
 
+  _nextSlide() {
+    return (...args) => {
+      this.flickity.next(...args)
+    }
+  }
+  _previousSlide() {
+    return (...args) => {
+      this.flickity.previous(...args)
+    }
+  }
+
   _selectListener() {
-    return ({ label }) => {
-      const $slideToSelect = this._getBySliderLabel(label);
+    return ({ slideLabel, isWrapped, isInstant, label }) => {
+      const $slideToSelect = this._getBySliderLabel(slideLabel || label); // support legacy label property
       const $slides = this.node.querySelectorAll('.slide');
       const indexOfSelectedSlide = Array.from($slides).indexOf($slideToSelect)
-      this.flickity.select(indexOfSelectedSlide);
+      this.flickity.select(indexOfSelectedSlide, isWrapped, isInstant );
     }
   }
 
