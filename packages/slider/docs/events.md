@@ -15,8 +15,8 @@ The slider triggers and listens to various events. This can be useful for creati
 | Event    | Eventname                       | Options             |
 |----------|---------------------------------|---------------------|
 | select   | `${slider-identifier}:select`   | `{ label: string }` |
-| next     | `${slider-identifier}:next`     | `{ isWrapped: boolean, isInstant: boolean` |
-| previous | `${slider-identifier}:previous` | `{ isWrapped: boolean, isInstant: boolean` |
+| next     | `${slider-identifier}:next`     | `{ isWrapped: boolean, isInstant: boolean }` |
+| previous | `${slider-identifier}:previous` | `{ isWrapped: boolean, isInstant: boolean }` |
 
 ```types.js
 require(['featurify'], function(featurify) {
@@ -48,11 +48,11 @@ require(['featurify'], function(featurify) {
 
 ```types.html
 <h2>Slider which handles events (see console)</h2>
-<div class="ft-slider -hidden -gallery" data-feature="event-slider">
-  <img class="slide" src="packages/slider/docs/files/test.jpeg" alt="test">
-  <img class="slide" src="packages/slider/docs/files/test2.jpeg" alt="test2">
-  <img class="slide" src="packages/slider/docs/files/test3.jpeg" alt="test3">
-  <img class="slide" src="packages/slider/docs/files/test4.jpeg" alt="test4">
+<div class="ft-slider -hidden -gallery" data-feature="event-slider" data-slider-identifier="event-slider" >
+  <img class="slide" src="packages/slider/docs/files/test.jpeg" alt="test" data-slider-label="label-one">
+  <img class="slide" src="packages/slider/docs/files/test2.jpeg" alt="test2" data-slider-label="label-two">
+  <img class="slide" src="packages/slider/docs/files/test3.jpeg" alt="test3" data-slider-label="label-three">
+  <img class="slide" src="packages/slider/docs/files/test4.jpeg" alt="test4" data-slider-label="label-four">
 </div>
 ```
 Inspect Sources:
