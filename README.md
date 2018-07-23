@@ -30,6 +30,16 @@ Run `yarn watch name`, e.g.: `yarn watch modal`.
 
 Do your changes and check them using the docs page.
 
+### Commit changes
+If you changed something feature specific use the Feature Name as a prefix for your commit.
+So if you changed something in RevealTrigger, this is your template:
+
+```
+RevealTrigger: Did something
+
+More detailed comment about commit
+```
+
 ### Publish changes
 If you only changed the docs there is no need to publish a new feature version.
 
