@@ -54,18 +54,18 @@ class Slider extends features.Feature {
   }
 
   _nextSlide() {
-    return ({ isWrapped, isInstant}) => {
+    return ({ isWrapped, isInstant } = {} ) => {
       this.flickity.next(isWrapped, isInstant)
     }
   }
   _previousSlide() {
-    return ({ isWrapped, isInstant}) => {
+    return ({ isWrapped, isInstant } = {} ) => {
       this.flickity.previous(isWrapped, isInstant)
     }
   }
 
   _selectListener() {
-    return ({ slideLabel, isWrapped, isInstant }) => {
+    return ({ slideLabel, isWrapped, isInstant } = {}) => {
       const $slideToSelect = this._getBySliderLabel(slideLabel);
       const $slides = this.node.querySelectorAll('.slide');
       const indexOfSelectedSlide = Array.from($slides).indexOf($slideToSelect)
@@ -76,7 +76,7 @@ class Slider extends features.Feature {
   _getBySliderLabel(label) {
     const $slide = this.$(`[data-slider-label=${label}]`)
     if (!$slide) {
-      console.warn(`there is no slide with label: ${label} inside this slider: ${this._name}`)
+      throw new Error(`There is no slide with label: ${label} inside this slider: ${this._name}`)
     }
     return $slide;
   }
