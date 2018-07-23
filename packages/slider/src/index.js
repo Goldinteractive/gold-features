@@ -65,18 +65,18 @@ class Slider extends features.Feature {
   }
 
   _selectListener() {
-    return ({ slideLabel, isWrapped, isInstant } = {}) => {
-      const $slideToSelect = this._getBySliderLabel(slideLabel);
+    return ({ slideIdentifier, isWrapped, isInstant } = {}) => {
+      const $slideToSelect = this._getSlide(slideIdentifier);
       const $slides = this.node.querySelectorAll('.slide');
       const indexOfSelectedSlide = Array.from($slides).indexOf($slideToSelect)
       this.flickity.select(indexOfSelectedSlide, isWrapped, isInstant );
     }
   }
 
-  _getBySliderLabel(label) {
-    const $slide = this.$(`[data-slider-label=${label}]`)
+  _getSlide(slideIdentifier) {
+    const $slide = this.$(`[data-slide-identifier=${slideIdentifier}]`)
     if (!$slide) {
-      throw new Error(`There is no slide with label: ${label} inside this slider: ${this._name}`)
+      throw new Error(`There is no slide with slideIdentifier: ${slideIdentifier} inside this slider: ${this._name}`)
     }
     return $slide;
   }

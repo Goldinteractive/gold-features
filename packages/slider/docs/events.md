@@ -14,7 +14,7 @@ The slider triggers and listens to various events. This can be useful for creati
 #### Events listening
 | Event    | Eventname                       | Options             |
 |----------|---------------------------------|---------------------|
-| select   | `${slider-identifier}:select`   | `{ slideLabel: string, isWrapped: boolean, isInstant: boolean }` |
+| select   | `${slider-identifier}:select`   | `{ slideIdentifier: string, isWrapped: boolean, isInstant: boolean }` |
 | next     | `${slider-identifier}:next`     | `{ isWrapped: boolean, isInstant: boolean }` |
 | previous | `${slider-identifier}:previous` | `{ isWrapped: boolean, isInstant: boolean }` |
 
@@ -47,7 +47,7 @@ require(['featurify'], function(featurify) {
       base.eventHub.trigger('event-slider:next', { isInstant: true })
     }, 2000)
     setTimeout(() => {
-      base.eventHub.trigger('event-slider:select', { slideLabel: 'slide-four', isInstant: true })
+      base.eventHub.trigger('event-slider:select', { slideIdentifier: 'slide-four', isInstant: true })
     }, 4000)
     setTimeout(() => {
       base.eventHub.trigger('event-slider:previous')
@@ -61,10 +61,10 @@ require(['featurify'], function(featurify) {
 <h2>Slider which handles events (see console)</h2>
 <p>Various events are fired and therefore the slider changes slides three times automatically. (See the js code to see how to fire specific events)</p>
 <div class="ft-slider -hidden -gallery" data-feature="event-slider" data-slider-identifier="event-slider" >
-  <div class="slide" style="width: 100%;" data-slider-label="slide-one">#1 I am the first slide</div>
-  <div class="slide" style="width: 100%;" data-slider-label="slide-two">#2 I am the next slide (selected after two seconds)</div>
-  <div class="slide" style="width: 100%;" data-slider-label="slide-three">#3 I am the previous slide (selected after six seconds)</div>
-  <div class="slide" style="width: 100%;" data-slider-label="slide-four">#4 I got specifically and instantly selected (selected after four seconds)</div>
+  <div class="slide" style="width: 100%;" data-slide-identifier="slide-one">#1 I am the first slide</div>
+  <div class="slide" style="width: 100%;" data-slide-identifier="slide-two">#2 I am the next slide (selected after two seconds)</div>
+  <div class="slide" style="width: 100%;" data-slide-identifier="slide-three">#3 I am the previous slide (selected after six seconds)</div>
+  <div class="slide" style="width: 100%;" data-slide-identifier="slide-four">#4 I got specifically and instantly selected (selected after four seconds)</div>
 </div>
 ```
 
