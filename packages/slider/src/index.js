@@ -19,16 +19,6 @@ class Slider extends features.Feature {
       this.options.draggable = false
     }
 
-    if (this.node.dataset.sliderIdentifier) {
-      this.selectListener = this._selectListener();
-      this.previous = this._previous();
-      this.next = this._next();
-
-      this.onHub(`${this.node.dataset.sliderIdentifier}:select`, this.select)
-      this.onHub(`${this.node.dataset.sliderIdentifier}:previous`, this.flickity.previous)
-      this.onHub(`${this.node.dataset.sliderIdentifier}:next`, this.flickity.next)
-    }
-
     window.setTimeout(() => {
       // fade in for no FOUC
       this.node.classList.remove('-hidden')
@@ -43,9 +33,17 @@ class Slider extends features.Feature {
         })
       })
 
-      this.flickity.on('select', () => {
-        this.triggerHub(`${this.node.dataset.sliderIdentifier}:selected`, this.flickity)
-      })
+
+      if (this.node.dataset.sliderIdentifier) {
+        this.selectListener = this._selectListener();
+
+        this.flickity.on('select', () => {
+          this.triggerHub(`${this.node.dataset.sliderIdentifier}:selected`, this.flickity)
+        })
+        this.onHub(`${this.node.dataset.sliderIdentifier}:select`, this.selectListener)
+        this.onHub(`${this.node.dataset.sliderIdentifier}:previous`, this.flickity.previous)
+        this.onHub(`${this.node.dataset.sliderIdentifier}:next`, this.flickity.next)
+      }
 
       // execute initial resize/reposition to make slides fit
       this.flickity.resize()
