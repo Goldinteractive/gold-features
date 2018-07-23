@@ -22,20 +22,28 @@ Now you are ready to start working on Gold Features.
 
 Let's assume you want to change something in `feature-xyz`.
 
+#### Build projects
+Run `yarn lerna:build`
+
 #### Start Watch Mode
 Run `yarn watch name`, e.g.: `yarn watch modal`.
 
 Do your changes and check them using the docs page.
 
-Once you've finished updating, commit your changes and run `yarn lerna:updated`.
+### Publish changes
+If you only changed the docs there is no need to publish a new feature version.
+
+But always run the `yarn lerna:updated` to make sure you did not change anything by accident.
 This will check whether a new package is required.
 > Make sure that only your changed project pops up.
 
+#### Feature Changes
 Then using `yarn lerna:publish` you can publish the changed packages to the npm registry.
 
+#### Docs Changes
 After updating the docs simply publish them using the `yarn stylemark:publish` command.
 
-### How to work with Gold Features
+### List of specific Lerna Commands
 
 We use `lerna` to orchestrate the build and publish process.
 
