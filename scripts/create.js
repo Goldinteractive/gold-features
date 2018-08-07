@@ -14,6 +14,11 @@ const libName = argv.name;
 
 const libPath = paths.packages.entry + '/' + libName;
 
+if (libName === undefined) {
+  logger.error('please set a libName, pass it as --name xyz')
+  process.exit(1)
+}
+
 if (fs.existsSync(libPath)) {
   logger.error(`Path for ${libName} already exsists`);
 } else {
