@@ -16,7 +16,11 @@ include the `@goldinteractive/src/style` in your `.scss file`.
 
 > Use Node v9!
 
-Login to npm using `npm adduser` (Make sure to have access rights to npm registry`@goldinteractive` organization). Run `yarn lerna:exec yarn install --frozen-lockfile` to install all dependencies of all projects. Run `yarn install --frozen-lockfile`.
+Login to npm using `npm adduser` (Make sure to have access rights to npm registry `@goldinteractive` organization).
+
+Run `yarn lerna:exec yarn install --frozen-lockfile` to install all dependencies of all projects.
+
+Run `yarn install --frozen-lockfile` to install dependencies for `gold-features` maintentance.
 
 Now you are ready to start working on Gold Features.
 
@@ -24,10 +28,10 @@ Now you are ready to start working on Gold Features.
 
 Let's assume you want to change something in `feature-xyz`.
 
-#### Build projects
+#### Build all projects
 Run `yarn lerna:build`
 
-#### Start Watch Mode
+#### Start Watch Mode on specific project
 Run `yarn watch name`, e.g.: `yarn watch modal`.
 
 Do your changes and check them using the docs page.
@@ -81,7 +85,7 @@ Create your feature and update the docs accordingly. Make sure to update `stylem
 
 Refer to the maintenance guide to start working on the feature.
 
-### What is this `docs` folder doing?
+### How does the documentation work?
 
 The docs are generated using stylemark (https://github.com/nextbigsoundinc/stylemark).
 
