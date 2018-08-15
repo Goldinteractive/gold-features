@@ -34,7 +34,8 @@ class Headroom extends features.Feature {
       onNotTop: options.onNotTop,
       onTop: options.onTop,
       onPin: onPin,
-      onUnpin: onUnpin
+      onUnpin: onUnpin,
+      scroller: options.scroller
     })
 
     this.headroom.init()
@@ -55,6 +56,7 @@ class Headroom extends features.Feature {
  * See headroom.js options
  */
 Headroom.defaultOptions = {
+  scroller: undefined,
   offset: 0,
   tolerance: 0,
   classes: {
