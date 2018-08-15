@@ -14,6 +14,8 @@ include the `@goldinteractive/src/style` in your `.scss file`.
 
 ### Setup to work on Gold Features
 
+> Use Node v9!
+
 Login to npm using `npm adduser` (Make sure to have access rights to npm registry`@goldinteractive` organization). Run `yarn lerna:exec yarn install --frozen-lockfile` to install all dependencies of all projects. Run `yarn install --frozen-lockfile`.
 
 Now you are ready to start working on Gold Features.
