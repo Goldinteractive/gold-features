@@ -1,5 +1,5 @@
 /**
- * Script for watching stylemark & watching a given package
+ * Script for watching docs & watching a given package
  */
 process.env.BABEL_ENV = 'development'
 process.env.NODE_ENV = 'development'
@@ -23,11 +23,11 @@ if(!fs.existsSync(path + '/package.json')) {
   process.exit(1)
 }
 
-// This could be optimized by calling stylemark only after yarn:watch has compiled
+// This could be optimized by calling docs only after yarn:watch has compiled
 parallel([
   () => {
-    // watch stylemark
-    shell.exec('yarn stylemark:watch', { async: true })
+    // watch docs
+    shell.exec('yarn docs:watch', { async: true })
   },
   () => {
     // watch project

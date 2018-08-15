@@ -53,7 +53,7 @@ This will check whether a new package is required.
 Then using `yarn lerna:publish` you can publish the changed packages to the npm registry.
 
 #### Docs Changes
-After updating the docs simply publish them using the `yarn stylemark:publish` command.
+After updating the docs simply publish them using the `yarn docs:publish` command.
 
 ### List of specific Lerna Commands
 
@@ -85,7 +85,7 @@ Refer to the maintenance guide to start working on the feature.
 
 The docs are generated using stylemark (https://github.com/nextbigsoundinc/stylemark).
 
-Generate it using `yarn stylemark` in the root directory.
+Generate it using `yarn docs` in the root directory.
 
 It automatically scans the entire `/packages` dir for `.md` or annotated code. Based on the findings it will generate a static documentation which is being served by Github Pages (Jekyll is disabled because it ignores certain folders, e.g. `node_modules`, `_stylemark`).
 

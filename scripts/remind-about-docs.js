@@ -15,5 +15,5 @@ const logger = require('../helpers/logger')
 
 logger.eyeCatch('----------------------------------------------')
 logger.eyeCatch(' Friendly Reminder: Did you publish the docs? ')
-logger.eyeCatch(' > yarn stylemark:publish                     ')
+logger.eyeCatch(' > yarn docs:publish                          ')
 logger.eyeCatch('----------------------------------------------')

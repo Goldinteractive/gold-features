@@ -5,7 +5,7 @@ set -e # exit with nonzero exit code if anything fails
 yarn --frozen-lockfile
 
 # run our compile script
-yarn stylemark
+yarn docs
 
 # go to the out directory and create a *new* Git repo
 cd docs
