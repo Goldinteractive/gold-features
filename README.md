@@ -1,5 +1,6 @@
 ## Gold Features
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+[![Maintainability](https://api.codeclimate.com/v1/badges/8f4526e6a5de3ce98e2e/maintainability)](https://codeclimate.com/github/Goldinteractive/gold-features/maintainability)
 
 This project contains all base features. For a user-friendly view of all Gold Features check out the catalog in our documentation: <https://goldinteractive.github.io/gold-features/>.
 
