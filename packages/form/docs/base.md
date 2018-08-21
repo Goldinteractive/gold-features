@@ -13,8 +13,9 @@ In order to use a **Gold Form** follow these steps:
 - Create the HTML Markup.
 - Set the proper names based on the configured handles. For the handle `salutation` the name attribute of the input element must be `fields[salutation].`
 - Set **Post Endpoint** (https://form.goldinteractive.ch/be/api/v1/p/form/post/FORMID)
+- Make sure you set the `language` input properly (See example). This is required for localized validation messages.
 
-Note that the feature enables you to set a csrf token endpoint. For the default Gold Form this endpoint **is not** required.
+> Note that the feature enables you to set a csrf token endpoint. For the default Gold Form this endpoint **is not** required.
 
 ```types.js
 require(['featurify'], function(featurify) {
@@ -30,6 +31,7 @@ require(['featurify'], function(featurify) {
 <div class="ft-form" data-feature="form" data-token-endpoint="http://localhost:8888/goldform-server/backend/public/api/v1/token">
 
   <form action="http://localhost:8888/goldform-server/backend/public/api/v1/p/form/post/bad411d5-1da9-3ba6-ab41-aa561bcd8bc5" enctype="multipart/form-data">
+    <!-- Language input: this is required! -->
     <input type="hidden" name="language" value="en">
     <div class="form-field">
         <label for="email">E-Mail</label>
