@@ -10,8 +10,9 @@ class CookieDisclaimer extends features.Feature {
     if (disclaimerConfirmed === undefined || disclaimerConfirmed !== 'true') {
       this.node.classList.add(this.options.classShow)
     }
-
-    this.addEventListener(this.confirmButton, 'click', this.handleDisclaimerConfirm())
+    if (this.confirmButton !== null) {
+      this.addEventListener(this.confirmButton, 'click', this.handleDisclaimerConfirm())
+    }
   }
 
   handleDisclaimerConfirm() {
