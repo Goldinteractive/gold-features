@@ -32,7 +32,7 @@
     "cssnano": "^3.10.0",
     "extract-loader": "^2.0.1",
     "file-loader": "^1.1.11",
-    "lerna": "^3.1.1",
+    "lerna": "^3.1.4",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
