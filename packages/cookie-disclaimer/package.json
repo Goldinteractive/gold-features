@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-cookie-disclaimer",
-  "version": "0.0.9-alpha.2",
+  "version": "0.0.9",
   "description": "cookie-disclaimer feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
