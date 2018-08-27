@@ -5,9 +5,10 @@ import Cookies from 'js-cookie'
 class CookieDisclaimer extends features.Feature {
   init() {
     this.confirmButton = this.$('[data-disclaimer-confirm]')
-    const disclaimerConfirmed = Cookies.get(this.options.cookieName)
+    const disclaimerConfirmedString = Cookies.get(this.options.cookieName)
+    const isDisclaimerPending = disclaimerConfirmedString === undefined || disclaimerConfirmedString !== 'true'
 
-    if (disclaimerConfirmed === undefined || disclaimerConfirmed !== 'true') {
+    if (isDisclaimerPending) {
       this.node.classList.add(this.options.classShow)
     }
     if (this.confirmButton !== null) {
