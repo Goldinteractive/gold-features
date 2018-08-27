@@ -57,6 +57,10 @@ This will check whether a new package is required.
 #### Feature Changes
 Then using `yarn lerna:publish` you can publish the changed packages to the npm registry.
 
+> Do a prerelease before publishing a new version!
+
+When a prerelease has been properly tested, you can publish the package using `yarn publish`.
+
 #### Docs Changes
 After updating the docs simply publish them using the `yarn docs:publish` command.
 
@@ -70,7 +74,7 @@ We use `lerna` to orchestrate the build and publish process.
 
 `yarn lerna:publish` build all packages, then checks for changed packages (comparing to last tag). Prompts for each package before release (*Note* that it will only commit package.json. Therefore all other changes must be commited beforehand)
 
-`yarn lerna:publish --force-publish` publish all projects (required if core change has been performed)
+Lerna will not pick up unchanged packages. Run `yarn publish` in the feature directory to publish a version of a package which was previously pre-released.
 
 `yarn lerna:exec command` execute a command in all packages. To remove a package, run: `yarn lerna:exec yarn remove some-dependency`. This is useful in order to update the `js-base` peer-dependency across all packages. (`yarn lerna:exec yarn add @goldinteractive/js-base@latest --tilde --peer`)
 
