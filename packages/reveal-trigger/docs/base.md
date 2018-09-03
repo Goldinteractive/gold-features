@@ -26,7 +26,10 @@ class CustomStrategy {
 }
 ```
 
-This features does not load the `intersection-observer` polyfill. If this is required (for IE11 & Safari), you must do so yourself.
+Note that the callback will be executed upon each detected visibility change (depending on the threshold) - so it might get triggered quite often.
+It is therefore necessary to keep performance in mind while implementing a custom strategy. E.g. store node references to reduce DOM interactions - or cache values to prevent layout thrashing.
+
+> This features does not load the `intersection-observer` polyfill. If this is required (for IE11 & Safari), you must do so yourself.
 
 Inspect Sources:
 
