@@ -12,7 +12,11 @@ In order to use a **Gold Form** follow these steps:
 - Make sure to use straightforward handles
 - Create the HTML Markup.
 - Set the proper names based on the configured handles. For the handle `salutation` the name attribute of the input element must be `fields[salutation].`
-- Set **Post Endpoint** (https://form.goldinteractive.ch/be/api/v1/p/form/post/FORMID)
+- Install the Form Feature (`yarn add @goldinteractive/feature-form` or `make feature-install-form`)
+- init the Form in your js: `features.add('form', Form)` (don't forget `import Form from '@goldinteractive/feature-form'`)
+- Use `data-feature="form"` and `class="ft-form"` on a container element.
+- Create `<div data-feedback class="form-feedback"></div>` in the container.
+- Set **Post Endpoint** (https://form.goldinteractive.ch/be/api/v1/p/form/post/FORMID) as action for the `<form>`tag
 - Make sure you set the `language` input properly (See example). This is required for localized validation messages.
 
 > Note that the feature enables you to set a csrf token endpoint. For the default Gold Form this endpoint **is not** required.
@@ -28,8 +32,12 @@ require(['featurify'], function(featurify) {
 ```types.html
 <h2>Form</h2>
 
-<div class="ft-form" data-feature="form" data-token-endpoint="http://localhost:8888/goldform-server/backend/public/api/v1/token">
+<div class="ft-form" data-feature="form">
 
+  <!--
+    Optional argument on data-feature="form" container:
+    `data-token-endpoint="http://localhost:8888/goldform-server/backend/public/api/v1/token"`
+  -->
   <form action="http://localhost:8888/goldform-server/backend/public/api/v1/p/form/post/bad411d5-1da9-3ba6-ab41-aa561bcd8bc5" enctype="multipart/form-data">
     <!-- Language input: this is required! -->
     <input type="hidden" name="language" value="en">
