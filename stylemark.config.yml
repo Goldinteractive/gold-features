@@ -59,4 +59,5 @@ assets:
   - packages/masonry/lib
   - packages/reveal-trigger/lib
   - packages/reveal-trigger/docs/files
+  - packages/vh-offset/lib
 
