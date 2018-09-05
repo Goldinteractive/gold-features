@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-vh-offset",
-  "version": "0.0.1-alpha",
+  "version": "0.0.1-alpha.0",
   "description": "vh-offset feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
@@ -9,8 +9,6 @@
   "scripts": {
     "build": "node ../../scripts/build.js",
     "watch": "node ../../scripts/watch.js"
-  },
-  "dependencies": {
   },
   "peerDependencies": {
     "@goldinteractive/js-base": "^0.0.2"
