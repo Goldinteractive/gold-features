@@ -11,6 +11,8 @@ Make sure that all elements have the final sizes upon rendering. Image sizes sho
 
 This feature **does not** include a grid system - so you must use your own.
 
+> In case you want to add filters you should check out [Isotope](https://isotope.metafizzy.co/)
+
 ```types.js
 require(['featurify'], function(featurify) {
   featurify([{ name: 'feature-masonry', path: 'packages/masonry/lib/main.min.js' }, 'base', 'base.features'], function(Masonry, base, features) {
