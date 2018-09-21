@@ -3,6 +3,8 @@ name: PageTransition
 category: PageTransition
 ---
 
+> Important Notice: This feature must be rewritten before using in a new project. **You must not use this feature**. Why? Because barba is no longer maintained and does not fix outstanding bugs. Potential replacement: [swup](https://github.com/gmrchk/swup).
+
 Note that one feature instance can use multiple different transitions. Implement `getTransition` to define your custom transition selection behavior.
 
 In order to implement your own Transition have a look at the example Fade Transition. You must **extend the Base Transition** because it handles the destroy event for the old container.
