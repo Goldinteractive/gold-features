@@ -15,6 +15,7 @@ $ft-cookie-disclaimer-box-margin: 20px !default;
 
   .disclaimer-text {
     margin: 0;
+    max-width: 100%; // because of IE
   }
 
   &.-visibility-default {
