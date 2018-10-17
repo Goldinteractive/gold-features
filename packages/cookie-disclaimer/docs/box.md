@@ -15,7 +15,7 @@ require(['featurify'], function(featurify) {
 ```
 ```types.html
 <div class="ft-cookie-disclaimer -box-bottom-right -visibility-default -base-theme" data-feature="cookie-disclaimer">
-<p class="disclaimer-text">Disclaimer example message <a href="#">Privacy policy</a></p>
+<p class="disclaimer-text">This website uses cookies, with the aim of ensuring that you have the best possible online experience. In using our website, you are giving your consent to the terms and conditions of our Data Protection Declaration / Privacy Statement.<a href="#">Privacy policy</a></p>
 <button data-disclaimer-confirm>Got it</button>
 </div>
 ```
