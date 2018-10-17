@@ -30,10 +30,10 @@ Now you are ready to start working on Gold Features.
 Let's assume you want to change something in `feature-xyz`.
 
 #### Build all projects
-Run `yarn lerna:build`
+`yarn lerna:build`
 
 #### Start Watch Mode on specific project
-Run `yarn watch name`, e.g.: `yarn watch modal`.
+`yarn watch xyz`
 
 Do your changes and check them using the docs page.
 
