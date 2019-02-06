@@ -78,6 +78,8 @@ Lerna will not pick up unchanged packages. Run `yarn publish` in the feature dir
 
 `yarn lerna:exec command` execute a command in all packages. To remove a package, run: `yarn lerna:exec yarn remove some-dependency`. This is useful in order to update the `js-base` peer-dependency across all packages. (`yarn lerna:exec yarn add @goldinteractive/js-base@latest --tilde --peer`)
 
+> For testing lerna there is a `demo` feature. Note that it must be unpublished manually after performing tests!
+
 ### How to create a new Gold Feature
 
 There is a bootstrap script in place to ease the creation of new features.
