@@ -73,15 +73,13 @@ module.exports = () => {
             use: {
               loader: 'babel-loader',
               options: {
-                presets: [
+                presets: [['@babel/preset-env', { modules: false }]],
+                plugins: [
                   [
-                    'env',
-                    {
-                      targets: {
-                        browsers: ['Explorer 11']
-                      }
-                    }
-                  ]
+                    '@babel/plugin-proposal-decorators',
+                    { decoratorsBeforeExport: true }
+                  ],
+                  '@babel/plugin-proposal-class-properties'
                 ]
               }
             }
