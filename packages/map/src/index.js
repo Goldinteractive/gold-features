@@ -331,7 +331,7 @@ class Map extends features.Feature {
     return (e) => {
       if (!this.isResizing) {
         this.isResizing = true
-        utils.fn.rAF(this.resize.bind(this))
+        requestAnimationFrame(this.resize.bind(this))
       }
     }
   }
