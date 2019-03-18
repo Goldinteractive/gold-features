@@ -3,7 +3,7 @@ name: PageTransition
 category: PageTransition
 ---
 
-> Important Notice: This feature must be rewritten before using in a new project. **You must not use this feature**. Why? Because barba is no longer maintained and does not fix outstanding bugs. Potential replacement: [swup](https://github.com/gmrchk/swup).
+> Important Notice: This feature must be rewritten before using in a new project. **You must not use this feature**. Why? Because barba v1 is no longer maintained and does not fix outstanding bugs. Potential replacement: [swup](https://github.com/gmrchk/swup) or [barba v2](https://barba.js.org/docs/v2/user/).
 
 Note that one feature instance can use multiple different transitions. Implement `getTransition` to define your custom transition selection behavior.
 
