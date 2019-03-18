@@ -10,13 +10,14 @@ require(['featurify'], function(featurify) {
   featurify([{ name: 'feature-cookie-disclaimer', path: 'packages/cookie-disclaimer/lib/main.min.js' }, 'base', 'base.features'], function(CookieDisclaimer, base, features) {
     features.add('cookie-disclaimer', CookieDisclaimer.default);
     features.init(document.body);
+    document.body.dataset.cy = 'ready'
   });
 });
 ```
 ```types.html
-<div class="ft-cookie-disclaimer -banner-bottom -visibility-default -base-theme" data-feature="cookie-disclaimer">
+<div class="ft-cookie-disclaimer -banner-bottom -visibility-default -base-theme" data-feature="cookie-disclaimer" data-cy="disclaimer">
 <p class="disclaimer-text">Disclaimer example message <a href="#">Privacy policy</a></p>
-<button data-disclaimer-confirm>Got it</button>
+<button data-disclaimer-confirm data-cy="confirm">Got it</button>
 </div>
 ```
 Inspect Sources:
