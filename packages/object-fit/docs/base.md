@@ -3,7 +3,15 @@ name: ObjectFit
 category: ObjectFit
 ---
 
-ObjectFit
+Object Fit polyfill for IE11.
+
+Ensure to always wrap it in a container with `ft-fit-bg` class.
+
+```html
+<div class="ft-fit-bg -initial-hide">
+  <img src="image.jpg" data-feature="fit" />
+</div>
+```
 
 ```types.js
 require(['featurify'], function(featurify) {
