@@ -17,8 +17,11 @@
     "docs": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml",
     "docs:watch": "node scripts/docs.js && stylemark -i packages -o docs -c stylemark.config.yml -w",
     "docs:publish": "./publish-docs.sh",
+    "docs:serve": "http-server ./docs -p 8080",
     "watch": "node scripts/watch-project.js",
     "create:feature": "node scripts/create.js",
+    "test": "cypress run",
+    "test:interactive": "cypress open",
     "format": "prettier --write \"**/*.{js,jsx,json}\" \"!**/helpers/skeleton/**/*\" \"!docs/**/*\" \"!**/lib/**/*\""
   },
   "devDependencies": {
@@ -32,8 +35,10 @@
     "chalk": "^2.3.0",
     "css-loader": "^1.0.0",
     "cssnano": "^3.10.0",
+    "cypress": "^3.1.5",
     "extract-loader": "^2.0.1",
     "file-loader": "^1.1.11",
+    "http-server": "^0.11.1",
     "lerna": "^3.10.7",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",

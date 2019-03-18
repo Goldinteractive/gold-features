@@ -30,12 +30,21 @@ Let's assume you want to change something in `feature-xyz`.
 #### Build all projects
 `yarn lerna:build`
 
+### Start dev server
+`yarn docs:serve`
+
+Starts the dev server on port 8080.
+
 #### Start Watch Mode on specific project
-`yarn watch xyz`
+`yarn watch xyz` - enables watch mode for specific project
+`yarn test:interactive` - launches Cypress Test Runner
 
 Do your changes and check them using the docs page.
 
 ### Commit changes
+
+> Make sure to run `yarn test` before commiting to ensure no tests were broken.
+
 If you changed something feature specific use the Feature Name as a prefix for your commit.
 So if you changed something in RevealTrigger, this is your template:
 
