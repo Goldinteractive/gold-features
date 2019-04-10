@@ -25,7 +25,7 @@ class ElementLoader extends features.Feature {
       throw new Error(
         `ElementLoader "${
           this.name
-        }" feature needs to be initialized with a data-element-loader-url or options.elmentUrl`
+        }" feature needs to be initialized with a data-element-loader-url or options.elementUrl`
       )
     }
     this.fetchEndpoint({ url })
