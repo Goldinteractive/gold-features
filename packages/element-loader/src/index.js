@@ -1,5 +1,8 @@
 import { features, utils } from '@goldinteractive/js-base'
 
+/**
+ * Feature to load dynamic content
+ */
 class ElementLoader extends features.Feature {
   init() {
     this.handleTrigger()
