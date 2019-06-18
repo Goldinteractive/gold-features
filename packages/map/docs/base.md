@@ -45,7 +45,7 @@ require(['featurify'], function(featurify) {
   </div>
 </div>
 
-<script src="//maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyAtOJRO17DPX-JK2Vps9RYCY756RogmoAA"></script>
+<script src="//maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyD_27eTKOf63j7sodMSaoY2dJ7rxl2vCSM"></script>
 ```
 
 Inspect Sources:
