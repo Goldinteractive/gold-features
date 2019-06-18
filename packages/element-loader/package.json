@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-element-loader",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1",
   "description": "element-loader feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
