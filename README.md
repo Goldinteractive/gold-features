@@ -1,19 +1,21 @@
-## Gold Features
+# Gold Features
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 [![Maintainability](https://api.codeclimate.com/v1/badges/8f4526e6a5de3ce98e2e/maintainability)](https://codeclimate.com/github/Goldinteractive/gold-features/maintainability)
 
 This project contains all base features. For a user-friendly view of all Gold Features check out the catalog in our documentation: <https://goldinteractive.github.io/gold-features/>.
 
-### How To Use A Feature
+## Use A Feature
 
-The name of the feature is always using [`kebab-case`](http://wiki.c2.com/?KebabCase). So for PageTransition the corresponding name would be `feature-page-transition`.
+> The name of the feature is always using [`kebab-case`](http://wiki.c2.com/?KebabCase). So for PageTransition the corresponding name would be `feature-page-transition`.
 
 include the `@goldinteractive/src/style` in your `.scss file`.
 
 - **Sackmesser** `make feature-install-sample`
 - **Plain Old Javascript** `yarn add @goldinteractive/feature-sample` (Make sure to copy the assets folder into your project)
 
-### Setup to work on Gold Features
+## Maintenance
+
+### Setup your machine
 
 Login to npm using `npm adduser` (Make sure to have access rights to npm registry `@goldinteractive` organization).
 
@@ -21,7 +23,7 @@ Run `yarn lerna:exec yarn install --frozen-lockfile` to install all dependencies
 
 Run `yarn install --frozen-lockfile` to install dependencies for `gold-features` maintentance.
 
-Now you are ready to start working on Gold Features.
+> Now you are ready to start working on Gold Features.
 
 ### How to do basic feature maintenance
 
@@ -30,23 +32,23 @@ Let's assume you want to change something in `feature-xyz`.
 #### Build all projects
 `yarn lerna:build`
 
-### Start dev server
-`yarn docs:serve`
-
-Starts the dev server on port 8080.
+### Start Docs Server And Watch For Changes
+`yarn docs:serve` -- starts the dev server on port 8080
+`yarn docs:watch` -- watches for project changes and updates the docs (won't build the project though)
 
 #### Start Watch Mode on specific project
 `yarn watch xyz` - enables watch mode for specific project
 `yarn test:interactive` - launches Cypress Test Runner
 
-Do your changes and check them using the docs page.
+Do your changes and check them using the docs page and Cypress.
 
 ### Commit changes
 
 > Make sure to run `yarn test` before commiting to ensure no tests were broken.
 
 If you changed something feature specific use the Feature Name as a prefix for your commit.
-So if you changed something in RevealTrigger, this is your template:
+
+#### Commit Template:
 
 ```
 RevealTrigger: Did something
@@ -55,9 +57,9 @@ More detailed comment about commit
 ```
 
 ### Publish changes
-If you only changed the docs there is no need to publish a new feature version.
+> If you only changed the docs there is no need to publish a new feature version.
 
-But always run the `yarn lerna:updated` to make sure you did not change anything by accident.
+Run `yarn lerna:updated` to make sure you did not change anything by accident.
 This will check whether a new package is required.
 > Make sure that only your changed project pops up.
 
