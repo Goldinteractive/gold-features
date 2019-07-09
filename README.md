@@ -34,13 +34,20 @@ Let's assume you want to change something in `feature-xyz`.
 
 ### Start Docs Server And Watch For Changes
 `yarn docs:serve` -- starts the dev server on port 8080
-`yarn docs:watch` -- watches for project changes and updates the docs (won't build the project though)
+
+> The port is fixed because `cypress.json` does require the baseUrl.
 
 #### Start Watch Mode on specific project
-`yarn watch xyz` - enables watch mode for specific project
+`yarn watch xyz` - enables watch mode for specific project and automatically updates the docs.
 `yarn test:interactive` - launches Cypress Test Runner
 
 Do your changes and check them using the docs page and Cypress.
+
+#### Start Docs Watch Mode
+
+If you do not want to update a specific project and only want to update docs, there is no need to start a specific project in watch mode.
+
+`yarn docs:watch` -- watches for project changes and updates the docs (won't build the project though)
 
 ### Commit changes
 
