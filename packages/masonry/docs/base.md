@@ -24,7 +24,7 @@ require(['featurify'], function(featurify) {
     features.add('masonry', Masonry.default);
     features.init(document.body);
 
-    document.getElementById('append').addEventListener('click', () => {
+    document.getElementById('append').addEventListener('click', function() {
       const div1 = document.createElement('div');
       const div2 = document.createElement('div');
       const div3 = document.createElement('div');
