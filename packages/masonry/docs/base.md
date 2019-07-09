@@ -11,9 +11,10 @@ Make sure that all elements have the final sizes upon rendering. Image sizes sho
 
 This feature **does not** include a grid system - so you must use your own.
 
-You can add a masonry-identifier as a data-attribute to trigger events via the eventhub using `'${masonryIdentifier}:masonry_${method}'`
+You can add a masonry-identifier as a data-attribute to trigger events via the eventhub using `'${masonryIdentifier}:${method}'`
 
-Currently only the `layout` method is supported: `'${masonryIdentifier}:masonry_layout'`
+Currently only the `appended` method is supported: `'${masonryIdentifier}:appended'`
+> Please note: Gaps can occure when items are lazily added. Consider this when designing the different item sizes.
 
 > In case you want to add filters you should check out [Isotope](https://isotope.metafizzy.co/)
 
@@ -22,9 +23,22 @@ require(['featurify'], function(featurify) {
   featurify([{ name: 'feature-masonry', path: 'packages/masonry/lib/main.min.js' }, 'base', 'base.features'], function(Masonry, base, features) {
     features.add('masonry', Masonry.default);
     features.init(document.body);
-    document.getElementById('rearrange').addEventListener('click', () => {
-      document.getElementById('resizer').classList.add('grid-item--height3')
-      base.eventHub.trigger('sample-id:masonry_rearrange');
+
+    document.getElementById('append').addEventListener('click', () => {
+      const div1 = document.createElement('div');
+      const div2 = document.createElement('div');
+      const div3 = document.createElement('div');
+      div1.className = "grid-item"
+      div2.className = "grid-item grid-item--height3"
+      div3.className = "grid-item grid-item--width2 grid-item--height3"
+
+      const masonryContainer = document.querySelector('[data-feature="masonry"]')
+
+      masonryContainer.appendChild(div1);
+      masonryContainer.appendChild(div2);
+      masonryContainer.appendChild(div3);
+
+      base.eventHub.trigger('sample-id:appended', [div1, div2, div3]);
     })
   });
 });
@@ -40,11 +54,11 @@ require(['featurify'], function(featurify) {
   <div class="grid-item">5 - ...</div>
   <div class="grid-item grid-item--height2">6 - Tall</div>
   <div class="grid-item grid-item--height3">5 - Taller</div>
-  <div class="grid-item grid-item--height2">7 - Tall</div>
+  <div class="grid-item grid-item--height3">7 - Tall</div>
   <div class="grid-item">8 - ...</div>
-  <div class="grid-item grid-item--width2">9 - Wide</div>
+  <div class="grid-item grid-item--width2">9 - ...</div>
 </div>
-<button id="rearrange">Resize item-4 and rearrange</button>
+<button id="append">Append items</button>
 ```
 ```types.css
 .grid {position: relative; }

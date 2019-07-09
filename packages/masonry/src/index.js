@@ -14,8 +14,8 @@ class Masonry extends features.Feature {
     this.masonry = new MasonryLayout(this.node, masonryOptions)
 
     if (this.identifier) {
-      this.onHub(`${this.identifier}:masonry_layout`, () => {
-        this.masonry.layout()
+      this.onHub(`${this.identifier}:appended`, $$items => {
+        this.masonry.appended($$items)
       })
     }
   }
