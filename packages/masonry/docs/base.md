@@ -11,6 +11,10 @@ Make sure that all elements have the final sizes upon rendering. Image sizes sho
 
 This feature **does not** include a grid system - so you must use your own.
 
+You can add a masonry-identifier as a data-attribute to trigger events via the eventhub using `'${masonryIdentifier}:masonry_${method}'`
+
+Currently only the `layout` method is supported: `'${masonryIdentifier}:masonry_layout'`
+
 > In case you want to add filters you should check out [Isotope](https://isotope.metafizzy.co/)
 
 ```types.js
@@ -18,16 +22,20 @@ require(['featurify'], function(featurify) {
   featurify([{ name: 'feature-masonry', path: 'packages/masonry/lib/main.min.js' }, 'base', 'base.features'], function(Masonry, base, features) {
     features.add('masonry', Masonry.default);
     features.init(document.body);
+    document.getElementById('rearrange').addEventListener('click', () => {
+      document.getElementById('resizer').classList.add('grid-item--height3')
+      base.eventHub.trigger('sample-id:masonry_rearrange');
+    })
   });
 });
 ```
 ```types.html
-<div class="ft-masonry -hidden grid" data-feature="masonry">
+<div class="ft-masonry -hidden grid" data-feature="masonry" data-masonry-identifier="sample-id">
   <div class="grid-sizer"></div>
   <div class="grid-item">1 - ...</div>
   <div class="grid-item grid-item--width2">2 - Wide</div>
   <div class="grid-item grid-item--height2">3 - Tall</div>
-  <div class="grid-item">4 - ...</div>
+  <div class="grid-item" id="resizer">4 - ...</div>
   <div class="grid-item grid-item--height3">5 - Taller</div>
   <div class="grid-item">5 - ...</div>
   <div class="grid-item grid-item--height2">6 - Tall</div>
@@ -36,6 +44,7 @@ require(['featurify'], function(featurify) {
   <div class="grid-item">8 - ...</div>
   <div class="grid-item grid-item--width2">9 - Wide</div>
 </div>
+<button id="rearrange">Resize item-4 and rearrange</button>
 ```
 ```types.css
 .grid {position: relative; }
