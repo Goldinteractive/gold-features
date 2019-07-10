@@ -5,6 +5,12 @@ import { features, utils } from '@goldinteractive/js-base'
  */
 class ElementLoader extends features.Feature {
   init() {
+    this.identifier = this.node.dataset.elementLoaderIdentifier
+    this.url = this.node.dataset.elementLoaderUrl || this.options.elementUrl
+
+    this.runningAnimation = null
+    this.fetchCallbacks = []
+
     this.handleTrigger()
   }
   handleTrigger() {
@@ -12,37 +18,48 @@ class ElementLoader extends features.Feature {
       this.node.dataset.elementLoaderEvent || this.options.loadTriggerEvent
     if (eventName === null) {
       // load fragment instantly
-      this.loadElement()
+      this.loadElement(this.url)
     } else {
-      this.onHub(
-        eventName,
-        utils.fn.once(() => {
-          this.loadElement()
-        })
-      )
+      const loadElementCallback = ({ url = this.url } = {}) => {
+        this.loadElement(url)
+      }
+      const callback = this.options.loadTriggerEventMultiple
+        ? loadElementCallback
+        : utils.fn.once(loadElementCallback)
+      this.onHub(eventName, callback)
     }
   }
-  loadElement() {
-    const url = this.node.dataset.elementLoaderUrl || this.options.elementUrl
+  loadElement(url) {
     if (url === null) {
       throw new Error(
         `ElementLoader "${
           this.name
-        }" feature needs to be initialized with a data-element-loader-url or options.elementUrl`
+        }" feature needs to be initialized with a data-element-loader-url, options.elementUrl or url must be set in loadTriggerEvent event.`
       )
     }
-    this.fetchEndpoint({ url })
-      .then(html => {
-        this.replaceHtml({ html })
+    const fetchHtml = this.fetchHtml({ url })
+    this.fetchCallbacks.push(fetchHtml)
+    if (this.runningAnimation === null) {
+      this.runningAnimation = this.options.contentExitAnimation()
+    }
+    Promise.all([fetchHtml, this.runningAnimation])
+      .then(([html]) => {
+        this.runningAnimation = null
+        if (this.fetchCallbacks[this.fetchCallbacks.length - 1] === fetchHtml) {
+          this.fetchCallbacks = []
+          this.replaceHtml({ html })
+        }
       })
       .catch(error => {
+        this.runningAnimation = null
         this.errorHandler({ error })
       })
   }
-  fetchEndpoint({ url }) {
+  fetchHtml({ url }) {
     return utils.fetch.text(url, utils.fetch.defaultOptions)
   }
   replaceHtml({ html }) {
+    let nodes = null
     if (this.options.replaceRootElement) {
       const previousNeighbor = this.node.nextElementSibling
       this.node.insertAdjacentHTML('afterend', html)
@@ -52,15 +69,22 @@ class ElementLoader extends features.Feature {
       // IE11 does not support `remove`
       // consequence of using removeChild: lazily loaded content must be set in a dom hierarchy
       nodeReference.parentElement.removeChild(nodeReference)
-      const nodes = this._getNodesBetween(sibling, previousNeighbor)
+      nodes = this._getNodesBetween(sibling, previousNeighbor)
       nodes.forEach(node => {
         features.init(node)
       })
     } else {
       this.node.innerHTML = html
+      nodes = utils.dom.children(this.node)
       features.init(this.node, null, {
         justChildNodes: true
       })
+    }
+    this.notifyAppended(nodes)
+  }
+  notifyAppended(nodes) {
+    if (this.identifier) {
+      this.triggerHub(`${this.identifier}:appended`, nodes)
     }
   }
   errorHandler({ error }) {
@@ -93,11 +117,18 @@ class ElementLoader extends features.Feature {
  *   As an alternative to setting the url in html using `data-element-loader-url`.
  * @property {String} loadTriggerEvent=null
  *   As an alternative to setting the event name in html using `data-element-loader-event`.
+ * @property {Boolean} loadTriggerEventMultiple=false
+ *   Should the element-loader listen to multiple event triggers (and then reload the fragment)
+ * @property {Function} contentExitAnimation
+ *   Function to be called for custom content exit animation, per default it will simply resolve
+ *   instantly.
  */
 ElementLoader.defaultOptions = {
   replaceRootElement: false,
   elementUrl: null,
-  loadTriggerEvent: null
+  loadTriggerEvent: null,
+  loadTriggerEventMultiple: false,
+  contentExitAnimation: () => new Promise(resolve => resolve())
 }
 
 export default ElementLoader

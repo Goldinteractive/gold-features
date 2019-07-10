@@ -11,11 +11,23 @@ require(['featurify'], function(featurify) {
     features.add('element-loader', ElementLoader.default, {
       replaceRootElement: true
     });
-    features.add('element-loader-inline', ElementLoader.default);
+    features.add('element-loader-inline', ElementLoader.default, {
+      contentExitAnimation: function() {
+        return new Promise(function (resolve) {
+          setTimeout(function() {
+            resolve()
+          }, 2000)
+        })
+      },
+      loadTriggerEventMultiple: true
+    });
     features.init(document.body);
     
     document.getElementById('load-element').addEventListener('click', function() {
       base.eventHub.trigger('sample-id:open');
+      base.eventHub.trigger('sample-id:open-custom-url', {
+        url: 'packages/element-loader/docs/files/inline-loaded-deferred.html'
+      });
     })
   });
 });
@@ -29,7 +41,8 @@ require(['featurify'], function(featurify) {
   <li data-feature="element-loader-inline" data-element-loader-url="packages/element-loader/docs/files/inline-loaded.html"></li>
   <li>Static</li>
   <li data-feature="element-loader-inline" data-element-loader-url="packages/element-loader/docs/files/inline-loaded-deferred.html" data-element-loader-event="sample-id:open">loaded when button gets clicked</li>
-</li>
+  <li data-feature="element-loader-inline" data-element-loader-event="sample-id:open-custom-url">loaded when button gets clicked using custom url</li>
+</ul>
 <button id="load-element" data-cy="load-element">Load element</button>
 ```
 
