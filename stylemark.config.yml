@@ -46,6 +46,7 @@ assets:
   - packages/slider/docs/files
   - packages/accordion/lib
   - packages/accordion/assets/features/accordion
+  - packages/dom-state-handler/lib
   - packages/form/lib
   - packages/form/docs/files
   - packages/gallery/lib
