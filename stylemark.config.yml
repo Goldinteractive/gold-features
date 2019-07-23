@@ -42,6 +42,7 @@ assets:
   - packages/icons/docs/icons.json
   - packages/object-fit/lib
   - packages/object-fit/docs/files
+  - packages/overflow-detector/lib
   - packages/slider/lib
   - packages/slider/docs/files
   - packages/accordion/lib
