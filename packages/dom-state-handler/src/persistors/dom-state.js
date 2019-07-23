@@ -25,18 +25,18 @@ class DomState {
   }
 
   persistQuery() {
-    const query = Object.assign(
-      {},
-      utils.url.parseQuery(location.search, { ignoreQueryPrefix: true }),
-      this.getState()
-    )
-    const url =
-      location.origin +
-      location.pathname +
-      '?' +
-      utils.url.stringifyQuery(query) +
-      location.hash
-    utils.url.replaceState(url)
+    const state = this.getState()
+    if (Object.keys(state).length > 0) {
+      const query = Object.assign(
+        {},
+        utils.url.parseQuery(location.search, { ignoreQueryPrefix: true }),
+        state
+      )
+      const queryString = utils.url.stringifyQuery(query)
+      const url =
+        location.origin + location.pathname + '?' + queryString + location.hash
+      utils.url.replaceState(url)
+    }
   }
 
   obtainState() {
