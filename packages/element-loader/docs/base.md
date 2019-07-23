@@ -16,7 +16,8 @@ require(['featurify'], function(featurify) {
       replaceRootElement: true
     });
     features.add('element-loader-inline', ElementLoader.default, {
-      contentExitAnimation: function() {
+      contentExitAnimation: function(args) {
+        console.log('animating exit for', args.node)
         return new Promise(function (resolve) {
           setTimeout(function() {
             resolve()

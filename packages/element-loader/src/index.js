@@ -40,7 +40,9 @@ class ElementLoader extends features.Feature {
     const fetchHtml = this.fetchHtml({ url })
     this.fetchCallbacks.push(fetchHtml)
     if (this.runningAnimation === null) {
-      this.runningAnimation = this.options.contentExitAnimation()
+      this.runningAnimation = this.options.contentExitAnimation({
+        node: this.node
+      })
     }
     Promise.all([fetchHtml, this.runningAnimation])
       .then(([html]) => {
@@ -121,14 +123,14 @@ class ElementLoader extends features.Feature {
  *   Should the element-loader listen to multiple event triggers (and then reload the fragment)
  * @property {Function} contentExitAnimation
  *   Function to be called for custom content exit animation, per default it will simply resolve
- *   instantly.
+ *   instantly. The function receives an object with the active node.
  */
 ElementLoader.defaultOptions = {
   replaceRootElement: false,
   elementUrl: null,
   loadTriggerEvent: null,
   loadTriggerEventMultiple: false,
-  contentExitAnimation: () => new Promise(resolve => resolve())
+  contentExitAnimation: ({ node }) => new Promise(resolve => resolve())
 }
 
 export default ElementLoader
