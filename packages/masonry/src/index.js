@@ -16,6 +16,7 @@ class Masonry extends features.Feature {
     if (this.identifier) {
       this.onHub(`${this.identifier}:appended`, $$items => {
         this.masonry.appended($$items)
+        this.masonry.layout()
       })
     }
   }
