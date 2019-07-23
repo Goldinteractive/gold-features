@@ -39,15 +39,21 @@ class ElementLoader extends features.Feature {
     }
     const fetchHtml = this.fetchHtml({ url })
     this.fetchCallbacks.push(fetchHtml)
-    if (this.runningAnimation === null) {
+    // Only the first callback must start the contentExitAnimation
+    // subsequent calls must reuse the same animation promise.
+    // This prevents animation race-conditions.
+    const isOnlyRunningCallback = this.fetchCallbacks.length === 1
+    if (isOnlyRunningCallback) {
       this.runningAnimation = this.options.contentExitAnimation({
         node: this.node
       })
     }
     Promise.all([fetchHtml, this.runningAnimation])
       .then(([html]) => {
-        this.runningAnimation = null
+        // Only in case the current transaction actually is the last callback in the chain
+        // do we want to reset the state - ready for the next transaction set to start.
         if (this.fetchCallbacks[this.fetchCallbacks.length - 1] === fetchHtml) {
+          this.runningAnimation = null
           this.fetchCallbacks = []
           this.replaceHtml({ html })
         }
