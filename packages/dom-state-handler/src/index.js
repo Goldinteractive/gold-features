@@ -41,7 +41,7 @@ class DomStateHandler extends features.Feature {
  * Feature options
  * @type {Object}
  * @property {DomState} domState state handling instance
- * @property {Array} statePrototypes=[Select]
+ * @property {Array} statePrototypes=[Select, CheckboxGroup, RadioGroup]
  *   Defines which filter state handling prototypes to check for.
  */
 DomStateHandler.defaultOptions = {
