@@ -27,6 +27,18 @@ class Masonry extends features.Feature {
   }
 }
 
+/**
+ * Feature options
+ * @type {Object}
+ * @property {String} hiddenClassName='-hidden'
+ *   The class name applied before masonry is initialized.
+ * @property {Object} masonryOptions={
+ *     itemSelector:'.grid-item',
+ *     columnWidth: '.grid-sizer',
+ *     percentPosition: true
+ *   }
+ *   The options passed to masonry for initialization. Check out Masonry for more details.
+ */
 Masonry.defaultOptions = {
   hiddenClassName: '-hidden',
   masonryOptions: {
