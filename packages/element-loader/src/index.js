@@ -1,7 +1,7 @@
 import { features, utils } from '@goldinteractive/js-base'
 
 /**
- * Feature to load dynamic content
+ * Feature to load dynamic content.
  */
 class ElementLoader extends features.Feature {
   init() {
@@ -125,6 +125,7 @@ class ElementLoader extends features.Feature {
  *   As an alternative to setting the url in html using `data-element-loader-url`.
  * @property {String} loadTriggerEvent=null
  *   As an alternative to setting the event name in html using `data-element-loader-event`.
+ *   When no event name is set, the element will be loaded instantly.
  * @property {Boolean} loadTriggerEventMultiple=false
  *   Should the element-loader listen to multiple event triggers (and then reload the fragment)
  * @property {Function} contentExitAnimation
