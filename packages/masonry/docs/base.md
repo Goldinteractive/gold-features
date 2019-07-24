@@ -16,7 +16,7 @@ You can add a masonry-identifier as a data-attribute to trigger events via the e
 Currently only the `appended` method is supported: `'${masonryIdentifier}:appended'`
 > Please note: Gaps can occure when items are lazily added, due to masonry failing to layout everything perfectly. Consider this when designing the different item sizes. You can see those gaps when adding items multiple times in the example below.
 
-> In case you want to add filters you should check out either [Isotope](https://isotope.metafizzy.co/) or use a combination of `element-loader`, `dom-state-handler` and `masonry`.
+> In case you want to add filters or pagination you should check out the example `LazyFilterGrid` for `dom-state-handler`.
 
 ```types.js
 require(['featurify'], function(featurify) {
