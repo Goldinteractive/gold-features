@@ -32,7 +32,7 @@ The feature applies two classNames (based on the prefix given as `classNamespace
 Currently only width overflow is supported.
 
 This feature also uses the strategy pattern used in other features - but there is currently no generic approach.
-In case this is required it makes sense to extend the feature and enable consumers to provider their own extensions.
+In case this is required it makes sense to extend the feature and enable consumers to provide their own extensions.
 
 ```types.js
 require(['featurify'], function(featurify) {
