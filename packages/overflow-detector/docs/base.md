@@ -9,7 +9,7 @@ OverflowDetector enables detecting overflow on nodes and will toggle classNames 
 
 You have to make sure overflow behaves properly. In order to detect overflow the element must not wrap.
 The proper CSS styling dependens on the markup to detect overflow on, but these are the most common rules to apply:
-```cssas
+```css
 white-space: nowrap;
 flex-wrap: nowrap;
 // FYI: overflow-wrap / word-wrap have no power here
