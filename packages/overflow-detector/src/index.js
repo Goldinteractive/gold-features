@@ -3,7 +3,9 @@ import { features, utils, eventHub } from '@goldinteractive/js-base'
 export class OverflowStrategy {
   /**
    * Strategy constructor
-   * @param {Object} configuration
+   * @param {Object} [configuration={}] - OverflowStrategy configuration object.
+   * @param {string} [configuration.classNamespace='global'] - The prefix for the applied className.
+   * @param {string} [configuration.$node=document.body] - The node on which the classes shall be applied.
    */
   constructor({ classNamespace = 'global', $node = document.body } = {}) {
     this.classNamespace = classNamespace
