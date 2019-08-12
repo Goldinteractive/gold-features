@@ -25,7 +25,7 @@ class LazyImageStrategy {
       }
       img.src = node.dataset.src
       if (img.complete) {
-        this.addImage(node)
+        self.addImage(node)
       } else {
         img.onload = () => {
           self.addImage(node)
