@@ -24,7 +24,7 @@ class IntersectionManager {
             entry.isIntersecting
           ) {
             const { callback, node } = this.map.get(entry.target)
-            callback({ node, entry })
+            callback({ node, entry, manager: this })
           }
         })
       })
@@ -48,6 +48,11 @@ class IntersectionManager {
       callback,
       node
     })
+  }
+
+  unregister(node) {
+    this.map.delete(node)
+    this.observer.unobserve(node)
   }
 
   observe(node, callback) {

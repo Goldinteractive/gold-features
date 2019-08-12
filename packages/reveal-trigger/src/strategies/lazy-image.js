@@ -17,7 +17,8 @@ class LazyImageStrategy {
 
   _onNotify() {
     var self = this
-    return ({ node }) => {
+    return ({ node, manager }) => {
+      manager.unregister(node)
       const img = new Image()
       if (node.dataset) {
         img.srcset = node.dataset.srcset || ''
