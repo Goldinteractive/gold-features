@@ -11,6 +11,13 @@ class Modal extends features.Feature {
 
     this.dialog.on('hide', () => this.triggerHub('ft-modal:hide'))
     this.dialog.on('show', () => this.triggerHub('ft-modal:show'))
+
+    // trigger custom event in case modal identifier is being provided
+    const identifier = this.node.dataset.modalIdentifier
+    if (identifier) {
+      this.dialog.on('hide', () => this.triggerHub(`${identifier}:hide`))
+      this.dialog.on('show', () => this.triggerHub(`${identifier}:show`))
+    }
     this.onHub(`${this.node.dataset.modalIdentifier}:open`, this.openListener)
   }
 
