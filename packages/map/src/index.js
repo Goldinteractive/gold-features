@@ -47,6 +47,7 @@ class Map extends features.Feature {
         })
       } else {
         mapOptions.styles = style
+        this._loadMap()
       }
     } else {
       this._loadMap()
