@@ -48,14 +48,28 @@ class ElementLoader extends features.Feature {
         node: this.node
       })
     }
+    // handles feature destruction notification
+    let cancelled = false
+    this.on('destroy', () => {
+      cancelled = true
+    })
     Promise.all([fetchHtml, this.runningAnimation])
       .then(([html]) => {
-        // Only in case the current transaction actually is the last callback in the chain
-        // do we want to reset the state - ready for the next transaction set to start.
-        if (this.fetchCallbacks[this.fetchCallbacks.length - 1] === fetchHtml) {
+        // The request might have been cancelled in which case nothing should happen
+        if (cancelled) {
+          // reset references
           this.runningAnimation = null
           this.fetchCallbacks = []
-          this.replaceHtml({ html })
+        } else {
+          // Only in case the current transaction actually is the last callback in the chain
+          // do we want to reset the state - ready for the next transaction set to start.
+          if (
+            this.fetchCallbacks[this.fetchCallbacks.length - 1] === fetchHtml
+          ) {
+            this.runningAnimation = null
+            this.fetchCallbacks = []
+            this.replaceHtml({ html })
+          }
         }
       })
       .catch(error => {
