@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-touch-hover",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "touch-hover feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",

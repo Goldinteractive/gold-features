@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-modal",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "modal feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
