@@ -136,7 +136,7 @@ export class Icon extends features.Feature {
 
   updateUseLink() {
     if (!this.$use) return
-    var currentDomain = window.location.href
+    var currentDomain = window.location.href.replace(window.location.hash, '')
     var currentHash = `${currentDomain}#${
       this.options.manager.options.prefixId
     }${this.id}`
