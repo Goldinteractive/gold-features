@@ -136,11 +136,7 @@ export class Icon extends features.Feature {
 
   updateUseLink() {
     if (!this.$use) return
-    var currentDomain =
-      '//' +
-      window.location.host +
-      window.location.pathname +
-      window.location.search
+    var currentDomain = window.location.href
     var currentHash = `${currentDomain}#${
       this.options.manager.options.prefixId
     }${this.id}`
