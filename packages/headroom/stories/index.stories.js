@@ -27,9 +27,9 @@ const markup = `
   right: 0;
 }
 </style>
-<header class="header" role="banner" data-feature="headroom">
+<header class="header" role="banner" data-feature="headroom" data-cy="header">
     Gold Site
-    <p class="top">top</p>
+    <p class="top" data-cy="element">top</p>
 </header>
 <div style="height: 2000px;">
 

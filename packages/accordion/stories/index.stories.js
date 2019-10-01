@@ -20,22 +20,22 @@ const markup = `
 </p>
 
 <div class="ft-accordion handorgel" data-feature="accordion">
-  <h3 class="handorgel__header" data-accordion-scroll-id="title1">
+  <h3 class="handorgel__header" data-accordion-scroll-id="title1" data-cy="first-accordion-header">
     <button class="handorgel__header__button">
       Title 1<span class="toggle">&#9658;</span>
     </button>
   </h3>
-  <div class="handorgel__content" data-open>
+  <div class="handorgel__content" data-open data-cy="first-accordion-content">
     <div class="handorgel__content__inner">
       Content openened by default
     </div>
   </div>
-  <h3 class="handorgel__header" data-accordion-scroll-id="title2">
+  <h3 class="handorgel__header" data-accordion-scroll-id="title2" data-cy="second-accordion-header">
     <button class="handorgel__header__button">
       Title 2 <span class="toggle">&#9658;</span>
     </button>
   </h3>
-  <div class="handorgel__content">
+  <div class="handorgel__content" data-cy="second-accordion-content">
     <div class="handorgel__content__inner">
       Content closed by default
     </div>

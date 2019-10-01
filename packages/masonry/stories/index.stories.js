@@ -38,7 +38,7 @@ const markup = `
   <div class="grid-item">8 - ...</div>
   <div class="grid-item grid-item--width2">9 - ...</div>
 </div>
-<button id="append">Append items</button>
+<button id="append" data-cy="append-button">Append items</button>
 `
 
 storiesOf('Masonry', module)
@@ -60,8 +60,11 @@ storiesOf('Masonry', module)
           const div2 = document.createElement('div')
           const div3 = document.createElement('div')
           div1.className = 'grid-item'
+          div1.dataset.cy = 'appended1'
           div2.className = 'grid-item grid-item--height3'
+          div2.dataset.cy = 'appended2'
           div3.className = 'grid-item grid-item--width2 grid-item--height3'
+          div3.dataset.cy = 'appended3'
 
           const masonryContainer = document.querySelector(
             '[data-feature="masonry"]'
