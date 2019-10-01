@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-page-transition",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "page-transition feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",

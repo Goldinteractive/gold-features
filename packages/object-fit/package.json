@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-object-fit",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "object-fit feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",

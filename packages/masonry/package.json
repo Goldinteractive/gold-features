@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-masonry",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "masonry feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
