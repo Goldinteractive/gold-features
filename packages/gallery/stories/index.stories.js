@@ -38,7 +38,7 @@ const markup = `
       <figure class="image-container" data-figure itemprop="associatedMedia" itemscope itemtype="//schema.org/ImageObject">
         <a href="${testJpg}" class="source" data-source itemprop="contentUrl">
           <div class="ft-fit-bg">
-            <img src="${testJpg}" data-thumbnail data-feature="fit" alt="test" itemprop="thumbnail">
+            <img src="${testJpg}" data-thumbnail data-feature="fit" alt="test" itemprop="thumbnail" data-cy="image1">
           </div>
         </a>
 
@@ -100,7 +100,7 @@ const markup = `
 
 
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
-    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" data-pswp>
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" data-pswp data-cy="gallery">
 
       <!-- Background of PhotoSwipe.
           It's a separate element as animating opacity is faster than rgba(). -->

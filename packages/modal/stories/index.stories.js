@@ -15,7 +15,7 @@ import '../src/style.scss'
 import docs from './docs.md'
 
 const markup = `
-<div class="ft-modal -default -animated" aria-hidden="true" data-feature="modal" data-modal-identifier="sample-id">
+<div class="ft-modal -default -animated" aria-hidden="true" data-feature="modal" data-modal-identifier="sample-id"">
 
   <!--
     Overlay related notes:
@@ -31,7 +31,7 @@ const markup = `
     - It doesn’t have to have the \`aria-labelledby\` attribute however this is recommended. It should match the \`id\` of the dialog title.
     - It doesn’t have to have a direct child with the \`role="document"\`, however this is recommended.
   -->
-  <div role="dialog" class="dialog-content">
+  <div role="dialog" class="dialog-content" data-cy="modal-content">
     <div role="document">
       <!--
         Closing button related notes:
@@ -39,7 +39,7 @@ const markup = `
         - It does have to have the \`data-a11y-dialog-hide\` attribute.
         - It does have to have an aria-label attribute if you use an icon as content.
       -->
-      <button class="dialog-close" type="button" data-a11y-dialog-hide aria-label="Schliessen">
+      <button class="dialog-close" type="button" data-a11y-dialog-hide aria-label="Schliessen" data-cy="modal-close">
         &times;
       </button>
 

@@ -64,7 +64,7 @@ body {
   <div class="element natural-vh">
     <p>really important</p>
   </div>
-  <div class="element fix-vh">
+  <div class="element fix-vh" data-cy="element">
     <p>really important</p>
   </div>
   <div class="element dynamic-vh">

@@ -30,7 +30,7 @@ const markup = `
 }
 </style>
 
-<div class="overflow-container" class="custom-namespace--hidden">
+<div class="overflow-container" class="custom-namespace--hidden" data-cy="overflow-container">
   <div class="overflowed-element" data-feature="overflow-detector">
     Lorem ipsum dolor sit amet…
   </div>

@@ -138,7 +138,7 @@ const ImageMarkup = `
 
   <div class="container">
     <div class="ft-fit-bg">
-      <img class="ft-reveal-trigger-image -preview -fade" src="${plazaThumb}?fit" data-src="${plaza}?fit" data-feature="fit, reveal-trigger">
+      <img class="ft-reveal-trigger-image -preview -fade" src="${plazaThumb}?fit" data-src="${plaza}?fit" data-feature="fit, reveal-trigger" data-cy="lazy-image">
     </div>
   </div>
 </div>

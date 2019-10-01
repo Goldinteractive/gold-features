@@ -42,8 +42,8 @@ const markup = `
 
 <div class="wrapper">
 
-  <div class="ft-fit-bg -initial-hide">
-    <img src="${sampleJpeg}" data-feature="fit">
+  <div class="ft-fit-bg -initial-hide" data-cy="image-container">
+    <img src="${sampleJpeg}" data-feature="fit" data-cy="image">
   </div>
 
   <span class="info">Cover</span>

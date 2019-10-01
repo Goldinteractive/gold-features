@@ -22,9 +22,9 @@ import grid2 from '!file-loader!./files/grid2.html'
 
 const DomStatehandlerMarkup = `
 <div>
-  <select name="option-name" data-feature="dom-state-handler">
+  <select name="option-name" data-feature="dom-state-handler" data-cy="select1">
     <option value="option1">Option 1</option>
-    <option value="option2">Option 2</option>
+    <option value="option2" data-cy="option2">Option 2</option>
   </select>
   <select name="option-other" data-feature="dom-state-handler">
     <option value="option1">Option 1</option>
@@ -32,20 +32,20 @@ const DomStatehandlerMarkup = `
   </select>
   <div data-feature="dom-state-handler" data-state-handler-type="checkbox-group">
     <div>
-      <input type="checkbox" id="option3-1" name="option3" value="option3-1" checked />
+      <input type="checkbox" id="option3-1" name="option3" value="option3-1" checked/>
       <label for="option3-1">Option 1</label>
     </div>
 
     <div>
-      <input type="checkbox" id="option3-2" name="option3" value="option3-2" />
+      <input type="checkbox" id="option3-2" name="option3" value="option3-2" data-cy="checkbox2"/>
       <label for="option3-2">Option 2</label>
     </div>
   <div>
 
   <div data-feature="dom-state-handler" data-state-handler-type="radio-group">
     <input type="radio" name="option4" value="orange"/>
-    <input type="radio" name="option4" value="violet" selected="true"/>
-    <input type="radio" name="option4" value="yellow"/>
+    <input type="radio" name="option4" value="violet" checked/>
+    <input type="radio" name="option4" value="yellow" data-cy="radio3" />
   </div>
 </div>
 `
