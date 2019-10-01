@@ -3,27 +3,25 @@ import { features } from '@goldinteractive/js-base'
 import Headroomjs from 'headroom.js'
 
 class Headroom extends features.Feature {
-
   /**
    * Initializer
-   * @param {*} custom options in case of extending 
+   * @param {*} custom options in case of extending
    */
   init(options = this.options) {
-
-    let onPin = options.onPin;
-    let onUnpin = options.onUnpin;
+    let onPin = options.onPin
+    let onUnpin = options.onUnpin
     if (options.customClasses.length > 0) {
       onPin = () => {
         options.customClasses.forEach(option => {
-          option.element.classList.add(option.pinClass);
-        });
-        options.onPin();
-      };
+          option.element.classList.add(option.pinClass)
+        })
+        options.onPin()
+      }
       onUnpin = () => {
         options.customClasses.forEach(option => {
-          option.element.classList.remove(option.pinClass);
-        });
-        options.onUnpin();
+          option.element.classList.remove(option.pinClass)
+        })
+        options.onUnpin()
       }
     }
 
@@ -49,7 +47,6 @@ class Headroom extends features.Feature {
     super.destroy()
     this.headroom.destroy()
   }
-
 }
 
 /**
