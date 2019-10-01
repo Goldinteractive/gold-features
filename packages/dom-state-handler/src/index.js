@@ -12,9 +12,7 @@ export * from './persistors'
  */
 class DomStateHandler extends features.Feature {
   init() {
-    const Prototype = this.options.statePrototypes.find(Prototype =>
-      Prototype.isHandledBy(this.node)
-    )
+    const Prototype = this.getMatchingPrototype()
     if (Prototype === undefined) {
       throw new Error(
         `No matching Prototype found for ${this.node.tagName} `,
@@ -34,6 +32,18 @@ class DomStateHandler extends features.Feature {
     this.addEventListener(this.node, this.instance.getChangeEventName(), () => {
       this.options.domState.updateState()
     })
+  }
+
+  getMatchingPrototype() {
+    let type = undefined
+    this.options.statePrototypes.some(Prototype => {
+      if (Prototype.isHandledBy(this.node)) {
+        type = Prototype
+        return true
+      }
+      return false
+    })
+    return type
   }
 }
 
