@@ -3,40 +3,41 @@ import { features } from '@goldinteractive/js-base'
 import Headroomjs from 'headroom.js'
 
 class Headroom extends features.Feature {
-  /**
-   * Initializer
-   * @param {*} custom options in case of extending
-   */
-  init(options = this.options) {
-    let onPin = options.onPin
-    let onUnpin = options.onUnpin
-    if (options.customClasses.length > 0) {
-      onPin = () => {
-        options.customClasses.forEach(option => {
-          option.element.classList.add(option.pinClass)
-        })
-        options.onPin()
-      }
-      onUnpin = () => {
-        options.customClasses.forEach(option => {
-          option.element.classList.remove(option.pinClass)
-        })
-        options.onUnpin()
-      }
-    }
+  init() {
+    const { onPin, onUnpin } = this.getPinHandlers()
 
     this.headroom = new Headroomjs(this.node, {
-      offset: options.offset,
-      tolerance: options.tolerance,
-      classes: options.classes,
-      onNotTop: options.onNotTop,
-      onTop: options.onTop,
+      offset: this.options.offset,
+      tolerance: this.options.tolerance,
+      classes: this.options.classes,
+      onNotTop: this.options.onNotTop,
+      onTop: this.options.onTop,
       onPin: onPin,
       onUnpin: onUnpin,
-      scroller: options.scroller
+      scroller: this.options.scroller
     })
 
     this.headroom.init()
+  }
+
+  getPinHandlers() {
+    let onPin = this.options.onPin
+    let onUnpin = this.options.onUnpin
+    if (this.options.customClasses.length > 0) {
+      onPin = () => {
+        this.options.customClasses.forEach(option => {
+          option.element.classList.add(option.pinClass)
+        })
+        this.options.onPin()
+      }
+      onUnpin = () => {
+        this.options.customClasses.forEach(option => {
+          option.element.classList.remove(option.pinClass)
+        })
+        this.options.onUnpin()
+      }
+    }
+    return { onPin, onUnpin }
   }
 
   update() {
