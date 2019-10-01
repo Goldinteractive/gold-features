@@ -1,4 +1,5 @@
 # Gold Features
+
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 [![Maintainability](https://api.codeclimate.com/v1/badges/8f4526e6a5de3ce98e2e/maintainability)](https://codeclimate.com/github/Goldinteractive/gold-features/maintainability)
 
@@ -27,27 +28,17 @@ Run `yarn install --frozen-lockfile` to install dependencies for `gold-features`
 
 ### How to do basic feature maintenance
 
-Let's assume you want to change something in `feature-xyz`.
+#### Start Docs Watch Mode
 
-#### Build all projects
-`yarn lerna:build`
-
-### Start Docs Server And Watch For Changes
-`yarn docs:serve` -- starts the dev server on port 8080
+`yarn docs:watch` -- watches for project changes and updates the docs.
 
 > The port is fixed because `cypress.json` does require the baseUrl.
 
-#### Start Watch Mode on specific project
-`yarn watch xyz` - enables watch mode for specific project and automatically updates the docs.
+#### Start Integration Tests
+
 `yarn test:interactive` - launches Cypress Test Runner
 
 Do your changes and check them using the docs page and Cypress.
-
-#### Start Docs Watch Mode
-
-If you do not want to update a specific project and only want to update docs, there is no need to start a specific project in watch mode.
-
-`yarn docs:watch` -- watches for project changes and updates the docs (won't build the project though)
 
 ### Commit changes
 
@@ -64,13 +55,16 @@ More detailed comment about commit
 ```
 
 ### Publish changes
+
 > If you only changed the docs there is no need to publish a new feature version.
 
 Run `yarn lerna:updated` to make sure you did not change anything by accident.
 This will check whether a new package is required.
+
 > Make sure that only your changed project pops up.
 
 #### Feature Changes
+
 Then using `yarn lerna:publish` you can publish the changed packages to the npm registry.
 
 > Do a prerelease before publishing a new version!
@@ -78,6 +72,7 @@ Then using `yarn lerna:publish` you can publish the changed packages to the npm 
 When a prerelease has been properly tested, you can publish the package using `yarn publish`.
 
 #### Docs Changes
+
 After updating the docs simply publish them using the `yarn docs:publish` command.
 
 ### List of specific Lerna Commands
@@ -88,7 +83,7 @@ We use `lerna` to orchestrate the build and publish process.
 
 `yarn lerna:updated` lists all packages which must be published. Note that `updated` fails if there is no package which needs to be updated.
 
-`yarn lerna:publish` build all packages, then checks for changed packages (comparing to last tag). Prompts for each package before release (*Note* that it will only commit package.json. Therefore all other changes must be commited beforehand)
+`yarn lerna:publish` build all packages, then checks for changed packages (comparing to last tag). Prompts for each package before release (_Note_ that it will only commit package.json. Therefore all other changes must be commited beforehand)
 
 Lerna will not pick up unchanged packages. Run `yarn publish` in the feature directory to publish a version of a package which was previously pre-released.
 
@@ -104,16 +99,14 @@ There is a bootstrap script in place to ease the creation of new features.
 
 Each feature manages its own local dependencies, make sure to install them in the proper scope ([dev !== peer](https://docs.npmjs.com/files/package.json#peerdependencies)).
 
-Create your feature and update the docs accordingly. Make sure to update `stylemark.config.yml` to ensure that all runtime dependencies are available on the docs pages.
-
 Refer to the maintenance guide to start working on the feature.
 
 ### How does the documentation work?
 
-The docs are generated using stylemark (https://github.com/nextbigsoundinc/stylemark).
+The docs are generated using Storybook (https://storybook.js.org/).
 
 Generate it using `yarn docs` in the root directory.
 
-It automatically scans the entire `/packages` dir for `.md` or annotated code. Based on the findings it will generate a static documentation which is being served by Github Pages (Jekyll is disabled because it ignores certain folders, e.g. `node_modules`, `_stylemark`).
+#### Technical notices
 
-`docsHelper` contains scripts which must be embedded into the docs during runtime. (e.g. require.js)
+Due to the storybook webpack configuration currently JSON files can't be inline loaded in feature code.

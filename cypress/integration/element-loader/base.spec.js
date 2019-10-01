@@ -1,12 +1,10 @@
-const URL = '/element-loader-types.html'
+const URL = '/iframe.html?id=elementloader--intro'
 
 describe('Element Loader', function() {
   it('properly loads elements', function() {
     cy.visit(URL)
 
     cy.get('[data-cy=loader]').should('exist')
-
-    cy.get('[data-cy=feature-content]').should('exist')
 
     cy.get('[data-cy=inlined]').should('exist')
 

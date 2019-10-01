@@ -1,4 +1,4 @@
-$ft-assets: '~/packages/gallery/assets/' !default;
+$ft-assets: '~/assets/' !default;
 $pswp__assets-path: '#{$ft-assets}features/gallery/' !default;
 
 @import 'photoswipe/src/css/main';
