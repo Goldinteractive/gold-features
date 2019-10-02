@@ -15,11 +15,13 @@ import '../src/style.scss'
 import docs from './docs.md'
 import CssDocs from './css.md'
 import ImageDocs from './image.md'
+import VideoDocs from './video.md'
 
 import metro from './files/metropolitano.jpg'
 import metroThumb from './files/metropolitano_thumb.jpg'
 import plaza from './files/plaza.jpg'
 import plazaThumb from './files/plaza_thumb.jpg'
+import video from './files/video-1.mp4'
 
 const markup = `<h1>Check Out the notes to get more information.</h1>`
 const CssMarkup = `
@@ -155,6 +157,37 @@ const ImageMarkup = `
 </div>
 `
 
+const VideoMarkup = `
+<style>
+  .offset {
+    height: 1500px;
+    width: 100%;
+    position: relative;
+  }
+
+  .section video {
+    width: 100%;
+  }
+
+  .container {
+    position: relative;
+    width: 50%;
+  }
+</style>
+
+<h1>Lazy Video</h1>
+<div class="offset">
+  Offset
+</div>
+<div class="container">
+  <video width="100%" autoplay muted loop playsinline preload="none" poster="" data-feature="reveal-trigger">
+    <source data-src="${video}" type="video/mp4" />
+    <source data-src="${video}-1" type="video/mp4" />
+  </video>
+</div>
+
+`
+
 storiesOf('RevealTrigger', module)
   .addDecorator(withKnobs)
   .add(
@@ -204,6 +237,25 @@ storiesOf('RevealTrigger', module)
     {
       notes: {
         markdown: ImageDocs
+      }
+    }
+  )
+  .add(
+    'Lazy Video',
+    () => {
+      return initializeDemo(VideoMarkup, () => {
+        resetFeature(features, 'reveal-trigger')
+
+        features.add('reveal-trigger', RevealTrigger, {
+          strategy: new strategies.LazyVideoStrategy(),
+          manager: new IntersectionManager()
+        })
+        features.init(document.body)
+      })
+    },
+    {
+      notes: {
+        markdown: VideoDocs
       }
     }
   )
