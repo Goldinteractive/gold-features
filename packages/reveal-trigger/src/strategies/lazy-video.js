@@ -1,12 +1,33 @@
 class LazyVideoStrategy {
   constructor(options) {
     this.options = Object.assign({}, LazyVideoStrategy.defaultOptions, options)
+    this.videoLoaded = false
     this.onNotify = this._onNotify()
   }
 
   _onNotify() {
-    return ({ node }) => {
-      console.log(node)
+    return ({ node, entry }) => {
+      if (entry.isIntersecting) {
+        if (!this.videoLoaded) {
+          node.addEventListener('timeupdate', () => {
+            console.log(node.currentTime)
+          })
+          node.children.forEach(child => {
+            if (child.src === '') {
+              child.src = child.dataset.src
+            }
+          })
+          console.log('loaded src')
+          node.load()
+          this.videoLoaded = true
+        } else {
+          console.log('play')
+          node.play()
+        }
+      } else {
+        console.log('pause')
+        node.pause()
+      }
     }
   }
 

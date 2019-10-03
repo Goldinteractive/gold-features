@@ -7,6 +7,7 @@ import {
 } from '../../../helpers/story'
 
 import { features, eventHub } from '@goldinteractive/js-base'
+import '@goldinteractive/js-base/src/polyfills/intersection-observer'
 
 import ObjectFit from '../../object-fit/src/index'
 import RevealTrigger, { IntersectionManager, strategies } from '../src/index'
@@ -163,15 +164,23 @@ const VideoMarkup = `
     height: 1500px;
     width: 100%;
     position: relative;
+    background: lightgreen;
+    margin-bottom: 100px;
   }
 
-  .section video {
-    width: 100%;
+  .downset {
+    height: 1000px;
+    background: lightgreen;
   }
 
   .container {
+    background: lightcoral;
     position: relative;
-    width: 50%;
+    width: 100%;
+  }
+
+  .video-container {
+    width: 50%
   }
 </style>
 
@@ -180,12 +189,18 @@ const VideoMarkup = `
   Offset
 </div>
 <div class="container">
-  <video width="100%" autoplay muted loop playsinline preload="none" poster="" data-feature="reveal-trigger">
-    <source data-src="${video}" type="video/mp4" />
-    <source data-src="${video}-1" type="video/mp4" />
-  </video>
+  before video
+  <div class="video-container">
+    <video width="100%" autoplay muted loop playsinline data-feature="reveal-trigger">
+      <source data-src="${video}" type="video/mp4" />
+      <source data-src="${video}" type="video/mp4" />
+    </video>
+  </div>
+  after video
 </div>
-
+<div class="downset">
+ Downset
+</div>
 `
 
 storiesOf('RevealTrigger', module)
@@ -248,7 +263,9 @@ storiesOf('RevealTrigger', module)
 
         features.add('reveal-trigger', RevealTrigger, {
           strategy: new strategies.LazyVideoStrategy(),
-          manager: new IntersectionManager()
+          manager: new IntersectionManager({
+            notifyOnlyWhenIntersecting: false
+          })
         })
         features.init(document.body)
       })
