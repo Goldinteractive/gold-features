@@ -136,6 +136,8 @@ export class Icon extends features.Feature {
 
   updateUseLink() {
     if (!this.$use) return
+    // in case of empty hash or fragment location properties are empty
+    // therefore they must be stripped manually from the location.href
     var currentDomain = window.location.href.replace(window.location.hash, '')
     if (currentDomain.slice(-1) === '#') {
       currentDomain = currentDomain.substring(0, currentDomain.length - 1)
