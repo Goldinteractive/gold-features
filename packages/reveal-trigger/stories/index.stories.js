@@ -160,46 +160,31 @@ const ImageMarkup = `
 
 const VideoMarkup = `
 <style>
-  .offset {
-    height: 1500px;
-    width: 100%;
-    position: relative;
-    background: lightgreen;
-    margin-bottom: 100px;
-  }
-
-  .downset {
-    height: 1000px;
-    background: lightgreen;
-  }
-
   .container {
-    background: lightcoral;
+    background: lightgreen;
     position: relative;
     width: 100%;
+    padding-top: 1500px;
   }
 
   .video-container {
-    width: 50%
+    background: lightcoral;
+    position: relative;
+    height: 1000px;
+    width: 1000px;
   }
 </style>
 
 <h1>Lazy Video</h1>
-<div class="offset">
-  Offset
-</div>
 <div class="container">
-  before video
   <div class="video-container">
-    <video width="100%" autoplay muted loop playsinline data-feature="reveal-trigger">
+    before video
+    <video width="100%" autoplay muted loop playsinline poster="${plazaThumb}" data-feature="reveal-trigger">
       <source data-src="${video}" type="video/mp4" />
       <source data-src="${video}" type="video/mp4" />
     </video>
+    after video
   </div>
-  after video
-</div>
-<div class="downset">
- Downset
 </div>
 `
 
@@ -260,7 +245,6 @@ storiesOf('RevealTrigger', module)
     () => {
       return initializeDemo(VideoMarkup, () => {
         resetFeature(features, 'reveal-trigger')
-
         features.add('reveal-trigger', RevealTrigger, {
           strategy: new strategies.LazyVideoStrategy(),
           manager: new IntersectionManager({
