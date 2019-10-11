@@ -178,12 +178,16 @@ const VideoMarkup = `
 <h1>Lazy Video</h1>
 <div class="container">
   <div class="video-container">
-    before video
-    <video width="100%" autoplay muted loop playsinline poster="${plazaThumb}" data-feature="reveal-trigger">
+    <video class="-lazy" width="100%" autoplay muted loop playsinline poster="${plazaThumb}" data-feature="reveal-trigger">
       <source data-src="${video}" type="video/mp4" />
       <source data-src="${video}" type="video/mp4" />
     </video>
-    after video
+  </div>
+  <div class="video-container">
+    <video class="-lazy" width="100%" autoplay muted loop playsinline poster="${plazaThumb}" data-feature="reveal-trigger">
+      <source data-src="${video3}" type="video/mp4" />
+      <source data-src="${video3}" type="video/mp4" />
+    </video>
   </div>
 </div>
 `

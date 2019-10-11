@@ -1,14 +1,13 @@
 class LazyVideoStrategy {
   constructor(options) {
     this.options = Object.assign({}, LazyVideoStrategy.defaultOptions, options)
-    this.videoLoaded = false
     this.onNotify = this._onNotify()
   }
 
   _onNotify() {
     return ({ node, entry }) => {
       if (entry.isIntersecting) {
-        if (!this.videoLoaded) {
+        if (node.classList.contains('-lazy')) {
           node.addEventListener('timeupdate', () => {
             console.log(node.currentTime)
           })
@@ -19,7 +18,7 @@ class LazyVideoStrategy {
           })
           console.log('loaded src')
           node.load()
-          this.videoLoaded = true
+          node.classList.remove('-lazy')
         } else {
           console.log('play')
           node.play()
