@@ -162,21 +162,19 @@ const ImageMarkup = `
 const VideoMarkup = `
 <style>
   .container {
-    background: lightgreen;
-    position: relative;
     width: 100%;
     padding-top: 1500px;
   }
 
   .video-container {
-    background: lightcoral;
-    position: relative;
     height: 1000px;
     width: 1000px;
+    margin-bottom: 500px;
   }
 </style>
 
 <h1>Lazy Video</h1>
+Offset to test lazy loading and pause/play of the video.
 <div class="container">
   <div class="video-container">
     <video class="-lazy" width="100%" autoplay muted loop playsinline poster="${plazaThumb}" data-feature="reveal-trigger">
