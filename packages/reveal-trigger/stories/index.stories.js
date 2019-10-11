@@ -23,6 +23,7 @@ import metroThumb from './files/metropolitano_thumb.jpg'
 import plaza from './files/plaza.jpg'
 import plazaThumb from './files/plaza_thumb.jpg'
 import video from './files/video-1.mp4'
+import video2 from './files/video-2.mp4'
 
 const markup = `<h1>Check Out the notes to get more information.</h1>`
 const CssMarkup = `
@@ -185,8 +186,8 @@ const VideoMarkup = `
   </div>
   <div class="video-container">
     <video class="-lazy" width="100%" autoplay muted loop playsinline poster="${plazaThumb}" data-feature="reveal-trigger">
-      <source data-src="${video3}" type="video/mp4" />
-      <source data-src="${video3}" type="video/mp4" />
+      <source data-src="${video2}" type="video/mp4" />
+      <source data-src="${video2}" type="video/mp4" />
     </video>
   </div>
 </div>
