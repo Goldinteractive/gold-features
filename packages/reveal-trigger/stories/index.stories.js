@@ -116,7 +116,7 @@ const ImageMarkup = `
 <h1>Using Sizes & Srcset</h1>
 <p>Quick notice: this obviously won't work in IE</p>
   <img
-  class="ft-reveal-trigger-image -preview -blur"
+  class="ft-reveal-trigger-image -preview -blur-zoom"
   src="${plazaThumb}"
   data-srcset="${plaza}?srcset320 320w,
              ${plaza}?srcset480 480w,
@@ -133,7 +133,7 @@ const ImageMarkup = `
 
   <div class="container">
     <div class="ft-fit-bg">
-      <img class="ft-reveal-trigger-image -preview -blur" src="${plazaThumb}?fit" data-src="${plaza}?fit" data-feature="fit, reveal-trigger">
+      <img class="ft-reveal-trigger-image -preview -fade" src="${plazaThumb}?fit" data-src="${plaza}?fit" data-feature="fit, reveal-trigger">
     </div>
   </div>
 </div>
