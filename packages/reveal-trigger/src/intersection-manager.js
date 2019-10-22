@@ -23,8 +23,13 @@ class IntersectionManager {
             !this.options.notifyOnlyWhenIntersecting ||
             entry.isIntersecting
           ) {
-            const { callback, node } = this.map.get(entry.target)
-            callback({ node, entry, manager: this })
+            const entryDefinition = this.map.get(entry.target)
+            // Entry might be undefined in case unregister has been called
+            // before requestAnimationFrame is being executed
+            if (entryDefinition !== undefined) {
+              const { callback, node } = entryDefinition
+              callback({ node, entry, manager: this })
+            }
           }
         })
       })
