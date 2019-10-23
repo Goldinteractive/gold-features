@@ -9,8 +9,8 @@ class LazyVideoStrategy {
       if (entry.isIntersecting) {
         if (node.classList.contains(this.options.previewVideoClass)) {
           node.children.forEach(child => {
-            if (child.src === '') {
-              child.src = child.dataset.src
+            if (child.tagName === 'SOURCE') {
+                child.src = child.dataset.src
             }
           })
           node.load()
