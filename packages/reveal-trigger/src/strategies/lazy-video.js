@@ -7,14 +7,14 @@ class LazyVideoStrategy {
   _onNotify() {
     return ({ node, entry }) => {
       if (entry.isIntersecting) {
-        if (node.classList.contains('-lazy')) {
+        if (node.classList.contains(this.options.previewVideoClass)) {
           node.children.forEach(child => {
             if (child.src === '') {
               child.src = child.dataset.src
             }
           })
           node.load()
-          node.classList.remove('-lazy')
+          node.classList.remove(this.options.previewVideoClass)
         } else {
           node.play()
         }
@@ -29,6 +29,8 @@ class LazyVideoStrategy {
   }
 }
 
-LazyVideoStrategy.defaultOptions = {}
+LazyVideoStrategy.defaultOptions = {
+  previewVideoClass: '-lazy'
+}
 
 export default LazyVideoStrategy
