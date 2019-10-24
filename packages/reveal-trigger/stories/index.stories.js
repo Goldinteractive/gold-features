@@ -105,7 +105,7 @@ const ImageMarkup = `
 }
 </style>
 
-<h1>Using standard src</h1>
+<h1>Using standard src (blur animation)</h1>
 <div class="section -filled">
   <img src="${metroThumb}"
   class="ft-reveal-trigger-image -preview -blur"
@@ -114,7 +114,7 @@ const ImageMarkup = `
   />
 </div>
 <div class="section -filled">
-<h1>Using Sizes & Srcset</h1>
+<h1>Using Sizes & Srcset (blur zoom animation)</h1>
 <p>Quick notice: this obviously won't work in IE</p>
   <img
   class="ft-reveal-trigger-image -preview -blur-zoom"
@@ -129,7 +129,7 @@ const ImageMarkup = `
   />
 </div>
 <div class="section -filled">
-  <h1>Using Sizes & Srcset & Src & <b>Object Fit</b></h1>
+  <h1>Using Sizes & Srcset & Src & <b>Object Fit</b> (fade animation)</h1>
   <p>If you use object fit make sure to set a default src</p>
 
   <div class="container">
@@ -139,7 +139,7 @@ const ImageMarkup = `
   </div>
 </div>
 <div class="section -filled">
-<h1>Using Sizes & Srcset & Src</h1>
+<h1>Using Sizes & Srcset & Src (blur animation)</h1>
 <p>In Browsers which support srcset, it will render the Metropolitano Stadium - in others it will fall back to the Plaza</p>
   <img
   class="ft-reveal-trigger-image -preview -blur"
