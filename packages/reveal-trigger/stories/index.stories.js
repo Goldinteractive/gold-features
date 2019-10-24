@@ -87,6 +87,7 @@ const ImageMarkup = `
   height: 1000px;
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 .section img {
