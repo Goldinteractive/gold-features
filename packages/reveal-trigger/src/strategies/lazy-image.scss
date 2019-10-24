@@ -9,7 +9,7 @@ $ft-reveal-trigger-image-zoom-scale: 0.7 !default;
 $ft-reveal-trigger-image-zoom-duration: 0.3s !default;
 $ft-reveal-trigger-image-zoom-easing: ease-out !default;
 
-$ft-reveal-trigger-image-initial-opacity: 0 !default;
+$ft-reveal-trigger-image-fade-initial-opacity: 0 !default;
 $ft-reveal-trigger-image-fade-duration: 0.3s !default;
 $ft-reveal-trigger-image-fade-easing: ease-out !default;
 
@@ -38,6 +38,6 @@ $ft-reveal-trigger-image-fade-easing: ease-out !default;
       $ft-reveal-trigger-image-fade-easing;
   }
   &.-preview.-fade {
-    opacity: $ft-reveal-trigger-image-initial-opacity;
+    opacity: $ft-reveal-trigger-image-fade-initial-opacity;
   }
 }
