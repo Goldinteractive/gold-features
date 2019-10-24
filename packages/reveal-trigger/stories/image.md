@@ -13,6 +13,8 @@ In order to prevent scroll flickering you must guarantee, that the `img` tag won
 
 #### Animation Strategies
 
-| Class | Effect                                                                                         |
-| ----- | ---------------------------------------------------------------------------------------------- |
-| -blur | the default image will be blurred, then the image is being replaced and the blur is fading out |
+| Class      | Effect                                                                                         |
+| ---------- | ---------------------------------------------------------------------------------------------- |
+| -blur      | the default image will be blurred, then the image is being replaced and the blur is fading out |
+| -blur-zoom | the default image will be blurred and scaled up, then the blur fades out and the zoom is reset |
+| -fade      | the default image will be invisible, then the opacity fades in                                 |
