@@ -1,3 +1,5 @@
+import invariant from 'tiny-invariant'
+
 class LazyVideoStrategy {
   constructor(options) {
     this.options = Object.assign({}, LazyVideoStrategy.defaultOptions, options)
@@ -8,13 +10,17 @@ class LazyVideoStrategy {
     return ({ node, entry }) => {
       if (entry.isIntersecting) {
         if (node.classList.contains(this.options.previewVideoClass)) {
-          node.children.forEach(child => {
-            if (child.tagName === 'SOURCE') {
+          if (node.children.length > 0) {
+            Array.from(node.children).forEach(child => {
+              if (child.tagName === 'SOURCE') {
                 child.src = child.dataset.src
-            }
-          })
-          node.load()
-          node.classList.remove(this.options.previewVideoClass)
+              }
+            })
+            node.load()
+            node.classList.remove(this.options.previewVideoClass)
+          } else {
+            invariant(false, 'Video node needs at least one source child node.')
+          }
         } else {
           node.play()
         }
