@@ -1,3 +1,5 @@
-# CookieDisclaimer
+# Cookie Handler
 
-## Banner
+## Cookie Disclaimer Banner
+
+Example of our CookieDisclaimer as a Banner.

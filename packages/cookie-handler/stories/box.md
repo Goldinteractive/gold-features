@@ -1,3 +1,5 @@
-# CookieDisclaimer
+# Cookie Handler
 
-## Box
+## Cookie Disclaimer Box
+
+Example of our CookieDisclaimer as a Box.
