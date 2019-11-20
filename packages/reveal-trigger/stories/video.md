@@ -18,16 +18,14 @@ Videos in our most loved browser Internet Explorer might not behave correctly. W
 
 ### Flickering
 
-#### Empty -> Poster image
-
-If you use a poster image, the screen might flicker when the poster image is loaded, because the container doesn't contain anything yet, so the browser injects the image and the container is pulled open.
-To prevent this, make sure that the size of the container of the `<video` tag is set.
-
-#### Poster image -> video
-
-When the video is loaded, it might flicker again, because the image has a different aspect ratio than the video. To prevent this, make sure that the image has the same aspect ratio and/or the same size-styling as the video. Set the same `width` and use the `object-fit` attribute.
-
 #### Manual poster image
 
 You can also use a manual `<img>` tag with a smaller `z-index` than the `<video>`. Then the image is loaded at first and when the video is loaded, it is displayed on top of the image. Also make sure that they have the same aspect ratio and/or the same size-styling as the video. Use `position:absolute` to place them on top of each other.
 Tipp: Use the _lazy-image_ strategy to avoid an huge inital page load.
+
+#### Poster image attribute
+
+If you use a poster image, the screen might flicker when the poster image is loaded, because the container doesn't contain anything yet, so the browser injects the image and the container is pulled open.
+To prevent this, make sure that the size of the container of the `<video` tag is set.
+
+When the video is loaded, it might flicker again, because the image has a different aspect ratio than the video. To prevent this, make sure that the image has the same aspect ratio and/or the same size-styling as the video. Set the same `width` and use the `object-fit` attribute.
