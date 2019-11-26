@@ -20,7 +20,7 @@ Videos in our most loved browser Internet Explorer might not behave correctly. W
 
 ## Poster Image
 
-Lazy loading media can cause shifting in the layout if placeholders aren't used. That's why I recommend defining a poster image
+Lazy loading media can cause shifting in the layout if placeholders aren't used. Therefore using a poster image is recommended.
 This can be done in two different ways:
 
 - You use the `poster` attribute of the `<video>` tag. Note that the loaded image may not have the same dimensions as the video and layout shifting and flickering may occur. More about this below.
