@@ -7,9 +7,10 @@ class CookieHandler extends features.Feature {
   init() {
     this.cookieIdentifier =
       this.node.dataset.cookieIdentifier || this.options.cookieIdentifier
-    if (this.cookieIdentifier == null) {
-      invariant(false, 'Cookie identifier needs to be set.')
-    }
+    invariant(
+      this.cookieIdentifier === null,
+      'Cookie identifier needs to be set.'
+    )
     const cookieValue = Cookies.get(this.cookieIdentifier)
     const showTeaser = cookieValue === undefined || cookieValue !== 'true'
 
@@ -46,7 +47,7 @@ class CookieHandler extends features.Feature {
 }
 
 CookieHandler.defaultOptions = {
-  cookieIdentifier: null,
+  cookieIdentifier: 'test',
   enableEventListener: false,
   daysUntilExpiration: 365,
   delayPopup: 0
