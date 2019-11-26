@@ -183,9 +183,7 @@ Offset to test lazy loading and pause/play of the video.
     </video>
   </div>
   <div class="video-container">
-    <video class="-lazy" width="100%" autoplay muted loop playsinline poster="${plazaThumb}" data-feature="reveal-trigger">
-      <source data-src="${video2}" type="video/mp4" />
-      <source data-src="${video2}" type="video/mp4" />
+    <video class="-lazy" data-src="${video2}" width="100%" autoplay muted loop playsinline poster="${plazaThumb}" data-feature="reveal-trigger">
     </video>
   </div>
 </div>
