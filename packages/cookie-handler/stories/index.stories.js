@@ -81,15 +81,16 @@ storiesOf('CookieHandler', module)
           })
         )
 
+        const cookieContainer = document.querySelector(
+          '[data-cookie-identifier="sample-teaser"]'
+        )
+
         setTimeout(() => {
           eventHub.trigger(
             `${cookieContainer.dataset.cookieIdentifier}:register`
           )
         }, 2000)
 
-        const cookieContainer = document.querySelector(
-          '[data-cookie-identifier="sample-teaser"]'
-        )
         eventHub.on(
           `${cookieContainer.dataset.cookieIdentifier}:activate`,
           () => {
