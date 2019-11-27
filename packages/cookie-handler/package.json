@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-cookie-handler",
-  "version": "0.0.11",
+  "version": "0.0.1-alpha",
   "description": "cookie-handler feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
