@@ -12,6 +12,5 @@
   },
   "peerDependencies": {
     "@goldinteractive/js-base": "~0.1.0"
-  },
-  "dependencies": {}
+  }
 }
