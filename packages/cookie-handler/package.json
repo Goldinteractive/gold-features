@@ -11,10 +11,9 @@
     "watch": "node ../../scripts/watch.js"
   },
   "dependencies": {
-    "js-cookie": "^2.2.0",
-    "tiny-invariant": "^1.0.6"
+    "js-cookie": "^2.2.0"
   },
   "peerDependencies": {
-    "@goldinteractive/js-base": "~0.0.3"
+    "@goldinteractive/js-base": "~0.1.0"
   }
 }
