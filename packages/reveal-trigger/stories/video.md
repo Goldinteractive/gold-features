@@ -29,14 +29,14 @@ Videos in our most loved browser Internet Explorer might not behave correctly. W
 Lazy loading media can cause shifting in the layout if placeholders aren't used. Therefore using a poster image is recommended.
 This can be done in two different ways:
 
-- You use the `poster` attribute of the `<video>` tag. Note that the loaded image may not have the same dimensions as the video and layout shifting and flickering may occur. More about this below.
-- Add an image normally with the `<img>` tag. The image should have a lower `z-index` than the video so you can see the video as soon as it is loaded.
+- Use the `poster` attribute of the `<video>` tag. Note that the loaded image may not have the same dimensions as the video and layout shifting and flickering may occur. More about this below.
+- Add an image normally with the `<img>` tag. Depending on the markup the img might require a lower `z-index` than the video in order to see the video as soon as it is loaded.
 
 ### Flickering & layout shifting
 
-Before loading the poster image, you have to make sure that the container of the video already has the desired size. This prevents layout shifting and flickering when the image is initially loaded.
-After that you have to make sure that the image has the same dimensions as the video when loading a poster image or a normal image. So the image is smoothly replaced by the video once the video is loaded.
+Before loading the poster image, make sure that the container of the video already has the desired size. This prevents layout shifting and flickering when the image is initially loaded.
+Furthermore, ensure that the image has the same dimensions as the video when loading a poster image or a normal image. So the image is smoothly replaced by the video once the video is loaded.
 
-## Infos
+## Resources
 
 For more infos about layout shifting or lazy loading media, checkout this article of [google developers](https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video).
