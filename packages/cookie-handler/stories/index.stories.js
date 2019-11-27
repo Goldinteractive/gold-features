@@ -66,6 +66,29 @@ const BoxMarkup = `
 </div>
 `
 
+const handleActivation = (
+  cookieIdentifier,
+  dismissButtonIdentifier,
+  eventListener = false
+) => {
+  const cookieContainer = document.querySelector(cookieIdentifier)
+  const dismissButton = cookieContainer.querySelector(dismissButtonIdentifier)
+
+  if (eventListener) {
+    setTimeout(() => {
+      eventHub.trigger(`${cookieContainer.dataset.cookieIdentifier}:register`)
+    }, 2000)
+  }
+
+  eventHub.on(`${cookieContainer.dataset.cookieIdentifier}:activate`, () => {
+    cookieContainer.classList.add('-show')
+  })
+  dismissButton.addEventListener('click', () => {
+    eventHub.trigger(`${cookieContainer.dataset.cookieIdentifier}:deactivate`)
+    cookieContainer.classList.remove('-show')
+  })
+}
+
 storiesOf('CookieHandler', module)
   .addDecorator(withKnobs)
   .add(
@@ -73,38 +96,20 @@ storiesOf('CookieHandler', module)
     () => {
       return initializeDemo(sampleTeaser, () => {
         resetFeature(features, 'cookie-handler')
+        const eventListener = true
         features.add(
           'cookie-handler',
           CookieHandler,
           object('options', {
-            enableEventListener: true
+            enableEventListener: eventListener
           })
         )
 
-        const cookieContainer = document.querySelector(
-          '[data-cookie-identifier="sample-teaser"]'
+        handleActivation(
+          '[data-cookie-identifier="sample-teaser"]',
+          '[data-dismiss]',
+          eventListener
         )
-
-        setTimeout(() => {
-          eventHub.trigger(
-            `${cookieContainer.dataset.cookieIdentifier}:register`
-          )
-        }, 2000)
-
-        eventHub.on(
-          `${cookieContainer.dataset.cookieIdentifier}:activate`,
-          () => {
-            cookieContainer.classList.add('-show')
-          }
-        )
-
-        const dismissButton = cookieContainer.querySelector('[data-dismiss]')
-        dismissButton.addEventListener('click', () => {
-          eventHub.trigger(
-            `${cookieContainer.dataset.cookieIdentifier}:deactivate`
-          )
-          cookieContainer.classList.remove('-show')
-        })
 
         features.init(document.body)
       })
@@ -126,24 +131,11 @@ storiesOf('CookieHandler', module)
           object('options', CookieHandler.defaultOptions)
         )
 
-        const cookieContainer = document.querySelector(
-          '[data-cookie-identifier="disclaimer-banner"]'
-        )
-        eventHub.on(
-          `${cookieContainer.dataset.cookieIdentifier}:activate`,
-          () => {
-            cookieContainer.classList.add('-show')
-          }
-        )
-        const dismissButton = cookieContainer.querySelector(
+        handleActivation(
+          '[data-cookie-identifier="disclaimer-banner"]',
           '[data-disclaimer-confirm]'
         )
-        dismissButton.addEventListener('click', () => {
-          eventHub.trigger(
-            `${cookieContainer.dataset.cookieIdentifier}:deactivate`
-          )
-          cookieContainer.classList.remove('-show')
-        })
+
         features.init(document.body)
       })
     },
@@ -163,24 +155,12 @@ storiesOf('CookieHandler', module)
           CookieHandler,
           object('options', CookieHandler.defaultOptions)
         )
-        const cookieContainer = document.querySelector(
-          '[data-cookie-identifier="disclaimer-box"]'
-        )
-        eventHub.on(
-          `${cookieContainer.dataset.cookieIdentifier}:activate`,
-          () => {
-            cookieContainer.classList.add('-show')
-          }
-        )
-        const dismissButton = cookieContainer.querySelector(
+
+        handleActivation(
+          '[data-cookie-identifier="disclaimer-box"]',
           '[data-disclaimer-confirm]'
         )
-        dismissButton.addEventListener('click', () => {
-          eventHub.trigger(
-            `${cookieContainer.dataset.cookieIdentifier}:deactivate`
-          )
-          cookieContainer.classList.remove('-show')
-        })
+
         features.init(document.body)
       })
     },
