@@ -7,6 +7,7 @@ import {
 } from '../../../helpers/story'
 
 import { features, eventHub } from '@goldinteractive/js-base'
+import '@goldinteractive/js-base/src/polyfills/intersection-observer'
 
 import ObjectFit from '../../object-fit/src/index'
 import RevealTrigger, { IntersectionManager, strategies } from '../src/index'
@@ -15,11 +16,14 @@ import '../src/style.scss'
 import docs from './docs.md'
 import CssDocs from './css.md'
 import ImageDocs from './image.md'
+import VideoDocs from './video.md'
 
 import metro from './files/metropolitano.jpg'
 import metroThumb from './files/metropolitano_thumb.jpg'
 import plaza from './files/plaza.jpg'
 import plazaThumb from './files/plaza_thumb.jpg'
+import video from './files/video-1.mp4'
+import video2 from './files/video-2.mp4'
 
 const markup = `<h1>Check Out the notes to get more information.</h1>`
 const CssMarkup = `
@@ -156,6 +160,36 @@ const ImageMarkup = `
 </div>
 `
 
+const VideoMarkup = `
+<style>
+  .container {
+    width: 100%;
+    padding-top: 1500px;
+  }
+
+  .video-container {
+    height: 1000px;
+    width: 1000px;
+    margin-bottom: 500px;
+  }
+</style>
+
+<h1>Lazy Video</h1>
+Offset to test lazy loading and pause/play of the video.
+<div class="container">
+  <div class="video-container">
+    <video class="-lazy" width="100%" autoplay muted loop playsinline poster="${plazaThumb}" data-feature="reveal-trigger">
+      <source data-src="${video}" type="video/mp4" />
+      <source data-src="${video}" type="video/mp4" />
+    </video>
+  </div>
+  <div class="video-container">
+    <video class="-lazy" data-src="${video2}" width="100%" autoplay muted loop playsinline poster="${plazaThumb}" data-feature="reveal-trigger">
+    </video>
+  </div>
+</div>
+`
+
 storiesOf('RevealTrigger', module)
   .addDecorator(withKnobs)
   .add(
@@ -205,6 +239,26 @@ storiesOf('RevealTrigger', module)
     {
       notes: {
         markdown: ImageDocs
+      }
+    }
+  )
+  .add(
+    'Lazy Video',
+    () => {
+      return initializeDemo(VideoMarkup, () => {
+        resetFeature(features, 'reveal-trigger')
+        features.add('reveal-trigger', RevealTrigger, {
+          strategy: new strategies.LazyVideoStrategy(),
+          manager: new IntersectionManager({
+            notifyOnlyWhenIntersecting: false
+          })
+        })
+        features.init(document.body)
+      })
+    },
+    {
+      notes: {
+        markdown: VideoDocs
       }
     }
   )
