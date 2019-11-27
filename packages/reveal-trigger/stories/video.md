@@ -8,9 +8,15 @@ Using this strategy videos will only be loaded once they enter the viewport. Thi
 - You have to set the class `-lazy` on the `<video>` tag. This tells the feature once the video enters the viewport, that the video source is not set yet. It will remove the class after.
 - Set a poster image for the video to prevent an empty space if a user has a bad network connection. (optional)
 
-### Strategy
+### IntersectionManager
 
 Set `notifyOnlyWhenIntersecting` to false because we want to pause the video when it's not in the viewport.
+
+```
+new IntersectionManager({
+  notifyOnlyWhenIntersecting: false
+})
+```
 
 ## Notes
 
