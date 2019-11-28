@@ -16,13 +16,16 @@ class LazyVideoStrategy {
                 child.src = child.dataset.src
               }
             })
-            node.load()
-            node.classList.remove(this.options.previewVideoClass)
           } else if (node.dataset.src !== undefined) {
             node.src = node.dataset.src
           } else {
-            invariant(false, 'Video node needs at least one source child node or a data-src attribute.')
+            invariant(
+              false,
+              'Video node needs at least one source child node or a data-src attribute.'
+            )
           }
+          node.load()
+          node.classList.remove(this.options.previewVideoClass)
         } else {
           node.play()
         }
