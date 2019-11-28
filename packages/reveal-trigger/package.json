@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-reveal-trigger",
-  "version": "0.0.7-alpha.1",
+  "version": "1.0.0",
   "description": "reveal-trigger feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",

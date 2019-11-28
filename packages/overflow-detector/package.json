@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-overflow-detector",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "overflow-detector feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",

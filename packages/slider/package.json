@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-slider",
-  "version": "0.0.13",
+  "version": "1.0.0",
   "description": "slider feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
