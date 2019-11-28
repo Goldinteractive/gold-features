@@ -69,7 +69,11 @@ Then using `yarn lerna:publish` you can publish the changed packages to the npm 
 
 > Do a prerelease before publishing a new version!
 
-When a prerelease has been properly tested, you can publish the package using `yarn publish`.
+When a prerelease has been properly tested, you can publish the package using:
+
+`yarn lerna publish --force-publish @goldinteractive/feature-sample`
+
+> This command does not perform a rebuild! Therefore it must only be used when a prerelease has been published previously.
 
 #### Docs Changes
 
