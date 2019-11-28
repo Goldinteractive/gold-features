@@ -2,6 +2,65 @@
 # yarn lockfile v1
 
 
+"@goldinteractive/js-base@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@goldinteractive/js-base/-/js-base-1.0.0.tgz#e5208e2842bdb8428d7f7de4ca20d5ec58853dcd"
+  integrity sha512-1zo0UlREefTO4WU9TsAy8NZuAkJEtSvqwax1XebR7RLZdf5BOnqxBH7SSySGYpTxvWEHW9v3sqCFwDLkacWXqw==
+  dependencies:
+    core-js "^2.5.1"
+    easing-js danro/easing-js
+    fetch-jsonp "^1.1.3"
+    intersection-observer "^0.5.0"
+    promise-polyfill "^6.0.2"
+    qs "^6.5.1"
+    riot-observable "^3.0.0"
+    tiny-invariant "^1.0.6"
+    whatwg-fetch "^2.0.3"
+
+core-js@^2.5.1:
+  version "2.6.10"
+  resolved "https://registry.npmjs.org/core-js/-/core-js-2.6.10.tgz#8a5b8391f8cc7013da703411ce5b585706300d7f"
+  integrity sha512-I39t74+4t+zau64EN1fE5v2W31Adtc/REhzWN+gWRRXg6WH5qAsZm62DHpQ1+Yhe4047T55jvzz7MUqF/dBBlA==
+
+easing-js@danro/easing-js:
+  version "0.5.4"
+  resolved "https://codeload.github.com/danro/easing-js/tar.gz/4f5e7edbde7f7200a1baf08e357377896c0d207e"
+
+fetch-jsonp@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.npmjs.org/fetch-jsonp/-/fetch-jsonp-1.1.3.tgz#9eb9e585ba08aaf700563538d17bbebbcd5a3db2"
+  integrity sha1-nrnlhboIqvcAVjU40Xu+u81aPbI=
+
+intersection-observer@^0.5.0:
+  version "0.5.1"
+  resolved "https://registry.npmjs.org/intersection-observer/-/intersection-observer-0.5.1.tgz#e340fc56ce74290fe2b2394d1ce88c4353ac6dfa"
+  integrity sha512-Zd7Plneq82kiXFixs7bX62YnuZ0BMRci9br7io88LwDyF3V43cQMI+G5IiTlTNTt+LsDUppl19J/M2Fp9UkH6g==
+
 js-cookie@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-2.2.0.tgz#1b2c279a6eece380a12168b92485265b35b1effb"
+
+promise-polyfill@^6.0.2:
+  version "6.1.0"
+  resolved "https://registry.npmjs.org/promise-polyfill/-/promise-polyfill-6.1.0.tgz#dfa96943ea9c121fca4de9b5868cb39d3472e057"
+  integrity sha1-36lpQ+qcEh/KTem1hoyznTRy4Fc=
+
+qs@^6.5.1:
+  version "6.9.1"
+  resolved "https://registry.npmjs.org/qs/-/qs-6.9.1.tgz#20082c65cb78223635ab1a9eaca8875a29bf8ec9"
+  integrity sha512-Cxm7/SS/y/Z3MHWSxXb8lIFqgqBowP5JMlTUFyJN88y0SGQhVmZnqFK/PeuMX9LzUyWsqqhNxIyg0jlzq946yA==
+
+riot-observable@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/riot-observable/-/riot-observable-3.0.0.tgz#8bbd2daf72a2141bb043082df4023dc504bad2eb"
+  integrity sha1-i70tr3KiFBuwQwgt9AI9xQS60us=
+
+tiny-invariant@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.0.6.tgz#b3f9b38835e36a41c843a3b0907a5a7b3755de73"
+  integrity sha512-FOyLWWVjG+aC0UqG76V53yAWdXfH8bO6FNmyZOuUrzDzK8DI3/JRY25UD7+g49JWM1LXwymsKERB+DzI0dTEQA==
+
+whatwg-fetch@^2.0.3:
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
+  integrity sha512-dcQ1GWpOD/eEQ97k66aiEVpNnapVj90/+R+SXTPYGHpYBBypfKJEQjLrvMZ7YXbKm21gXd4NcuxUTjiv1YtLng==

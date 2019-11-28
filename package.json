@@ -28,7 +28,7 @@
     "@babel/plugin-proposal-decorators": "^7.3.0",
     "@babel/preset-env": "^7.3.1",
     "@goldinteractive/ignore-assets-webpack-plugin": "^3.0.0",
-    "@goldinteractive/js-base": "^0.1.0",
+    "@goldinteractive/js-base": "^1.0.0",
     "@storybook/addon-actions": "^5.2.1",
     "@storybook/addon-knobs": "^5.2.1",
     "@storybook/addon-notes": "^5.2.1",

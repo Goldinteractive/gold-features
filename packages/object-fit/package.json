@@ -16,6 +16,6 @@
     "object-fit-videos": "^1.0.4"
   },
   "peerDependencies": {
-    "@goldinteractive/js-base": "~0.0.3"
+    "@goldinteractive/js-base": "^1.0.0"
   }
 }

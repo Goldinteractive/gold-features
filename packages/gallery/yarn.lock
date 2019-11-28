@@ -2,55 +2,24 @@
 # yarn lockfile v1
 
 
-"@goldinteractive/js-base@~0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@goldinteractive/js-base/-/js-base-0.0.3.tgz#cf4ddb800b889fa3beb4d2398ce635e448228512"
+"@goldinteractive/js-base@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@goldinteractive/js-base/-/js-base-1.0.0.tgz#e5208e2842bdb8428d7f7de4ca20d5ec58853dcd"
+  integrity sha512-1zo0UlREefTO4WU9TsAy8NZuAkJEtSvqwax1XebR7RLZdf5BOnqxBH7SSySGYpTxvWEHW9v3sqCFwDLkacWXqw==
   dependencies:
-    camel-case "^3.0.0"
     core-js "^2.5.1"
-    detect-it "^3.0.3"
     easing-js danro/easing-js
     fetch-jsonp "^1.1.3"
+    intersection-observer "^0.5.0"
     promise-polyfill "^6.0.2"
     qs "^6.5.1"
     riot-observable "^3.0.0"
+    tiny-invariant "^1.0.6"
     whatwg-fetch "^2.0.3"
-
-camel-case@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/camel-case/-/camel-case-3.0.0.tgz#ca3c3688a4e9cf3a4cda777dc4dcbc713249cf73"
-  dependencies:
-    no-case "^2.2.0"
-    upper-case "^1.1.1"
 
 core-js@^2.5.1:
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.3.tgz#8acc38345824f16d8365b7c9b4259168e8ed603e"
-
-detect-hover@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/detect-hover/-/detect-hover-1.0.2.tgz#589fb0b469220897a9eee3fa36a917e1eda37a21"
-
-detect-it@^3.0.3:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/detect-it/-/detect-it-3.0.4.tgz#79df04f25cc5b2529ebfa37c0fa1baa0e1d41862"
-  dependencies:
-    detect-hover "^1.0.2"
-    detect-passive-events "^1.0.4"
-    detect-pointer "^1.0.2"
-    detect-touch-events "^2.0.1"
-
-detect-passive-events@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/detect-passive-events/-/detect-passive-events-1.0.4.tgz#6ed477e6e5bceb79079735dcd357789d37f9a91a"
-
-detect-pointer@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/detect-pointer/-/detect-pointer-1.0.2.tgz#1e0e4e261dab45055c50c74fb5a4ff09ceb18fbd"
-
-detect-touch-events@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/detect-touch-events/-/detect-touch-events-2.0.1.tgz#365833cf0c5c40c4090a08096b8a688db00fa337"
 
 easing-js@danro/easing-js:
   version "0.5.4"
@@ -60,15 +29,10 @@ fetch-jsonp@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/fetch-jsonp/-/fetch-jsonp-1.1.3.tgz#9eb9e585ba08aaf700563538d17bbebbcd5a3db2"
 
-lower-case@^1.1.1:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/lower-case/-/lower-case-1.1.4.tgz#9a2cabd1b9e8e0ae993a4bf7d5875c39c42e8eac"
-
-no-case@^2.2.0:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"
-  dependencies:
-    lower-case "^1.1.1"
+intersection-observer@^0.5.0:
+  version "0.5.1"
+  resolved "https://registry.npmjs.org/intersection-observer/-/intersection-observer-0.5.1.tgz#e340fc56ce74290fe2b2394d1ce88c4353ac6dfa"
+  integrity sha512-Zd7Plneq82kiXFixs7bX62YnuZ0BMRci9br7io88LwDyF3V43cQMI+G5IiTlTNTt+LsDUppl19J/M2Fp9UkH6g==
 
 photoswipe@^4.1.2:
   version "4.1.2"
@@ -86,9 +50,10 @@ riot-observable@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/riot-observable/-/riot-observable-3.0.0.tgz#8bbd2daf72a2141bb043082df4023dc504bad2eb"
 
-upper-case@^1.1.1:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/upper-case/-/upper-case-1.1.3.tgz#f6b4501c2ec4cdd26ba78be7222961de77621598"
+tiny-invariant@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.0.6.tgz#b3f9b38835e36a41c843a3b0907a5a7b3755de73"
+  integrity sha512-FOyLWWVjG+aC0UqG76V53yAWdXfH8bO6FNmyZOuUrzDzK8DI3/JRY25UD7+g49JWM1LXwymsKERB+DzI0dTEQA==
 
 whatwg-fetch@^2.0.3:
   version "2.0.3"

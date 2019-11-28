@@ -15,6 +15,6 @@
     "flickity-imagesloaded": "^2.0.0"
   },
   "peerDependencies": {
-    "@goldinteractive/js-base": "~0.0.3"
+    "@goldinteractive/js-base": "^1.0.0"
   }
 }
