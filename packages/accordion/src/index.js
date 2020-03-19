@@ -18,6 +18,59 @@ class Accordion extends features.Feature {
     } else {
       this._init(false)
     }
+
+    this.accordionIdentifier = this.node.dataset.accordionIdentifier
+    this.connectToEventHub = !!this.accordionIdentifier
+
+    if (this.connectToEventHub) {
+      this.registerEventHub()
+    }
+  }
+
+  registerEventHub() {
+    const open = this.actOnFold('open')
+    const close = this.actOnFold('close')
+    const toggle = this.actOnFold('toggle')
+
+    this.onHub(`accordion:${this.accordionIdentifier}:open`, open)
+    this.onHub(`accordion:${this.accordionIdentifier}:close`, close)
+    this.onHub(`accordion:${this.accordionIdentifier}:toggle`, toggle)
+
+    this.options.watchedAccordionEvents.forEach(event => {
+      this.handorgel.on(event, (...params) =>
+        this.triggerAccordionToEventHub(event, params)
+      )
+    })
+  }
+
+  triggerAccordionToEventHub = (event, ...params) => {
+    this.triggerHub(
+      this.options.createEventName(this.accordionIdentifier, event),
+      { params }
+    )
+  }
+
+  actOnFold(method) {
+    return ({ foldId, params = [] }) => {
+      const fold = this.getFoldById(foldId)
+      if (fold) {
+        fold[method](...params)
+      } else {
+        console.warn(
+          `no fold found with id: '${foldId}' in accordion with id: '${
+            this.accordionIdentifier
+          }'`
+        )
+      }
+    }
+  }
+
+  getFoldById(foldId) {
+    return (
+      this.handorgel.folds.filter(fold =>
+        this.options.findFoldById(fold, foldId)
+      )[0] || null
+    )
   }
 
   update(transition = true) {
@@ -82,7 +135,21 @@ Accordion.defaultOptions = {
   scroller: null,
   cleanHashAfterScrolling: true,
   // handorgel options
-  initialOpenTransition: true
+  initialOpenTransition: true,
+  createEventName: (id, event) => {
+    return `accordion:${id}:eventTriggered:${event}`
+  },
+  findFoldById: (currentFold, foldId) => {
+    return currentFold.header.dataset.foldId === foldId
+  },
+  watchedAccordionEvents: [
+    'fold:open',
+    'fold:opened',
+    'fold:close',
+    'fold:closed',
+    'fold:focus',
+    'fold:blur'
+  ]
 }
 
 export default Accordion

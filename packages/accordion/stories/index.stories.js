@@ -16,11 +16,12 @@ import docs from './docs.md'
 const markup = `
 <p>
   <a href="#/title1">Open & Scroll to first fold</a><br>
-  <a href="#/title2">Open & Scroll to second fold</a>
+  <a href="#/title2">Open & Scroll to second fold</a><br>
+  <button id="demo-toggle">toggle fold 1 of accordion 1</button> <span id="fold-1-state"></span>
 </p>
 
-<div class="ft-accordion handorgel" data-feature="accordion">
-  <h3 class="handorgel__header" data-accordion-scroll-id="title1" data-cy="first-accordion-header">
+<div class="ft-accordion handorgel" data-feature="accordion" data-accordion-identifier="sample-accordion-id">
+  <h3 class="handorgel__header" data-accordion-scroll-id="title1" data-cy="first-accordion-header" data-fold-id="sample-fold-id">
     <button class="handorgel__header__button">
       Title 1<span class="toggle">&#9658;</span>
     </button>
@@ -102,6 +103,20 @@ storiesOf('Accordion', module)
           object('options', Accordion.defaultOptions)
         )
         features.init(document.body)
+        document.getElementById('demo-toggle').addEventListener('click', () => {
+          eventHub.trigger('accordion:sample-accordion-id:toggle', {
+            foldId: 'sample-fold-id'
+          })
+        })
+        const $state = document.getElementById('fold-1-state')
+        eventHub.on(
+          'accordion:sample-accordion-id:eventTriggered:fold:opened',
+          () => ($state.innerHTML = `Fold 1 State: opened`)
+        )
+        eventHub.on(
+          'accordion:sample-accordion-id:eventTriggered:fold:closed',
+          () => ($state.innerHTML = `Fold 1 State: closed`)
+        )
       })
     },
     {
