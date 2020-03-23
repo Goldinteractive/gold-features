@@ -240,7 +240,8 @@ class Form extends features.Feature {
 
       this.fetch(action, {
         body: formData,
-        method: method
+        method: method,
+        headers: this.options.headers
       }).then((response) => {
         this.triggerHub('form:send', response)
         this.trigger('send', response)
