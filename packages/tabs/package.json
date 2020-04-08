@@ -1,7 +1,7 @@
 {
-  "name": "@goldinteractive/feature-overflow-detector",
+  "name": "@goldinteractive/feature-tabs",
   "version": "1.0.0",
-  "description": "overflow-detector feature",
+  "description": "tabs feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
   "author": "Gold Interactive",
