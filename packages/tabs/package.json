@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-tabs",
-  "version": "0.0.1-alpha.0",
+  "version": "1.0.0-alpha.0",
   "description": "tabs feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
