@@ -1,0 +1,16 @@
+{
+  "name": "@goldinteractive/feature-overflow-detector",
+  "version": "1.0.0",
+  "description": "overflow-detector feature",
+  "main": "lib/main.min.js",
+  "module": "src/index.js",
+  "author": "Gold Interactive",
+  "license": "MIT",
+  "scripts": {
+    "build": "node ../../scripts/build.js",
+    "watch": "node ../../scripts/watch.js"
+  },
+  "peerDependencies": {
+    "@goldinteractive/js-base": "^1.0.0"
+  }
+}
