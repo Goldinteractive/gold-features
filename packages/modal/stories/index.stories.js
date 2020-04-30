@@ -9,7 +9,7 @@ import {
 
 import { features, eventHub } from '@goldinteractive/js-base'
 
-import Modal from '../src/index'
+import Modal, { ModalTrigger } from '../src/index'
 import '../src/style.scss'
 
 import docs from './docs.md'
@@ -55,6 +55,7 @@ const markup = `
     </div>
   </div>
 </div>
+<button data-feature="modal-trigger" data-modal-identifier="sample-id" data-cy="trigger">Trigger</button>
 `
 
 storiesOf('Modal', module)
@@ -65,8 +66,8 @@ storiesOf('Modal', module)
       return initializeDemo(markup, () => {
         resetFeature(features, 'modal')
         features.add('modal', Modal, object('options', Modal.defaultOptions))
+        features.add('modal-trigger', ModalTrigger)
         features.init(document.body)
-        eventHub.trigger('sample-id:open')
       })
     },
     {

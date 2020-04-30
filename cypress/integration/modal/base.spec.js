@@ -5,6 +5,8 @@ describe('Masonry', function() {
   it('Checks if items get appended', function() {
     cy.visit(URL)
 
+    cy.get('[data-cy=modal-content]').should('not.be.visible')
+    cy.get('[data-cy=trigger]').click()
     cy.get('[data-cy=modal-content]').should('be.visible')
     cy.get('[data-cy=modal-close]')
       .click()
