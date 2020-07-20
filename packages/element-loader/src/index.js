@@ -1,4 +1,5 @@
 import { features, utils } from '@goldinteractive/js-base'
+import { noop } from '@goldinteractive/js-base/src/utils/fn'
 
 /**
  * Feature to load dynamic content.
@@ -37,6 +38,7 @@ class ElementLoader extends features.Feature {
         }" feature needs to be initialized with a data-element-loader-url, options.elementUrl or url must be set in loadTriggerEvent event.`
       )
     }
+    this.options.onLoadElement({ node: this.node })
     const fetchHtml = this.fetchHtml({ url })
     this.fetchCallbacks.push(fetchHtml)
     // Only the first callback must start the contentExitAnimation
@@ -48,6 +50,7 @@ class ElementLoader extends features.Feature {
         node: this.node
       })
     }
+    const { onLoadedElement, onFetchError } = this.options
     Promise.all([fetchHtml, this.runningAnimation])
       .then(([html]) => {
         // Only in case the current transaction actually is the last callback in the chain
@@ -56,11 +59,13 @@ class ElementLoader extends features.Feature {
           this.runningAnimation = null
           this.fetchCallbacks = []
           this.replaceHtml({ html })
+          onLoadedElement({ node: this.node })
         }
       })
       .catch(error => {
         this.runningAnimation = null
         this.errorHandler({ error })
+        onFetchError({ node: this.node, error })
       })
   }
   fetchHtml({ url }) {
@@ -137,7 +142,10 @@ ElementLoader.defaultOptions = {
   elementUrl: null,
   loadTriggerEvent: null,
   loadTriggerEventMultiple: false,
-  contentExitAnimation: ({ node }) => new Promise(resolve => resolve())
+  contentExitAnimation: ({ node }) => new Promise(resolve => resolve()),
+  onLoadElement: noop,
+  onLoadedElement: noop,
+  onFetchError: noop
 }
 
 export default ElementLoader
