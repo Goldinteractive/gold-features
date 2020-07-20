@@ -1,6 +1,8 @@
 import { features, eventHub } from '@goldinteractive/js-base'
 
 const URL = '/iframe.html?id=accordion--intro'
+const HASH_URL =
+  '/iframe.html?id=accordion--open-fold-by-url-hash#sample-hash-fold-id'
 
 describe('Accordion', function() {
   it('Checks if the Accordions work accordingly', function() {
@@ -12,6 +14,11 @@ describe('Accordion', function() {
 
     cy.get('[data-cy=second-accordion-content]').should('not.be.visible')
     cy.get('[data-cy=second-accordion-header]').click()
+    cy.get('[data-cy=second-accordion-content]').should('be.visible')
+  })
+  it('Checks if the opens fold referenced in url hash', function() {
+    cy.visit(HASH_URL)
+
     cy.get('[data-cy=second-accordion-content]').should('be.visible')
   })
   it('Checks the eventHub-Integration', function() {

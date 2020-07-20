@@ -3,11 +3,15 @@ import { utils } from '@goldinteractive/js-base'
 
 import Handorgel from 'handorgel'
 
+const ric =
+  window.requestIdleCallback ||
+  window.requestAnimationFrame ||
+  (func => setTimeout(func, 100))
+
 /**
  * Accordion feature class.
  */
 class Accordion extends features.Feature {
-
   init() {
     this.handorgel = new Handorgel(this.node, this.options)
 
@@ -25,6 +29,9 @@ class Accordion extends features.Feature {
     if (this.connectToEventHub) {
       this.registerEventHub()
     }
+
+    const hash = location.hash
+    this.openEntryByUrl(hash)
   }
 
   registerEventHub() {
@@ -82,10 +89,15 @@ class Accordion extends features.Feature {
 
       if ($header && $header.handorgelFold) {
         if (this.options.cleanHashAfterScrolling) {
-          history.replaceState('', document.title, window.location.pathname + window.location.search)
+          history.replaceState(
+            '',
+            document.title,
+            window.location.pathname + window.location.search
+          )
         }
 
-        if ($header.handorgelFold.expanded) { // fold is open
+        if ($header.handorgelFold.expanded) {
+          // fold is open
           // scroll directly to it
           this.scrollToHeader($header)
         } else {
@@ -124,11 +136,31 @@ class Accordion extends features.Feature {
   }
 
   _hashChanged() {
-    return (e) => {
+    return e => {
       this.update()
     }
   }
 
+  openEntryByUrl(hash) {
+    if (!hash) return
+
+    const slug = hash.slice(1)
+    const fold = this.getFoldById(slug)
+    if (fold) {
+      ric(() => {
+        if (window.pageYOffset === 0 && this.options.scroller) {
+          const onFoldOpened = () => {
+            this.options.scroller.toElement(fold.button)
+            this.handorgel.off('fold:opened', onFoldOpened)
+          }
+          this.handorgel.on('fold:opened', onFoldOpened)
+        }
+        fold.open()
+      })
+    } else {
+      console.warn('no fold found with given hash', hash)
+    }
+  }
 }
 
 Accordion.defaultOptions = {
