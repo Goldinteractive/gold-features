@@ -68,6 +68,7 @@ This will check whether a new package is required.
 Then using `yarn lerna:publish` you can publish the changed packages to the npm registry.
 
 > Do a prerelease before publishing a new version!
+> Make sure to push the tags with `git push --tags`
 
 When a prerelease has been properly tested, you can publish the package using:
 
