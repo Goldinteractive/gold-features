@@ -14,6 +14,7 @@ $ft-reveal-trigger-image-fade-duration: 0.3s !default;
 $ft-reveal-trigger-image-fade-easing: ease-out !default;
 
 .ft-reveal-trigger-image {
+  transform: translate3d(0, 0, 0);
   &.-blur {
     transition: filter $ft-reveal-trigger-image-blur-duration
       $ft-reveal-trigger-image-blur-easing;
@@ -26,11 +27,11 @@ $ft-reveal-trigger-image-fade-easing: ease-out !default;
     transition: filter $ft-reveal-trigger-image-blur-zoom-duration
         $ft-reveal-trigger-image-blur-zoom-easing,
       transform $ft-reveal-trigger-image-zoom-duration
-        $ft-reveal-trigger-image-zoom-easing;
+        $ft-reveal-trigger-image-zoom-easing translate3d(0, 0, 0);
   }
   &.-preview.-blur-zoom {
     filter: blur($ft-reveal-trigger-image-blur-radius);
-    transform: scale($ft-reveal-trigger-image-zoom-scale);
+    transform: scale($ft-reveal-trigger-image-zoom-scale) translate3d(0, 0, 0);
   }
 
   &.-fade {

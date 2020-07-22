@@ -18,3 +18,6 @@ In order to prevent scroll flickering you must guarantee, that the `img` tag won
 | -blur      | the default image will be blurred, then the image is being replaced and the blur is fading out |
 | -blur-zoom | the default image will be blurred and scaled up, then the blur fades out and the zoom is reset |
 | -fade      | the default image will be invisible, then the opacity fades in                                 |
+
+> *Note*: Fix safari bug:
+On high density displays safari partly shows a blured "border" arround the image. Stetting `transform` to `translate3d(0,0,0)` (force hardware acceleration) this gets fixed. This is done by the `.ft-reveal-trigger-image` class. However, if you add a custom `transform` property, keep in mind to add the `translate3d(0, 0, 0)`
