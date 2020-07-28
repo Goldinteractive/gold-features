@@ -1,12 +1,26 @@
 import { eventHub, utils } from '@goldinteractive/js-base'
 
 class DomState {
-  constructor({ namespace } = {}) {
+  constructor({ namespace, restorePersisted = false } = {}) {
     this._namespace = namespace
     this._state = {}
     this._stateHandlers = []
     eventHub.one('features:initialized', () => {
+      if (restorePersisted) {
+        this.restore()
+      }
       this.updateState()
+    })
+  }
+
+  restore() {
+    const state = utils.url.parseQuery(location.search.slice(1))
+    this._stateHandlers.forEach(handler => {
+      const name = handler.getName()
+      const value = state[name]
+      if (value) {
+        handler.setValue(value)
+      }
     })
   }
 

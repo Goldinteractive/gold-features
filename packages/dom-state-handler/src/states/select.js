@@ -11,4 +11,8 @@ export default class Select extends StateHandler {
   getValue() {
     return this.node.value
   }
+
+  setValue(value) {
+    this.node.value = value
+  }
 }

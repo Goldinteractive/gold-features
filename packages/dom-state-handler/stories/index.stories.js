@@ -26,13 +26,13 @@ const DomStatehandlerMarkup = `
     <option value="option1">Option 1</option>
     <option value="option2" data-cy="option2">Option 2</option>
   </select>
-  <select name="option-other" data-feature="dom-state-handler">
+  <select name="option-other" data-feature="dom-state-handler" data-cy="select2">
     <option value="option1">Option 1</option>
     <option value="option2">Option 2</option>
   </select>
-  <div data-feature="dom-state-handler" data-state-handler-type="checkbox-group">
+  <div data-feature="dom-state-handler" data-state-handler-type="checkbox-group" >
     <div>
-      <input type="checkbox" id="option3-1" name="option3" value="option3-1" checked/>
+      <input type="checkbox" id="option3-1" name="option3" value="option3-1" data-cy="checkbox1" checked/>
       <label for="option3-1">Option 1</label>
     </div>
 
@@ -43,8 +43,8 @@ const DomStatehandlerMarkup = `
   <div>
 
   <div data-feature="dom-state-handler" data-state-handler-type="radio-group">
-    <input type="radio" name="option4" value="orange"/>
-    <input type="radio" name="option4" value="violet" checked/>
+    <input type="radio" name="option4" value="orange" data-cy="radio1" />
+    <input type="radio" name="option4" value="violet" data-cy="radio2" checked/>
     <input type="radio" name="option4" value="yellow" data-cy="radio3" />
   </div>
 </div>
@@ -97,6 +97,28 @@ storiesOf('DomStateHandler', module)
         features.add('dom-state-handler', DomStateHandler, {
           domState: new DomState(
             object('domStateOptions', { namespace: 'default-namespace' })
+          )
+        })
+        features.init(document.body)
+      })
+    },
+    {
+      notes: {
+        markdown: DomStateHandlerDocs
+      }
+    }
+  )
+  .add(
+    'Restore from URL',
+    () => {
+      return initializeDemo(DomStatehandlerMarkup, () => {
+        resetFeature(features, 'dom-state-handler')
+        features.add('dom-state-handler', DomStateHandler, {
+          domState: new DomState(
+            object('domStateOptions', {
+              namespace: 'default-namespace',
+              restorePersisted: true
+            })
           )
         })
         features.init(document.body)
