@@ -1,3 +1,4 @@
-import DomState from './dom-state'
+import UrlParameter from './url-parameter'
+import LocalStorage from './local-storage'
 
-export { DomState }
+export { UrlParameter, LocalStorage }
