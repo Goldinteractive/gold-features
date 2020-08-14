@@ -1,16 +1,25 @@
 import DomState from './dom-state'
 
 class LocalStorage extends DomState {
-  decodeState() {
-    return JSON.parse(localStorage.getItem(this._namespace))
+
+  retrieveState() {
+    return this.decodeState(localStorage.getItem(this._namespace))
   }
 
-  encodeState() {
-    localStorage.setItem(this._namespace, JSON.stringify(this.getState()))
+  decodeState(state) {
+    return JSON.parse(state)
   }
 
-  transform() {
-    return this.getState()
+  persistState() {
+    localStorage.setItem(this._namespace, this.encodeState(this.getState()))
+  }
+
+  encodeState(state) {
+    return JSON.stringify(state)
+  }
+
+  transform(state) {
+    return state
   }
 }
 
