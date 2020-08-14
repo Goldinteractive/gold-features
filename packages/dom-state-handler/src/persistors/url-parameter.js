@@ -2,11 +2,12 @@ import { utils } from '@goldinteractive/js-base'
 import DomState from './dom-state'
 
 class UrlParameter extends DomState {
-  decodeState() {
+
+  retrieveState() {
     return utils.url.parseQuery(location.search.slice(1))
   }
 
-  encodeState() {
+  persistState() {
     const state = this.getState()
     if (Object.keys(state).length > 0) {
       const query = Object.assign(
@@ -21,8 +22,8 @@ class UrlParameter extends DomState {
     }
   }
 
-  transform() {
-    return utils.url.stringifyQuery(this.getState())
+  transform(state) {
+    return utils.url.stringifyQuery(state)
   }
 }
 
