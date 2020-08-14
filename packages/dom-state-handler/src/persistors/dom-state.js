@@ -15,7 +15,6 @@ class DomState {
 
   restoreState() {
     const state = this.decodeState()
-    console.log(state)
     this._stateHandlers.forEach(handler => {
       const name = handler.getName()
       const value = state[name]
