@@ -14,7 +14,7 @@ class DomState {
   }
 
   restoreState() {
-    const state = this.decodeState()
+    const state = this.retrieveState()
     this._stateHandlers.forEach(handler => {
       const name = handler.getName()
       const value = state[name]
@@ -24,9 +24,15 @@ class DomState {
     })
   }
 
+  retrieveState() {
+    console.error(
+      `Called method "retrieveState" in abstract class. Implement this method in child instance`
+    )
+  }
+
   updateState() {
     this._state = this.obtainState()
-    this.persistQuery()
+    this.persistState()
     this.notify()
   }
 
@@ -37,14 +43,19 @@ class DomState {
     }, {})
   }
 
-  persistQuery() {
-    this.encodeState()
+  persistState() {
+    console.error(
+      `Called method "persistState" in abstract class. Implement this method in child instance`
+    )
   }
 
   notify() {
-    eventHub.trigger(
-      `${this._namespace}:state-update`,
-      this.transform()
+    eventHub.trigger(`${this._namespace}:state-update`, this.transform(this.getState()))
+  }
+
+  transform() {
+    console.error(
+      `Called method "transform" in abstract class. Implement this method in child instance`
     )
   }
 
@@ -55,19 +66,6 @@ class DomState {
   getState() {
     return this._state
   }
-
-  decodeState() {
-    console.error(`Called method "decodeState" in abstract class. Implement this method in child instance`)
-  }
-
-  encodeState() {
-    console.error(`Called method "encodeState" in abstract class. Implement this method in child instance`)
-  }
-
-  transform() {
-    console.error(`Called method "transform" in abstract class. Implement this method in child instance`)
-  }
-
 }
 
 export default DomState
