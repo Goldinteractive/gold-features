@@ -1,4 +1,4 @@
-import { eventHub, utils } from '@goldinteractive/js-base'
+import { eventHub } from '@goldinteractive/js-base'
 
 class DomState {
   constructor({ namespace, restorePersisted = false } = {}) {
@@ -7,14 +7,14 @@ class DomState {
     this._stateHandlers = []
     eventHub.one('features:initialized', () => {
       if (restorePersisted) {
-        this.restore()
+        this.restoreState()
       }
       this.updateState()
     })
   }
 
-  restore() {
-    const state = utils.url.parseQuery(location.search.slice(1))
+  restoreState() {
+    const state = this.retrieveState()
     this._stateHandlers.forEach(handler => {
       const name = handler.getName()
       const value = state[name]
@@ -24,33 +24,16 @@ class DomState {
     })
   }
 
-  transform() {
-    return utils.url.stringifyQuery(this.getState())
-  }
-
-  registerStateHandler(stateHandler) {
-    this._stateHandlers.push(stateHandler)
+  retrieveState() {
+    console.error(
+      `Called method "retrieveState" in abstract class. Implement this method in child instance`
+    )
   }
 
   updateState() {
     this._state = this.obtainState()
-    this.persistQuery()
+    this.persistState()
     this.notify()
-  }
-
-  persistQuery() {
-    const state = this.getState()
-    if (Object.keys(state).length > 0) {
-      const query = Object.assign(
-        {},
-        utils.url.parseQuery(location.search, { ignoreQueryPrefix: true }),
-        state
-      )
-      const queryString = utils.url.stringifyQuery(query)
-      const url =
-        location.origin + location.pathname + '?' + queryString + location.hash
-      utils.url.replaceState(url)
-    }
   }
 
   obtainState() {
@@ -60,11 +43,24 @@ class DomState {
     }, {})
   }
 
-  notify() {
-    eventHub.trigger(
-      `${this._namespace}:state-update`,
-      this.transform(this.getState())
+  persistState() {
+    console.error(
+      `Called method "persistState" in abstract class. Implement this method in child instance`
     )
+  }
+
+  notify() {
+    eventHub.trigger(`${this._namespace}:state-update`, this.transform(this.getState()))
+  }
+
+  transform() {
+    console.error(
+      `Called method "transform" in abstract class. Implement this method in child instance`
+    )
+  }
+
+  registerStateHandler(stateHandler) {
+    this._stateHandlers.push(stateHandler)
   }
 
   getState() {

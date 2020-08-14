@@ -8,8 +8,7 @@ import {
 
 import { features, eventHub, utils } from '@goldinteractive/js-base'
 
-import DomStateHandler from '../src/index'
-import DomState from '../src/persistors/dom-state'
+import DomStateHandler, { UrlParameter, LocalStorage} from '../src/index'
 import '../src/style.scss'
 import Masonry from '../../masonry/src/index'
 import ElementLoader from '../../element-loader/src/index'
@@ -23,7 +22,7 @@ import grid2 from '!file-loader!./files/grid2.html'
 const DomStatehandlerMarkup = `
 <div>
   <select name="option-name" data-feature="dom-state-handler" data-cy="select1">
-    <option value="option1">Option 1</option>
+    <option value="option1" data-cy="option1">Option 1</option>
     <option value="option2" data-cy="option2">Option 2</option>
   </select>
   <select name="option-other" data-feature="dom-state-handler" data-cy="select2">
@@ -95,8 +94,29 @@ storiesOf('DomStateHandler', module)
       return initializeDemo(DomStatehandlerMarkup, () => {
         resetFeature(features, 'dom-state-handler')
         features.add('dom-state-handler', DomStateHandler, {
-          domState: new DomState(
+          domState: new UrlParameter(
             object('domStateOptions', { namespace: 'default-namespace' })
+          )
+        })
+        features.init(document.body)
+      })
+    },
+    {
+      notes: {
+        markdown: DomStateHandlerDocs
+      }
+    }
+  )
+  .add(
+    'Local Storage',
+    () => {
+      return initializeDemo(DomStatehandlerMarkup, () => {
+        resetFeature(features, 'dom-state-handler')
+        features.add('dom-state-handler', DomStateHandler, {
+          domState: new LocalStorage(
+            object('domStateOptions', {
+              namespace: 'default-namespace'
+            })
           )
         })
         features.init(document.body)
@@ -114,7 +134,7 @@ storiesOf('DomStateHandler', module)
       return initializeDemo(DomStatehandlerMarkup, () => {
         resetFeature(features, 'dom-state-handler')
         features.add('dom-state-handler', DomStateHandler, {
-          domState: new DomState(
+          domState: new UrlParameter(
             object('domStateOptions', {
               namespace: 'default-namespace',
               restorePersisted: true
@@ -138,7 +158,7 @@ storiesOf('DomStateHandler', module)
         function addFilterableLazyGridFeature({ namespace, baseActionUrl }) {
           resetFeature(features, `${namespace}-filter-handler`)
           features.add(`${namespace}-filter-handler`, DomStateHandler, {
-            domState: new DomState({
+            domState: new UrlParameter({
               namespace: `${namespace}-filter-state`
             })
           })
