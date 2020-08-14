@@ -86,11 +86,9 @@ We use `lerna` to orchestrate the build and publish process.
 
 `yarn lerna:build` build all projects
 
-`yarn lerna:updated` lists all packages which must be published. Note that `updated` fails if there is no package which needs to be updated.
+`yarn lerna:updated` lists all packages which must be published. Note that `updated` fails if there is no package which needs to be updated. Lerna will not pick up unchanged packages.
 
 `yarn lerna:publish` build all packages, then checks for changed packages (comparing to last tag). Prompts for each package before release (_Note_ that it will only commit package.json. Therefore all other changes must be commited beforehand)
-
-Lerna will not pick up unchanged packages. Run `yarn publish` in the feature directory to publish a version of a package which was previously pre-released.
 
 `yarn lerna:exec command` execute a command in all packages. To remove a package, run: `yarn lerna:exec yarn remove some-dependency`. This is useful in order to update the `js-base` peer-dependency across all packages. (`yarn lerna:exec yarn add @goldinteractive/js-base@latest --tilde --peer`)
 
