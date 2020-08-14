@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-dom-state-handler",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "dom-state-handler feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
