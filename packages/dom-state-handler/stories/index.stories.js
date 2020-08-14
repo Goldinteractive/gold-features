@@ -22,7 +22,7 @@ import grid2 from '!file-loader!./files/grid2.html'
 const DomStatehandlerMarkup = `
 <div>
   <select name="option-name" data-feature="dom-state-handler" data-cy="select1">
-    <option value="option1">Option 1</option>
+    <option value="option1" data-cy="option1">Option 1</option>
     <option value="option2" data-cy="option2">Option 2</option>
   </select>
   <select name="option-other" data-feature="dom-state-handler" data-cy="select2">
