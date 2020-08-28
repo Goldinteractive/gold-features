@@ -5,7 +5,7 @@ import { features } from '@goldinteractive/js-base'
  */
 class Tabs extends features.Feature {
   init() {
-    this.$$tabs = this.$$('[data-tab]')
+    this.$$tabs = this.$$(this.options.tabsSelector)
 
     this.onHub(
       `tabs-${this.node.dataset.tabsIdentifier}:select-tab`,
@@ -50,11 +50,13 @@ class Tabs extends features.Feature {
 /**
  * Feature options
  * @type {Object}
+ * @property {String} tabsSelector CSS Selector for all the tabs
  * @property {String} initiallyHiddenClass Hide class until tabs are setup
  * @property {String} activeClass Class set on active tab
  * @property {String} inactiveClass Class set on all inactive tabs
  */
 Tabs.defaultOptions = {
+  tabsSelector: '[data-tab]',
   initiallyHiddenClass: '-initially-hidden',
   activeClass: '-active',
   inactiveClass: '-inactive'
