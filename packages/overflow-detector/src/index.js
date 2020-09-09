@@ -13,6 +13,13 @@ export class OverflowStrategy {
     this.retryOverflow = this._retryOverflow()
     eventHub.on('features:initialized', utils.fn.once(this.retryOverflow))
     window.addEventListener('resize', utils.fn.debounce(this.retryOverflow))
+
+    if ('fonts' in document) {
+      document.fonts.ready.then(() => {
+        setTimeout(utils.fn.once(this.retryOverflow))
+      })
+    }
+
     this._instances = []
   }
 
