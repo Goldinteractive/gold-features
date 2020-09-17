@@ -261,8 +261,8 @@ class Form extends features.Feature {
         this.node.classList.remove(this.options.classLoading)
 
         if (response.json.status >= 200 && response.json.status < 300) {
-          this.triggerHub('form:sendSuccess', response)
-          this.trigger('sendSuccess', response)
+          this.triggerHub('form:sendSuccess', { response, formInstance: this.$form })
+          this.trigger('sendSuccess', { response, formInstance: this.$form })
 
           // per contract the message should be inside of data - otherwise we use the default message
           this.showFeedback(response.json.data.message || this.options.defaultSuccessMessage)
@@ -277,8 +277,8 @@ class Form extends features.Feature {
             }
           }
         } else {
-          this.triggerHub('form:sendError', response)
-          this.trigger('sendError', response)
+          this.triggerHub('form:sendError', { response, formInstance: this.$form })
+          this.trigger('sendError', { response, formInstance: this.$form })
 
           let errors = this.options.findFieldErrors(response.json)
 
