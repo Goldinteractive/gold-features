@@ -135,12 +135,17 @@ class Form extends features.Feature {
     let $$formFields = this.$$(`.${this.options.formFieldClass}`)
 
     $$formFields.forEach(($field) => {
-      let $message = $field.querySelector(`${this.options.formFieldMessageElement}.${this.options.formFieldMessageClass}`)
-      $field.classList.remove(this.options.formFieldClassError)
-
+      let $message = null
+      if(this.options.useMessagePlaceholder){
+        $message = $field.querySelector(`${this.options.messagePlaceholderSelector}`)
+      } else {
+        $message = $field.querySelector(`${this.options.formFieldMessageElement}.${this.options.formFieldMessageClass}`)
+      }
       if ($message) {
         $message.parentNode.removeChild($message)
       }
+      
+      $field.classList.remove(this.options.formFieldClassError)
     })
   }
 
@@ -178,7 +183,13 @@ class Form extends features.Feature {
 
       if ($field) {
         $field.classList.add(this.options.formFieldClassError)
-        let $message = $field.querySelector(`${this.options.formFieldMessageElement}.${this.options.formFieldMessageClass}`)
+
+        let $message = null
+        if(this.options.useMessagePlaceholder){
+          $message = $field.querySelector(`${this.options.messagePlaceholderSelector}`)
+        } else {
+          $message = $field.querySelector(`${this.options.formFieldMessageElement}.${this.options.formFieldMessageClass}`)
+        }
 
         if (!$message) {
           $message = document.createElement(this.options.formFieldMessageElement)
@@ -319,6 +330,8 @@ Form.defaultOptions = {
   feedbackClassSuccess: '-success',
   feedbackClassWarning: '-warning',
   feedbackClassError: '-error',
+  useMessagePlaceholder: false,
+  messagePlaceholderSelector: null,
   // priority: data-token-endpoint, options.tokenEndpoint, defaultOptions.tokenEndpoint
   tokenEndpoint: null,
   tokenFieldName: '_token',
