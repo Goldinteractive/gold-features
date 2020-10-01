@@ -21,30 +21,38 @@ import grid2 from '!file-loader!./files/grid2.html'
 
 const DomStatehandlerMarkup = `
 <div>
+  <div>option-name:</div>
   <select name="option-name" data-feature="dom-state-handler" data-cy="select1">
     <option value="option1" data-cy="option1">Option 1</option>
     <option value="option2" data-cy="option2">Option 2</option>
   </select>
+
+  <div style="margin-top:20px;">option-other:</div>
   <select name="option-other" data-feature="dom-state-handler" data-cy="select2">
     <option value="option1">Option 1</option>
     <option value="option2">Option 2</option>
   </select>
-  <div data-feature="dom-state-handler" data-state-handler-type="checkbox-group" >
+
+  <div style="margin-top:20px;">option3:</div>
+  <div data-feature="dom-state-handler" data-state-handler-type="checkbox-group">
     <div>
       <input type="checkbox" id="option3-1" name="option3" value="option3-1" data-cy="checkbox1" checked/>
       <label for="option3-1">Option 1</label>
     </div>
-
     <div>
       <input type="checkbox" id="option3-2" name="option3" value="option3-2" data-cy="checkbox2"/>
       <label for="option3-2">Option 2</label>
     </div>
-  <div>
+  </div>
 
+  <div style="margin-top:20px;">option4:</div>
   <div data-feature="dom-state-handler" data-state-handler-type="radio-group">
-    <input type="radio" name="option4" value="orange" data-cy="radio1" />
-    <input type="radio" name="option4" value="violet" data-cy="radio2" checked/>
-    <input type="radio" name="option4" value="yellow" data-cy="radio3" />
+    <input id="orange" type="radio" name="option4" value="orange" data-cy="radio1" />
+    <label for="orange">orange</label>
+    <input id="violet" type="radio" name="option4" value="violet" data-cy="radio2" checked/>
+    <label for="violet">violet</label>
+    <input id="yellow" type="radio" name="option4" value="yellow" data-cy="radio3" />
+    <label for="yellow">yellow</label>
   </div>
 </div>
 `
