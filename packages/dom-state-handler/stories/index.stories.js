@@ -8,7 +8,7 @@ import {
 
 import { features, eventHub, utils } from '@goldinteractive/js-base'
 
-import DomStateHandler, { UrlParameter, LocalStorage} from '../src/index'
+import DomStateHandler, { UrlParameter, UrlFragment, LocalStorage } from '../src/index'
 import '../src/style.scss'
 import Masonry from '../../masonry/src/index'
 import ElementLoader from '../../element-loader/src/index'
@@ -103,6 +103,25 @@ storiesOf('DomStateHandler', module)
         resetFeature(features, 'dom-state-handler')
         features.add('dom-state-handler', DomStateHandler, {
           domState: new UrlParameter(
+            object('domStateOptions', { namespace: 'default-namespace' })
+          )
+        })
+        features.init(document.body)
+      })
+    },
+    {
+      notes: {
+        markdown: DomStateHandlerDocs
+      }
+    }
+  )
+  .add(
+    'Rendered Content',
+    () => {
+      return initializeDemo(DomStatehandlerMarkup, () => {
+        resetFeature(features, 'dom-state-handler')
+        features.add('dom-state-handler', DomStateHandler, {
+          domState: new UrlFragment(
             object('domStateOptions', { namespace: 'default-namespace' })
           )
         })
