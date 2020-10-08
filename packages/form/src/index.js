@@ -138,13 +138,16 @@ class Form extends features.Feature {
       let $message = null
       if(this.options.useMessagePlaceholder){
         $message = $field.querySelector(`${this.options.messagePlaceholderSelector}`)
+        if ($message) {
+          $message.innerHTML = ''
+        }
       } else {
         $message = $field.querySelector(`${this.options.formFieldMessageElement}.${this.options.formFieldMessageClass}`)
+        if ($message) {
+          $message.parentNode.removeChild($message)
+        }
       }
-      if ($message) {
-        $message.parentNode.removeChild($message)
-      }
-      
+
       $field.classList.remove(this.options.formFieldClassError)
     })
   }
@@ -187,6 +190,7 @@ class Form extends features.Feature {
         let $message = null
         if(this.options.useMessagePlaceholder){
           $message = $field.querySelector(`${this.options.messagePlaceholderSelector}`)
+          $message.classList.add(this.options.formFieldMessageClass)
         } else {
           $message = $field.querySelector(`${this.options.formFieldMessageElement}.${this.options.formFieldMessageClass}`)
         }
