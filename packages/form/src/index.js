@@ -135,12 +135,20 @@ class Form extends features.Feature {
     let $$formFields = this.$$(`.${this.options.formFieldClass}`)
 
     $$formFields.forEach(($field) => {
-      let $message = $field.querySelector(`${this.options.formFieldMessageElement}.${this.options.formFieldMessageClass}`)
-      $field.classList.remove(this.options.formFieldClassError)
-
-      if ($message) {
-        $message.parentNode.removeChild($message)
+      let $message = null
+      if(this.options.useMessagePlaceholder){
+        $message = $field.querySelector(`${this.options.messagePlaceholderSelector}`)
+        if ($message) {
+          $message.innerHTML = ''
+        }
+      } else {
+        $message = $field.querySelector(`${this.options.formFieldMessageElement}.${this.options.formFieldMessageClass}`)
+        if ($message) {
+          $message.parentNode.removeChild($message)
+        }
       }
+
+      $field.classList.remove(this.options.formFieldClassError)
     })
   }
 
@@ -178,7 +186,14 @@ class Form extends features.Feature {
 
       if ($field) {
         $field.classList.add(this.options.formFieldClassError)
-        let $message = $field.querySelector(`${this.options.formFieldMessageElement}.${this.options.formFieldMessageClass}`)
+
+        let $message = null
+        if(this.options.useMessagePlaceholder){
+          $message = $field.querySelector(`${this.options.messagePlaceholderSelector}`)
+          $message.classList.add(this.options.formFieldMessageClass)
+        } else {
+          $message = $field.querySelector(`${this.options.formFieldMessageElement}.${this.options.formFieldMessageClass}`)
+        }
 
         if (!$message) {
           $message = document.createElement(this.options.formFieldMessageElement)
@@ -250,8 +265,8 @@ class Form extends features.Feature {
         this.node.classList.remove(this.options.classLoading)
 
         if (response.json.status >= 200 && response.json.status < 300) {
-          this.triggerHub('form:sendSuccess', response)
-          this.trigger('sendSuccess', response)
+          this.triggerHub('form:sendSuccess', { response, formInstance: this.$form })
+          this.trigger('sendSuccess', { response, formInstance: this.$form })
 
           // per contract the message should be inside of data - otherwise we use the default message
           this.showFeedback(response.json.data.message || this.options.defaultSuccessMessage)
@@ -266,8 +281,8 @@ class Form extends features.Feature {
             }
           }
         } else {
-          this.triggerHub('form:sendError', response)
-          this.trigger('sendError', response)
+          this.triggerHub('form:sendError', { response, formInstance: this.$form })
+          this.trigger('sendError', { response, formInstance: this.$form })
 
           let errors = this.options.findFieldErrors(response.json)
 
@@ -319,6 +334,8 @@ Form.defaultOptions = {
   feedbackClassSuccess: '-success',
   feedbackClassWarning: '-warning',
   feedbackClassError: '-error',
+  useMessagePlaceholder: false,
+  messagePlaceholderSelector: null,
   // priority: data-token-endpoint, options.tokenEndpoint, defaultOptions.tokenEndpoint
   tokenEndpoint: null,
   tokenFieldName: '_token',

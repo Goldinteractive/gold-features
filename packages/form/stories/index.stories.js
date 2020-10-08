@@ -13,8 +13,7 @@ import '../src/style.scss'
 
 import docs from './docs.md'
 
-const markup = `
-<style>
+const styles = `<style>
 input, textarea {
   width: 100%;
   font-size: 100%;
@@ -32,8 +31,12 @@ input[type="checkbox"] {
   margin-bottom: 20px;
 }
 
+.form-field .message {
+  color: red;
+}
+
 .form-feedback {
-  padding: 20px;
+  padding: rgb(133, 2, 2);;
 }
 
 .form-feedback.-success {
@@ -56,8 +59,6 @@ input[type="checkbox"] {
   height: 30px;
   width: 100%;
   background-color: #eee;
-
-
 }
 
 .form-progress-bar > .loaded {
@@ -74,20 +75,24 @@ input[type="checkbox"] {
     transform: translate(-50%, -50%);
     color: #333;
 }
-</style>
+</style>`
 
+const markup = `
+${styles}
 <div class="ft-form" data-feature="form">
 
   <!--
     Optional argument on data-feature="form" container:
     \`data-token-endpoint="http://localhost:8888/goldform-server/backend/public/api/v1/\`
   -->
-  <form action="http://localhost:8888/goldform-server/backend/public/api/v1/p/form/post/bad411d5-1da9-3ba6-ab41-aa561bcd8bc5" enctype="multipart/form-data">
+  <form action="https://form.goldinteractive.ch/be/api/v1/p/form/post/96c54185-c17f-4e18-bed2-828914efa42a" enctype="multipart/form-data">
     <!-- Language input: this is required! -->
     <input type="hidden" name="language" value="en">
+
     <div class="form-field">
-        <label for="email">E-Mail</label>
-        <input type="email" name="fields[email]" id="email" placeholder="Test">
+        <label for="name">Name</label>
+        <input type="name" name="fields[name]" id="name" placeholder="Test">
+        <span>Info Text</span>
     </div>
 
     <!--
@@ -142,6 +147,41 @@ input[type="checkbox"] {
 </div>
 `
 
+const placeholdeMarkup = `
+${styles}
+<div class="ft-form" data-feature="form">
+
+  <!--
+    Optional argument on data-feature="form" container:
+    \`data-token-endpoint="http://localhost:8888/goldform-server/backend/public/api/v1/\`
+  -->
+  <form action="https://form.goldinteractive.ch/be/api/v1/p/form/post/96c54185-c17f-4e18-bed2-828914efa42a" enctype="multipart/form-data">
+    <!-- Language input: this is required! -->
+    <input type="hidden" name="language" value="en">
+
+    <div class="form-field">
+        <label for="name">Name</label>
+        <input type="name" name="fields[name]" id="name" placeholder="Test">
+        <div data-message-placerholder>Placeholder Container</div>
+        <span>Info Text</span>
+    </div>
+
+    <button role="submit" class="button -primary -small -auto">Send</button>
+    <button role="button" class="button -auto" type="reset">Reset</button>
+  </form>
+
+  <!-- Progress Indicator - e.g. for file upload -->
+  <div data-progress class="form-progress-bar">
+    <div data-loaded class="loaded"></div>
+    <div data-percentage class="percentage"></div>
+  </div>
+
+  <!-- Form Feedback (error / success), make sure that this div is outside of the form tag -->
+  <div data-feedback class="form-feedback"></div>
+
+</div>
+`
+
 storiesOf('Form', module)
   .addDecorator(withKnobs)
   .add(
@@ -150,6 +190,28 @@ storiesOf('Form', module)
       return initializeDemo(markup, () => {
         resetFeature(features, 'form')
         features.add('form', Form, object('options', Form.defaultOptions))
+        features.init(document.body)
+      })
+    },
+    {
+      notes: {
+        markdown: docs
+      }
+    }
+  )
+  .add(
+    'Custom Placeholder',
+    () => {
+      return initializeDemo(placeholdeMarkup, () => {
+        resetFeature(features, 'form')
+        features.add(
+          'form',
+          Form,
+          object('options', {
+            useMessagePlaceholder: true,
+            messagePlaceholderSelector: '[data-message-placerholder]'
+          })
+        )
         features.init(document.body)
       })
     },
