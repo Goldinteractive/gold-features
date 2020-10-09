@@ -1,0 +1,17 @@
+{
+  "name": "@goldinteractive/feature-sweet-modal",
+  "version": "0.0.1-alpha",
+  "description": "sweet-modal feature",
+  "main": "lib/main.min.js",
+  "module": "src/index.js",
+  "author": "Gold Interactive",
+  "license": "MIT",
+  "scripts": {
+    "build": "node ../../scripts/build.js",
+    "watch": "node ../../scripts/watch.js"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@goldinteractive/js-base": "^1.0.2"
+  }
+}
