@@ -10,7 +10,9 @@
     "build": "node ../../scripts/build.js",
     "watch": "node ../../scripts/watch.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "sweetalert2": "^10.3.6"
+  },
   "peerDependencies": {
     "@goldinteractive/js-base": "^1.0.2"
   }

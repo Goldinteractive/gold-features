@@ -51,6 +51,11 @@ riot-observable@^3.0.0:
   resolved "https://registry.yarnpkg.com/riot-observable/-/riot-observable-3.0.0.tgz#8bbd2daf72a2141bb043082df4023dc504bad2eb"
   integrity sha1-i70tr3KiFBuwQwgt9AI9xQS60us=
 
+sweetalert2@^10.3.6:
+  version "10.3.6"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-10.3.6.tgz#5ad161bd48a7cba87f37556c35ce12ad073b31ec"
+  integrity sha512-r5I91W+C69aPT8DwuQNIiZHpzNStdUjC7H7jAE2gz0OXUER1zhM74C+5fEy9jytq7KbL+zHY2NW/fgSCcclg3A==
+
 tiny-invariant@^1.0.6:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/tiny-invariant/-/tiny-invariant-1.1.0.tgz#634c5f8efdc27714b7f386c35e6760991d230875"
