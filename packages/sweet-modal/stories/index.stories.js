@@ -15,13 +15,46 @@ import '../src/style.scss'
 import docs from './docs.md'
 import testJpg from './files/test.jpeg'
 
-const markup = `<div class="ft-sweet-modal" data-feature="sweet-modal" data-modal-identifier="sample-id">
+const styles = `
+  <style>
+    h2 {
+      font-size: 25px;
+      color: blue;
+    }
+
+    .swal2-content {
+      text-align: left;
+    }
+  </style>
+`
+
+const markupIntro = `
+${styles}
+<div class="ft-sweet-modal" data-feature="sweet-modal" data-modal-identifier="sample-id">
   <div class="content" data-sweet-modal-content>
     <h2>Sweet Modal</h2>
     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    <img src="${testJpg}" width="200" />
   </div>
-  <img src="${testJpg}" width="200" />
+  </br>
   <button data-feature="sweet-modal-trigger" data-modal-identifier="sample-id" data-cy="trigger">Trigger</button>
+  <div data-modal-state>
+    <h3>States log:</h3>
+  </div>
+</div>
+`
+
+const markupOpenOnLoad = `
+${styles}
+<div class="ft-sweet-modal" data-feature="sweet-modal" data-modal-identifier="sample-id">
+  <div class="content" data-sweet-modal-content>
+    <h2>Open on load by delay</h2>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    <img src="${testJpg}" width="200" />
+  </div>
+  <div data-modal-state>
+    <h3>States log:</h3>
+  </div>
 </div>
 `
 
@@ -30,11 +63,36 @@ storiesOf('SweetModal', module)
   .add(
     'Intro',
     () => {
-      return initializeDemo(markup, () => {
+      return initializeDemo(markupIntro, () => {
         resetFeature(features, 'sweet-modal')
         features.add('sweet-modal', SweetModal)
         features.add('sweet-modal-trigger', SweetModalTrigger)
         features.init(document.body)
+        initEvents()
+      })
+    },
+    {
+      notes: {
+        markdown: docs
+      }
+    }
+  )
+  .add(
+    'OpenOnLoadWithDelay',
+    () => {
+      return initializeDemo(markupOpenOnLoad, () => {
+        resetFeature(features, 'sweet-modal')
+        features.add('sweet-modal', SweetModal, {
+          openOnLoad: true,
+          delay: 2000
+        })
+        features.add('sweet-modal-trigger', SweetModalTrigger)
+        features.init(document.body)
+
+        setTimeout(() => {
+          eventHub.trigger('sample-id:close')
+        }, 6000);
+        initEvents()
       })
     },
     {
@@ -49,3 +107,42 @@ storiesOf('SweetModal', module)
   .add('Source CSS', () => {
     return styleSource({ feature: 'sweet-modal', language: 'sass' })
   })
+
+  const initEvents = () => {
+    const $modalState = document.querySelector('[data-modal-state]')
+    eventHub.on('sample-id:open',() => {
+      let p = document.createElement("p");
+      p.textContent = 'open'
+      $modalState.appendChild(p)
+    })
+    eventHub.on('sample-id:close',() => {
+      let p = document.createElement("p");
+      p.textContent = 'close'
+      $modalState.appendChild(p)
+    })
+    eventHub.on('sample-id:will-open',() => {
+      let p = document.createElement("p");
+      p.textContent = 'will-open'
+      $modalState.appendChild(p)
+    })
+    eventHub.on('sample-id:did-open',() => {
+      let p = document.createElement("p");
+      p.textContent = 'did-open'
+      $modalState.appendChild(p)
+    })
+    eventHub.on('sample-id:will-close',() => {
+      let p = document.createElement("p");
+      p.textContent = 'will-close'
+      $modalState.appendChild(p)
+    })
+    eventHub.on('sample-id:did-close',() => {
+      let p = document.createElement("p");
+      p.textContent = 'did-close'
+      $modalState.appendChild(p)
+    })
+    eventHub.on('sample-id:did-render',() => {
+      let p = document.createElement("p");
+      p.textContent = 'did-render'
+      $modalState.appendChild(p)
+    })
+  }
