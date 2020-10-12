@@ -1,7 +1,7 @@
 import { features } from '@goldinteractive/js-base'
 import { json } from '@goldinteractive/js-base/src/utils/fetch'
 import SweetModalTrigger from './trigger'
-import Swal from 'sweetalert2'; //import Swal from 'sweetalert2/dist/sweetalert2.js'
+import Swal from 'sweetalert2';
 
 class SweetModal extends features.Feature {
 
@@ -11,8 +11,6 @@ class SweetModal extends features.Feature {
       throw new Error(`SweetModal" ${this.name}" feature needs to be initialized with a modal-identifier`
       )
     }
-    this.title = ''
-    this.type = ''
     this.html = ''
 
     this.registerEvents()
@@ -21,6 +19,7 @@ class SweetModal extends features.Feature {
 
   registerEvents = () => {
     this.onHub(`${this.modalIdentifier}:open`, this.openHandler)
+    this.onHub(`${this.modalIdentifier}:close`, this.closeHandler)
   }
 
   handleOpenOnLoad = () => {
@@ -31,7 +30,7 @@ class SweetModal extends features.Feature {
 
   getData = () => {
     if(this.options.htmlContentSelector){
-      return this._getHtmlByTemplate()
+      this._getHtmlByTemplate()
     } else if(this.options.endpoint){
       this._getHtmlByEndpoint()
     }
@@ -48,25 +47,22 @@ class SweetModal extends features.Feature {
 
   _getHtmlByEndpoint = async () => {
     const result = await json(this.options.endpoint)
-    this.title = result.title
-    this.type = result.type
     this.html = result.html
   }
 
   openHandler = () => {
     this.getData()
     if (this.options.delay <= 0) {
-      this.open()
+      this._open()
     } else {
       setTimeout(() => {
-        this.open()
+        this._open()
       }, this.options.delay)
     }
   }
 
-  open = () => {
+  _open = () => {
     Swal.fire({
-      title: this.title,
       html: this.html,
       showConfirmButton: false,
       showCloseButton: true,
@@ -87,6 +83,10 @@ class SweetModal extends features.Feature {
       },
       ...this.options.swalConfig
     })
+  }
+
+  closeHandler = () => {
+    Swal.close()
   }
 }
 
