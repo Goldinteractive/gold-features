@@ -54,7 +54,6 @@ class SweetModal extends features.Feature {
   }
 
   openHandler = () => {
-    document.body.classList.add(this.options.bodyClass)
     this.getData()
     if (this.options.delay <= 0) {
       this.open()
@@ -95,9 +94,8 @@ SweetModal.defaultOptions = {
   htmlContentSelector: '[data-sweet-modal-content]',
   endpoint: null,
   modalIdentifier: null,
-  openOnLoad: true,
+  openOnLoad: false,
   delay: 0,
-  bodyClass: 'modal-open',
   swalConfig: {}
 }
 
