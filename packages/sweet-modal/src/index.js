@@ -38,11 +38,21 @@ class SweetModal extends features.Feature {
   }
 
   getData = () => {
-    if(this.options.htmlContentSelector){
+    if (this.node.dataset.videoUrl) {
+      this._getVideo()
+    } else if (this.options.htmlContentSelector) {
       this._getHtmlByTemplate()
     } else if (this.options.endpoint) {
       this._getHtmlByEndpoint()
     }
+  }
+
+  _getVideo = () => {
+    const url = this.node.dataset.videoUrl
+    let $iframe  = document.createElement("iframe");
+    $iframe.src = url
+    $iframe.classList.add('iframe')
+    this.html = $iframe.outerHTML
   }
 
   _getHtmlByTemplate = () => {
