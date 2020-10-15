@@ -37,9 +37,17 @@ class SweetModal extends features.Feature {
   }
 
   _getHtmlByTemplate = () => {
-    this.$content = document.querySelector(`${this.options.htmlContentSelector}`)
-    if(!this.$content) {
-      throw new Error(`SweetModal" ${this.name}": html content element not found`
+    const globalContentSelector = `${
+      this.options.htmlContentSelector
+    }[data-modal-identifier="${this.modalIdentifier}"]`
+
+    this.$content =
+      this.$(`${this.options.htmlContentSelector}`) ??
+      document.querySelector(globalContentSelector)
+
+    if (!this.$content) {
+      throw new Error(
+        `SweetModal" ${this.name}": html content element not found`
       )
     }
     this.html = this.$content.innerHTML
