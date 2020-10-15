@@ -83,9 +83,9 @@ storiesOf('SweetModal', module)
     () => {
       return initializeDemo(markupIntro, () => {
         resetFeature(features, 'sweet-modal')
-        features.add('sweet-modal', SweetModal), {
+        features.add('sweet-modal', SweetModal, {
           htmlContentSelector: '[data-sweet-modal-content]',
-        }
+        })
         features.init(document.body)
         initEvents()
       })
