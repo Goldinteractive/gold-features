@@ -17,6 +17,10 @@ import testJpg from './files/test.jpeg'
 
 const styles = `
   <style>
+    .ft-sweet-modal {
+      display: none;
+    }
+
     h2 {
       font-size: 25px;
       color: blue;
@@ -25,37 +29,45 @@ const styles = `
     .swal2-content {
       text-align: left;
     }
+
+    .iframe {
+      width: 100%;
+      height: 20vh;
+    }
   </style>
 `
 
 const markupIntro = `
 ${styles}
-<div class="ft-sweet-modal" data-feature="sweet-modal" data-modal-identifier="sample-id">
-  <div class="content" data-sweet-modal-content>
-    <h2>Sweet Modal</h2>
-    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-    <img src="${testJpg}" width="200" />
-  </div>
-  </br>
-  <button data-feature="sweet-modal-trigger" data-modal-identifier="sample-id" data-cy="trigger">Trigger</button>
-  <div data-modal-state>
-    <h3>States log:</h3>
-  </div>
+<div class="content" data-sweet-modal-content>
+  <h2>Sweet Modal</h2>
+  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+  <img src="${testJpg}" width="200" />
+</div>
+<button data-feature="sweet-modal" data-modal-identifier="sample-id" data-cy="trigger">Trigger</button>
+<div data-modal-state>
+  <h3>States log:</h3>
 </div>
 `
 
 const markupOpenOnLoad = `
 ${styles}
-<div class="ft-sweet-modal" data-feature="sweet-modal" data-modal-identifier="sample-id">
-  <div class="content" data-sweet-modal-content>
-    <h2>Open on load by delay</h2>
-    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-    <img src="${testJpg}" width="200" />
-  </div>
-  <div data-modal-state>
-    <h3>States log:</h3>
-  </div>
+<div class="" data-feature="sweet-modal" data-modal-identifier="sample-id"></div>
+<div class="content" data-sweet-modal-content>
+  <h2>Open on load by delay</h2>
+  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+  <img src="${testJpg}" width="200" />
 </div>
+<div data-modal-state>
+  <h3>States log:</h3>
+</div>
+`
+
+const markupVideo = `
+${styles}
+<button data-feature="sweet-modal" data-modal-identifier="sample-id1" data-video-url="https://www.youtube.com/embed/ScMzIvxBSi4?rel=0">Trigger 1</button>
+<button data-feature="sweet-modal" data-modal-identifier="sample-id2" data-video-url="https://www.youtube.com/embed/y2Ky3Wo37AY?rel=0">Trigger 2</button>
+<button data-feature="sweet-modal" data-modal-identifier="sample-id3" data-video-url="https://www.youtube.com/embed/zlRl8sJU_4I?rel=0">Trigger 3</button>
 `
 
 storiesOf('SweetModal', module)
@@ -93,6 +105,27 @@ storiesOf('SweetModal', module)
           eventHub.trigger('sample-id:close')
         }, 6000);
         initEvents()
+      })
+    },
+    {
+      notes: {
+        markdown: docs
+      }
+    }
+  )
+  .add(
+    'Video',
+    () => {
+      return initializeDemo(markupVideo, () => {
+        resetFeature(features, 'sweet-modal')
+        features.add('sweet-modal', SweetModal, {
+          useVideo: false,
+          swalConfig: {
+            width: 'auto',
+          }
+        })
+        features.add('sweet-modal-trigger', SweetModalTrigger)
+        features.init(document.body)
       })
     },
     {
