@@ -1,14 +1,17 @@
 import { features } from '@goldinteractive/js-base'
 import { json } from '@goldinteractive/js-base/src/utils/fetch'
 import SweetModalTrigger from './trigger'
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'
 
 class SweetModal extends features.Feature {
-
   init() {
-    this.modalIdentifier = this.node.dataset.modalIdentifier || this.options.modalIdentifier
-    if(!this.modalIdentifier) {
-      throw new Error(`SweetModal" ${this.name}" feature needs to be initialized with a modal-identifier`
+    this.modalIdentifier =
+      this.node.dataset.modalIdentifier || this.options.modalIdentifier
+    if (!this.modalIdentifier) {
+      throw new Error(
+        `SweetModal" ${
+          this.name
+        }" feature needs to be initialized with a modal-identifier`
       )
     }
     this.html = ''
@@ -29,7 +32,7 @@ class SweetModal extends features.Feature {
   }
 
   handleOpenOnLoad = () => {
-    if(this.options.openOnLoad){
+    if (this.options.openOnLoad) {
       this.triggerHub(`${this.modalIdentifier}:open`)
     }
   }
@@ -37,7 +40,7 @@ class SweetModal extends features.Feature {
   getData = () => {
     if(this.options.htmlContentSelector){
       this._getHtmlByTemplate()
-    } else if(this.options.endpoint){
+    } else if (this.options.endpoint) {
       this._getHtmlByEndpoint()
     }
   }
