@@ -18,8 +18,14 @@ class SweetModal extends features.Feature {
   }
 
   registerEvents = () => {
+    this.addEventListener(this.node, 'click', this.clickHandler)
     this.onHub(`${this.modalIdentifier}:open`, this.openHandler)
     this.onHub(`${this.modalIdentifier}:close`, this.closeHandler)
+  }
+
+  clickHandler = e => {
+    e.preventDefault()
+    this.triggerHub(`${this.node.dataset.modalIdentifier}:open`)
   }
 
   handleOpenOnLoad = () => {
