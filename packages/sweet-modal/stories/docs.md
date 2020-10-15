@@ -15,3 +15,5 @@ The Modal can be opened and closed with events such as `identifier:open` / `iden
 ## More options
 
 If you like to configure the `sweetalert2` object, just add the options from the docs to the `swalConfig` object option.
+
+> Make sure to import the stylesheet for the fade animation!
