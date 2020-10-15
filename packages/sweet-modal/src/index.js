@@ -1,6 +1,5 @@
 import { features } from '@goldinteractive/js-base'
 import { json } from '@goldinteractive/js-base/src/utils/fetch'
-import SweetModalTrigger from './trigger'
 import Swal from 'sweetalert2'
 
 class SweetModal extends features.Feature {
@@ -127,4 +126,3 @@ SweetModal.defaultOptions = {
 }
 
 export default SweetModal
-export { SweetModalTrigger }

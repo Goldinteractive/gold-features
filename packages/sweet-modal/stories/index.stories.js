@@ -9,7 +9,7 @@ import {
 
 import { features, eventHub } from '@goldinteractive/js-base'
 
-import SweetModal, { SweetModalTrigger } from '../src/index'
+import SweetModal from '../src/index'
 import '../src/style.scss'
 
 import docs from './docs.md'
@@ -78,7 +78,6 @@ storiesOf('SweetModal', module)
       return initializeDemo(markupIntro, () => {
         resetFeature(features, 'sweet-modal')
         features.add('sweet-modal', SweetModal)
-        features.add('sweet-modal-trigger', SweetModalTrigger)
         features.init(document.body)
         initEvents()
       })
@@ -98,7 +97,6 @@ storiesOf('SweetModal', module)
           openOnLoad: true,
           delay: 2000
         })
-        features.add('sweet-modal-trigger', SweetModalTrigger)
         features.init(document.body)
 
         setTimeout(() => {
@@ -124,7 +122,6 @@ storiesOf('SweetModal', module)
             width: 'auto',
           }
         })
-        features.add('sweet-modal-trigger', SweetModalTrigger)
         features.init(document.body)
       })
     },
