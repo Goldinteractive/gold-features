@@ -1,0 +1,19 @@
+{
+  "name": "@goldinteractive/feature-autocomplete",
+  "version": "0.0.1-alpha",
+  "description": "autocomplete feature",
+  "main": "lib/main.min.js",
+  "module": "src/index.js",
+  "author": "Gold Interactive",
+  "license": "MIT",
+  "scripts": {
+    "build": "node ../../scripts/build.js",
+    "watch": "node ../../scripts/watch.js"
+  },
+  "dependencies": {
+    "autocompleter": "^6.0.3"
+  },
+  "peerDependencies": {
+    "@goldinteractive/js-base": "~0.0.2"
+  }
+}
