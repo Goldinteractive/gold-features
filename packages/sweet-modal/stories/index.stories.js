@@ -57,10 +57,12 @@ ${styles}
 const markupOpenOnLoad = `
 ${styles}
 <div class="" data-feature="sweet-modal" data-modal-identifier="sample-id"></div>
-<div class="content" data-sweet-modal-content data-modal-identifier="sample-id">
-  <h2>Open on load by delay</h2>
-  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-  <img src="${testJpg}" width="200" />
+<div class="hide">
+  <div class="content" data-sweet-modal-content data-modal-identifier="sample-id">
+    <h2>Open on load by delay</h2>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    <img src="${testJpg}" width="200" />
+  </div>
 </div>
 <div data-modal-state>
   <h3>States log:</h3>
@@ -69,9 +71,9 @@ ${styles}
 
 const markupVideo = `
 ${styles}
-<button data-feature="sweet-modal" data-modal-identifier="sample-id1" data-video-url="https://www.youtube.com/embed/ScMzIvxBSi4?rel=0">Trigger 1</button>
-<button data-feature="sweet-modal" data-modal-identifier="sample-id2" data-video-url="https://www.youtube.com/embed/y2Ky3Wo37AY?rel=0">Trigger 2</button>
-<button data-feature="sweet-modal" data-modal-identifier="sample-id3" data-video-url="https://www.youtube.com/embed/zlRl8sJU_4I?rel=0">Trigger 3</button>
+<button data-feature="sweet-modal" data-modal-identifier="sample-id1" data-video-url="https://www.youtube.com/embed/ScMzIvxBSi4?rel=0">Video 1</button>
+<button data-feature="sweet-modal" data-modal-identifier="sample-id2" data-video-url="https://www.youtube.com/embed/y2Ky3Wo37AY?rel=0">Video 2</button>
+<button data-feature="sweet-modal" data-modal-identifier="sample-id3" data-video-url="https://www.youtube.com/embed/zlRl8sJU_4I?rel=0">Video 3</button>
 `
 
 storiesOf('SweetModal', module)
@@ -81,7 +83,9 @@ storiesOf('SweetModal', module)
     () => {
       return initializeDemo(markupIntro, () => {
         resetFeature(features, 'sweet-modal')
-        features.add('sweet-modal', SweetModal)
+        features.add('sweet-modal', SweetModal), {
+          htmlContentSelector: '[data-sweet-modal-content]',
+        }
         features.init(document.body)
         initEvents()
       })
@@ -98,6 +102,7 @@ storiesOf('SweetModal', module)
       return initializeDemo(markupOpenOnLoad, () => {
         resetFeature(features, 'sweet-modal')
         features.add('sweet-modal', SweetModal, {
+          htmlContentSelector: '[data-sweet-modal-content]',
           openOnLoad: true,
           delay: 2000
         })
@@ -121,7 +126,6 @@ storiesOf('SweetModal', module)
       return initializeDemo(markupVideo, () => {
         resetFeature(features, 'sweet-modal')
         features.add('sweet-modal', SweetModal, {
-          useVideo: false,
           swalConfig: {
             width: 'auto',
           }

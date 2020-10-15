@@ -117,7 +117,7 @@ class SweetModal extends features.Feature {
 }
 
 SweetModal.defaultOptions = {
-  htmlContentSelector: '[data-sweet-modal-content]',
+  htmlContentSelector: null,
   endpoint: null,
   modalIdentifier: null,
   openOnLoad: false,
