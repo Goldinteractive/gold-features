@@ -11,40 +11,41 @@ class Autocomplete extends features.Feature {
       )
     }
 
-    this.noResultText = this.$(
-      `${this.options.noResultTextSelector}`
-    )?.textContent || ''
+    this.noResultText = this.node.noResultText || ''
 
     this.initAutocomplete()
   }
 
   getData = () => {
-    if(this.options.endpoint){
+    if (this.options.useEndpoint) {
       return this._getDataByEndpoint()
-    } else {
-      const result = {
-        data: [
-          {
-            value: 'ch',
-            label: 'Schweiz'
-          },
-          {
-            value: 'de',
-            label: 'Deutschland'
-          },
-          {
-            value: 'sw',
-            label: 'Schweden'
-          },
-        ]
-      }
-      return result.data // TODO: Use data-attribut values or just remove this option
+    } else if (this.options.useValueList) {
+      return this._getDataByValuesList()
     }
   }
 
-  fetch = async () => {
-    const result = await json(this.options.endpoint)
-    return result.data
+  _getDataByEndpoint = () => {
+    const url = this.node.dataset.actionUrl
+    if (!url) {
+      throw new Error(
+        `Autocomplete" ${this.name}": action url not found or empty`
+      )
+    }
+    json(url).then(result => {
+      return result.data
+    })
+  }
+
+  _getDataByValuesList = () => {
+    const list = this.node.dataset.valueList
+    if (!list) {
+      throw new Error(
+        `Autocomplete" ${this.name}": value list not found or empty`
+      )
+    }
+    return list.split(',').map(item => {
+      return { label: item.trim() }
+    })
   }
 
   render = (item, value) => {
@@ -81,9 +82,10 @@ class Autocomplete extends features.Feature {
     })
   }
 }
+
 Autocomplete.defaultOptions = {
-  endpoint: null,
-  noResultTextSelector: '[data-no-result-text]',
+  useEndpoint: false,
+  useValueList: true,
   autocompleteOptions: {}
 }
 
