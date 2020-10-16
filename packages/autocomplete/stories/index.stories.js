@@ -16,20 +16,28 @@ import docs from './docs.md'
 
 const styles = `
   <style>
+  .no-result-text {
+    display: none;
+  }
+
+  .list-item:hover, .list-item.selected {
+    background: #81ca91;
+    cursor: pointer;
+  }
+
+  .list-item > span.highlight {
+    color: red;
+  }
   </style>
 `
 
 const markupIntro = `
 ${styles}
 <div class="ft-autocomplete" data-feature="autocomplete">
-  <label for="countries" class="">Countries</label>
-  <input class="input" type="text" id="countries" placeholder="Search for country" autocomplete="off" data-input>
-  <ul data-result-list>
-
-  </ul>
+  <input class="input" type="text" id="countries" placeholder="Search for country" autocomplete="off" autofocus data-input>
+  <span class="no-result-text" data-no-result-text>No results found</span>
 </div>
 `
-
 
 storiesOf('Autocomplete', module)
   .addDecorator(withKnobs)
