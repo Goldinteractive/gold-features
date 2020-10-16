@@ -16,7 +16,7 @@ import docs from './docs.md'
 
 const styles = `
   <style>
-  .no-result-text {
+  .hide {
     display: none;
   }
 
@@ -33,9 +33,8 @@ const styles = `
 
 const markupIntro = `
 ${styles}
-<div class="ft-autocomplete" data-feature="autocomplete">
+<div class="ft-autocomplete" data-feature="autocomplete" data-value-list="Deutschland, Schweiz, Frankreich, Schweden, Spanien" data-no-result-text="No results found">
   <input class="input" type="text" id="countries" placeholder="Search for country" autocomplete="off" autofocus data-input>
-  <span class="no-result-text" data-no-result-text>No results found</span>
 </div>
 `
 
