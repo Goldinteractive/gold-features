@@ -11,7 +11,7 @@ class Autocomplete extends features.Feature {
       )
     }
 
-    this.noResultText = this.node.noResultText || ''
+    this.noResultText = this.node.dataset.noResultText || ''
 
     this.initAutocomplete()
   }
@@ -77,7 +77,6 @@ class Autocomplete extends features.Feature {
         input.value = item.label
       },
       emptyMsg: this.noResultText,
-      debounceWaitMs: 200,
       ...this.options.autocompleteOptions
     })
   }
