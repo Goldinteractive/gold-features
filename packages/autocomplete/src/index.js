@@ -21,6 +21,10 @@ class Autocomplete extends features.Feature {
       return this._getDataByEndpoint()
     } else if (this.options.useValueList) {
       return this._getDataByValuesList()
+    } else {
+      throw new Error(
+        `Autocomplete" ${this.name}": set a feature-option for your desired data choice`
+      )
     }
   }
 
@@ -84,7 +88,7 @@ class Autocomplete extends features.Feature {
 
 Autocomplete.defaultOptions = {
   useEndpoint: false,
-  useValueList: true,
+  useValueList: false,
   autocompleteConfig: {}
 }
 
