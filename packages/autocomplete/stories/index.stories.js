@@ -34,7 +34,7 @@ const styles = `
 const markupIntro = `
 ${styles}
 <div class="ft-autocomplete" data-feature="autocomplete" data-value-list="Deutschland, Schweiz, Frankreich, Schweden, Spanien" data-no-result-text="No results found">
-  <input class="input" type="text" id="countries" placeholder="Search for country" autocomplete="off" autofocus data-input>
+  <input class="input" type="text" id="countries" placeholder="Search for country" autocomplete="off" autofocus data-input data-cy="input">
 </div>
 `
 
