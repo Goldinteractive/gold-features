@@ -28,7 +28,7 @@ class Autocomplete extends features.Feature {
     const url = this.node.dataset.actionUrl
     if (!url) {
       throw new Error(
-        `Autocomplete" ${this.name}": action url not found or empty`
+        `Autocomplete" ${this.name}" feature needs an action-url data-attribute`
       )
     }
     json(url).then(result => {
@@ -40,7 +40,7 @@ class Autocomplete extends features.Feature {
     const list = this.node.dataset.valueList
     if (!list) {
       throw new Error(
-        `Autocomplete" ${this.name}": value list not found or empty`
+        `Autocomplete" ${this.name}" feature needs a value-list data-attribute`
       )
     }
     return list.split(',').map(item => {
