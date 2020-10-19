@@ -45,7 +45,9 @@ storiesOf('Autocomplete', module)
     () => {
       return initializeDemo(markupIntro, () => {
         resetFeature(features, 'autocomplete')
-        features.add('autocomplete', Autocomplete)
+        features.add('autocomplete', Autocomplete, {
+          useValueList: true
+        })
         features.init(document.body)
       })
     },
