@@ -77,7 +77,7 @@ class Autocomplete extends features.Feature {
         input.value = item.label
       },
       emptyMsg: this.noResultText,
-      ...this.options.autocompleteOptions
+      ...this.options.autocompleteConfig
     })
   }
 }
@@ -85,7 +85,7 @@ class Autocomplete extends features.Feature {
 Autocomplete.defaultOptions = {
   useEndpoint: false,
   useValueList: true,
-  autocompleteOptions: {}
+  autocompleteConfig: {}
 }
 
 export default Autocomplete
