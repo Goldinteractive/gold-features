@@ -30,17 +30,28 @@ class DomState {
     )
   }
 
-  updateState() {
-    this._state = this.obtainState()
+  updateState(instance) {
+    this._state = this.obtainState(instance)
     this.persistState()
     this.notify()
   }
 
-  obtainState() {
-    return this._stateHandlers.reduce((agg, handler) => {
-      agg[handler.getName()] = handler.getValue()
+  obtainState(instance) {
+    const syncName = instance?.getName()
+    const syncValue = instance?.getValue()
+    let states = this._stateHandlers.reduce((agg, handler) => {
+      let value = '';
+      //const value = handler.getName() === syncName ? syncValue : handler.getValue()
+      if(handler.getName() === syncName){
+        value = syncValue
+        console.log(handler)
+      } else {
+        value = handler.getValue()
+      }
+      agg[handler.getName()] = value
       return agg
     }, {})
+    return states
   }
 
   persistState() {

@@ -57,6 +57,31 @@ const DomStatehandlerMarkup = `
 </div>
 `
 
+const SyncStatesMarkup = `<div>
+<div>fruits:</div>
+  <select name="fruits" data-feature="dom-state-handler" data-cy="select1">
+    <option value="orange" data-cy="orange">orange</option>
+    <option value="violet" data-cy="violet">violet</option>
+    <option value="yellow" data-cy="yellow">yellow</option>
+  </select>
+
+  <div style="margin-top:20px;">option-other:</div>
+  <select name="option-other" data-feature="dom-state-handler" data-cy="select2">
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+  </select>
+
+  <div style="margin-top:20px;">fruits:</div>
+  <div data-feature="dom-state-handler" data-state-handler-type="radio-group">
+    <input id="orange" type="radio" name="fruits" value="orange" data-cy="radio1" />
+    <label for="orange">orange</label>
+    <input id="violet" type="radio" name="fruits" value="violet" data-cy="radio2" checked/>
+    <label for="violet">violet</label>
+    <input id="yellow" type="radio" name="fruits" value="yellow" data-cy="radio3" />
+    <label for="yellow">yellow</label>
+  </div>
+</div>`
+
 const LazyFilterGridMarkup = `
 <style>
 .grid {position: relative; }
@@ -162,6 +187,28 @@ storiesOf('DomStateHandler', module)
         resetFeature(features, 'dom-state-handler')
         features.add('dom-state-handler', DomStateHandler, {
           domState: new UrlParameter(
+            object('domStateOptions', {
+              namespace: 'default-namespace',
+              restorePersisted: true
+            })
+          )
+        })
+        features.init(document.body)
+      })
+    },
+    {
+      notes: {
+        markdown: DomStateHandlerDocs
+      }
+    }
+  )
+  .add(
+    'Sync States',
+    () => {
+      return initializeDemo(SyncStatesMarkup, () => {
+        resetFeature(features, 'dom-state-handler')
+        features.add('dom-state-handler', DomStateHandler, {
+          domState: new LocalStorage(
             object('domStateOptions', {
               namespace: 'default-namespace',
               restorePersisted: true
