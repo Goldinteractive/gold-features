@@ -1,6 +1,6 @@
 import { features } from '@goldinteractive/js-base'
-import { json } from '@goldinteractive/js-base/src/utils/fetch'
 import Swal from 'sweetalert2'
+import * as strategies from './strategies'
 
 class SweetModal extends features.Feature {
   init() {
@@ -36,58 +36,22 @@ class SweetModal extends features.Feature {
     }
   }
 
-  getData = () => {
-    if (this.node.dataset.videoUrl) {
-      this._getVideo()
-    } else if (this.options.htmlContentSelector) {
-      this._getHtmlByTemplate()
-    } else if (this.options.endpoint) {
-      this._getHtmlByEndpoint()
-    }
-  }
-
-  _getVideo = () => {
-    const url = this.node.dataset.videoUrl
-    let $iframe  = document.createElement("iframe");
-    $iframe.src = url
-    $iframe.classList.add('iframe')
-    this.html = $iframe.outerHTML
-  }
-
-  _getHtmlByTemplate = () => {
-    const globalContentSelector = `${
-      this.options.htmlContentSelector
-    }[data-modal-identifier="${this.modalIdentifier}"]`
-
-    this.$content =
-      this.$(`${this.options.htmlContentSelector}`) ??
-      document.querySelector(globalContentSelector)
-
-    if (!this.$content) {
-      throw new Error(
-        `SweetModal" ${this.name}": html content element not found`
-      )
-    }
-    this.html = this.$content.innerHTML
-  }
-
-  _getHtmlByEndpoint = async () => {
-    const result = await json(this.options.endpoint)
-    this.html = result.html
-  }
-
   openHandler = () => {
-    this.getData()
+    this.options.strategy.getData(this._open, this.modalIdentifier, this.node)
+  }
+
+  _open = (html) => {
+    this.html = html
     if (this.options.delay <= 0) {
-      this._open()
+      this._fireModal()
     } else {
       setTimeout(() => {
-        this._open()
+        this._fireModal()
       }, this.options.delay)
     }
-  }
+   }
 
-  _open = () => {
+  _fireModal = () => {
     Swal.fire({
       html: this.html,
       showConfirmButton: false,
@@ -117,12 +81,13 @@ class SweetModal extends features.Feature {
 }
 
 SweetModal.defaultOptions = {
-  htmlContentSelector: null,
-  endpoint: null,
+  strategy: null,
   modalIdentifier: null,
   openOnLoad: false,
   delay: 0,
   swalConfig: {}
 }
+
+export { strategies }
 
 export default SweetModal
