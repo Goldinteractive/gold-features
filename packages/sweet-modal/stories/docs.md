@@ -13,6 +13,8 @@ There are three default strategies to load the html data for the modal:
 - HtmlTemplate: Init the strategy with an content selector
 - Endpoint: Init the strategy with an endpoint url
 
+You can also add your own strategy. Create a class and implement the `getData(callback)` function and call the callback with the html code.
+
 ## More options
 
 If you like to configure the `sweetalert2` object, just add the options from the docs to the `swalConfig` object option.
