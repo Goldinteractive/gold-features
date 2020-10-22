@@ -208,7 +208,7 @@ storiesOf('DomStateHandler', module)
       return initializeDemo(SyncStatesMarkup, () => {
         resetFeature(features, 'dom-state-handler')
         features.add('dom-state-handler', DomStateHandler, {
-          domState: new LocalStorage(
+          domState: new UrlFragment(
             object('domStateOptions', {
               namespace: 'default-namespace',
               restorePersisted: true
