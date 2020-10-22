@@ -30,7 +30,7 @@ class DomStateHandler extends features.Feature {
     this.instance = new Prototype(this.node)
     this.options.domState.registerStateHandler(this.instance)
     this.addEventListener(this.node, this.instance.getChangeEventName(), () => {
-      this.options.domState.updateState()
+      this.options.domState.updateState(this.instance)
     })
   }
 
