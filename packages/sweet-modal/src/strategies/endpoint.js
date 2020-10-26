@@ -1,18 +1,18 @@
 import { json } from '@goldinteractive/js-base/src/utils/fetch'
 
 class Endpoint {
-  constructor({ url }) {
-    this.url = url
-    if (!this.url) {
+  constructor() {}
+
+  getData = (callback, node) => {
+    const url = node?.dataset?.actionUrl
+    if (!url) {
       throw new Error(
-        `Endpoint strategy needs to be initialized with an endpoint url`
+        `Endpoint strategy needs an action url attribute on the node`
       )
     }
-  }
 
-  getData = (callback)  => {
-    json(this.url).then(result => {
-      if(callback){
+    json(url).then(result => {
+      if (callback) {
         callback(result.data.html)
       }
     })

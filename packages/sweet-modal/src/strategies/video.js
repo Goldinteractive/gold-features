@@ -1,7 +1,7 @@
 class Video {
   constructor() {}
 
-  getData = (callback, modalIdentifier, node) => {
+  getData = (callback, node, modalIdentifier) => {
     const url = node.dataset.videoUrl
     if(!url){
       throw new Error(

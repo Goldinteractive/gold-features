@@ -8,7 +8,7 @@ class HtmlTemplate {
     }
   }
 
-  getData = (callback, modalIdentifier) => {
+  getData = (callback, node, modalIdentifier) => {
     this.$content = document.querySelector(
       `${this.contentSelector}[data-modal-identifier="${modalIdentifier}"]`
     )

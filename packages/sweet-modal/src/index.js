@@ -37,7 +37,7 @@ class SweetModal extends features.Feature {
   }
 
   openHandler = () => {
-    this.options.strategy.getData(this._open, this.modalIdentifier, this.node)
+    this.options.strategy.getData(this._open, this.node, this.modalIdentifier)
   }
 
   _open = (html) => {
