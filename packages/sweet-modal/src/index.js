@@ -6,11 +6,12 @@ class SweetModal extends features.Feature {
   init() {
     this.modalIdentifier =
       this.node.dataset.modalIdentifier || this.options.modalIdentifier
-    if (!this.modalIdentifier) {
+    this.strategy = this.options.strategy
+    if (!this.modalIdentifier || !this.strategy) {
       throw new Error(
         `SweetModal" ${
           this.name
-        }" feature needs to be initialized with a modal-identifier`
+        }" feature needs to be initialized with a modal-identifier and a content strategy`
       )
     }
     this.html = ''
