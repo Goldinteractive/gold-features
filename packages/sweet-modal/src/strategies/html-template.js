@@ -15,7 +15,7 @@ class HtmlTemplate {
 
     if (!this.$content) {
       throw new Error(
-        `SweetModal" ${this.name}": html content element not found`
+        `HtmlTemplate strategy: html content element not found`
       )
     }
 
