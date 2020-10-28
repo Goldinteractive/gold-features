@@ -54,6 +54,12 @@ class SweetModal extends features.Feature {
   _fireModal = () => {
     Swal.fire({
       html: this.html,
+      customClass: {
+        container: 'ft-sweet-modal-container',
+        popup: 'ft-sweet-modal-popup',
+        content: 'ft-sweet-modal-content',
+        closeButton: 'ft-sweet-modal-close'
+      },
       showConfirmButton: false,
       showCloseButton: true,
       willOpen: () => {
