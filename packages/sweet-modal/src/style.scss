@@ -1,12 +1,4 @@
-.swal2-show {
-  animation: swal2-show .5s;
-}
-
-.swal2-hide {
-  animation: swal2-hide .5s;
-}
-
-@keyframes swal2-show {
+@keyframes ft-sweet-modal-show {
   from {
     opacity: 0;
   }
@@ -16,7 +8,7 @@
   }
 }
 
-@keyframes swal2-hide {
+@keyframes ft-sweet-modal-hide {
   from {
     opacity: 1;
   }
@@ -26,6 +18,14 @@
   }
 }
 
-.ft-sweet-modal {
+.ft-sweet-modal-container {
 
+  .ft-sweet-modal
+  .-ft-sweet-modal-show {
+    animation: ft-sweet-modal-show .5s;
+  }
+
+  .-ft-sweet-modal-hide {
+    animation: ft-sweet-modal-hide .5s;
+  }
 }

@@ -60,6 +60,12 @@ class SweetModal extends features.Feature {
         content: 'ft-sweet-modal-content',
         closeButton: 'ft-sweet-modal-close'
       },
+      showClass: {
+        popup: '-ft-sweet-modal-show'
+      },
+      hideClass: {
+        popup: '-ft-sweet-modal-hide'
+      },
       showConfirmButton: false,
       showCloseButton: true,
       willOpen: () => {
