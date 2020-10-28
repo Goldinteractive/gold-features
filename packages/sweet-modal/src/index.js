@@ -41,7 +41,7 @@ class SweetModal extends features.Feature {
     this.options.strategy.getData(this._open, this.node, this.modalIdentifier)
   }
 
-  _open = (html) => {
+  _open = html => {
     this.html = html
     if (this.options.delay <= 0) {
       this._fireModal()
@@ -50,7 +50,7 @@ class SweetModal extends features.Feature {
         this._fireModal()
       }, this.options.delay)
     }
-   }
+  }
 
   _fireModal = () => {
     Swal.fire({
@@ -76,13 +76,17 @@ class SweetModal extends features.Feature {
         this.triggerHub(`${this.modalIdentifier}:did-open`, { instance: this })
       },
       willClose: () => {
-        this.triggerHub(`${this.modalIdentifier}:will-close`, { instance: this })
+        this.triggerHub(`${this.modalIdentifier}:will-close`, {
+          instance: this
+        })
       },
       didClose: () => {
         this.triggerHub(`${this.modalIdentifier}:did-close`, { instance: this })
       },
       didRender: () => {
-        this.triggerHub(`${this.modalIdentifier}:did-render`, { instance: this })
+        this.triggerHub(`${this.modalIdentifier}:did-render`, {
+          instance: this
+        })
       },
       ...this.options.swalConfig
     })

@@ -14,9 +14,7 @@ class HtmlTemplate {
     )
 
     if (!this.$content) {
-      throw new Error(
-        `HtmlTemplate strategy: html content element not found`
-      )
+      throw new Error(`HtmlTemplate strategy: html content element not found`)
     }
 
     callback(this.$content.innerHTML)

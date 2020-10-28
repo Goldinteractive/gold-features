@@ -19,13 +19,11 @@
 }
 
 .ft-sweet-modal-container {
-
-  .ft-sweet-modal
-  .-ft-sweet-modal-show {
-    animation: ft-sweet-modal-show .5s;
+  .ft-sweet-modal .-ft-sweet-modal-show {
+    animation: ft-sweet-modal-show 0.5s;
   }
 
   .-ft-sweet-modal-hide {
-    animation: ft-sweet-modal-hide .5s;
+    animation: ft-sweet-modal-hide 0.5s;
   }
 }
