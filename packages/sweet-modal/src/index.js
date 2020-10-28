@@ -63,19 +63,19 @@ class SweetModal extends features.Feature {
       showConfirmButton: false,
       showCloseButton: true,
       willOpen: () => {
-        this.triggerHub(`${this.modalIdentifier}:will-open`)
+        this.triggerHub(`${this.modalIdentifier}:will-open`, { instance: this })
       },
       didOpen: () => {
-        this.triggerHub(`${this.modalIdentifier}:did-open`)
+        this.triggerHub(`${this.modalIdentifier}:did-open`, { instance: this })
       },
       willClose: () => {
-        this.triggerHub(`${this.modalIdentifier}:will-close`)
+        this.triggerHub(`${this.modalIdentifier}:will-close`, { instance: this })
       },
       didClose: () => {
-        this.triggerHub(`${this.modalIdentifier}:did-close`)
+        this.triggerHub(`${this.modalIdentifier}:did-close`, { instance: this })
       },
       didRender: () => {
-        this.triggerHub(`${this.modalIdentifier}:did-render`)
+        this.triggerHub(`${this.modalIdentifier}:did-render`, { instance: this })
       },
       ...this.options.swalConfig
     })
