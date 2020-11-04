@@ -89,6 +89,9 @@ class SweetModal extends features.Feature {
       didRender: () => {
         this.triggerHub(`${this.modalIdentifier}:did-render`, instances)
       },
+      didDestroy: () => {
+        this.triggerHub(`${this.modalIdentifier}:did-destroy`, instances)
+      },
       ...this.options.swalConfig
     })
   }

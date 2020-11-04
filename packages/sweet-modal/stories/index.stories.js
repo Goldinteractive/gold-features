@@ -188,4 +188,9 @@ storiesOf('SweetModal', module)
       p.textContent = 'did-render'
       $modalState.appendChild(p)
     })
+    eventHub.on('sample-id:did-destroy',() => {
+      let p = document.createElement("p");
+      p.textContent = 'did-destroy'
+      $modalState.appendChild(p)
+    })
   }
