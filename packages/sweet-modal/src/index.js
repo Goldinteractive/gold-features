@@ -53,6 +53,11 @@ class SweetModal extends features.Feature {
   }
 
   _fireModal = () => {
+    const instances = {
+      instance: this,
+      Swal: Swal
+    }
+
     Swal.fire({
       html: this.html,
       customClass: {
@@ -70,23 +75,19 @@ class SweetModal extends features.Feature {
       showConfirmButton: false,
       showCloseButton: true,
       willOpen: () => {
-        this.triggerHub(`${this.modalIdentifier}:will-open`, { instance: this })
+        this.triggerHub(`${this.modalIdentifier}:will-open`, instances)
       },
       didOpen: () => {
-        this.triggerHub(`${this.modalIdentifier}:did-open`, { instance: this })
+        this.triggerHub(`${this.modalIdentifier}:did-open`, instances)
       },
       willClose: () => {
-        this.triggerHub(`${this.modalIdentifier}:will-close`, {
-          instance: this
-        })
+        this.triggerHub(`${this.modalIdentifier}:will-close`, instances)
       },
       didClose: () => {
-        this.triggerHub(`${this.modalIdentifier}:did-close`, { instance: this })
+        this.triggerHub(`${this.modalIdentifier}:did-close`, instances)
       },
       didRender: () => {
-        this.triggerHub(`${this.modalIdentifier}:did-render`, {
-          instance: this
-        })
+        this.triggerHub(`${this.modalIdentifier}:did-render`, instances)
       },
       ...this.options.swalConfig
     })
