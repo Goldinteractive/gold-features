@@ -110,9 +110,7 @@ storiesOf('SweetModal', module)
       return initializeDemo(markupOpenOnLoad, () => {
         resetFeature(features, 'sweet-modal')
         features.add('sweet-modal', SweetModal, {
-          strategy: new contentStrategies.HtmlTemplate({
-            contentSelector: '[data-sweet-modal-content]',
-          }),
+          strategy: new contentStrategies.HtmlTemplate(),
           openOnLoad: true,
           delay: 2000
         })
