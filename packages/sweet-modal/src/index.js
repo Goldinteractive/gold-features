@@ -1,5 +1,5 @@
 import { features } from '@goldinteractive/js-base'
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 import * as strategies from './strategies'
 
 class SweetModal extends features.Feature {
