@@ -9,7 +9,7 @@ import {
 
 import { features, eventHub } from '@goldinteractive/js-base'
 
-import SweetModal, { strategies, SweetModalTrigger } from '../src/index'
+import SweetModal, { contentStrategies, SweetModalTrigger } from '../src/index'
 import 'sweetalert2/src/sweetalert2.scss'
 import '../src/style.scss'
 
@@ -90,7 +90,7 @@ storiesOf('SweetModal', module)
         resetFeature(features, 'sweet-modal')
         resetFeature(features, 'sweet-modal-trigger')
         features.add('sweet-modal', SweetModal, {
-          strategy: new strategies.HtmlTemplate({
+          strategy: new contentStrategies.HtmlTemplate({
             contentSelector: '[data-sweet-modal-content]',
           })
         })
@@ -111,7 +111,7 @@ storiesOf('SweetModal', module)
       return initializeDemo(markupOpenOnLoad, () => {
         resetFeature(features, 'sweet-modal')
         features.add('sweet-modal', SweetModal, {
-          strategy: new strategies.HtmlTemplate({
+          strategy: new contentStrategies.HtmlTemplate({
             contentSelector: '[data-sweet-modal-content]',
           }),
           openOnLoad: true,
@@ -138,7 +138,7 @@ storiesOf('SweetModal', module)
         resetFeature(features, 'sweet-modal')
         resetFeature(features, 'sweet-modal-trigger')
         features.add('sweet-modal', SweetModal, {
-          strategy: new strategies.Video(),
+          strategy: new contentStrategies.Video(),
           swalConfig: {
             width: 'auto',
           }
