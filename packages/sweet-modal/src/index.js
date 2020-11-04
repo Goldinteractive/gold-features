@@ -1,6 +1,7 @@
 import { features } from '@goldinteractive/js-base'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import * as strategies from './strategies'
+import SweetModalTrigger from './trigger'
 
 class SweetModal extends features.Feature {
   init() {
@@ -21,14 +22,8 @@ class SweetModal extends features.Feature {
   }
 
   registerEvents = () => {
-    this.addEventListener(this.node, 'click', this.clickHandler)
     this.onHub(`${this.modalIdentifier}:open`, this.openHandler)
     this.onHub(`${this.modalIdentifier}:close`, this.closeHandler)
-  }
-
-  clickHandler = e => {
-    e.preventDefault()
-    this.triggerHub(`${this.node.dataset.modalIdentifier}:open`)
   }
 
   handleOpenOnLoad = () => {
@@ -112,3 +107,4 @@ SweetModal.defaultOptions = {
 export { strategies }
 
 export default SweetModal
+export { SweetModalTrigger }

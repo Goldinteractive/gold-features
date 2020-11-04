@@ -9,7 +9,8 @@ import {
 
 import { features, eventHub } from '@goldinteractive/js-base'
 
-import SweetModal, { strategies } from '../src/index'
+import SweetModal, { strategies, SweetModalTrigger } from '../src/index'
+import 'sweetalert2/src/sweetalert2.scss'
 import '../src/style.scss'
 
 import docs from './docs.md'
@@ -40,7 +41,7 @@ const styles = `
 const markupIntro = `
 ${styles}
 <div class="hide">
-  <div class="content" data-sweet-modal-content data-modal-identifier="sample-id">
+  <div class="content" data-feature="sweet-modal" data-sweet-modal-content data-modal-identifier="sample-id">
     <div data-cy="sweet-modal-content">
       <h2>Sweet Modal</h2>
       <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
@@ -48,7 +49,7 @@ ${styles}
     </div>
   </div>
 </div>
-<button data-feature="sweet-modal" data-modal-identifier="sample-id" data-cy="trigger">Trigger</button>
+<button data-feature="sweet-modal-trigger" data-modal-identifier="sample-id" data-cy="trigger">Trigger</button>
 <div data-modal-state>
   <h3>States log:</h3>
 </div>
@@ -71,9 +72,13 @@ ${styles}
 
 const markupVideo = `
 ${styles}
-<button data-feature="sweet-modal" data-modal-identifier="sample-id1" data-video-url="https://www.youtube.com/embed/ScMzIvxBSi4?rel=0">Video 1</button>
-<button data-feature="sweet-modal" data-modal-identifier="sample-id2" data-video-url="https://www.youtube.com/embed/y2Ky3Wo37AY?rel=0">Video 2</button>
-<button data-feature="sweet-modal" data-modal-identifier="sample-id3" data-video-url="https://www.youtube.com/embed/zlRl8sJU_4I?rel=0">Video 3</button>
+<div data-feature="sweet-modal" data-modal-identifier="sample-id1" data-video-url="https://www.youtube.com/embed/ScMzIvxBSi4?rel=0"></div>
+<div data-feature="sweet-modal" data-modal-identifier="sample-id2" data-video-url="https://www.youtube.com/embed/y2Ky3Wo37AY?rel=0"></div>
+<div data-feature="sweet-modal" data-modal-identifier="sample-id3" data-video-url="https://www.youtube.com/embed/zlRl8sJU_4I?rel=0"></div>
+
+<button data-feature="sweet-modal-trigger" data-modal-identifier="sample-id1">Video 1</button>
+<button data-feature="sweet-modal-trigger" data-modal-identifier="sample-id2">Video 2</button>
+<button data-feature="sweet-modal-trigger" data-modal-identifier="sample-id3">Video 3</button>
 `
 
 storiesOf('SweetModal', module)
@@ -83,11 +88,13 @@ storiesOf('SweetModal', module)
     () => {
       return initializeDemo(markupIntro, () => {
         resetFeature(features, 'sweet-modal')
+        resetFeature(features, 'sweet-modal-trigger')
         features.add('sweet-modal', SweetModal, {
           strategy: new strategies.HtmlTemplate({
             contentSelector: '[data-sweet-modal-content]',
           })
         })
+        features.add('sweet-modal-trigger', SweetModalTrigger)
         features.init(document.body)
         initEvents()
       })
@@ -129,12 +136,14 @@ storiesOf('SweetModal', module)
     () => {
       return initializeDemo(markupVideo, () => {
         resetFeature(features, 'sweet-modal')
+        resetFeature(features, 'sweet-modal-trigger')
         features.add('sweet-modal', SweetModal, {
           strategy: new strategies.Video(),
           swalConfig: {
             width: 'auto',
           }
         })
+        features.add('sweet-modal-trigger', SweetModalTrigger)
         features.init(document.body)
       })
     },
