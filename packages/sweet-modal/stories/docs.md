@@ -17,8 +17,12 @@ There are three default strategies to load the html data for the modal:
 
 You can also use your own strategy. Create a class and implement the `getData(callback)` function. Get your html code and call the callback with the html as a parameter.
 
+## CSS
+
+The styles are not imported by default. Import the sweetalert2 styles by adding `@import 'sweetalert2/src/sweetalert2.scss';` to your scss-file.
+
 ## More options
 
 If you like to configure the `sweetalert2` object, just add the options from the docs to the `swalConfig` object option.
 
-> Make sure to import the stylesheet for the fade animation!
+> Make sure to import the feature stylesheet for the fade animation!
