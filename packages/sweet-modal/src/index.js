@@ -74,6 +74,7 @@ class SweetModal extends features.Feature {
       },
       didOpen: () => {
         this.triggerHub(`${this.modalIdentifier}:did-open`, instances)
+        features.init(Swal.getContainer())
       },
       willClose: () => {
         this.triggerHub(`${this.modalIdentifier}:will-close`, instances)
