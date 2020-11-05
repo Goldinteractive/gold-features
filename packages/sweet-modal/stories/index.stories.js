@@ -88,10 +88,14 @@ storiesOf('SweetModal', module)
       return initializeDemo(markupIntro, () => {
         resetFeature(features, 'sweet-modal')
         resetFeature(features, 'sweet-modal-trigger')
-        features.add('sweet-modal', SweetModal, object('options', {
-          strategy: new contentStrategies.HtmlTemplate({
-            contentSelector: '[data-sweet-modal-content]',
-          })})
+        features.add(
+          'sweet-modal',
+          SweetModal,
+          object('options', {
+            strategy: new contentStrategies.HtmlTemplate({
+              contentSelector: '[data-sweet-modal-content]'
+            })
+          })
         )
         features.add('sweet-modal-trigger', SweetModalTrigger)
         features.init(document.body)
@@ -109,16 +113,20 @@ storiesOf('SweetModal', module)
     () => {
       return initializeDemo(markupOpenOnLoad, () => {
         resetFeature(features, 'sweet-modal')
-        features.add('sweet-modal', SweetModal, object('options', {
-          strategy: new contentStrategies.HtmlTemplate(),
-          openOnLoad: true,
-          delay: 2000
-        }))
+        features.add(
+          'sweet-modal',
+          SweetModal,
+          object('options', {
+            strategy: new contentStrategies.HtmlTemplate(),
+            openOnLoad: true,
+            delay: 2000
+          })
+        )
         features.init(document.body)
 
         setTimeout(() => {
           eventHub.trigger('sample-id:close')
-        }, 6000);
+        }, 6000)
         initEvents()
       })
     },
@@ -134,12 +142,16 @@ storiesOf('SweetModal', module)
       return initializeDemo(markupVideo, () => {
         resetFeature(features, 'sweet-modal')
         resetFeature(features, 'sweet-modal-trigger')
-        features.add('sweet-modal', SweetModal, object('options', {
-          strategy: new contentStrategies.Video(),
-          swalConfig: {
-            width: 'auto',
-          }
-        }))
+        features.add(
+          'sweet-modal',
+          SweetModal,
+          object('options', {
+            strategy: new contentStrategies.Video(),
+            swalConfig: {
+              width: 'auto'
+            }
+          })
+        )
         features.add('sweet-modal-trigger', SweetModalTrigger)
         features.init(document.body)
       })
@@ -157,46 +169,46 @@ storiesOf('SweetModal', module)
     return styleSource({ feature: 'sweet-modal', language: 'sass' })
   })
 
-  const initEvents = () => {
-    const $modalState = document.querySelector('[data-modal-state]')
-    eventHub.on('sample-id:open',() => {
-      let p = document.createElement("p");
-      p.textContent = 'open'
-      $modalState.appendChild(p)
-    })
-    eventHub.on('sample-id:close',() => {
-      let p = document.createElement("p");
-      p.textContent = 'close'
-      $modalState.appendChild(p)
-    })
-    eventHub.on('sample-id:will-open',() => {
-      let p = document.createElement("p");
-      p.textContent = 'will-open'
-      $modalState.appendChild(p)
-    })
-    eventHub.on('sample-id:did-open',() => {
-      let p = document.createElement("p");
-      p.textContent = 'did-open'
-      $modalState.appendChild(p)
-    })
-    eventHub.on('sample-id:will-close',() => {
-      let p = document.createElement("p");
-      p.textContent = 'will-close'
-      $modalState.appendChild(p)
-    })
-    eventHub.on('sample-id:did-close',() => {
-      let p = document.createElement("p");
-      p.textContent = 'did-close'
-      $modalState.appendChild(p)
-    })
-    eventHub.on('sample-id:did-render',() => {
-      let p = document.createElement("p");
-      p.textContent = 'did-render'
-      $modalState.appendChild(p)
-    })
-    eventHub.on('sample-id:did-destroy',() => {
-      let p = document.createElement("p");
-      p.textContent = 'did-destroy'
-      $modalState.appendChild(p)
-    })
-  }
+const initEvents = () => {
+  const $modalState = document.querySelector('[data-modal-state]')
+  eventHub.on('sample-id:open', () => {
+    let p = document.createElement('p')
+    p.textContent = 'open'
+    $modalState.appendChild(p)
+  })
+  eventHub.on('sample-id:close', () => {
+    let p = document.createElement('p')
+    p.textContent = 'close'
+    $modalState.appendChild(p)
+  })
+  eventHub.on('sample-id:will-open', () => {
+    let p = document.createElement('p')
+    p.textContent = 'will-open'
+    $modalState.appendChild(p)
+  })
+  eventHub.on('sample-id:did-open', () => {
+    let p = document.createElement('p')
+    p.textContent = 'did-open'
+    $modalState.appendChild(p)
+  })
+  eventHub.on('sample-id:will-close', () => {
+    let p = document.createElement('p')
+    p.textContent = 'will-close'
+    $modalState.appendChild(p)
+  })
+  eventHub.on('sample-id:did-close', () => {
+    let p = document.createElement('p')
+    p.textContent = 'did-close'
+    $modalState.appendChild(p)
+  })
+  eventHub.on('sample-id:did-render', () => {
+    let p = document.createElement('p')
+    p.textContent = 'did-render'
+    $modalState.appendChild(p)
+  })
+  eventHub.on('sample-id:did-destroy', () => {
+    let p = document.createElement('p')
+    p.textContent = 'did-destroy'
+    $modalState.appendChild(p)
+  })
+}
