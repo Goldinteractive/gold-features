@@ -1,6 +1,6 @@
 import { features } from '@goldinteractive/js-base'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
-import * as contentStrategies from './content-strategies'
+import * as contentStrategies from './strategies'
 import SweetModalTrigger from './trigger'
 
 class SweetModal extends features.Feature {
