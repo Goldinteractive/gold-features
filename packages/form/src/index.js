@@ -17,9 +17,7 @@ class Form extends features.Feature {
     this.$progress = this.$('[data-progress]')
     this.token = null
 
-    if (!this.options.nativeValidation) {
-      this.$form.noValidate = true
-    }
+    this.$form.noValidate = !this.options.nativeValidation
 
     this.addEventListener(this.$form, 'submit', this._submitListener())
     this.addEventListener(this.$form, 'reset', this._resetListener())
