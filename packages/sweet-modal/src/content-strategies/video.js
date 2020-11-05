@@ -1,6 +1,4 @@
 class Video {
-  constructor() {}
-
   getData = (callback, node, modalIdentifier) => {
     const url = node.dataset.videoUrl
     if (!url) {

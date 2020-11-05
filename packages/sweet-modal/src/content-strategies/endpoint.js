@@ -1,8 +1,6 @@
 import { json } from '@goldinteractive/js-base/src/utils/fetch'
 
 class Endpoint {
-  constructor() {}
-
   getData = (callback, node) => {
     const url = node?.dataset?.actionUrl
     if (!url) {
