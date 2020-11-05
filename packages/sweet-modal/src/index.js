@@ -96,6 +96,20 @@ class SweetModal extends features.Feature {
   }
 }
 
+/**
+ * Feature options
+ * @type {object}
+ * @property {contentStrategies} strategy=null
+ *   content handling strategy
+ * @property {string}=null
+ *   To identify each modal
+ * @property {boolean} openOnLoad=false
+ *   Define if modal opens when the page loads
+ * @property {number}=0
+ *   Amount of milliseconds the open is delayed when triggered
+ * @property {object}={}
+ *   sweetalert2 configurations @see {@link https://sweetalert2.github.io/#configuration|sweetalert2}
+ */
 SweetModal.defaultOptions = {
   strategy: null,
   modalIdentifier: null,
