@@ -17,7 +17,9 @@ class Form extends features.Feature {
     this.$progress = this.$('[data-progress]')
     this.token = null
 
-    this.$form.noValidate = true
+    if (!this.options.nativeValidation) {
+      this.$form.noValidate = true
+    }
 
     this.addEventListener(this.$form, 'submit', this._submitListener())
     this.addEventListener(this.$form, 'reset', this._resetListener())
@@ -336,6 +338,7 @@ Form.defaultOptions = {
   feedbackClassError: '-error',
   useMessagePlaceholder: false,
   messagePlaceholderSelector: null,
+  nativeValidation: false,
   // priority: data-token-endpoint, options.tokenEndpoint, defaultOptions.tokenEndpoint
   tokenEndpoint: null,
   tokenFieldName: '_token',
