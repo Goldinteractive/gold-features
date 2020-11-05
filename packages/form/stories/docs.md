@@ -18,5 +18,9 @@ In order to use a **Gold Form** follow these steps:
 
 > Note that the feature enables you to set a csrf token endpoint. For the default Gold Form this endpoint **is not** required.
 
+## Changelog
+
 As of version 1.1.0 a message placeholder can be defined to be more independent in markup/styling.
 Form success/error events now also allow you to access the form instance.
+
+Since version 1.2.0 native form validation can be toggled via the nativeValidation option.
