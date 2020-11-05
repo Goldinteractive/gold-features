@@ -1,7 +1,5 @@
 import { features } from '@goldinteractive/js-base'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
-import * as contentStrategies from './strategies'
-import SweetModalTrigger from './trigger'
 
 class SweetModal extends features.Feature {
   init() {
@@ -100,7 +98,7 @@ class SweetModal extends features.Feature {
 /**
  * Feature options
  * @type {object}
- * @property {contentStrategies} strategy=null
+ * @property {ContentStrategies} strategy=null
  *   content handling strategy
  * @property {string}=null
  *   To identify each modal
@@ -120,5 +118,6 @@ SweetModal.defaultOptions = {
 }
 
 export default SweetModal
-export { contentStrategies }
-export { SweetModalTrigger }
+
+export { default as ContentStrategies } from './strategies'
+export { default as SweetModalTrigger } from './trigger'
