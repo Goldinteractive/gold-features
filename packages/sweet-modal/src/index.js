@@ -1,6 +1,5 @@
 import { features } from '@goldinteractive/js-base'
-import Swal from 'sweetalert2'
-import * as strategies from './strategies'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 class SweetModal extends features.Feature {
   init() {
@@ -21,14 +20,8 @@ class SweetModal extends features.Feature {
   }
 
   registerEvents = () => {
-    this.addEventListener(this.node, 'click', this.clickHandler)
     this.onHub(`${this.modalIdentifier}:open`, this.openHandler)
     this.onHub(`${this.modalIdentifier}:close`, this.closeHandler)
-  }
-
-  clickHandler = e => {
-    e.preventDefault()
-    this.triggerHub(`${this.node.dataset.modalIdentifier}:open`)
   }
 
   handleOpenOnLoad = () => {
@@ -53,6 +46,11 @@ class SweetModal extends features.Feature {
   }
 
   _fireModal = () => {
+    const instances = {
+      instance: this,
+      Swal: Swal
+    }
+
     Swal.fire({
       html: this.html,
       customClass: {
@@ -70,23 +68,23 @@ class SweetModal extends features.Feature {
       showConfirmButton: false,
       showCloseButton: true,
       willOpen: () => {
-        this.triggerHub(`${this.modalIdentifier}:will-open`, { instance: this })
+        this.triggerHub(`${this.modalIdentifier}:will-open`, instances)
       },
       didOpen: () => {
-        this.triggerHub(`${this.modalIdentifier}:did-open`, { instance: this })
+        this.triggerHub(`${this.modalIdentifier}:did-open`, instances)
+        features.init(Swal.getContainer())
       },
       willClose: () => {
-        this.triggerHub(`${this.modalIdentifier}:will-close`, {
-          instance: this
-        })
+        this.triggerHub(`${this.modalIdentifier}:will-close`, instances)
       },
       didClose: () => {
-        this.triggerHub(`${this.modalIdentifier}:did-close`, { instance: this })
+        this.triggerHub(`${this.modalIdentifier}:did-close`, instances)
       },
       didRender: () => {
-        this.triggerHub(`${this.modalIdentifier}:did-render`, {
-          instance: this
-        })
+        this.triggerHub(`${this.modalIdentifier}:did-render`, instances)
+      },
+      didDestroy: () => {
+        this.triggerHub(`${this.modalIdentifier}:did-destroy`, instances)
       },
       ...this.options.swalConfig
     })
@@ -97,6 +95,20 @@ class SweetModal extends features.Feature {
   }
 }
 
+/**
+ * Feature options
+ * @type {object}
+ * @property {ContentStrategies} strategy=null
+ *   content handling strategy
+ * @property {string}=null
+ *   To identify each modal
+ * @property {boolean} openOnLoad=false
+ *   Define if modal opens when the page loads
+ * @property {number}=0
+ *   Amount of milliseconds the open is delayed when triggered
+ * @property {object}={}
+ *   sweetalert2 configurations @see {@link https://sweetalert2.github.io/#configuration|sweetalert2}
+ */
 SweetModal.defaultOptions = {
   strategy: null,
   modalIdentifier: null,
@@ -105,6 +117,7 @@ SweetModal.defaultOptions = {
   swalConfig: {}
 }
 
-export { strategies }
-
 export default SweetModal
+
+export { default as ContentStrategies } from './strategies'
+export { default as SweetModalTrigger } from './trigger'

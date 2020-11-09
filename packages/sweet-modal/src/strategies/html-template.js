@@ -1,17 +1,16 @@
 class HtmlTemplate {
-  constructor({ contentSelector }) {
+  constructor({ contentSelector } = {}) {
     this.contentSelector = contentSelector
-    if (!this.contentSelector) {
-      throw new Error(
-        `HtmlTemplate strategy needs to be initialized with an content selector`
-      )
-    }
   }
 
   getData = (callback, node, modalIdentifier) => {
-    this.$content = document.querySelector(
-      `${this.contentSelector}[data-modal-identifier="${modalIdentifier}"]`
-    )
+    if (this.contentSelector) {
+      this.$content = document.querySelector(
+        `${this.contentSelector}[data-modal-identifier="${modalIdentifier}"]`
+      )
+    } else {
+      this.$content = node
+    }
 
     if (!this.$content) {
       throw new Error(`HtmlTemplate strategy: html content element not found`)
