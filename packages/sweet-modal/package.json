@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-sweet-modal",
-  "version": "0.2.2",
+  "version": "1.0.0-alpha.0",
   "description": "sweet-modal feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
