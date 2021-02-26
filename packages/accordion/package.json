@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-accordion",
-  "version": "1.0.2",
+  "version": "1.1.0-alpha.0",
   "description": "accordion feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
