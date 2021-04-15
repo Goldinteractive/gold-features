@@ -10,19 +10,49 @@ import {
 import { features, eventHub } from '@goldinteractive/js-base'
 
 import ContentPagination from '../src/index'
+import DomStateHandler from '../../dom-state-handler/src/index'
+import { UrlParameter } from '../../dom-state-handler/src/persistors/index'
 import '../src/style.scss'
 
 import docs from './docs.md'
 
 const styles = `
   <style>
+    .item {
+      padding: 15px;
+      border-bottom: 1px solid grey;
+    }
 
+    h3 {
+      margin: 0;
+      margin-bottom: 10px;
+    }
+    .filters {
+      margin-bottom: 20px;
+    }
   </style>
 `
 
 const markupIntro = `
 ${styles}
 <div>
+  <h2>Content Pagination</h2>
+  <div class="filters" data-feature="dom-state-handler" data-state-handler-type="checkbox-group">
+    <div>
+      <input type="checkbox" id="option-1" name="option" value="option-1"/>
+      <label for="option-1">Option 1</label>
+    </div>
+    <div>
+      <input type="checkbox" id="option-2" name="option" value="option-2">
+      <label for="option-2">Option 2</label>
+    </div>
+    <div>
+      <input type="checkbox" id="option-3" name="option" value="option-3">
+      <label for="option-3">Option 2</label>
+    </div>
+  </div>
+  <div data-feature="content-pagination">
+  </div>
 </div>
 `
 
@@ -33,6 +63,7 @@ storiesOf('ContentPagination', module)
     () => {
       return initializeDemo(markupIntro, () => {
         resetFeature(features, 'content-pagination')
+        resetFeature(features, 'dom-state-handler')
         features.add(
           'content-pagination',
           ContentPagination,
@@ -40,6 +71,14 @@ storiesOf('ContentPagination', module)
             test: ''
           })
         )
+        features.add('dom-state-handler', DomStateHandler, {
+          domState: new UrlParameter(
+            object('domStateOptions', {
+              namespace: 'content-pagination',
+              restorePersisted: true
+            })
+          )
+        })
         features.init(document.body)
       })
     },
@@ -55,4 +94,3 @@ storiesOf('ContentPagination', module)
   .add('Source CSS', () => {
     return styleSource({ feature: 'content-pagination', language: 'sass' })
   })
-
