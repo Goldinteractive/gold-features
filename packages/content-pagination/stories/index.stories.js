@@ -30,6 +30,12 @@ const styles = `
     .filters {
       margin-bottom: 20px;
     }
+    .flex {
+      display: flex;
+      justify-content: space-between;
+      width: 300px;
+      margin-top: 50px;
+    }
   </style>
 `
 
@@ -52,6 +58,14 @@ ${styles}
     </div>
   </div>
   <div data-feature="content-pagination">
+    <div data-content>
+      <h2>Initial Content</h2>
+      <p>Lorem Impsum initial</p>
+    </div>
+    <div class="flex">
+      <a data-previous href="#zurueck">Zurück</a>
+      <a data-next href="#vorwärts">Vorwärts</a>
+    </div>
   </div>
 </div>
 `
