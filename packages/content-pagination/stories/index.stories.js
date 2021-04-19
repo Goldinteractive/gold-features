@@ -57,6 +57,14 @@ ${styles}
       <label for="option-3">Option 2</label>
     </div>
   </div>
+  <div class="filters" data-feature="dom-state-handler" data-state-handler-type="radio-group">
+    <input id="orange" type="radio" name="fruit" value="orange" />
+    <label for="orange">orange</label>
+    <input id="violet" type="radio" name="fruit" value="violet" />
+    <label for="violet">violet</label>
+    <input id="yellow" type="radio" name="fruit" value="yellow" />
+    <label for="yellow">yellow</label>
+  </div>
   <div data-feature="content-pagination">
     <div data-content>
       <h2>Initial Content</h2>
