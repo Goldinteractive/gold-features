@@ -1,20 +1,63 @@
 import { storiesOf } from '@storybook/html'
 import { withKnobs, object } from '@storybook/addon-knobs'
 
-import {
-  initializeDemo,
-  styleSource,
-  resetFeature
-} from '../../../helpers/story'
+import { initializeDemo, styleSource, resetFeature } from '../../../helpers/story'
 
 import { features, eventHub } from '@goldinteractive/js-base'
 
-import ContentPagination from '../src/index'
+import ContentPagination, { ContentStrategies } from '../src/index'
 import DomStateHandler from '../../dom-state-handler/src/index'
 import { UrlParameter } from '../../dom-state-handler/src/persistors/index'
 import '../src/style.scss'
 
 import docs from './docs.md'
+
+const dataPage1 = {
+  html:
+    '<div class="item"><h3>Titel 1</h3><p>test 1</p></div><div class="item"><h3>Titel 2</h3><p>test 2</p></div><div class="item"><h3>Titel 3</h3><p>test 3</p></div>',
+  meta: {
+    skip: 0,
+    take: 3,
+    total: 13
+  }
+}
+const dataPage2 = {
+  html:
+    '<div class="item"><h3>Titel 4</h3><p>test 4</p></div><div class="item"><h3>Titel 5</h3><p>test 5</p></div><div class="item"><h3>Titel 6</h3><p>test 6</p></div>',
+  meta: {
+    skip: 3,
+    take: 3,
+    total: 13
+  }
+}
+const dataPage3 = {
+  html:
+    '<div class="item"><h3>Titel 7</h3><p>test 7</p></div><div class="item"><h3>Titel 8</h3><p>test 8</p></div><div class="item"><h3>Titel 9</h3><p>test 9</p></div>',
+  meta: {
+    skip: 6,
+    take: 3,
+    total: 13
+  }
+}
+const dataPage4 = {
+  html:
+    '<div class="item"><h3>Titel 10</h3><p>test 10</p></div><div class="item"><h3>Titel 11</h3><p>test 11</p></div><div class="item"><h3>Titel 12</h3><p>test 12</p></div>',
+  meta: {
+    skip: 9,
+    take: 3,
+    total: 13
+  }
+}
+const dataPage5 = {
+  html: '<div class="item"><h3>Titel 13</h3><p>test 13</p></div>',
+  meta: {
+    skip: 12,
+    take: 3,
+    total: 13
+  }
+}
+
+export const allData = [dataPage1, dataPage2, dataPage3, dataPage4, dataPage5]
 
 const styles = `
   <style>
@@ -35,6 +78,10 @@ const styles = `
       justify-content: space-between;
       width: 300px;
       margin-top: 50px;
+    }
+    .-hide {
+      opacity: 0;
+      visibilty: hidden;
     }
   </style>
 `
@@ -67,12 +114,11 @@ ${styles}
   </div>
   <div data-feature="content-pagination">
     <div data-content>
-      <h2>Initial Content</h2>
-      <p>Lorem Impsum initial</p>
+      Init
     </div>
-    <div class="flex">
-      <a data-previous href="#zurueck">Zurück</a>
-      <a data-next href="#vorwärts">Vorwärts</a>
+    <div class="flex" data-feature="dom-state-handler" data-state-handler-type="button-group">
+     <button data-previous type="submit" name="skip" value="minus">Previous</button>
+     <button data-next type="submit" name="skip" value="plus">Next</button>
     </div>
   </div>
 </div>
@@ -90,7 +136,7 @@ storiesOf('ContentPagination', module)
           'content-pagination',
           ContentPagination,
           object('options', {
-            test: ''
+            strategy: null
           })
         )
         features.add('dom-state-handler', DomStateHandler, {
