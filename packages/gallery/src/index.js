@@ -71,6 +71,9 @@ class Gallery extends features.Feature {
 
     this.photoSwipe = new PhotoSwipe(this.$pswpElement, PhotoSwipeUI_Default, this.items, options)
     this.photoSwipe.init()
+    this.photoSwipe.listen('close', () => {
+      this.triggerHub('ft-gallery:close')
+    })
   }
 
   _parseFigures() {
