@@ -54,6 +54,13 @@ const DomStatehandlerMarkup = `
     <input id="yellow" type="radio" name="option4" value="yellow" data-cy="radio3" />
     <label for="yellow">yellow</label>
   </div>
+
+
+  <div style="margin-top:20px;">button-option:</div>
+  <div data-feature="dom-state-handler" data-state-handler-type="button-group">
+    <button type="submit" name="page" value="previous">Previous</button>
+    <button type="submit" name="page" value="next">Next</button>
+  </div>
 </div>
 `
 

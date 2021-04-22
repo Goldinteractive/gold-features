@@ -2,6 +2,7 @@ import { features } from '@goldinteractive/js-base'
 import Select from './states/select'
 import CheckboxGroup from './states/checkboxGroup'
 import RadioGroup from './states/radioGroup'
+import ButtonGroup from './states/buttonGroup'
 
 export * from './persistors'
 
@@ -51,12 +52,12 @@ class DomStateHandler extends features.Feature {
  * Feature options
  * @type {Object}
  * @property {DomState} domState state handling instance
- * @property {Array} statePrototypes=[Select, CheckboxGroup, RadioGroup]
+ * @property {Array} statePrototypes=[Select, CheckboxGroup, RadioGroup, ButtonGroup]
  *   Defines which filter state handling prototypes to check for.
  */
 DomStateHandler.defaultOptions = {
   domState: null,
-  statePrototypes: [Select, CheckboxGroup, RadioGroup]
+  statePrototypes: [Select, CheckboxGroup, RadioGroup, ButtonGroup]
 }
 
 export default DomStateHandler
