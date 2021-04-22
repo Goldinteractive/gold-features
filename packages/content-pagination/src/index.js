@@ -1,48 +1,37 @@
 import { features } from '@goldinteractive/js-base'
 import { utils } from '@goldinteractive/js-base'
+import { allData } from '../stories/index.stories'
 
 class ContentPagination extends features.Feature {
   init() {
     this.$content = this.$('[data-content]')
     this.$previous = this.$('[data-previous]')
     this.$next = this.$('[data-next]')
-    this.currentPage = 1
+    this.skip = 0
     this.maxPages = 4 // get from endpoint
     this.initial = true // temp
     this.state = ''
+    this.queryString = ''
 
     this.onHub(`${this.options.namespace}:state-update`, state => this.handleStateUpdate(state))
-
-    this.addEventListener(this.$previous, 'click', this.handlePrevious)
-    this.addEventListener(this.$next, 'click', this.handleNext)
 
     this.handlePreviousNextButtonsDisplay()
   }
 
-  getData(parameters = '') {
-    console.log('parameters:', parameters)
-    const url = './data.json'
-    const data = require(`${url}`) // TODO: add parameters
-    utils.fetch.json(data).then(result => {
-      this.injectContent(result.data.page[this.currentPage - 1].html) // temp
-    })
+  // Temp
+  manuallyHandleContent = () => {
+    return allData.filter(item => item.meta.skip === this.skip)
   }
 
-  injectContent = html => {
-    this.$content.innerHTML = html
+  updateContent = () => {
+    console.log('parameters:', this.queryString)
+    const data = this.manuallyHandleContent()
+    console.log('data received', data)
+    this.injectContent(data[0])
   }
 
-  buildPreviousNextLinks = () => {
-    console.log('currentpage:', this.currentPage)
-    const queryString = this.persistState()
-    
-    const previousPageString = `&page=${this.currentPage - 1}`
-    const nextPage = `&page=${this.currentPage + 1}`
-    const previousPageUrl = location.origin + location.pathname + '?' + queryString + previousPageString + location.hash
-    const nextPageUrl = location.origin + location.pathname + '?' + queryString + nextPage + location.hash
-
-    this.$previous.href = previousPageUrl
-    this.$next.href = nextPageUrl
+  injectContent = data => {
+    this.$content.innerHTML = data.html
   }
 
   persistState = () => {
@@ -54,45 +43,26 @@ class ContentPagination extends features.Feature {
     return queryString
   }
 
-  buildQueryParam = () => {
-    const queryString = this.persistState()
-    const pageParameters = this.currentPage > 1 ? `&page=${this.currentPage}` : ''
-    const parameters = `${queryString}${pageParameters}`
-    this.getData(parameters)
+  handleSkipState = () => {
+    console.log(this.state)
+    if (this.state.skip === 'plus') {
+      this.skip += 3
+    } else if (this.state.skip === 'minus') {
+      this.skip -= 3
+    } else {
+      this.skip = 0
+    }
   }
 
   handleStateUpdate = state => {
-    if (this.initial) {
-      this.initial = false
-      return
-    }
     this.state = this.transformState(state)
-    this.buildQueryParam()
-    this.buildPreviousNextLinks()
+    this.queryString = state
+    this.handleSkipState()
+    this.updateContent()
     this.handlePreviousNextButtonsDisplay()
   }
 
-  handlePrevious = e => {
-    e.preventDefault()
-    if (this.currentPage > 1) {
-      this.currentPage--
-      this.buildQueryParam()
-      this.buildPreviousNextLinks()
-      this.handlePreviousNextButtonsDisplay()
-    }
-  }
-
-  handleNext = e => {
-    e.preventDefault()
-    if (this.currentPage < this.maxPages) {
-      this.currentPage++
-      this.buildQueryParam()
-      this.buildPreviousNextLinks()
-      this.handlePreviousNextButtonsDisplay()
-    }
-  }
-
-  transformState = (state) => {
+  transformState = state => {
     return utils.url.parseQuery(state)
   }
 
@@ -111,6 +81,9 @@ class ContentPagination extends features.Feature {
 }
 
 ContentPagination.defaultOptions = {
-  namespace: 'content-pagination'
+  namespace: 'content-pagination',
+  strategy: null
 }
 export default ContentPagination
+
+export { default as ContentStrategies } from './strategies'
