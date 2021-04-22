@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-gallery",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "gallery feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
