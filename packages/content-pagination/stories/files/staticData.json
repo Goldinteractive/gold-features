@@ -1,0 +1,62 @@
+[
+    {
+        "html": "<div class='item'><h3>Titel apple</h3><p>test apple</p></div><div class='item'><h3>Titel apple 2</h3><p>test</p></div><div class='item'><h3>Titel apple 3</h3><p>test</p></div>",
+        "meta": {
+            "current": 0,
+            "take": 3,
+            "amount": 12
+        },
+        "_testing": {
+            "color": "",
+            "fruit": "apple"
+        }
+    },
+    {
+        "html": "<div class='item'><h3>Titel violet/grapes</h3><p>test violet/grapes</p></div><div class='item'><h3>Titel violet/grapes 5</h3><p>test</p></div><div class='item'><h3>Titel violet/grapes 6</h3><p>test</p></div>",
+        "meta": {
+            "current": 3,
+            "take": 3,
+            "amount": 12
+        },
+        "_testing": {
+            "color": "violet",
+            "fruit": "grapes"
+        }
+    },
+    {
+        "html": "<div class='item'><h3>Titel violet/apple</h3><p>test violet/apple</p></div><div class='item'><h3>Titel violet/apple 2</h3><p>test</p></div><div class='item'><h3>Titel violet/apple 3</h3><p>test</p></div>",
+        "meta": {
+            "current": 6,
+            "take": 3,
+            "amount": 12
+        },
+        "_testing": {
+            "color": "violet",
+            "fruit": "apple"
+        }
+    },
+    {
+        "html": "<div class='item'><h3>Titel violet,orange/mango</h3><p>test violet,orange/mango</p></div><div class='item'><h3>Titel violet,orange/mango 2</h3><p>test</p></div><div class='item'><h3>Titel violet,orange/mango 3</h3><p>test</p></div>",
+        "meta": {
+            "current": 9,
+            "take": 3,
+            "amount": 12
+        },
+        "_testing": {
+            "color": "violet,orange",
+            "fruit": "mango"
+        }
+    },
+    {
+        "html": "<div class='item'><h3>Titel yellow/grapes</h3><p>test yellow/grapes</p></div><div class='item'><h3>Titel yellow/grapes 2</h3><p>test</p></div><div class='item'><h3>Titel yellow/grapes 3</h3><p>test</p></div>",
+        "meta": {
+            "current": 12,
+            "take": 3,
+            "amount": 12
+        },
+        "_testing": {
+            "color": "yellow",
+            "fruit": "grapes"
+        }
+    }
+]
