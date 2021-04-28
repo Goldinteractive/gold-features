@@ -44,11 +44,11 @@ ContentPagination.defaultOptions = {
   buttonUpdateHandler: {
     previous: (node, data) => {
       const $previous = node.querySelector('[data-previous]')
-      $previous.value = data.meta.current - data.meta.take
+      $previous.value = data.meta.skip - data.meta.take
     },
     next: (node, data) => {
       const $next = node.querySelector('[data-next]')
-      $next.value = data.meta.current + data.meta.take
+      $next.value = data.meta.skip + data.meta.take
     }
   }
 }
