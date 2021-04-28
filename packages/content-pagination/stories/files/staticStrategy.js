@@ -1,26 +1,32 @@
 import { json } from '@goldinteractive/js-base/src/utils/fetch'
 
-const NO_RESULTS = {
-  html: '<h2> No results found </h2>',
-  meta: {
-    current: 0,
-    take: 1,
-    amount: 12
-  }
-}
-
 class StaticStrategy {
   getData = (callback, node, parameters) => {
-    console.log('called')
     const data = require('./staticData')
+    let matchingParameters = false
     json(data).then(result => {
-      const page = result[parameters.skip]
-      if (parameters['color'] == page._testing['color'] && parameters['fruit'] == page._testing['fruit']) {
-        callback(page)
-      } else {
-        callback(NO_RESULTS)
-      }
+      result.forEach(entry => {
+        if (
+          entry.meta.skip == parameters.skip &&
+          parameters['color'] == entry._testing['color'] &&
+          parameters['fruit'] == entry._testing['fruit']
+        ) {
+          matchingParameters = true
+          callback(entry)
+          return
+        }
+      })
     })
+    if (!matchingParameters) {
+      callback({
+        html: '<h2> No results found </h2>',
+        meta: {
+          skip: parseInt(parameters.skip),
+          take: 3,
+          amount: 12
+        }
+      })
+    }
   }
 }
 
