@@ -24,6 +24,13 @@ const styles = `
       margin: 0;
       margin-bottom: 10px;
     }
+    h4 {
+      margin: 0;
+    }
+    p {
+      margin: 0;
+      margin-bottom: 10px;
+    }
     .filters {
       margin-bottom: 20px;
     }
@@ -44,14 +51,28 @@ const markupIntro = `
 ${styles}
 <div>
   <h2>Content Pagination</h2>
+  <h3>Static Data</h3>
+  <div>
+    <h4>Item 1</h4>
+    <p>skip 0, color: "", fruit: apple</p>
+    <h4>Item 2</h4>
+    <p>skip 3, color: "violet", fruit: grapes</p>
+    <h4>Item 3</h4>
+    <p>skip 6, color: "violet", fruit: apple</p>
+    <h4>Item 4</h4>
+    <p>skip 9, color: "violet,orange", fruit: mango</p>
+    <h4>Item 5</h4>
+    <p>skip 12, color: "yellow", fruit: grapes</p>
+  </div>
+  <h3>Filters</h3>
   <div class="filters" data-feature="dom-state-handler" data-state-handler-type="checkbox-group">
     <div>
       <input type="checkbox" id="violet" name="color" value="violet"/>
       <label for="violet">Violet</label>
     </div>
     <div>
-      <input type="checkbox" id="orange name="color" value="orange>
-      <label for="orange>Orange</label>
+      <input type="checkbox" id="orange" name="color" value="orange">
+      <label for="orange">Orange</label>
     </div>
     <div>
       <input type="checkbox" id="yellow" name="color" value="yellow">
