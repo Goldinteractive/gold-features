@@ -93,7 +93,7 @@ ${styles}
     </div>
     <div class="flex" data-feature="dom-state-handler" data-state-handler-type="button-group">
      <button data-previous type="submit" name="skip" value="0">Previous</button>
-     <button data-dom-state-handler-master type="submit" name="skip" value="0">Current</button>
+     <button class="-hide" data-dom-state-handler-master type="submit" name="skip" value="0">Current</button>
      <button data-next type="submit" name="skip" value="0">Next</button>
     </div>
   </div>
