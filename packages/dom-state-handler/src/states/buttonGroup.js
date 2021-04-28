@@ -30,9 +30,7 @@ export default class ButtonGroup extends StateHandler {
   }
 
   setValue(value) {
-    this.$$buttons.forEach($button => {
-      $button.value = value
-    })
+    this.$master.value = value
   }
 
   getChangeEventName() {
