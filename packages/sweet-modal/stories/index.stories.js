@@ -41,7 +41,7 @@ const styles = `
 const markupIntro = `
 ${styles}
 <div class="hide">
-  <div class="content" data-feature="sweet-modal" data-sweet-modal-content data-modal-identifier="sample-id">
+  <div class="content" data-feature="sweet-modal" data-sweet-modal-content data-modal-identifier="sample-id-1">
     <div data-cy="sweet-modal-content">
       <h2>Sweet Modal</h2>
       <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
@@ -49,7 +49,7 @@ ${styles}
     </div>
   </div>
 </div>
-<button data-feature="sweet-modal-trigger" data-modal-identifier="sample-id" data-cy="trigger">Trigger</button>
+<button data-feature="sweet-modal-trigger" data-modal-identifier="sample-id-1" data-cy="trigger">Trigger</button>
 <div data-modal-state>
   <h3>States log:</h3>
 </div>
@@ -58,7 +58,7 @@ ${styles}
 const markupOpenOnLoad = `
 ${styles}
 <div class="hide">
-  <div class="content" data-feature="sweet-modal" data-modal-identifier="sample-id">
+  <div class="content" data-feature="sweet-modal" data-modal-identifier="sample-id-2">
     <h2>Open on load by delay</h2>
     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
     <img src="${testJpg}" width="200" />
@@ -71,13 +71,13 @@ ${styles}
 
 const markupVideo = `
 ${styles}
-<div data-feature="sweet-modal" data-modal-identifier="sample-id1" data-video-url="https://www.youtube.com/embed/ScMzIvxBSi4?rel=0"></div>
-<div data-feature="sweet-modal" data-modal-identifier="sample-id2" data-video-url="https://www.youtube.com/embed/y2Ky3Wo37AY?rel=0"></div>
-<div data-feature="sweet-modal" data-modal-identifier="sample-id3" data-video-url="https://www.youtube.com/embed/zlRl8sJU_4I?rel=0"></div>
+<div data-feature="sweet-modal" data-modal-identifier="sample-id-3" data-video-url="https://www.youtube.com/embed/ScMzIvxBSi4?rel=0"></div>
+<div data-feature="sweet-modal" data-modal-identifier="sample-id-4" data-video-url="https://www.youtube.com/embed/y2Ky3Wo37AY?rel=0"></div>
+<div data-feature="sweet-modal" data-modal-identifier="sample-id-5" data-video-url="https://www.youtube.com/embed/zlRl8sJU_4I?rel=0"></div>
 
-<button data-feature="sweet-modal-trigger" data-modal-identifier="sample-id1">Video 1</button>
-<button data-feature="sweet-modal-trigger" data-modal-identifier="sample-id2">Video 2</button>
-<button data-feature="sweet-modal-trigger" data-modal-identifier="sample-id3">Video 3</button>
+<button data-feature="sweet-modal-trigger" data-modal-identifier="sample-id-3">Video 1</button>
+<button data-feature="sweet-modal-trigger" data-modal-identifier="sample-id-4">Video 2</button>
+<button data-feature="sweet-modal-trigger" data-modal-identifier="sample-id-5">Video 3</button>
 `
 
 storiesOf('SweetModal', module)
@@ -92,6 +92,7 @@ storiesOf('SweetModal', module)
           'sweet-modal',
           SweetModal,
           object('options', {
+            ...SweetModal.defaultOptions,
             strategy: new ContentStrategies.HtmlTemplate({
               contentSelector: '[data-sweet-modal-content]'
             })
@@ -117,6 +118,7 @@ storiesOf('SweetModal', module)
           'sweet-modal',
           SweetModal,
           object('options', {
+            ...SweetModal.defaultOptions,
             strategy: new ContentStrategies.HtmlTemplate(),
             openOnLoad: true,
             delay: 2000
@@ -146,6 +148,7 @@ storiesOf('SweetModal', module)
           'sweet-modal',
           SweetModal,
           object('options', {
+            ...SweetModal.defaultOptions,
             strategy: new ContentStrategies.Video(),
             swalConfig: {
               width: 'auto'
