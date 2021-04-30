@@ -21,9 +21,10 @@ class StaticStrategy {
       callback({
         html: '<h2> No results found </h2>',
         meta: {
-          skip: parseInt(parameters.skip),
-          take: 3,
-          amount: 12
+          skip: 0,
+          take: 0,
+          count: 0,
+          totalCount: 0
         }
       })
     }
