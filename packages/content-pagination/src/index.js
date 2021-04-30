@@ -1,6 +1,5 @@
 import { features } from '@goldinteractive/js-base'
 import { utils } from '@goldinteractive/js-base'
-import { allData } from '../stories/index.stories'
 
 class ContentPagination extends features.Feature {
   init() {
@@ -12,6 +11,7 @@ class ContentPagination extends features.Feature {
   }
 
   handleStateUpdate = state => {
+    // TODO: handle when filters changed reset skip
     this.state = this.transformState(state)
     this.queryString = state
     this.updateContent()
@@ -22,17 +22,24 @@ class ContentPagination extends features.Feature {
   }
 
   updateContent = () => {
-    this.options.strategy.getData(this.injectContent, this.node, this.state)
+    // TODO maybe send queryString or stringify state in strategy (better)
+    this.options.strategy.getData(this.handleData, this.node, this.state)
   }
 
-  injectContent = data => {
-    console.log('received', data)
+  handleData = data => {
     this.$content.innerHTML = data.html
-    this.updateButtonHandler(data)
+    this.callButtonStateHandler(data)
+    this.callButtonDisplayHandler(data)
   }
 
-  updateButtonHandler = data => {
-    Object.values(this.options.buttonUpdateHandler).forEach(func => {
+  callButtonStateHandler = data => {
+    Object.values(this.options.buttonStateHandler).forEach(func => {
+      func(this.node, data)
+    })
+  }
+
+  callButtonDisplayHandler = data => {
+    Object.values(this.options.buttonDisplayHandler).forEach(func => {
       func(this.node, data)
     })
   }
@@ -41,7 +48,7 @@ class ContentPagination extends features.Feature {
 ContentPagination.defaultOptions = {
   namespace: 'content-pagination',
   strategy: null,
-  buttonUpdateHandler: {
+  buttonStateHandler: {
     previous: (node, data) => {
       const $previous = node.querySelector('[data-previous]')
       $previous.value = data.meta.skip - data.meta.take
@@ -49,6 +56,28 @@ ContentPagination.defaultOptions = {
     next: (node, data) => {
       const $next = node.querySelector('[data-next]')
       $next.value = data.meta.skip + data.meta.take
+    }
+  },
+  buttonDisplayHandler: {
+    previous: (node, meta) => {
+      const $previous = node.querySelector('[data-previous]')
+      if ($previous) {
+        if (parseInt(meta.skip) === 0) {
+          $previous.classList.add('-hide')
+        } else {
+          $previous.classList.remove('-hide')
+        }
+      }
+    },
+    next: (node, data) => {
+      const $next = node.querySelector('[data-next]')
+      if ($next) {
+        if (parseInt(data.meta.skip) + parseInt(data.meta.count) >= parseInt(data.meta.totalCount)) {
+          $next.classList.add('-hide')
+        } else {
+          $next.classList.remove('-hide')
+        }
+      }
     }
   }
 }
