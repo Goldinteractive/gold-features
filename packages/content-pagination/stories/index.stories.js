@@ -54,15 +54,15 @@ ${styles}
   <h3>Static Data</h3>
   <div>
     <h4>Item 1</h4>
-    <p>skip 0, color: "", fruit: apple</p>
+    <p>skip 0, take 3, count 3, totalCount 7, color: "", fruit: apple</p>
     <h4>Item 2</h4>
-    <p>skip 3, color: "violet", fruit: grapes</p>
+    <p>skip 3, take 3, count 3, totalCount 7, color: "", fruit: apple</p>
     <h4>Item 3</h4>
-    <p>skip 6, color: "violet", fruit: apple</p>
+    <p>skip 6, take 3, count 1, totalCount 7, color: "", fruit: apple</p>
     <h4>Item 4</h4>
-    <p>skip 9, color: "violet,orange", fruit: mango</p>
+    <p>skip 0, take 3, count 3, totalCount 3, color: "violet", fruit: apple</p>
     <h4>Item 5</h4>
-    <p>skip 12, color: "yellow", fruit: grapes</p>
+    <p>skip 0, take 3, count 3, totalCount 3, color: "violet,orange", fruit: mango</p>
   </div>
   <h3>Filters</h3>
   <div class="filters" data-feature="dom-state-handler" data-state-handler-type="checkbox-group">

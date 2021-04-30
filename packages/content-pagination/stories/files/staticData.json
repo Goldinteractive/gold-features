@@ -4,7 +4,8 @@
         "meta": {
             "skip": 0,
             "take": 3,
-            "amount": 12
+            "count": 3,
+            "totalCount": 7
         },
         "_testing": {
             "color": "",
@@ -12,23 +13,38 @@
         }
     },
     {
-        "html": "<div class='item'><h3>Titel violet/grapes 1</h3><p>test</p></div><div class='item'><h3>Titel violet/grapes 2</h3><p>test</p></div><div class='item'><h3>Titel violet/grapes 3</h3><p>test</p></div>",
+        "html": "<div class='item'><h3>Titel apple 4</h3><p>test</p></div><div class='item'><h3>Titel apple 5</h3><p>test</p></div><div class='item'><h3>Titel apple 6</h3><p>test</p></div>",
         "meta": {
             "skip": 3,
             "take": 3,
-            "amount": 12
+            "count": 3,
+            "totalCount": 7
         },
         "_testing": {
-            "color": "violet",
-            "fruit": "grapes"
+            "color": "",
+            "fruit": "apple"
+        }
+    },
+    {
+        "html": "<div class='item'><h3>Titel apple 7</h3><p>test</p></div>",
+        "meta": {
+            "skip": 6,
+            "take": 3,
+            "count": 1,
+            "totalCount": 7
+        },
+        "_testing": {
+            "color": "",
+            "fruit": "apple"
         }
     },
     {
         "html": "<div class='item'><h3>Titel violet/apple 1</h3><p>test</p></div><div class='item'><h3>Titel violet/apple 2</h3><p>test</p></div><div class='item'><h3>Titel violet/apple 3</h3><p>test</p></div>",
         "meta": {
-            "skip": 6,
+            "skip": 0,
             "take": 3,
-            "amount": 12
+            "count": 3,
+            "totalCount": 3
         },
         "_testing": {
             "color": "violet",
@@ -38,25 +54,14 @@
     {
         "html": "<div class='item'><h3>Titel violet,orange/mango 1</h3><p>test</p></div><div class='item'><h3>Titel violet,orange/mango 2</h3><p>test</p></div><div class='item'><h3>Titel violet,orange/mango 3</h3><p>test</p></div>",
         "meta": {
-            "skip": 9,
+            "skip": 0,
             "take": 3,
-            "amount": 12
+            "count": 3,
+            "totalCount": 3
         },
         "_testing": {
             "color": "violet,orange",
             "fruit": "mango"
-        }
-    },
-    {
-        "html": "<div class='item'><h3>Titel yellow/grapes 1</h3><p>test</p></div><div class='item'><h3>Titel yellow/grapes 2</h3><p>test</p></div><div class='item'><h3>Titel yellow/grapes 3</h3><p>test</p></div>",
-        "meta": {
-            "skip": 12,
-            "take": 3,
-            "amount": 12
-        },
-        "_testing": {
-            "color": "yellow",
-            "fruit": "grapes"
         }
     }
 ]
