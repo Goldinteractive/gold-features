@@ -15,6 +15,9 @@ describe('DomStateHandler', function() {
 
     cy.get('[data-cy=radio3]').click()
     cy.location('href').should('include', 'option4=yellow')
+
+    cy.get('[data-cy=button1]').click()
+    cy.location('href').should('include', 'sport=football')
   })
   it('Checks if local storage items get set accordingly', function() {
     // Local Storage is wiped before each test! Check docs.
@@ -41,6 +44,14 @@ describe('DomStateHandler', function() {
     cy.get('[data-cy=radio3]').click().should(() => {
       expect(JSON.parse(localStorage.getItem('default-namespace'))['option4']).to.eq('yellow')
     })
+
+    cy.get('[data-cy=button2]').click().should(() => {
+      expect(JSON.parse(localStorage.getItem('default-namespace'))['sport']).to.eq('hockey')
+    })
+
+    cy.get('[data-cy=button3]').click().should(() => {
+      expect(JSON.parse(localStorage.getItem('default-namespace'))['sport']).to.eq('basketball')
+    })
   })
   it('should restore state from url', function() {
     cy.visit(RESTORE_URL)
@@ -51,5 +62,7 @@ describe('DomStateHandler', function() {
     cy.get('[data-cy=radio1]').should('be.checked')
     cy.get('[data-cy=radio2]').should('not.be.checked')
     cy.get('[data-cy=radio3]').should('not.be.checked')
+    cy.get('[data-cy=button1]').click()
+    cy.location('href').should('include', 'sport=football')
   })
 })

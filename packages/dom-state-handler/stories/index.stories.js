@@ -58,9 +58,9 @@ const DomStatehandlerMarkup = `
   <div style="margin-top:20px;">Sport:</div>
   <div data-feature="dom-state-handler" data-state-handler-type="button-group">
     <input type="hidden" name="sport">
-    <button type="submit" name="sport" value="football">Football</button>
-    <button type="submit" name="sport" value="hockey">Hockey</button>
-    <button type="submit" name="sport" value="basketball">Basketball</button>
+    <button type="submit" name="sport" value="football" data-cy="button1">Football</button>
+    <button type="submit" name="sport" value="hockey" data-cy="button2">Hockey</button>
+    <button type="submit" name="sport" value="basketball" data-cy="button3">Basketball</button>
   </div>
 </div>
 `
