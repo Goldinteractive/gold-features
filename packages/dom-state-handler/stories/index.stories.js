@@ -1,10 +1,6 @@
 import { storiesOf } from '@storybook/html'
 import { withKnobs, object } from '@storybook/addon-knobs'
-import {
-  initializeDemo,
-  styleSource,
-  resetFeature
-} from '../../../helpers/story'
+import { initializeDemo, styleSource, resetFeature } from '../../../helpers/story'
 
 import { features, eventHub, utils } from '@goldinteractive/js-base'
 
@@ -61,6 +57,15 @@ const DomStatehandlerMarkup = `
     <button type="submit" name="sport" value="football" data-cy="button1">Football</button>
     <button type="submit" name="sport" value="hockey" data-cy="button2">Hockey</button>
     <button type="submit" name="sport" value="basketball" data-cy="button3">Basketball</button>
+  </div>
+
+  <div style="margin-top:20px;">Season:</div>
+  <div data-feature="dom-state-handler" data-state-handler-type="link-group">
+    <input type="hidden" data-name="season" data-value="">
+    <a href="#" data-name="season" data-value="Sommer">Sommer</a>
+    <a href="#" data-name="season" data-value="fall">Fall</a>
+    <a href="#" data-name="season" data-value="winter">Winter</a>
+    <a href="#" data-name="season" data-value="spring">Spring</a>
   </div>
 </div>
 `
@@ -135,9 +140,7 @@ storiesOf('DomStateHandler', module)
       return initializeDemo(DomStatehandlerMarkup, () => {
         resetFeature(features, 'dom-state-handler')
         features.add('dom-state-handler', DomStateHandler, {
-          domState: new UrlParameter(
-            object('domStateOptions', { namespace: 'default-namespace' })
-          )
+          domState: new UrlParameter(object('domStateOptions', { namespace: 'default-namespace' }))
         })
         features.init(document.body)
       })
@@ -154,9 +157,7 @@ storiesOf('DomStateHandler', module)
       return initializeDemo(DomStatehandlerMarkup, () => {
         resetFeature(features, 'dom-state-handler')
         features.add('dom-state-handler', DomStateHandler, {
-          domState: new UrlFragment(
-            object('domStateOptions', { namespace: 'default-namespace' })
-          )
+          domState: new UrlFragment(object('domStateOptions', { namespace: 'default-namespace' }))
         })
         features.init(document.body)
       })
@@ -251,9 +252,7 @@ storiesOf('DomStateHandler', module)
             fetchHtml({ url }) {
               return utils.fetch
                 .text(url, utils.fetch.defaultOptions)
-                .then(html =>
-                  html.replace('__ELEMENT_LOADER_DATA_URL__', grid2)
-                )
+                .then(html => html.replace('__ELEMENT_LOADER_DATA_URL__', grid2))
             }
           }
           resetFeature(features, `${namespace}-initial-loader`)
