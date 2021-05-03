@@ -54,6 +54,14 @@ const DomStatehandlerMarkup = `
     <input id="yellow" type="radio" name="option4" value="yellow" data-cy="radio3" />
     <label for="yellow">yellow</label>
   </div>
+
+  <div style="margin-top:20px;">Sport:</div>
+  <div data-feature="dom-state-handler" data-state-handler-type="button-group">
+    <input type="hidden" name="sport">
+    <button type="submit" name="sport" value="football">Football</button>
+    <button type="submit" name="sport" value="hockey">Hockey</button>
+    <button type="submit" name="sport" value="basketball">Basketball</button>
+  </div>
 </div>
 `
 
