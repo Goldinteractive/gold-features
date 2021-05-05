@@ -61,7 +61,7 @@ const DomStatehandlerMarkup = `
 
   <div style="margin-top:20px;">Season:</div>
   <div data-feature="dom-state-handler" data-state-handler-type="link-group">
-    <input type="hidden" data-name="season" data-value="">
+    <input type="hidden" name="season">
     <a href="#" data-name="season" data-value="sommer" data-cy="link1">Sommer</a>
     <a href="#" data-name="season" data-value="fall" data-cy="link2">Fall</a>
     <a href="#" data-name="season" data-value="winter" data-cy="link3">Winter</a>

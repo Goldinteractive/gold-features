@@ -11,7 +11,7 @@ export default class LinkGroup extends StateHandler {
     this.$$links.forEach($link => {
       $link.addEventListener('click', e => {
         e.preventDefault()
-        this.$hiddenInput.dataset.value = $link?.dataset?.value
+        this.$hiddenInput.value = $link?.dataset?.value
       })
     })
   }
@@ -25,11 +25,11 @@ export default class LinkGroup extends StateHandler {
   }
 
   getValue() {
-    return this.$hiddenInput?.dataset?.value
+    return this.$hiddenInput.value
   }
 
   setValue(value) {
-    this.$hiddenInput.dataset.value = value
+    this.$hiddenInput.value = value
   }
 
   getChangeEventName() {
