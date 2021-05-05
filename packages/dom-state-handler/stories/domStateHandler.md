@@ -11,5 +11,7 @@ As of Version 1.4.0 it is possible to map the states to URL fragments for pre-re
 
 As of Version 1.5.0 it is possible to sync the states between inputs and selects with the same handle name.
 
+As of Version 1.6.0 there are 2 new state handlers: linkGroup and buttonGroup
+
 This feature can be used for:
 - Filters
