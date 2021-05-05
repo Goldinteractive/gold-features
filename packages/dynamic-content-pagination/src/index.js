@@ -4,26 +4,18 @@ import { utils } from '@goldinteractive/js-base'
 class DynamicContentPagination extends features.Feature {
   init() {
     this.$content = this.$('[data-content]')
-    this.state = ''
-    this.queryString = ''
 
     this.onHub(`${this.options.namespace}:state-update`, state => this.handleStateUpdate(state))
   }
 
   handleStateUpdate = state => {
     // TODO: handle when filters changed reset skip
-    this.state = this.transformState(state)
-    this.queryString = state
-    this.updateContent()
+    state = this.options.transformDomState(state)
+    this.updateContent(state)
   }
 
-  transformState = state => {
-    return utils.url.parseQuery(state)
-  }
-
-  updateContent = () => {
-    // TODO maybe send queryString or stringify state in strategy (better)
-    this.options.strategy.getData(this.handleData, this.node, this.state)
+  updateContent = state => {
+    this.options.strategy.getData(this.handleData, this.node, state)
   }
 
   handleData = data => {
@@ -48,14 +40,17 @@ class DynamicContentPagination extends features.Feature {
 DynamicContentPagination.defaultOptions = {
   namespace: 'content-pagination',
   strategy: null,
+  transformDomState: state => {
+    return state
+  },
   buttonStateHandler: {
     previous: (node, data) => {
       const $previous = node.querySelector('[data-previous]')
-      $previous.value = data.meta.skip - data.meta.take
+      $previous.dataset.value = data.meta.skip - data.meta.take
     },
     next: (node, data) => {
       const $next = node.querySelector('[data-next]')
-      $next.value = data.meta.skip + data.meta.take
+      $next.dataset.value = data.meta.skip + data.meta.take
     }
   },
   buttonDisplayHandler: {

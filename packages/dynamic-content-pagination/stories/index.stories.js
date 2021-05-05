@@ -3,7 +3,7 @@ import { withKnobs, object } from '@storybook/addon-knobs'
 
 import { initializeDemo, styleSource, resetFeature } from '../../../helpers/story'
 
-import { features, eventHub } from '@goldinteractive/js-base'
+import { features, eventHub, utils } from '@goldinteractive/js-base'
 
 import DynamicContentPagination from '../src/index'
 import StaticStrategy from './files/staticStrategy'
@@ -90,10 +90,10 @@ ${styles}
     <div data-content>
       Init
     </div>
-    <div class="flex" data-feature="dom-state-handler" data-state-handler-type="button-group">
+    <div class="flex" data-feature="dom-state-handler" data-state-handler-type="link-group">
       <input type="hidden" name="skip">
-      <button data-previous type="submit" name="skip" value="0">Previous</button>
-     <button data-next type="submit" name="skip" value="0">Next</button>
+      <a data-previous href="" data-name="skip" data-value="0">Previous</a>
+      <a data-next href="" data-name="skip" data-value="0">Next</a>
     </div>
   </div>
 </div>
@@ -111,7 +111,10 @@ storiesOf('DynamicContentPagination', module)
           'content-pagination',
           DynamicContentPagination,
           object('options', {
-            strategy: new StaticStrategy()
+            strategy: new StaticStrategy(),
+            transformDomState: state => {
+              return utils.url.parseQuery(state)
+            }
           })
         )
         features.add('dom-state-handler', DomStateHandler, {
