@@ -91,7 +91,7 @@ ${styles}
       Init
     </div>
     <div class="flex" data-feature="dom-state-handler" data-state-handler-type="link-group">
-      <input type="hidden" name="skip">
+      <input type="hidden" name="skip" value="0">
       <a data-previous href="" data-name="skip" data-value="0">Previous</a>
       <a data-next href="" data-name="skip" data-value="0">Next</a>
     </div>
@@ -111,10 +111,7 @@ storiesOf('DynamicContentPagination', module)
           'content-pagination',
           DynamicContentPagination,
           object('options', {
-            strategy: new StaticStrategy(),
-            transformDomState: state => {
-              return utils.url.parseQuery(state)
-            }
+            strategy: new StaticStrategy()
           })
         )
         features.add('dom-state-handler', DomStateHandler, {
