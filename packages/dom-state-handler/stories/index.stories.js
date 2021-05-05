@@ -1,10 +1,6 @@
 import { storiesOf } from '@storybook/html'
 import { withKnobs, object } from '@storybook/addon-knobs'
-import {
-  initializeDemo,
-  styleSource,
-  resetFeature
-} from '../../../helpers/story'
+import { initializeDemo, styleSource, resetFeature } from '../../../helpers/story'
 
 import { features, eventHub, utils } from '@goldinteractive/js-base'
 
@@ -53,6 +49,23 @@ const DomStatehandlerMarkup = `
     <label for="violet">violet</label>
     <input id="yellow" type="radio" name="option4" value="yellow" data-cy="radio3" />
     <label for="yellow">yellow</label>
+  </div>
+
+  <div style="margin-top:20px;">Sport:</div>
+  <div data-feature="dom-state-handler" data-state-handler-type="button-group">
+    <input type="hidden" name="sport">
+    <button type="submit" name="sport" value="football" data-cy="button1">Football</button>
+    <button type="submit" name="sport" value="hockey" data-cy="button2">Hockey</button>
+    <button type="submit" name="sport" value="basketball" data-cy="button3">Basketball</button>
+  </div>
+
+  <div style="margin-top:20px;">Season:</div>
+  <div data-feature="dom-state-handler" data-state-handler-type="link-group">
+    <input type="hidden" data-name="season" data-value="">
+    <a href="#" data-name="season" data-value="sommer" data-cy="link1">Sommer</a>
+    <a href="#" data-name="season" data-value="fall" data-cy="link2">Fall</a>
+    <a href="#" data-name="season" data-value="winter" data-cy="link3">Winter</a>
+    <a href="#" data-name="season" data-value="spring" data-cy="link4">Spring</a>
   </div>
 </div>
 `
@@ -127,9 +140,7 @@ storiesOf('DomStateHandler', module)
       return initializeDemo(DomStatehandlerMarkup, () => {
         resetFeature(features, 'dom-state-handler')
         features.add('dom-state-handler', DomStateHandler, {
-          domState: new UrlParameter(
-            object('domStateOptions', { namespace: 'default-namespace' })
-          )
+          domState: new UrlParameter(object('domStateOptions', { namespace: 'default-namespace' }))
         })
         features.init(document.body)
       })
@@ -146,9 +157,7 @@ storiesOf('DomStateHandler', module)
       return initializeDemo(DomStatehandlerMarkup, () => {
         resetFeature(features, 'dom-state-handler')
         features.add('dom-state-handler', DomStateHandler, {
-          domState: new UrlFragment(
-            object('domStateOptions', { namespace: 'default-namespace' })
-          )
+          domState: new UrlFragment(object('domStateOptions', { namespace: 'default-namespace' }))
         })
         features.init(document.body)
       })
@@ -243,9 +252,7 @@ storiesOf('DomStateHandler', module)
             fetchHtml({ url }) {
               return utils.fetch
                 .text(url, utils.fetch.defaultOptions)
-                .then(html =>
-                  html.replace('__ELEMENT_LOADER_DATA_URL__', grid2)
-                )
+                .then(html => html.replace('__ELEMENT_LOADER_DATA_URL__', grid2))
             }
           }
           resetFeature(features, `${namespace}-initial-loader`)
