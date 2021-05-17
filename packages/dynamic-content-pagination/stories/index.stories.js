@@ -86,7 +86,7 @@ ${styles}
     <input id="grapes" type="radio" name="fruit" value="grapes" />
     <label for="grapes">Grapes</label>
   </div>
-  <div data-feature="content-pagination">
+  <div data-feature="dynamic-content-pagination">
     <div data-content>
       Init
     </div>
@@ -105,19 +105,89 @@ storiesOf('DynamicContentPagination', module)
     'Intro',
     () => {
       return initializeDemo(markupIntro, () => {
-        resetFeature(features, 'content-pagination')
+        resetFeature(features, 'dynamic-content-pagination')
         resetFeature(features, 'dom-state-handler')
         features.add(
-          'content-pagination',
+          'dynamic-content-pagination',
           DynamicContentPagination,
           object('options', {
-            strategy: new StaticStrategy()
+            strategy: new StaticStrategy(),
+            resetSkipState: (node, oldState, newState) => {
+              const resetState = utils.url.parseQuery(newState)
+              /**
+               * Check if skip is the same which means an other state was changed
+               * Check if skip is not already 0
+               * Check if skip state is not empty which is the inital state
+               */
+              if (
+                parseInt(oldState.skip) === parseInt(resetState.skip) &&
+                parseInt(oldState.skip) !== 0 &&
+                oldState.skip !== ''
+              ) {
+                resetState.skip = 0
+                const queryString = utils.url.stringifyQuery(resetState)
+                const url =
+                  location.origin +
+                  location.pathname +
+                  '?id=dynamiccontentpagination--intro&' +
+                  queryString +
+                  location.hash
+                utils.url.replaceState(url)
+                const $skip = node.querySelector('input[name="skip"]')
+                $skip.value = 0
+              }
+              return resetState
+            },
+            paginationStateHandler: {
+              previous: (node, data, state) => {
+                const newState = { ...state } // Avoid reference
+                const $previous = node.querySelector('[data-previous]')
+                const prevSkip = data.meta.skip - data.meta.take
+                $previous.dataset.value = prevSkip
+                newState.skip = prevSkip
+                const queryString = utils.url.stringifyQuery(newState)
+                const url = location.origin + location.pathname + '?' + queryString + location.hash
+                $previous.href = url
+              },
+              next: (node, data, state) => {
+                const newState = { ...state } // Avoid reference
+                const $next = node.querySelector('[data-next]')
+                const nextSkip = data.meta.skip + data.meta.take
+                $next.dataset.value = nextSkip
+                newState.skip = nextSkip
+                const queryString = utils.url.stringifyQuery(newState)
+                const url = location.origin + location.pathname + '?' + queryString + location.hash
+                $next.href = url
+              }
+            },
+            paginationDisplayHandler: {
+              previous: (node, data) => {
+                const $previous = node.querySelector('[data-previous]')
+                if ($previous) {
+                  if (parseInt(data.meta.skip) === 0) {
+                    $previous.classList.add('-hide')
+                  } else {
+                    $previous.classList.remove('-hide')
+                  }
+                }
+              },
+              next: (node, data) => {
+                const $next = node.querySelector('[data-next]')
+                if ($next) {
+                  if (parseInt(data.meta.skip) + parseInt(data.meta.count) >= parseInt(data.meta.totalCount)) {
+                    $next.classList.add('-hide')
+                  } else {
+                    $next.classList.remove('-hide')
+                  }
+                }
+              }
+            }
           })
         )
         features.add('dom-state-handler', DomStateHandler, {
           domState: new UrlParameter(
             object('domStateOptions', {
-              namespace: 'content-pagination',
+              namespace: 'dynamic-content-pagination',
               restorePersisted: true
             })
           )
@@ -132,8 +202,8 @@ storiesOf('DynamicContentPagination', module)
     }
   )
   .add('Source JS', () => {
-    return styleSource({ feature: 'content-pagination' })
+    return styleSource({ feature: 'dynamic-content-pagination' })
   })
   .add('Source CSS', () => {
-    return styleSource({ feature: 'content-pagination', language: 'sass' })
+    return styleSource({ feature: 'dynamic-content-pagination', language: 'sass' })
   })
