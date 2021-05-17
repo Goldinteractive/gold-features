@@ -16,18 +16,18 @@ class StaticStrategy {
           return
         }
       })
+      if (!matchingParameters) {
+        callback({
+          html: '<h2> No results found </h2>',
+          meta: {
+            skip: 0,
+            take: 0,
+            count: 0,
+            totalCount: 0
+          }
+        })
+      }
     })
-    if (!matchingParameters) {
-      callback({
-        html: '<h2> No results found </h2>',
-        meta: {
-          skip: 0,
-          take: 0,
-          count: 0,
-          totalCount: 0
-        }
-      })
-    }
   }
 }
 
