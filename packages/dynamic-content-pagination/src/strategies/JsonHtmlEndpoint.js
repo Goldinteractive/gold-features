@@ -9,11 +9,13 @@ class JsonHtmlEndpoint {
     }
 
     const queryString = stringifyQuery(state)
-    const url = `${actionUrl}?${queryString}`
+    const url = actionUrl.includes('?')
+      ? `${actionUrl}&${queryString}`
+      : `${actionUrl}?${queryString}`
 
     json(url).then(result => {
       if (callback) {
-        callback(result.data)
+        callback(result)
       }
     })
   }
