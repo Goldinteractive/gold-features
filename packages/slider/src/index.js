@@ -25,7 +25,19 @@ class Slider extends features.Feature {
       // trigger redraw for transition
       this.node.offsetHeight
 
-      this.flickity = new Flickity(this.node, this.options)
+      this.flickity = new Flickity(this.node, {
+        on: {
+          ready: () => {
+            window.setTimeout(() => {
+              this.triggerHub(
+                `${this.node.dataset.sliderIdentifier}:ready`,
+                this.flickity
+              )
+            }, 100)
+          }
+        },
+        ...this.options
+      })
 
       this.options.listeners.forEach(listener => {
         this.flickity.on(listener.event, () => {
