@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-dynamic-content-pagination",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "dynamic-content-pagination feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
