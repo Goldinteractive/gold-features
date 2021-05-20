@@ -53,6 +53,28 @@ class DynamicContentPagination extends features.Feature {
   }
 }
 
+/**
+ * Feature options
+ * @type {object}
+ * @property {string} namespace=dynamic-content-pagination
+ *  The given namespace for the DomStateHandler feature
+ * @property {ContentStrategies} strategy=null
+ *  Content handling strategy
+ * @property {string} contentSelector=[data-content]
+ *  Selector for the element where the content is injected
+ * @property {function} transformDomState
+ *  Transform the state to how it should be stored
+ * @property {function} resetSkipSteate
+ *  Reset the skip state after state was updated
+ * @property {function} onLoadContent
+ *  Handle when content is being loaded
+ * @property {function} onLoadedContent
+ *  Handle after content was loaded
+ * @property {object} paginationStateHandler={}
+ *  Handle the pagination handlers (exp. previous/next)
+ * @property {object} paginationDisplayHandler={}
+ *  Handle the display of the pagination handlers (exp. previous/next)
+ */
 DynamicContentPagination.defaultOptions = {
   namespace: 'dynamic-content-pagination',
   strategy: null,
@@ -70,3 +92,4 @@ DynamicContentPagination.defaultOptions = {
 }
 
 export default DynamicContentPagination
+export { default as ContentStrategies } from './strategies'
