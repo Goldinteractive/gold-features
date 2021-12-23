@@ -24,7 +24,7 @@ const markup = `
     top: 0;
     left: 0;
     opacity: 0;
-    background: white;
+    background: green;
     transform: translateX(100%);
     transition: transform .3s;
   }
@@ -38,34 +38,46 @@ const markup = `
     padding: 0;
     margin: 0;
   }
+  .static-back-btn {
+    display: none;
+  }
+  .static-back-btn--active {
+    display: block;
+  }
+  .static-title {
+    display: none;
+  }
+  .static-title--active {
+    display: block;
+  }
 </style>
 
 <div data-feature="drilldown-menu">
-  <button data-drilldown-back-static>Back (static)</button>
-  <span data-drilldown-title-static>Title (static)</span>
+  <button class="static-back-btn" data-drilldown-back-static>Back (static)</button>
+  <span class="static-title" data-drilldown-title-static>Title (static)</span>
   <ul class="menu" data-drilldown-menu>
     <li>
       <a data-drilldown-submenu-trigger>Item 1</a>
-      <ul class="submenu" data-drilldown-submenu>
+      <ul class="submenu" data-drilldown-submenu="1">
         <button data-drilldown-back>Back</button>
         <span>Title lvl1</span>
-        <li><a href="#">Item 1-1</a></li>
-        <li><a href="#">Item 1-2</a></li>
+        <li><a href="/1-1">Item 1-1</a></li>
+        <li><a href="/1-2">Item 1-2</a></li>
         <li>
           <a data-drilldown-submenu-trigger>Item 1-3</a>
-          <ul class="submenu" data-drilldown-submenu>
+          <ul class="submenu" data-drilldown-submenu="1">
             <button data-drilldown-back>Back</button>
             <span>Title lvl2</span>
-            <li><a href="#">Item 2-1</a></li>
-            <li><a href="#">Item 2-2</a></li>
-            <li><a href="#">Item 2-3</a></li>
+            <li><a href="/2-1">Item 2-1</a></li>
+            <li><a href="/2-2">Item 2-2</a></li>
+            <li><a href="/iframe.html">Item iframe!</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#">Item 2</a></li>
-    <li><a href="#">Item 3</a></li>
-    <li><a href="#">Item 4</a></li>
+    <li><a href="/2">Item 2</a></li>
+    <li><a href="/3">Item 3</a></li>
+    <li><a href="/4">Item 4</a></li>
   </ul>
 </div>
 `
