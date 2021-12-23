@@ -31,7 +31,9 @@ const markup = `
   .drilldown__submenu--active {
     opacity: 1;
     transform: translateX(0);
-
+  }
+  .drilldown__submenu--is-closing {
+    opacity: 1;
   }
   ul {
     list-style-type: none;
@@ -56,28 +58,28 @@ const markup = `
   <button class="drilldown__static-back-btn" data-drilldown-back-static>Back (static)</button>
   <span class="drilldown__static-title" data-drilldown-title-static>Title (static)</span>
   <ul class="drilldown__menu" data-drilldown-menu>
-    <li>
-      <a data-drilldown-submenu-trigger>Item 1</a>
-      <ul class="drilldown__submenu" data-drilldown-submenu="1">
+    <li class="drilldown__entry">
+      <button data-drilldown-submenu-trigger>Item 1</button>
+      <ul class="drilldown__submenu" data-drilldown-submenu>
         <button data-drilldown-back>Back</button>
         <span>Title lvl1</span>
-        <li><a href="/1-1">Item 1-1</a></li>
-        <li><a href="/1-2">Item 1-2</a></li>
-        <li>
-          <a data-drilldown-submenu-trigger>Item 1-3</a>
-          <ul class="drilldown__submenu" data-drilldown-submenu="1">
+        <li class="drilldown__entry"><a href="/1-1">Item 1-1</a></li>
+        <li class="drilldown__entry"><a href="/1-2">Item 1-2</a></li>
+        <li class="drilldown__entry">
+          <button data-drilldown-submenu-trigger>Item 1-3</button>
+          <ul class="drilldown__submenu" data-drilldown-submenu>
             <button data-drilldown-back>Back</button>
             <span>Title lvl2</span>
-            <li><a href="/2-1">Item 2-1</a></li>
-            <li><a href="/2-2">Item 2-2</a></li>
-            <li><a href="/iframe.html">Item iframe!</a></li>
+            <li class="drilldown__entry"><a href="/2-1">Item 2-1</a></li>
+            <li class="drilldown__entry"><a href="/2-2">Item 2-2</a></li>
+            <li class="drilldown__entry" data-drilldown-init-active><a href="/iframe.html">Item iframe!</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="/2">Item 2</a></li>
-    <li><a href="/3">Item 3</a></li>
-    <li><a href="/4">Item 4</a></li>
+    <li class="drilldown__entry"><a href="/2">Item 2</a></li>
+    <li class="drilldown__entry"><a href="/3">Item 3</a></li>
+    <li class="drilldown__entry"><a href="/4">Item 4</a></li>
   </ul>
 </div>
 `

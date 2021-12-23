@@ -2,13 +2,10 @@ import { features } from '@goldinteractive/js-base'
 
 class DrilldownMenu extends features.Feature {
   // TODO
+  // out animation (check js-fiddle example)
   // accessibility with keyboard
-  // static vs dynamic back-buttons/title
-  // navigate to current level on open
-  // active indicators on all the parent-menus
   // show/hide etc. as hub events?
   // calculate heights if autoheight=true
-  // hide static back/title on top-level
 
   init() {
     this.$staticBackBtn = this.$(`[${this.options.attributes.staticBackBtn}]`)
@@ -60,6 +57,19 @@ class DrilldownMenu extends features.Feature {
     this.toggleStatics()
   }
 
+  showDeep(el) {
+    el.classList.add(this.options.classes.itemActive)
+    let parent = el.parentElement
+    while (parent.hasAttribute(this.options.attributes.submenu)) {
+      this.show(parent)
+      const parentEntry = parent.parentElement
+      parentEntry.classList.add(this.options.classes.itemDeepActive)
+      parent = parentEntry.parentElement
+    }
+    this.$currentMenu = el.parentElement
+    this.toggleStatics()
+  }
+
   hide(submenu) {
     submenu.classList.remove(this.options.classes.submenuActive)
 
@@ -71,15 +81,10 @@ class DrilldownMenu extends features.Feature {
   }
 
   openOnCurrentLevel() {
-    const path = location.pathname
-    const li = this.$$listItems.find(li => {
-      return li.firstChild && li.firstChild.href && li.firstChild.href.includes(path)
-    })
+    const activeEl = this.$(`[${this.options.attributes.initActive}]`)
 
-    if (li) {
-      // TODO show all parentMenus until the correct menu
-      // const parentMenu = li.parentElement
-      // this.show(parentMenu)
+    if (activeEl) {
+      this.showDeep(activeEl)
     }
   }
 
@@ -92,8 +97,9 @@ class DrilldownMenu extends features.Feature {
 
     if (this.options.staticTitle && this.$currentMenu !== this.$menu) {
       this.$staticTitle.classList.add(this.options.classes.staticTitleActive)
-      // TODO where to get the title from? (data-drilldown-title attribute or innerText of clicked Link?)
-      // this.updateStaticTitle()
+      const parent = this.$currentMenu
+      const siblingLink = parent ? parent.previousElementSibling : null
+      this.updateStaticTitle(siblingLink ? siblingLink.innerText : '')
     } else {
       this.$staticTitle.classList.remove(this.options.classes.staticTitleActive)
     }
@@ -109,7 +115,7 @@ class DrilldownMenu extends features.Feature {
 DrilldownMenu.defaultOptions = {
   autoHeight: false,
   staticBackBtn: true,
-  staticTitle: false,
+  staticTitle: true,
   openOnCurrentLevel: true,
   attributes: {
     staticBackBtn: 'data-drilldown-back-static',
@@ -119,11 +125,15 @@ DrilldownMenu.defaultOptions = {
     menu: 'data-drilldown-menu',
     submenu: 'data-drilldown-submenu',
     submenuTrigger: 'data-drilldown-submenu-trigger',
+    initActive: 'data-drilldown-init-active'
   },
   classes: {
     submenuActive: 'drilldown__submenu--active',
+    submenuClosing: 'drilldown__submenu--is-closing',
     staticBackBtnActive: 'drilldown__static-back-btn--active',
-    staticTitleActive: 'drilldown__static-title--active'
+    staticTitleActive: 'drilldown__static-title--active',
+    itemActive: 'drilldown__entry--active',
+    itemDeepActive: 'drilldown__entry--deep-active'
   }
 }
 
