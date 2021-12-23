@@ -66,8 +66,7 @@ class DrilldownMenu extends features.Feature {
     const parentLi = submenu.parentElement
     const parentMenu = parentLi ? parentLi.parentElement : null
     if (parentMenu) {
-      this.$currentMenu = parentMenu
-      this.toggleStatics()
+      this.show(parentMenu)
     }
   }
 
@@ -122,9 +121,9 @@ DrilldownMenu.defaultOptions = {
     submenuTrigger: 'data-drilldown-submenu-trigger',
   },
   classes: {
-    submenuActive: 'submenu--active',
-    staticBackBtnActive: 'static-back-btn--active',
-    staticTitleActive: 'static-title--active'
+    submenuActive: 'drilldown__submenu--active',
+    staticBackBtnActive: 'drilldown__static-back-btn--active',
+    staticTitleActive: 'drilldown__static-title--active'
   }
 }
 

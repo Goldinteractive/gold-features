@@ -15,11 +15,11 @@ import docs from './docs.md'
 
 const markup = `
 <style>
-  .menu {
+  .drilldown__menu {
     position: relative;
     overflow: hidden;
   }
-  .submenu {
+  .drilldown__submenu {
     position: absolute;
     top: 0;
     left: 0;
@@ -28,7 +28,7 @@ const markup = `
     transform: translateX(100%);
     transition: transform .3s;
   }
-  .submenu--active {
+  .drilldown__submenu--active {
     opacity: 1;
     transform: translateX(0);
 
@@ -38,34 +38,34 @@ const markup = `
     padding: 0;
     margin: 0;
   }
-  .static-back-btn {
+  .drilldown__static-back-btn {
     display: none;
   }
-  .static-back-btn--active {
+  .drilldown__static-back-btn--active {
     display: block;
   }
-  .static-title {
+  .drilldown__static-title {
     display: none;
   }
-  .static-title--active {
+  .drilldown__static-title--active {
     display: block;
   }
 </style>
 
 <div data-feature="drilldown-menu">
-  <button class="static-back-btn" data-drilldown-back-static>Back (static)</button>
-  <span class="static-title" data-drilldown-title-static>Title (static)</span>
-  <ul class="menu" data-drilldown-menu>
+  <button class="drilldown__static-back-btn" data-drilldown-back-static>Back (static)</button>
+  <span class="drilldown__static-title" data-drilldown-title-static>Title (static)</span>
+  <ul class="drilldown__menu" data-drilldown-menu>
     <li>
       <a data-drilldown-submenu-trigger>Item 1</a>
-      <ul class="submenu" data-drilldown-submenu="1">
+      <ul class="drilldown__submenu" data-drilldown-submenu="1">
         <button data-drilldown-back>Back</button>
         <span>Title lvl1</span>
         <li><a href="/1-1">Item 1-1</a></li>
         <li><a href="/1-2">Item 1-2</a></li>
         <li>
           <a data-drilldown-submenu-trigger>Item 1-3</a>
-          <ul class="submenu" data-drilldown-submenu="1">
+          <ul class="drilldown__submenu" data-drilldown-submenu="1">
             <button data-drilldown-back>Back</button>
             <span>Title lvl2</span>
             <li><a href="/2-1">Item 2-1</a></li>
