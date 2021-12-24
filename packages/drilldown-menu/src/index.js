@@ -2,7 +2,6 @@ import { features } from '@goldinteractive/js-base'
 
 class DrilldownMenu extends features.Feature {
   // TODO
-  // out animation (check js-fiddle example)
   // accessibility with keyboard
   // show/hide etc. as hub events?
   // calculate heights if autoheight=true
@@ -63,7 +62,9 @@ class DrilldownMenu extends features.Feature {
     while (parent.hasAttribute(this.options.attributes.submenu)) {
       this.show(parent)
       const parentEntry = parent.parentElement
-      parentEntry.classList.add(this.options.classes.itemDeepActive)
+      if (parent.hasAttribute(this.options.attributes.submenuTrigger)) {
+        parentEntry.classList.add(this.options.classes.itemDeepActive)
+      }
       parent = parentEntry.parentElement
     }
     this.$currentMenu = el.parentElement
@@ -72,6 +73,13 @@ class DrilldownMenu extends features.Feature {
 
   hide(submenu) {
     submenu.classList.remove(this.options.classes.submenuActive)
+    submenu.classList.add(this.options.classes.submenuClosing)
+
+    const hideAnimCallback = () => {
+      submenu.classList.remove(this.options.classes.submenuClosing)
+      submenu.removeEventListener('transitionend', hideAnimCallback)
+    }
+    submenu.addEventListener('transitionend', hideAnimCallback)
 
     const parentLi = submenu.parentElement
     const parentMenu = parentLi ? parentLi.parentElement : null
