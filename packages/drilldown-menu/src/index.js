@@ -1,4 +1,4 @@
-import { features } from '@goldinteractive/js-base'
+import { features, eventHub } from '@goldinteractive/js-base'
 
 class DrilldownMenu extends features.Feature {
   // TODO
@@ -50,10 +50,18 @@ class DrilldownMenu extends features.Feature {
     }
   }
 
-  show(submenu) {
+  show(submenu, accessibility = true) {
+    eventHub.trigger(`${this.options.namespace}:beforeShow`, {
+      submenu: submenu
+    })
+
     this.$currentMenu = submenu
     submenu.classList.add(this.options.classes.submenuActive)
     this.toggleStatics()
+
+    eventHub.trigger(`${this.options.namespace}:afterShow`, {
+      submenu: submenu
+    })
   }
 
   showDeep(el) {
@@ -72,6 +80,10 @@ class DrilldownMenu extends features.Feature {
   }
 
   hide(submenu) {
+    eventHub.trigger(`${this.options.namespace}:beforeHide`, {
+      submenu: submenu
+    })
+
     submenu.classList.remove(this.options.classes.submenuActive)
     submenu.classList.add(this.options.classes.submenuClosing)
 
@@ -80,6 +92,10 @@ class DrilldownMenu extends features.Feature {
       submenu.removeEventListener('transitionend', hideAnimCallback)
     }
     submenu.addEventListener('transitionend', hideAnimCallback)
+
+    eventHub.trigger(`${this.options.namespace}:afterHide`, {
+      submenu: submenu
+    })
 
     const parentLi = submenu.parentElement
     const parentMenu = parentLi ? parentLi.parentElement : null
@@ -121,6 +137,7 @@ class DrilldownMenu extends features.Feature {
 }
 
 DrilldownMenu.defaultOptions = {
+  namespace: 'drilldown-menu',
   autoHeight: false,
   staticBackBtn: true,
   staticTitle: true,
