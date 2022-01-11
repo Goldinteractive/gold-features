@@ -11,9 +11,7 @@ class DrilldownMenu extends features.Feature {
     this.$menu = this.$(`[${this.options.attributes.menu}]`)
     this.$$submenus = this.$$(`[${this.options.attributes.submenu}]`)
     this.$$listItems = this.$$('li')
-
-    // TODO find a better name than data-drilldown-link for tabindexes (links and buttons)
-    this.$$links = this.$$(`[${this.options.attributes.link}]`)
+    this.$$tabTargets = this.$$(`[${this.options.attributes.tabTarget}]`)
 
     this.$currentMenu = this.$menu
 
@@ -116,13 +114,13 @@ class DrilldownMenu extends features.Feature {
   }
 
   handleTabindex(submenu) {
-    this.$$links.forEach(link => {
-      link.setAttribute('tabindex', -1)
+    this.$$tabTargets.forEach(target => {
+      target.setAttribute('tabindex', -1)
     })
-    const sublinks = submenu.querySelectorAll(`[${this.options.attributes.link}]`)
-    if (sublinks) {
-      Array.from(sublinks).forEach(sublink => {
-        sublink.setAttribute('tabindex', 0)
+    const subTargets = submenu.querySelectorAll(`[${this.options.attributes.tabTarget}]`)
+    if (subTargets) {
+      Array.from(subTargets).forEach(subTarget => {
+        subTarget.setAttribute('tabindex', 0)
       })
     }
   }
@@ -166,7 +164,7 @@ DrilldownMenu.defaultOptions = {
     submenu: 'data-drilldown-submenu',
     submenuTrigger: 'data-drilldown-submenu-trigger',
     initActive: 'data-drilldown-init-active',
-    link: 'data-drilldown-link'
+    tabTarget: 'data-drilldown-tab-target'
   },
   classes: {
     submenuActive: 'drilldown__submenu--active',
