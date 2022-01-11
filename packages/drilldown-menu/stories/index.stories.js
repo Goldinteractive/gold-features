@@ -105,7 +105,6 @@ storiesOf('DrilldownMenu', module)
           object('options', DrilldownMenu.defaultOptions)
         )
         features.init(document.body)
-        // eventHub.trigger('sample-id:open')
       })
     },
     {

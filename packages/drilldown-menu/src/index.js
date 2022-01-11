@@ -1,9 +1,6 @@
 import { features, eventHub } from '@goldinteractive/js-base'
 
 class DrilldownMenu extends features.Feature {
-  // TODO
-  // calculate heights if autoheight=true
-
   init() {
     this.$staticBackBtn = this.$(`[${this.options.attributes.staticBackBtn}]`)
     this.$staticTitle = this.$(`[${this.options.attributes.staticTitle}]`)
@@ -12,7 +9,6 @@ class DrilldownMenu extends features.Feature {
     this.$$submenus = this.$$(`[${this.options.attributes.submenu}]`)
     this.$$listItems = this.$$('li')
     this.$$tabTargets = this.$$(`[${this.options.attributes.tabTarget}]`)
-
     this.$currentMenu = this.$menu
 
     if (this.options.openOnCurrentLevel) {
@@ -49,7 +45,7 @@ class DrilldownMenu extends features.Feature {
     }
   }
 
-  show(submenu, accessibility = true) {
+  show(submenu) {
     eventHub.trigger(`${this.options.namespace}:beforeShow`, {
       submenu: submenu
     })
@@ -58,6 +54,10 @@ class DrilldownMenu extends features.Feature {
     submenu.classList.add(this.options.classes.submenuActive)
     this.toggleStatics()
     this.handleTabindex(submenu)
+
+    if (this.options.autoHeight) {
+      this.setHeight(submenu === this.$menu ? null : submenu)
+    }
 
     eventHub.trigger(`${this.options.namespace}:afterShow`, {
       submenu: submenu
@@ -76,8 +76,7 @@ class DrilldownMenu extends features.Feature {
       parent = parentEntry.parentElement
     }
     this.$currentMenu = el.parentElement
-    this.toggleStatics()
-    this.handleTabindex(this.$currentMenu)
+    this.show(el.parentElement)
   }
 
   hide(submenu) {
@@ -122,6 +121,15 @@ class DrilldownMenu extends features.Feature {
       Array.from(subTargets).forEach(subTarget => {
         subTarget.setAttribute('tabindex', 0)
       })
+    }
+  }
+
+  setHeight(submenu) {
+    const height = submenu ? submenu.offsetHeight : undefined
+    if (height) {
+      this.$menu.setAttribute('style', `height:${height}px`)
+    } else {
+      this.$menu.setAttribute('style', 'height:auto')
     }
   }
 
