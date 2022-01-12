@@ -1,11 +1,6 @@
 import { features, eventHub } from '@goldinteractive/js-base'
 
 class DrilldownMenu extends features.Feature {
-  // TODO
-  // accessibility with keyboard
-  // show/hide etc. as hub events?
-  // calculate heights if autoheight=true
-
   init() {
     this.$staticBackBtn = this.$(`[${this.options.attributes.staticBackBtn}]`)
     this.$staticTitle = this.$(`[${this.options.attributes.staticTitle}]`)
@@ -13,7 +8,7 @@ class DrilldownMenu extends features.Feature {
     this.$menu = this.$(`[${this.options.attributes.menu}]`)
     this.$$submenus = this.$$(`[${this.options.attributes.submenu}]`)
     this.$$listItems = this.$$('li')
-
+    this.$$tabTargets = this.$$(`[${this.options.attributes.tabTarget}]`)
     this.$currentMenu = this.$menu
 
     if (this.options.openOnCurrentLevel) {
@@ -50,7 +45,7 @@ class DrilldownMenu extends features.Feature {
     }
   }
 
-  show(submenu, accessibility = true) {
+  show(submenu) {
     eventHub.trigger(`${this.options.namespace}:beforeShow`, {
       submenu: submenu
     })
@@ -58,6 +53,11 @@ class DrilldownMenu extends features.Feature {
     this.$currentMenu = submenu
     submenu.classList.add(this.options.classes.submenuActive)
     this.toggleStatics()
+    this.handleTabindex(submenu)
+
+    if (this.options.autoHeight) {
+      this.setHeight(submenu === this.$menu ? null : submenu)
+    }
 
     eventHub.trigger(`${this.options.namespace}:afterShow`, {
       submenu: submenu
@@ -76,7 +76,7 @@ class DrilldownMenu extends features.Feature {
       parent = parentEntry.parentElement
     }
     this.$currentMenu = el.parentElement
-    this.toggleStatics()
+    this.show(el.parentElement)
   }
 
   hide(submenu) {
@@ -112,27 +112,50 @@ class DrilldownMenu extends features.Feature {
     }
   }
 
-  toggleStatics() {
-    if (this.options.staticBackBtn && this.$currentMenu !== this.$menu) {
-      this.$staticBackBtn.classList.add(this.options.classes.staticBackBtnActive)
+  handleTabindex(submenu) {
+    this.$$tabTargets.forEach(target => {
+      target.setAttribute('tabindex', -1)
+    })
+    const subTargets = submenu.querySelectorAll(`[${this.options.attributes.tabTarget}]`)
+    if (subTargets) {
+      Array.from(subTargets).forEach(subTarget => {
+        subTarget.setAttribute('tabindex', 0)
+      })
+    }
+  }
+
+  setHeight(submenu) {
+    const height = submenu ? submenu.offsetHeight : undefined
+    if (height) {
+      this.$menu.setAttribute('style', `height:${height}px`)
     } else {
-      this.$staticBackBtn.classList.remove(this.options.classes.staticBackBtnActive)
+      this.$menu.setAttribute('style', 'height:auto')
+    }
+  }
+
+  toggleStatics() {
+    if (this.options.staticBackBtn && this.$staticBackBtn) {
+      if (this.$currentMenu !== this.$menu) {
+        this.$staticBackBtn.classList.add(this.options.classes.staticBackBtnActive)
+      } else {
+        this.$staticBackBtn.classList.remove(this.options.classes.staticBackBtnActive)
+      }
     }
 
-    if (this.options.staticTitle && this.$currentMenu !== this.$menu) {
-      this.$staticTitle.classList.add(this.options.classes.staticTitleActive)
-      const parent = this.$currentMenu
-      const siblingLink = parent ? parent.previousElementSibling : null
-      this.updateStaticTitle(siblingLink ? siblingLink.innerText : '')
-    } else {
-      this.$staticTitle.classList.remove(this.options.classes.staticTitleActive)
+    if (this.options.staticTitle && this.$staticTitle) {
+      if (this.$currentMenu !== this.$menu) {
+        this.$staticTitle.classList.add(this.options.classes.staticTitleActive)
+        const parent = this.$currentMenu
+        const siblingLink = parent ? parent.previousElementSibling : null
+        this.updateStaticTitle(siblingLink ? siblingLink.innerText : '')
+      } else {
+        this.$staticTitle.classList.remove(this.options.classes.staticTitleActive)
+      }
     }
   }
 
   updateStaticTitle(title) {
-    if (this.options.staticTitle) {
-      this.$staticTitle.innerText = title
-    }
+    this.$staticTitle.innerText = title
   }
 }
 
@@ -150,7 +173,8 @@ DrilldownMenu.defaultOptions = {
     menu: 'data-drilldown-menu',
     submenu: 'data-drilldown-submenu',
     submenuTrigger: 'data-drilldown-submenu-trigger',
-    initActive: 'data-drilldown-init-active'
+    initActive: 'data-drilldown-init-active',
+    tabTarget: 'data-drilldown-tab-target'
   },
   classes: {
     submenuActive: 'drilldown__submenu--active',
