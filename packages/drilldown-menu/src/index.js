@@ -134,26 +134,28 @@ class DrilldownMenu extends features.Feature {
   }
 
   toggleStatics() {
-    if (this.options.staticBackBtn && this.$currentMenu !== this.$menu) {
-      this.$staticBackBtn.classList.add(this.options.classes.staticBackBtnActive)
-    } else {
-      this.$staticBackBtn.classList.remove(this.options.classes.staticBackBtnActive)
+    if (this.options.staticBackBtn && this.$staticBackBtn) {
+      if (this.$currentMenu !== this.$menu) {
+        this.$staticBackBtn.classList.add(this.options.classes.staticBackBtnActive)
+      } else {
+        this.$staticBackBtn.classList.remove(this.options.classes.staticBackBtnActive)
+      }
     }
 
-    if (this.options.staticTitle && this.$currentMenu !== this.$menu) {
-      this.$staticTitle.classList.add(this.options.classes.staticTitleActive)
-      const parent = this.$currentMenu
-      const siblingLink = parent ? parent.previousElementSibling : null
-      this.updateStaticTitle(siblingLink ? siblingLink.innerText : '')
-    } else {
-      this.$staticTitle.classList.remove(this.options.classes.staticTitleActive)
+    if (this.options.staticTitle && this.$staticTitle) {
+      if (this.$currentMenu !== this.$menu) {
+        this.$staticTitle.classList.add(this.options.classes.staticTitleActive)
+        const parent = this.$currentMenu
+        const siblingLink = parent ? parent.previousElementSibling : null
+        this.updateStaticTitle(siblingLink ? siblingLink.innerText : '')
+      } else {
+        this.$staticTitle.classList.remove(this.options.classes.staticTitleActive)
+      }
     }
   }
 
   updateStaticTitle(title) {
-    if (this.options.staticTitle) {
-      this.$staticTitle.innerText = title
-    }
+    this.$staticTitle.innerText = title
   }
 }
 
