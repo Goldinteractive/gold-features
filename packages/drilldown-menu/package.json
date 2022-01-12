@@ -1,6 +1,6 @@
 {
   "name": "@goldinteractive/feature-drilldown-menu",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "drilldown-menu feature",
   "main": "lib/main.min.js",
   "module": "src/index.js",
