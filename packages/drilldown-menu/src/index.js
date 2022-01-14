@@ -161,7 +161,7 @@ class DrilldownMenu extends features.Feature {
 
 DrilldownMenu.defaultOptions = {
   namespace: 'drilldown-menu',
-  autoHeight: false,
+  autoHeight: true,
   staticBackBtn: true,
   staticTitle: true,
   openOnCurrentLevel: true,
