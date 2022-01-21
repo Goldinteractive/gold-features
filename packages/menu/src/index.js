@@ -34,6 +34,12 @@ class Menu extends features.Feature {
       this.addEventListener(this.$trigger, 'mouseenter', () => {
         this.show(this.$menu)
       })
+      this.addEventListener(this.$trigger, 'click', e => {
+        e.stopPropagation()
+        if (this.$menu.classList.contains(this.options.activeClass) && this.options.closeOnTriggerClick) {
+          this.hide(this.$menu)
+        }
+      })
     } else {
       this.addEventListener(this.$trigger, 'click', e => {
         e.stopPropagation()
@@ -73,7 +79,9 @@ class Menu extends features.Feature {
       }
     })
     menu.classList.add(this.options.activeClass)
-    this.handleClicks(menu)
+    if (this.options.closeOnOutsideClick) {
+      this.handleClicks(menu)
+    }
     this.handleKeydowns()
     this.handleHovers()
   }
@@ -129,6 +137,7 @@ Menu.defaultOptions = {
   triggerOnHover: true,
   triggerOnHoverWhenOpen: true,
   closeOnTriggerClick: false,
+  closeOnOutsideClick: true,
   activeClass: '-active',
   closingClass: '-closing',
   attributes: {
