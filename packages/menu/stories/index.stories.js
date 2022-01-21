@@ -16,29 +16,50 @@ import docs from './docs.md'
 const styling = `
 <style>
   .menu {
-    padding: none;
-    margin: none;
+    padding: 0;
+    margin: 0;
     list-style-type: none;
     display: flex;
-    justify-content: space-between;
-    background: gray;
+    border: 1px solid black;
+  }
+  .menu__item {
+    position: relative;
+    margin-right: 15px;
   }
   .menu__content {
+    position: absolute;
     opacity: 0;
     visibility: hidden;
-    background: green;
     transform: translateY(10px);
     transition: .3s;
+    border: 1px solid black;
+    padding: 15px;
+    margin: 0;
+    list-style-type: none;
   }
   .menu__content.-active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
+  .menu__content.-active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .menu__entry {
+    margin-bottom: 8px;
+  }
+  .menu__link {
+    white-space: nowrap;
+  }
+  .close-icon {
+    margin-bottom: 8px;
+    cursor: pointer;
+  }
 </style>
 `
 
-const markupStatic = `
+const markup = `
 ${styling}
 <ul class="menu">
   <li class="menu__item" data-feature="menu" data-menu-identifier="menu-1">
@@ -46,9 +67,8 @@ ${styling}
       Item 1
     </button>
     <ul class="menu__content" data-menu-menu>
-      <span class="menu__title">Item 1</span>
-      <div class="close-icon">
-          <span class="icon close-icon" data-feature="icon" data-icon="close" data-menu-close-button></span>
+      <div class="close-icon" data-menu-close-button>
+        X
       </div>
       <li class="menu__entry">
         <a class="menu__link" href="#1">Subitem 1</a>
@@ -66,9 +86,8 @@ ${styling}
       Item 2
     </button>
     <ul class="menu__content" data-menu-menu>
-      <span class="menu__title">Item 2</span>
-      <div class="close-icon">
-          <span class="icon close-icon" data-feature="icon" data-icon="close" data-menu-close-button></span>
+      <div class="close-icon" data-menu-close-button>
+          X
       </div>
       <li class="menu__entry">
         <a class="menu__link" href="#1">Subitem 1</a>
@@ -86,9 +105,8 @@ ${styling}
       Item 3
     </button>
     <ul class="menu__content" data-menu-menu>
-      <span class="menu__title">Item 3</span>
-      <div class="close-icon">
-          <span class="icon close-icon" data-feature="icon" data-icon="close" data-menu-close-button></span>
+      <div class="close-icon" data-menu-close-button>
+          X
       </div>
       <li class="menu__entry">
         <a class="menu__link" href="#1">Subitem 1</a>
@@ -107,19 +125,56 @@ ${styling}
 storiesOf('Menu', module)
   .addDecorator(withKnobs)
   .add(
-    'Static',
+    'Hover',
     () => {
-      return initializeDemo(markupStatic, () => {
+      return initializeDemo(markup, () => {
         resetFeature(features, 'menu')
         features.add(
           'menu',
           Menu,
           object('options', {
-            // namespace: 'drilldown-menu',
-            // autoHeight: true,
-            // staticBackBtn: true,
-            // staticTitle: true,
-            // openOnCurrentLevel: true
+            triggerOnHover: true,
+            triggerOnHoverWhenOpen: true,
+            closeOnTriggerClick: false,
+            closeOnOutsideClick: true,
+            activeClass: '-active',
+            closingClass: '-closing',
+            attributes: {
+              menu: 'data-menu-menu',
+              trigger: 'data-menu-trigger',
+              closeBtn: 'data-menu-close-button'
+            }
+          })
+        )
+        features.init(document.body)
+      })
+    },
+    {
+      notes: {
+        markdown: docs
+      }
+    }
+  )
+  .add(
+    'Click',
+    () => {
+      return initializeDemo(markup, () => {
+        resetFeature(features, 'menu')
+        features.add(
+          'menu',
+          Menu,
+          object('options', {
+            triggerOnHover: false,
+            triggerOnHoverWhenOpen: true,
+            closeOnTriggerClick: false,
+            closeOnOutsideClick: true,
+            activeClass: '-active',
+            closingClass: '-closing',
+            attributes: {
+              menu: 'data-menu-menu',
+              trigger: 'data-menu-trigger',
+              closeBtn: 'data-menu-close-button'
+            }
           })
         )
         features.init(document.body)
