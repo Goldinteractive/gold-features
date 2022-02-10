@@ -50,7 +50,7 @@
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
-    "node-sass": "^4.9.2",
+    "node-sass": "^7.0.0",
     "postcss": "^6.0.17",
     "postcss-cli": "^5.0.0",
     "postcss-import": "^11.0.0",
