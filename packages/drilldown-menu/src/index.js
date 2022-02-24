@@ -43,6 +43,12 @@ class DrilldownMenu extends features.Feature {
         })
       })
     }
+
+    eventHub.on(`${this.options.namespace}:showTopLevel`, () => {
+      this.$$submenus.forEach(submenu => {
+        this.hide(submenu)
+      })
+    })
   }
 
   show(submenu) {
