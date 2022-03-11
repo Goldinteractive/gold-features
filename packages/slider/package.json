@@ -11,7 +11,7 @@
     "watch": "node ../../scripts/watch.js"
   },
   "dependencies": {
-    "flickity": "^2.0.10",
+    "flickity": "^3.0.0",
     "flickity-imagesloaded": "^2.0.0"
   },
   "peerDependencies": {
