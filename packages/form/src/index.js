@@ -148,7 +148,15 @@ class Form extends features.Feature {
         }
       }
 
-      $field.classList.remove(this.options.formFieldClassError)
+      const $$formErrorElements = $field.querySelectorAll(`[${this.options.formFieldErrorAttr}]`)
+      if ($$formErrorElements) {
+        Array.from($$formErrorElements).forEach(el => {
+          if (el.dataset[this.options.formFieldErrorAttrShort]) {
+            el.classList.remove(el.dataset[this.options.formFieldErrorAttrShort])
+          }
+        })
+      }
+      $field.classList.remove($field.dataset[this.options.formFieldErrorAttrShort])
     })
   }
 
@@ -185,7 +193,15 @@ class Form extends features.Feature {
       let $field = this.options.getErrorField.call(this, error)
 
       if ($field) {
-        $field.classList.add(this.options.formFieldClassError)
+        const $$formErrorElements = $field.querySelectorAll(`[${this.options.formFieldErrorAttr}]`)
+        if ($$formErrorElements) {
+          Array.from($$formErrorElements).forEach(el => {
+            if (el.dataset[this.options.formFieldErrorAttrShort]) {
+              el.classList.add(el.dataset[this.options.formFieldErrorAttrShort])
+            }
+          })
+        }
+        $field.classList.add($field.dataset[this.options.formFieldErrorAttrShort])
 
         let $message = null
         if(this.options.useMessagePlaceholder){
@@ -329,6 +345,8 @@ Form.defaultOptions = {
   progressClassShow: '-show',
   formFieldClass: 'form-field',
   formFieldClassError: '-error',
+  formFieldErrorAttr: 'data-error-attr',
+  formFieldErrorAttrShort: 'errorAttr',
   formFieldMessageElement: 'div',
   formFieldMessageClass: 'message',
   feedbackClassSuccess: '-success',
