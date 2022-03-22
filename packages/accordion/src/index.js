@@ -150,6 +150,9 @@ class Accordion extends features.Feature {
       ric(() => {
         if (window.pageYOffset === 0 && this.options.scroller) {
           const onFoldOpened = () => {
+            window.addEventListener('load', () => {
+              this.options.scroller.toElement(fold.button)
+            })
             this.options.scroller.toElement(fold.button)
             this.handorgel.off('fold:opened', onFoldOpened)
           }
