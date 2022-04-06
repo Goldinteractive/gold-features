@@ -156,7 +156,11 @@ class Form extends features.Feature {
           }
         })
       }
-      $field.classList.remove($field.dataset[this.options.formFieldErrorAttrShort])
+      if ($field.dataset[this.options.formFieldErrorAttrShort]) {
+        $field.classList.remove($field.dataset[this.options.formFieldErrorAttrShort])
+      } else {
+        $field.classList.remove(this.options.formFieldClassError)
+      }
     })
   }
 
@@ -201,7 +205,11 @@ class Form extends features.Feature {
             }
           })
         }
-        $field.classList.add($field.dataset[this.options.formFieldErrorAttrShort])
+        if ($field.dataset[this.options.formFieldErrorAttrShort]) {
+          $field.classList.add($field.dataset[this.options.formFieldErrorAttrShort])
+        } else {
+          $field.classList.add(this.options.formFieldClassError)
+        }
 
         let $message = null
         if(this.options.useMessagePlaceholder){
