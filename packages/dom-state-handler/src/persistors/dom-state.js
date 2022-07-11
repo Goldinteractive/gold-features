@@ -15,13 +15,15 @@ class DomState {
 
   restoreState() {
     const state = this.retrieveState()
-    this._stateHandlers.forEach(handler => {
-      const name = handler.getName()
-      const value = state[name]
-      if (value) {
-        handler.setValue(value)
-      }
-    })
+    if (state !== null) {
+      this._stateHandlers.forEach(handler => {
+        const name = handler.getName()
+        const value = state[name]
+        if (value) {
+          handler.setValue(value)
+        }
+      })
+    }
   }
 
   retrieveState() {
