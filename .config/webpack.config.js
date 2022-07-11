@@ -15,15 +15,19 @@ let plugins = [
 const sassLoader = {
   loader: 'sass-loader',
   options: {
-    includePaths: [paths.app.entry, 'node_modules']
+    sassOptions: {
+      includePaths: [paths.app.entry, 'node_modules'],
+    },
   }
 }
 
 const postcssLoader = {
   loader: 'postcss-loader',
   options: {
-    config: {
-      path: paths.config.postcss
+    postcssOptions: {
+      config: {
+        path: paths.config.postcss
+      }
     }
   }
 }

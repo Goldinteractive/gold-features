@@ -50,7 +50,6 @@
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
-    "node-sass": "^4.9.2",
     "postcss": "^6.0.17",
     "postcss-cli": "^5.0.0",
     "postcss-import": "^11.0.0",
@@ -60,14 +59,16 @@
     "prismjs": "^1.17.1",
     "raw-loader": "^3.1.0",
     "replace-in-file": "^3.1.1",
-    "sass-loader": "^7.0.3",
     "uppercamelcase": "^3.0.0",
-    "webpack": "^4.29.4",
+    "webpack": "^4.4",
     "webpack-format-messages": "^2.0.5"
   },
   "browserslist": [
     "> 5%",
     "last 2 version"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "sass": "^1.53.0",
+    "sass-loader": "^10"
+  }
 }

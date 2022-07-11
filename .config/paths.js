@@ -39,6 +39,6 @@ module.exports = {
   },
   bin: {
     postcss: resolveBin('postcss'),
-    sass: resolveBin('node-sass')
+    sass: resolveBin('sass')
   }
 }
